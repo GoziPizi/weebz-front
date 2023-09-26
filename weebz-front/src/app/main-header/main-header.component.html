@@ -1,8 +1,44 @@
-<nav class="navbar">
-    <div class="container">
-        <a class="navbar-brand" routerLink="accueil">Accueil </a>
-        <a class="navbar-brand" routerLink="catalogue">Catalogue </a>
-        <a class="navbar-brand" routerLink="blog">Blog </a>
-        <a class="navbar-brand" routerLink="contact">Contact </a>
+<div class="container-fluid">
+    <div class="row">
+  
+      <!-- Logo -->
+      <div class="col-md-3">
+        <img src="chemin_vers_votre_logo.png" alt="Logo" class="img-fluid">
+      </div>
+  
+      <!-- Liens principaux -->
+      <div class="col-md-5 d-flex align-items-center">
+        <!-- Dropdown pour "Catalogue" -->
+        <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="catalogueDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Catalogue
+          </button>
+          <div class="dropdown-menu" aria-labelledby="catalogueDropdown">
+            <a class="dropdown-item" href="#">Manga</a>
+            <a class="dropdown-item" href="#">Webtoons</a>
+            <a class="dropdown-item" href="#">Light Novels</a>
+          </div>
+        </div>
+  
+        <!-- Lien "Blog" -->
+        <a href="#" class="btn btn-secondary ml-3">Blog</a>
+  
+        <!-- Lien "Publier" -->
+        <a href="#" class="btn btn-secondary ml-3">Publier</a>
+      </div>
+  
+      <!-- Icônes de médias sociaux -->
+      <div class="col-md-2 d-flex justify-content-around align-items-center">
+        <a href="#"><i class="fa fa-instagram"></i></a> <!-- Remplacez `fa` et `fa-instagram` par les classes appropriées si vous utilisez une autre version de FontAwesome ou une autre bibliothèque d'icônes -->
+        <a href="#"><i class="fa fa-twitter"></i></a>
+        <a href="#"><i class="fa fa-discord"></i></a>
+      </div>
+  
+      <!-- Bouton Connexion -->
+      <div class="col-md-2 d-flex justify-content-end align-items-center">
+        <button class="btn btn-secondary">Connexion</button>
+      </div>
+  
     </div>
-</nav>
+  </div>
+  
