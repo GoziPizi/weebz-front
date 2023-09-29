@@ -3,14 +3,16 @@
   
       <!-- Logo -->
       <div class="col-md-3">
-        <img src="chemin_vers_votre_logo.png" alt="Logo" class="img-fluid">
+        <a routerLink="accueil" >
+          <img src="../../assets/logo.png" alt="Weebz-Logo" class="img-fluid">
+        </a>
       </div>
   
       <!-- Liens principaux -->
-      <div class="col-md-5 d-flex align-items-center">
+      <div class="col-md-5 d-flex justify-content-center align-items-center">
         <!-- Dropdown pour "Catalogue" -->
         <div class="dropdown">
-          <button class="btn btn-secondary dropdown-toggle" type="button" id="catalogueDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <button routerLink="accueil" class="btn btn-secondary dropdown-toggle" type="button" id="catalogueDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Catalogue
           </button>
           <div class="dropdown-menu" aria-labelledby="catalogueDropdown">
@@ -21,17 +23,17 @@
         </div>
   
         <!-- Lien "Blog" -->
-        <a href="#" class="btn btn-secondary ml-3">Blog</a>
+        <a routerLink="blog" class="btn btn-secondary ml-3">Blog</a>
   
         <!-- Lien "Publier" -->
         <a href="#" class="btn btn-secondary ml-3">Publier</a>
       </div>
   
       <!-- Icônes de médias sociaux -->
-      <div class="col-md-2 d-flex justify-content-around align-items-center">
-        <a href="#"><i class="fa fa-instagram"></i></a> <!-- Remplacez `fa` et `fa-instagram` par les classes appropriées si vous utilisez une autre version de FontAwesome ou une autre bibliothèque d'icônes -->
-        <a href="#"><i class="fa fa-twitter"></i></a>
-        <a href="#"><i class="fa fa-discord"></i></a>
+      <div class="col-md-2 d-flex justify-content-center align-items-center">
+        <a href="https://discord.gg/Q7dR8jss3" target="_blank"><img src="../../assets/discord.png" alt="Discord" width="40"></a>
+        <a href="#" target="_blank"><img src="../../assets/x.png" alt="Twitter" width="40" class="ml-2 mr-2"></a>
+        <a href="https://www.instagram.com/weebz_officiel/" target="_blank"><img src="../../assets/instagram.png" alt="Instagram" width="40"></a>
       </div>
   
       <!-- Bouton Connexion -->
