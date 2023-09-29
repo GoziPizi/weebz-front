@@ -12,14 +12,14 @@
       <div class="col-md-5 d-flex justify-content-center align-items-center">
         <!-- Dropdown pour "Catalogue" -->
         <div class="dropdown">
-          <button routerLink="accueil" class="btn btn-secondary dropdown-toggle" type="button" id="catalogueDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Catalogue
-          </button>
-          <div class="dropdown-menu" aria-labelledby="catalogueDropdown">
-            <a class="dropdown-item" href="#">Manga</a>
-            <a class="dropdown-item" href="#">Webtoons</a>
-            <a class="dropdown-item" href="#">Light Novels</a>
-          </div>
+          <div class="dropdown-container btn btn-secondary">
+            <span routerLink="catalogue">Catalogue</span>
+            <div class="dropdown-content">
+              <a routerLink="manga">Manga</a>
+              <a routerLink="webtoon">Webtoon</a>
+              <a routerLink="lightnovel">Light Novel</a>
+            </div>
+          </div>          
         </div>
   
         <!-- Lien "Blog" -->

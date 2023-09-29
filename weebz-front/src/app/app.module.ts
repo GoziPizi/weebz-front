@@ -11,6 +11,9 @@ import { BlogComponent } from './pages/blog/blog.component';
 import { CatalogueComponent } from './pages/catalogue/catalogue.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { ContactFormComponent } from './pages/contact/contact-form/contact-form.component';
+import { MangaAccueilComponent } from './pages/manga-accueil/manga-accueil.component';
+import { WebtoonAccueilComponent } from './pages/webtoon-accueil/webtoon-accueil.component';
+import { LightnovelAccueilComponent } from './pages/lightnovel-accueil/lightnovel-accueil.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +25,9 @@ import { ContactFormComponent } from './pages/contact/contact-form/contact-form.
     CatalogueComponent,
     ContactComponent,
     ContactFormComponent,
+    MangaAccueilComponent,
+    WebtoonAccueilComponent,
+    LightnovelAccueilComponent,
   ],
   imports: [
     BrowserModule,
