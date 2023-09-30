@@ -1,1 +1,15 @@
-<p>carousel-accueil-news works!</p>
+<div class="news-header">
+    <h2>Nos News</h2>
+    <h3>Découvrez les dernières news de la communauté</h3>
+</div>
+
+<div class="carousel-news-container row">
+    <ng-container *ngFor="let item of carouselItems; let i = index">
+        <app-carousel-item-accueil
+            class="col-4"
+            [image]="item.image"
+            [text]="item.text"
+            [link]="item.link">
+        </app-carousel-item-accueil>
+    </ng-container>
+</div>
