@@ -1,0 +1,20 @@
+<div class="carousel-container row">
+    <div class="carousel-header col-4">
+      <h2>Nos Light Novels</h2>
+      <h3>Découvrez une sélection de nos light novels les plus populaires</h3>
+    </div>
+    <div class="carousel-content col-8">
+      <div class="carousel row">
+        <ng-container *ngFor="let item of carouselItems; let i = index">
+          <app-carousel-item-accueil
+            class="col-2"
+            [image]="item.image" 
+            [text]="item.text" 
+            [link]="item.link">
+          </app-carousel-item-accueil>
+        </ng-container>
+      </div>
+    </div>
+      
+  </div>
+    

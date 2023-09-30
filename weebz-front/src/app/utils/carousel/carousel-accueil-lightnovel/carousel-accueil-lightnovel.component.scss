@@ -1,0 +1,9 @@
+.carousel-header {
+    display: flex;
+    flex-direction: column; /* les éléments enfants s'empilent verticalement */
+    justify-content: center; /* centrage vertical des éléments enfants */
+  }
+  
+  .carousel-container {
+      margin-top: 5em;
+  }

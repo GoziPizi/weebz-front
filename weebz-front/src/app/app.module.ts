@@ -18,6 +18,10 @@ import { MangaViewComponent } from './pages/manga-view/manga-view.component';
 import { MangaLiseuseComponent } from './pages/manga-view/manga-liseuse/manga-liseuse.component';
 import { CarouselAccueilMangaComponent } from './utils/carousel/carousel-accueil-manga/carousel-accueil-manga.component';
 import { CarouselItemAccueilComponent } from './utils/carousel/carousel-item-accueil/carousel-item-accueil.component';
+import { CarouselAccueilWebtoonComponent } from './utils/carousel/carousel-accueil-webtoon/carousel-accueil-webtoon.component';
+import { CarouselAccueilLightnovelComponent } from './utils/carousel/carousel-accueil-lightnovel/carousel-accueil-lightnovel.component';
+import { CarouselAccueilNewsComponent } from './utils/carousel/carousel-accueil-news/carousel-accueil-news.component';
+import { CarouselNewsItemComponent } from './utils/carousel/carousel-accueil-news/carousel-news-item/carousel-news-item.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +40,10 @@ import { CarouselItemAccueilComponent } from './utils/carousel/carousel-item-acc
     MangaLiseuseComponent,
     CarouselAccueilMangaComponent,
     CarouselItemAccueilComponent,
+    CarouselAccueilWebtoonComponent,
+    CarouselAccueilLightnovelComponent,
+    CarouselAccueilNewsComponent,
+    CarouselNewsItemComponent,
   ],
   imports: [
     BrowserModule,

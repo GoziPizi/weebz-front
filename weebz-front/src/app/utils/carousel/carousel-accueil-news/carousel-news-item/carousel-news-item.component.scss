@@ -1,0 +1,37 @@
+.carousel-news-item {
+    display: block;
+    background-color: transparent;
+    overflow: hidden;
+    cursor: pointer;
+  }
+  
+.carousel-news-item img {
+    transition: filter 0.5s;
+    filter: brightness(1);
+}
+
+.carousel-news-item:hover img {
+    transition: filter 0.5s;
+    filter: brightness(0.7);
+}
+  
+.carousel-news-item p {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    opacity: 0;
+    transition: opacity 0.5s;
+    text-align: center;
+    width: 90%;
+}
+  
+.carousel-news-item:hover p {
+    opacity: 1;
+    display: block;
+}
+
+p {
+    display: block;
+}
