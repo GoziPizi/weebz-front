@@ -1,43 +1,40 @@
-<div class="container-fluid">
+<div class="container-fluid header-container">
     <div class="row">
   
       <!-- Logo -->
-      <div class="col-md-3">
+      <div class="col-md-3 header-logo-container">
         <a routerLink="accueil" >
-          <img src="../../assets/logo.png" alt="Weebz-Logo" class="img-fluid">
+          <img src="../../assets/logo.png" alt="Weebz-Logo" class="img-fluid" id="weebz-header-logo">
         </a>
       </div>
   
       <!-- Liens principaux -->
-      <div class="col-md-5 d-flex justify-content-center align-items-center">
-        <!-- Dropdown pour "Catalogue" -->
-        <div class="dropdown">
-          <div class="dropdown-container btn btn-secondary">
-            <span routerLink="catalogue">Catalogue</span>
-            <div class="dropdown-content">
-              <a class="dropdown-element"routerLink="manga">Manga</a>
-              <a routerLink="webtoon">Webtoon</a>
-              <a routerLink="lightnovel">Light Novel</a>
-            </div>
-          </div>          
-        </div>
+      <div class="col-md-6 d-flex justify-content-center align-items-center">
+          <!-- Dropdown pour "Catalogue" -->
+          <div class="dropdown col-4 align-items-center justify-content-center header-button">
+            <div class="dropdown-container">
+              <span routerLink="catalogue">Catalogue</span>
+              <div class="dropdown-content">
+                <a class="dropdown-element"routerLink="manga">Manga</a>
+                <a routerLink="webtoon">Webtoon</a>
+                <a routerLink="lightnovel">Light Novel</a>
+              </div>
+            </div>          
+          </div>
   
-        <!-- Lien "Blog" -->
-        <a routerLink="blog" class="btn btn-secondary ml-3">Blog</a>
+          <!-- Lien "Blog" -->
+          <div class="col-4 align-items-center justify-content-center header-button">
+          <span routerLink="blog" class="ml-3">Blog</span>
+          </div>
   
-        <!-- Lien "Publier" -->
-        <a href="#" class="btn btn-secondary ml-3">Publier</a>
-      </div>
-  
-      <!-- Icônes de médias sociaux -->
-      <div class="col-md-2 d-flex justify-content-center align-items-center">
-        <a href="https://discord.gg/Q7dR8jss3" target="_blank"><img src="../../assets/discord.png" alt="Discord" width="40"></a>
-        <a href="#" target="_blank"><img src="../../assets/x.png" alt="Twitter" width="40" class="ml-2 mr-2"></a>
-        <a href="https://www.instagram.com/weebz_officiel/" target="_blank"><img src="../../assets/instagram.png" alt="Instagram" width="40"></a>
+          <!-- Lien "Publier" -->
+          <div class="col-4 align-items-center justify-content-center header-button">
+          <span href="#" class="ml-3">Publier</span>
+          </div>
       </div>
   
       <!-- Bouton Connexion -->
-      <div class="col-md-2 d-flex justify-content-end align-items-center">
+      <div class="col-md-3 d-flex justify-content-end align-items-center">
         <button class="btn btn-secondary">Connexion</button>
       </div>
   

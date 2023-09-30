@@ -1,32 +1,54 @@
 @import "../../_variables";
 
+#weebz-header-logo {
+  width: 8em;
+  height: 8em;
+  object-fit: contain;
+}
+
+.header-logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-container {
+  background-color: black;
+}
+
+.header-button {
+  color: white;
+  font-size: 1.5em;
+  margin: 0 1em;
+}
+
 .dropdown-container {
     position: relative;
     display: inline-block;
   }
   
-  .dropdown-content {
+.dropdown-content {
     display: none;
     position: absolute;
     background-color: $gray;
-    min-width: 160px;
+    min-width: 180px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
-  }
+}
   
-  .dropdown-content a {
+.dropdown-content a {
     color: white;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
-  }
+}
   
-  .dropdown-container:hover .dropdown-content {
+.dropdown-container:hover .dropdown-content {
     display: flex;
     flex-direction: column; /* Stack them vertically */
     align-items: center; /* Center horizontally */
     justify-content: center;
-  }
+}
 
 .dropdown-button {
     color: white;
