@@ -1,0 +1,37 @@
+.carousel-item {
+    display: block;
+    background-color: transparent;
+    overflow: hidden;
+    cursor: pointer;
+  }
+  
+.carousel-item img {
+    transition: filter 0.5s;
+    filter: brightness(1);
+}
+
+.carousel-item:hover img {
+    transition: filter 0.5s;
+    filter: brightness(0.7);
+}
+  
+.carousel-item p {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    opacity: 0;
+    transition: opacity 0.5s;
+    text-align: center;
+    width: 90%;
+}
+  
+.carousel-item:hover p {
+    opacity: 1;
+    display: block;
+}
+
+p {
+    display: block;
+}
