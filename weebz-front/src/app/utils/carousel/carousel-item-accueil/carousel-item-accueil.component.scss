@@ -1,18 +1,21 @@
 .carousel-item {
     display: block;
     background-color: transparent;
-    overflow: hidden;
     cursor: pointer;
   }
   
 .carousel-item img {
-    transition: filter 0.5s;
+    transition: filter 0.3s;
     filter: brightness(1);
+    transition: transform 0.3s;
+    transform: scale(1);
 }
 
 .carousel-item:hover img {
-    transition: filter 0.5s;
-    filter: brightness(0.7);
+    transition: filter 0.3s;
+    filter: brightness(0.5);
+    transition: transform 0.3s;
+    transform: scale(1.1);
 }
   
 .carousel-item p {

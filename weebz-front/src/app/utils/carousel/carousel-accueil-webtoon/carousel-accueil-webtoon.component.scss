@@ -1,9 +1,47 @@
 .carousel-header {
     display: flex;
     flex-direction: column; /* les éléments enfants s'empilent verticalement */
-    justify-content: center; /* centrage vertical des éléments enfants */
-  }
+}
   
-  .carousel-container {
-      margin-top: 5em;
-  }
+.carousel-title {
+    margin-top: 5em;
+    margin-left: 3em;
+}
+  
+.carousel-subtitle {
+    margin-top: 1em;
+    margin-left: 3em;
+}
+
+.carousel-container {
+    margin-top: 2em;
+    margin-left: 3em;
+}
+
+.texte-souligne {
+    position: relative;
+    font-size: 24px; /* ajustez la taille de votre texte ici */
+  
+    /* Pour empêcher le soulignement par défaut */
+    text-decoration: none;
+}
+  
+.texte-souligne::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0; /* vous pouvez ajuster cette valeur pour déplacer le soulignement vers le haut ou vers le bas */
+    height: 3px; /* épaisseur du soulignement */
+    background-color: #119da4; /* couleur du soulignement */
+  
+    /* Pour définir une longueur spécifique pour le soulignement, commentez les lignes 'left' et 'right' ci-dessus et utilisez 'width' et 'center' à la place: */
+    /* width: 150px; /* longueur du soulignement */
+    /* left: 50%; */
+    /* transform: translateX(-50%); */
+}
+
+.aligner-droite {
+    margin-right: 3em;;
+    text-align: right;
+}
