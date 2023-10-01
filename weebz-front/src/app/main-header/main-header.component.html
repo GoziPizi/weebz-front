@@ -1,5 +1,5 @@
 <div class="container-fluid header-container">
-    <div class="row">
+    <div class="row header-content">
   
       <!-- Logo -->
       <div class="col-md-3 header-logo-container">
@@ -13,23 +13,30 @@
           <!-- Dropdown pour "Catalogue" -->
           <div class="dropdown col-4 align-items-center justify-content-center header-button">
             <div class="dropdown-container">
-              <span routerLink="catalogue">Catalogue</span>
+              <span routerLink="catalogue" class="text-button">Catalogue</span>
               <div class="dropdown-content">
-                <a class="dropdown-element"routerLink="manga">Manga</a>
-                <a routerLink="webtoon">Webtoon</a>
-                <a routerLink="lightnovel">Light Novel</a>
+                <div class="dropdown-item">
+                  <a class="dropdown-element"routerLink="manga">Manga</a>
+                </div>
+                <div class="dropdown-item">
+                  <a routerLink="webtoon">Webtoon</a>
+                </div>
+                <div class="dropdown-item">
+                  <a routerLink="lightnovel">Light Novel</a>
+                </div>
+                
               </div>
             </div>          
           </div>
   
           <!-- Lien "Blog" -->
           <div class="col-4 align-items-center justify-content-center header-button">
-          <span routerLink="blog" class="ml-3">Blog</span>
+          <span routerLink="blog" class="ml-3 text-button">Blog</span>
           </div>
   
           <!-- Lien "Publier" -->
           <div class="col-4 align-items-center justify-content-center header-button">
-          <span href="#" class="ml-3">Publier</span>
+          <span href="#" class="ml-3 text-button">Publier</span>
           </div>
       </div>
   
@@ -39,5 +46,5 @@
       </div>
   
     </div>
-  </div>
+</div>
   
