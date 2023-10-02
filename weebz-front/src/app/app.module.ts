@@ -22,6 +22,7 @@ import { CarouselAccueilWebtoonComponent } from './utils/carousel/carousel-accue
 import { CarouselAccueilLightnovelComponent } from './utils/carousel/carousel-accueil-lightnovel/carousel-accueil-lightnovel.component';
 import { CarouselAccueilNewsComponent } from './utils/carousel/carousel-accueil-news/carousel-accueil-news.component';
 import { CarouselNewsItemComponent } from './utils/carousel/carousel-accueil-news/carousel-news-item/carousel-news-item.component';
+import { AuteurComponent } from './pages/auteur/auteur.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { CarouselNewsItemComponent } from './utils/carousel/carousel-accueil-new
     CarouselAccueilLightnovelComponent,
     CarouselAccueilNewsComponent,
     CarouselNewsItemComponent,
+    AuteurComponent,
   ],
   imports: [
     BrowserModule,

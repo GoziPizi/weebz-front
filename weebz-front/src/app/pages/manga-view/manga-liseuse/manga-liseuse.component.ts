@@ -12,7 +12,14 @@ export class MangaLiseuseComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  pages: string[] = []
+  pages: string[] = [
+    "assets/test-accueil.png",
+    "assets/test-accueil.png",
+    "assets/test-accueil.png",
+    "assets/test-accueil.png",
+    "assets/test-accueil.png",
+    "assets/test-accueil.png",
+  ]
   currentPageIndex: number = 0;
 
   get currentPage() {
