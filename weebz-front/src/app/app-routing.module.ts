@@ -17,7 +17,7 @@ const routes: Routes = [
   { path: 'manga', component: MangaAccueilComponent},
   { path: 'webtoon', component: WebtoonAccueilComponent},
   { path: 'lightnovel', component: LightnovelAccueilComponent},
-  { path: 'mangaview', component: MangaViewComponent},
+  { path: 'mangaview/:id', component: MangaViewComponent},
   { path: '', redirectTo: '/accueil', pathMatch: 'full' },
 ];
 

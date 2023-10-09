@@ -1,0 +1,36 @@
+.catalogue-header {
+    height: 4em;
+    background-image: linear-gradient(to right, #119DA4, #FF6F00);
+    transition: background-image 0.5s ease-in-out;
+
+
+    &.manga-class {
+        background-image: linear-gradient(to right, #119DA4, #FF6F00);
+        transition: background-image 0.5s ease-in-out;
+    }
+
+    &.webtoon-class {
+        background-image: linear-gradient(to right, #FF6F00, #119DA4);
+        transition: background-image 0.5s ease-in-out;
+    }
+
+    &.lightnovel-class {
+        background-image: linear-gradient(to right, #FF6F00, #FF6F00);
+        transition: background-image 0.5s ease-in-out;
+    }
+
+}
+
+.categorie-button {
+    color: white;
+    background-color: transparent;
+    font-size: larger;
+    border: 2px solid black;
+    border-radius: 0.5em;
+    transition: transform 0.5s ease-in-out;
+
+    &:hover {
+        transform: scale(1.1);
+        transition: transform 0.3s ease-in-out;
+    }
+}

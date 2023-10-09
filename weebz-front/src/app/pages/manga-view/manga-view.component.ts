@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MangaLiseuseComponent } from './manga-liseuse/manga-liseuse.component';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-manga-view',
@@ -8,9 +8,13 @@ import { MangaLiseuseComponent } from './manga-liseuse/manga-liseuse.component';
 })
 export class MangaViewComponent implements OnInit {
 
-  constructor() { }
+  title = "Manga View";
+  id : string|null = null;
+
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.id = this.route.snapshot.paramMap.get('id');
   }
 
 }

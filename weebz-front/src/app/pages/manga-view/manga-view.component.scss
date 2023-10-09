@@ -1,0 +1,21 @@
+.centered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+
+.navigation-buttons {
+    margin-top : 1em;
+}
+
+.navigation-button {
+    margin-right: 1em;
+    margin-left: 1em;
+    color: white;
+    background-color: #999;
+    border: none;
+    border-radius: 5px;
+}

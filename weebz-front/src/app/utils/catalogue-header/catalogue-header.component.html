@@ -1,0 +1,11 @@
+<div [ngClass]="getDynamicStyles()" class="catalogue-header row">
+    <div class="button-container col-2 offset-3 d-flex justify-content-center align-items-center">
+        <button class="categorie-button" (click)="updateCategorie('manga')">Manga</button>
+    </div>
+    <div class="button-container col-2 d-flex justify-content-center align-items-center">
+        <button class="categorie-button" (click)="updateCategorie('webtoon')">Webtoon</button>
+    </div>
+    <div class="button-container col-2 d-flex justify-content-center align-items-center">
+        <button class="categorie-button" (click)="updateCategorie('lightnovel')">Light-novel</button>
+    </div>
+</div>
