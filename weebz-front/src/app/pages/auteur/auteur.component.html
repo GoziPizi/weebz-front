@@ -1,1 +1,28 @@
-<p>Page Auteur</p>
+<div class="container-fluid">
+    <div [style.backgroundImage]="'url(' + bannerPicRoute + ')'" class="row header">
+        <div class="col-2 left-side-bar">
+            <div class="picture-container d-flex justify-content-center">
+                <img class="profile-picture" src="../../../assets/icon.png">
+            </div>
+            <div class="author-name-container d-flex justify-content-center">
+                <h3 class="author-name">@{{auteur}}</h3>
+            </div>
+        </div>
+        <div class="col-8 main-content">
+        </div>
+        <div class="col-2 right-side-bar">
+        </div>
+    </div>
+    <div class="row main-content">
+        <div class="col-2 left-side-bar">
+            <p class="author-description">{{description}}</p>
+        </div>
+        <div class="col-8">
+
+        </div>
+        <div class="col-2 right-side-bar">
+            <app-auteur-icon *ngFor="let name of related_authors;" [auteur]="name"></app-auteur-icon>
+        </div>
+    </div>
+</div>
+  

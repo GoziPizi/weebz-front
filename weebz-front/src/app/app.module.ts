@@ -24,6 +24,10 @@ import { CarouselAccueilNewsComponent } from './utils/carousel/carousel-accueil-
 import { CarouselNewsItemComponent } from './utils/carousel/carousel-accueil-news/carousel-news-item/carousel-news-item.component';
 import { AuteurComponent } from './pages/auteur/auteur.component';
 import { CatalogueHeaderComponent } from './utils/catalogue-header/catalogue-header.component';
+import { CatalogueContentComponent } from './pages/catalogue/catalogue-content/catalogue-content.component';
+import { CatalogueRowComponent } from './pages/catalogue/catalogue-content/catalogue-row/catalogue-row.component';
+import { CatalogueItemComponent } from './pages/catalogue/catalogue-content/catalogue-item/catalogue-item.component';
+import { AuteurIconComponent } from './pages/auteur/auteur-icon/auteur-icon.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +52,10 @@ import { CatalogueHeaderComponent } from './utils/catalogue-header/catalogue-hea
     CarouselNewsItemComponent,
     AuteurComponent,
     CatalogueHeaderComponent,
+    CatalogueContentComponent,
+    CatalogueRowComponent,
+    CatalogueItemComponent,
+    AuteurIconComponent,
   ],
   imports: [
     BrowserModule,

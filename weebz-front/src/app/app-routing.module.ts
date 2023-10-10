@@ -8,11 +8,13 @@ import { MangaAccueilComponent } from './pages/manga-accueil/manga-accueil.compo
 import { WebtoonAccueilComponent } from './pages/webtoon-accueil/webtoon-accueil.component';
 import { LightnovelAccueilComponent } from './pages/lightnovel-accueil/lightnovel-accueil.component';
 import { MangaViewComponent } from './pages/manga-view/manga-view.component';
+import { AuteurComponent } from './pages/auteur/auteur.component';
 
 const routes: Routes = [
   { path: 'accueil', component: AccueilComponent },
   { path: 'blog', component: BlogComponent },
   { path: 'catalogue', component: CatalogueComponent},
+  { path: 'auteur/:auteur', component: AuteurComponent},
   { path: 'contact', component: ContactComponent},
   { path: 'manga', component: MangaAccueilComponent},
   { path: 'webtoon', component: WebtoonAccueilComponent},
