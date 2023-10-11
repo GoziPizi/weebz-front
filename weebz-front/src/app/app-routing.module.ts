@@ -9,6 +9,8 @@ import { WebtoonAccueilComponent } from './pages/webtoon-accueil/webtoon-accueil
 import { LightnovelAccueilComponent } from './pages/lightnovel-accueil/lightnovel-accueil.component';
 import { MangaViewComponent } from './pages/manga-view/manga-view.component';
 import { AuteurComponent } from './pages/auteur/auteur.component';
+import { ConnexionComponent } from './pages/connexion/connexion.component';
+import { InscriptionComponent } from './pages/inscription/inscription.component';
 
 const routes: Routes = [
   { path: 'accueil', component: AccueilComponent },
@@ -20,6 +22,8 @@ const routes: Routes = [
   { path: 'webtoon', component: WebtoonAccueilComponent},
   { path: 'lightnovel', component: LightnovelAccueilComponent},
   { path: 'mangaview/:id', component: MangaViewComponent},
+  { path: 'connexion', component: ConnexionComponent},
+  { path: 'inscription', component: InscriptionComponent},
   { path: '', redirectTo: '/accueil', pathMatch: 'full' },
 ];
 

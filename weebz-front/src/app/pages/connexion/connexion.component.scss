@@ -1,0 +1,48 @@
+.title-container {
+    text-align: center;
+    margin-top: 1em;
+}
+
+.main-content {
+    margin-top: 1em;
+    background-image: linear-gradient(to right,#FF6F00,#DFC643);
+    border-radius: 5%;
+    padding-top: 1em;
+    padding-left: 4em;
+    padding-right: 4em;
+    padding-bottom: 2em;
+}
+
+.input-information {
+    cursor: default;
+    margin-top: 2em;
+    margin-bottom: 0;
+}
+
+
+.forgot-password {
+    margin-top: 3em;
+    padding-top: 1em;
+    color: black;
+    cursor: pointer;
+}
+
+.button-container {
+    margin-top: 1em;
+}
+
+.connexion-button {
+    background-color: #FF6F00;
+    color: white;
+    border: 0px;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.inscription {
+    cursor: pointer;
+    margin-top: 1em;
+    color: black;
+    display: block;
+    text-align:right;
+}
