@@ -1,0 +1,22 @@
+.manga-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%; /* Hauteur de la div à 100% de la hauteur du composant parent */
+    overflow-y: scroll;
+  }
+ 
+ .manga-container img {
+    max-height: 100%;
+    height: auto;
+ }
+ 
+.img {
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+ :host {
+    display: block;
+    height: 90vh; /* 90% de la hauteur de la fenêtre de visualisation */
+ }

@@ -1,0 +1,6 @@
+<div class="manga-container">
+    <button (click)="nextPage()">←</button>
+    <img [src]="leftPage" alt="Page Manga {{currentPageIndex+1}}">
+    <img [src]="rightPage" alt="Page Manga {{currentPageIndex}}">
+    <button (click)="previousPage()">→</button>
+</div>

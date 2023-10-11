@@ -10,11 +10,16 @@ export class MangaViewComponent implements OnInit {
 
   title = "Manga View";
   id : string|null = null;
+  doublePage: boolean = false;
 
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.id = this.route.snapshot.paramMap.get('id');
+  }
+
+  updateDoublePage() {
+    this.doublePage = !this.doublePage;
   }
 
 }

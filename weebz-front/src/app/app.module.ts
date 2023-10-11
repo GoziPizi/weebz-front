@@ -28,6 +28,7 @@ import { CatalogueContentComponent } from './pages/catalogue/catalogue-content/c
 import { CatalogueRowComponent } from './pages/catalogue/catalogue-content/catalogue-row/catalogue-row.component';
 import { CatalogueItemComponent } from './pages/catalogue/catalogue-content/catalogue-item/catalogue-item.component';
 import { AuteurIconComponent } from './pages/auteur/auteur-icon/auteur-icon.component';
+import { MangaDoubleLiseuseComponent } from './pages/manga-view/manga-double-liseuse/manga-double-liseuse.component';
 
 @NgModule({
   declarations: [
@@ -56,6 +57,7 @@ import { AuteurIconComponent } from './pages/auteur/auteur-icon/auteur-icon.comp
     CatalogueRowComponent,
     CatalogueItemComponent,
     AuteurIconComponent,
+    MangaDoubleLiseuseComponent,
   ],
   imports: [
     BrowserModule,

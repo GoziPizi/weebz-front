@@ -1,5 +1,9 @@
 <h2 class="centered">{{title}}</h2>
-<app-manga-liseuse></app-manga-liseuse>
+<div class="display-mode-button">
+    <button (click)="updateDoublePage()">Changer de vue</button>
+</div>
+<app-manga-liseuse *ngIf="!doublePage"></app-manga-liseuse>
+<app-manga-double-liseuse *ngIf="doublePage"></app-manga-double-liseuse>
 <div class="navigation-buttons d-flex col-6 offset-3 justify-content-center align-items-center">
     <button class="navigation-button">Suivant</button>
     <button class="navigation-button">Précédant</button>
