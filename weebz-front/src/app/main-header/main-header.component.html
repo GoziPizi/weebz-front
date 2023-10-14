@@ -11,7 +11,7 @@
       <!-- Liens principaux -->
       <div class="col-md-3 d-flex justify-content-center align-items-center">
           <!-- Dropdown pour "Catalogue" -->
-          <div class="dropdown col-4 align-items-center justify-content-center header-button">
+          <div class="dropdown col-4 justify-content-center header-button">
             <div class="dropdown-container">
               <span routerLink="catalogue" class="text-button">Catalogue</span>
               <div class="dropdown-content">
@@ -30,33 +30,33 @@
           </div>
   
           <!-- Lien "Blog" -->
-          <div class="col-4 align-items-center justify-content-center header-button">
+          <div class="col-4 justify-content-center header-button">
           <span routerLink="blog" class="ml-3 text-button">Blog</span>
           </div>
   
           <!-- Lien "Publier" -->
-          <div class="col-4 align-items-center justify-content-center header-button">
+          <div class="col-4 justify-content-center header-button">
           <span href="#" class="ml-3 text-button">Publier</span>
           </div>
       </div>
   
-      <div class="right-side-content">
-        <div class="publish-container">
-
+      <div class="col-4 row offset-4 right-side-container d-flex justify-content-end align-items-center">
+        <div class="col-3 publish-container">
+          <button class="publish-button">Publier</button>
         </div>
-        <div class="icons-container">
-          <div class="search-container">
-            <i class="fa-solid fa-magnifying-glass"></i>
+        <div class="icons-container d-flex align-items-center">
+          <div class="col-3 search-container">
+            <a routerLink=""><i class="header-icon fa-solid fa-xl fa-magnifying-glass"></i></a>
           </div>
-          <div class="favorite-container">
-            <i class="fa-regular fa-star"></i>
+          <div class="col-3 favorite-container " >
+            <a routerLink=""><i class="header-icon fa-regular fa-xl fa-star"></i></a>
           </div>
-          <div class="login-container">
-            
+          <div class="col-3 login-container ">
+              <a routerLink=""><i *ngIf="loggedIn" class="header-icon fa-regular fa-xl fa-user"></i></a>
+              <a routerLink="/connexion"><i *ngIf="!loggedIn" class="header-icon fa-solid fa-xl fa-share-from-square"></i></a>
           </div>
         </div>
       </div>
-  
     </div>
 </div>
   
