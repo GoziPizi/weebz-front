@@ -6,6 +6,10 @@
    overflow-y: scroll;
   }
  
+.manga-container:focus {
+   outline: none;
+}
+
 .manga-container img {
    max-height: 100%;
    height: auto;

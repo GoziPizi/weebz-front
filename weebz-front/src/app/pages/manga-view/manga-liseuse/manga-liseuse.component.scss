@@ -4,7 +4,11 @@
    justify-content: center;
    height: 100%; /* Hauteur de la div à 100% de la hauteur du composant parent */
    overflow-y: scroll;
- }
+}
+
+.manga-container:focus {
+   outline: none;
+}
 
 .manga-container img {
    max-height: 100%;

@@ -13,7 +13,7 @@ export class MangaLiseuseComponent implements OnInit {
   id: string | null = null;
   url: string = "../../../assets/fixtures/";
   pages: string[] = [];
-  currentPageIndex: number = 1;
+  currentPageIndex: number = 0;
 
   left_arrow: boolean = true;
   right_arrow: boolean = false;
@@ -23,12 +23,16 @@ export class MangaLiseuseComponent implements OnInit {
   ngOnInit(): void {
     this.id = this.route.snapshot.paramMap.get('id');
     this.updatePages();
-    console.log(this.id)
-    console.log(this.pages)
   }
 
   ngAfterViewInit() {
     this.mangaContainer.nativeElement.focus();
+  }
+
+  onBlur() {
+    setTimeout(() => {  // Utiliser setTimeout pour éviter les conflits d'événements
+      this.mangaContainer.nativeElement.focus();
+    });
   }
 
   get_number_of_pages() : number {

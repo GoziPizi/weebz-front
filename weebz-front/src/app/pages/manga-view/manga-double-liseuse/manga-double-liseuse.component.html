@@ -4,6 +4,7 @@
     tabindex="0"
     (keydown.ArrowLeft)="nextPage()"
     (keydown.ArrowRight)="previousPage()"
+    (blur)="onBlur()"
     >
     <div class="left-arrow-container">
         <i (click)="nextPage()" class="fa-solid fa-arrow-left fa-2xl click-arrow"></i>

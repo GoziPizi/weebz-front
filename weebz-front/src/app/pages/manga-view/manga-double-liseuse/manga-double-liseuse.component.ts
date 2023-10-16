@@ -28,6 +28,12 @@ export class MangaDoubleLiseuseComponent implements OnInit {
     this.mangaContainer.nativeElement.focus();
   }
 
+  onBlur() {
+    setTimeout(() => {  // Utiliser setTimeout pour éviter les conflits d'événements
+      this.mangaContainer.nativeElement.focus();
+    });
+  }
+
   get_number_of_pages() : number {
     return 10;
   }
