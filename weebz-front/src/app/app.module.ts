@@ -33,6 +33,7 @@ import { MangaDoubleLiseuseComponent } from './pages/manga-view/manga-double-lis
 import { ConnexionComponent } from './pages/connexion/connexion.component';
 import { InscriptionComponent } from './pages/inscription/inscription.component';
 import { CookieService } from 'ngx-cookie-service';
+import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -64,6 +65,7 @@ import { CookieService } from 'ngx-cookie-service';
     MangaDoubleLiseuseComponent,
     ConnexionComponent,
     InscriptionComponent,
+    PageNotFoundComponent,
   ],
   imports: [
     BrowserModule,

@@ -11,6 +11,7 @@ import { MangaViewComponent } from './pages/manga-view/manga-view.component';
 import { AuteurComponent } from './pages/auteur/auteur.component';
 import { ConnexionComponent } from './pages/connexion/connexion.component';
 import { InscriptionComponent } from './pages/inscription/inscription.component';
+import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 
 const routes: Routes = [
   { path: 'accueil', component: AccueilComponent },
@@ -24,7 +25,9 @@ const routes: Routes = [
   { path: 'mangaview/:id', component: MangaViewComponent},
   { path: 'connexion', component: ConnexionComponent},
   { path: 'inscription', component: InscriptionComponent},
+  { path: 'not-found', component: PageNotFoundComponent},
   { path: '', redirectTo: '/accueil', pathMatch: 'full' },
+  { path: '**', redirectTo: '/not-found'},
 ];
 
 @NgModule({
