@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ApiHandlerService } from 'src/app/services/api-handler.service';
 
 @Component({
@@ -10,16 +11,44 @@ export class ConnexionComponent implements OnInit {
 
   email: string = "";
   password: string = "";
+  errorMessageShown: boolean = false;
+  loading: boolean = false;
+  callback: string = "";
 
-  constructor(private api_handler: ApiHandlerService) { }
+  constructor(
+    private api_handler: ApiHandlerService,
+    private router: Router  
+    ) { }
 
   ngOnInit(): void {
+    //On repart si l'utilisateur est deja connecté
+    if(this.api_handler.isLoggedIn) {
+      this.router.navigate([this.callback]);
+    }
   }
 
   onSubmit() {
-    this.api_handler.login({login: this.email, password: this.password}).subscribe((res: any) => {
-      console.log(res);
-    });
+    this.setLoadingState(true);
+    this.api_handler.login({login: this.email, password: this.password}).subscribe(
+      (data: any) => {
+        console.log('a');
+        this.setLoadingState(false);
+        this.router.navigate([this.callback]);
+      },
+      (error: any) => {
+        this.showErrorMessage();
+        this.setLoadingState(false);
+      }
+      );
+  }
+
+  showErrorMessage() {
+    this.errorMessageShown = true;
+  }
+
+  setLoadingState(state: boolean){
+    console.log("setLoadingState to " + state)
+    this.loading = state;
   }
 
 }

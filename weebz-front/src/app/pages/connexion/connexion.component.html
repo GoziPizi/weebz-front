@@ -4,6 +4,7 @@
     </div>
     <div class="main-content-container row d-flex justify-content-center">
         <div class="main-content">
+            <p *ngIf="errorMessageShown" class="error-message">Identifiants Invalides</p>
             <p class="input-information">E-mail:</p>
             <input [(ngModel)]="email" type="text" class="input" name="email" placeholder="E-mail">
             <p class="input-information">Mot de passe:</p>
@@ -17,4 +18,7 @@
             <a routerLink="/inscription" class="inscription">S'inscrire</a>
         </div>
     </div>
+</div>
+<div *ngIf="loading" class="loading-overlay">
+    <div class="spinner"></div>
 </div>

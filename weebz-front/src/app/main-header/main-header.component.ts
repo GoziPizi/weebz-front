@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiHandlerService } from '../services/api-handler.service';
 
 @Component({
   selector: 'app-main-header',
@@ -7,11 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainHeaderComponent implements OnInit {
 
-  loggedIn = false;
+  loggedIn = this.api_handler.isLoggedIn;
 
-  constructor() { }
+  constructor(private api_handler: ApiHandlerService) { }
 
   ngOnInit(): void {
+  }
+
+  onLogout() {
+    this.api_handler.logout();
+    this.loggedIn = false;
   }
 
 }

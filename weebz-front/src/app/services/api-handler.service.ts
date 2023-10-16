@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { tap } from 'rxjs/operators';
+import { CookieService } from 'ngx-cookie-service';
 
 @Injectable({
   providedIn: 'root'
@@ -10,14 +13,22 @@ export class ApiHandlerService {
   token: string|null = null;
 
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient,
+    private cookieService: CookieService
+    ) { }
 
+  //Renvoie true si l'utilisateur est connecté, false sinon.
+  //Fais un appel à l'api pour verifier la validité du jeton.
   get isLoggedIn() {
-    if(this.token == null) {
+    const token = this.cookieService.get('apiToken');
+    if(token == null) {
       return false;
     }
 
-    //TODO : Verifier si un jeton est valide.
+    if(token == "") {
+      return false;
+    }
 
     return true;
   }
@@ -27,11 +38,21 @@ export class ApiHandlerService {
   * @param data : {login: string, password: string}
   * @return Observable : {key: string, created: string, expiration: string}
   */
-  login(data: any) {
-    let Observable = this.http.post("/api/v1/login", data);
-    Observable.subscribe((res: any) => {
-      this.token = res.key;
-    });
-    return Observable;
+  login(data: any): Observable<any> {
+    return this.http.post(this.url + "api/v1/login", data).pipe(
+      tap((res: any) => {
+        this.cookieService.set('apiToken', 'your_api_token_here');
+      })
+    );
   }
+
+  checkLogin(): Observable<any> {
+    let headers = {Authorization: "Bearer " + this.cookieService.get('apiToken')}
+    return this.http.get(this.url + "api/v1/login/check", {headers: headers});
+  }
+
+  logout() {
+    this.cookieService.set('apiToken',"");
+  }
+
 }
