@@ -15,3 +15,23 @@
    display: block;
    height: 90vh; /* 90% de la hauteur de la fenêtre de visualisation */
 }
+
+.left-arrow-container {
+   margin-right: 1em;
+}
+
+.right-arrow-container {
+   margin-left: 1em;
+}
+
+.click-arrow {
+   cursor: pointer;
+
+   &:hover {
+      color: gray;
+   }
+
+   &:active {
+      color: black;
+   }
+}

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ElementRef, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -7,6 +7,8 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./manga-liseuse.component.scss']
 })
 export class MangaLiseuseComponent implements OnInit {
+
+  @ViewChild('mangaContainer') mangaContainer!: ElementRef;
 
   id: string | null = null;
   url: string = "../../../assets/fixtures/";
@@ -23,6 +25,10 @@ export class MangaLiseuseComponent implements OnInit {
     this.updatePages();
     console.log(this.id)
     console.log(this.pages)
+  }
+
+  ngAfterViewInit() {
+    this.mangaContainer.nativeElement.focus();
   }
 
   get_number_of_pages() : number {

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ElementRef, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -7,6 +7,8 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./manga-double-liseuse.component.scss']
 })
 export class MangaDoubleLiseuseComponent implements OnInit {
+
+  @ViewChild('mangaContainer') mangaContainer!: ElementRef;
 
   id: string | null = null;
   url: string = "../../../assets/fixtures/";
@@ -20,8 +22,10 @@ export class MangaDoubleLiseuseComponent implements OnInit {
   ngOnInit(): void {
     this.id = this.route.snapshot.paramMap.get('id');
     this.updatePages();
-    console.log(this.id)
-    console.log(this.pages)
+  }
+
+  ngAfterViewInit() {
+    this.mangaContainer.nativeElement.focus();
   }
 
   get_number_of_pages() : number {
@@ -50,6 +54,7 @@ export class MangaDoubleLiseuseComponent implements OnInit {
   }
 
   nextPage() {
+    console.log("a");
     if (this.currentPageIndex < this.pages.length - 1) {
       this.currentPageIndex += 2;
       this.updateArrows();
@@ -61,6 +66,10 @@ export class MangaDoubleLiseuseComponent implements OnInit {
       this.currentPageIndex -= 2;
       this.updateArrows();
     }
+  }
+
+  test() {
+    console.log("test")
   }
 
 }

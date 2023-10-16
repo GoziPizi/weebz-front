@@ -1,22 +1,41 @@
 .manga-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%; /* Hauteur de la div à 100% de la hauteur du composant parent */
-    overflow-y: scroll;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   height: 100%; /* Hauteur de la div à 100% de la hauteur du composant parent */
+   overflow-y: scroll;
   }
  
- .manga-container img {
-    max-height: 100%;
-    height: auto;
- }
- 
-.img {
-    margin-left: 1rem;
-    margin-right: 1rem;
+.manga-container img {
+   max-height: 100%;
+   height: auto;
 }
 
- :host {
-    display: block;
-    height: 90vh; /* 90% de la hauteur de la fenêtre de visualisation */
- }
+img {
+   margin: 0.5em;
+}
+
+:host {
+   display: block;
+   height: 90vh; /* 90% de la hauteur de la fenêtre de visualisation */
+}
+
+.left-arrow-container {
+   margin-right: 1em;
+}
+
+.right-arrow-container {
+   margin-left: 1em;
+}
+
+.click-arrow {
+   cursor: pointer;
+
+   &:hover {
+      color: gray;
+   }
+
+   &:active {
+      color: black;
+   }
+}

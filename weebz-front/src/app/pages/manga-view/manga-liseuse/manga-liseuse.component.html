@@ -1,6 +1,16 @@
-<div class="manga-container">
-    <button (click)="previousPage()">←</button>
+<div 
+    #mangaContainer
+    class="manga-container"
+    tabindex="0"
+    (keydown.ArrowLeft)="nextPage()"
+    (keydown.ArrowRight)="previousPage()"
+    >
+    <div class="left-arrow-container">
+        <i (click)="nextPage()" class="fa-solid fa-arrow-left fa-2xl click-arrow"></i>
+    </div>
     <img [src]="currentPage" alt="Page Manga {{currentPageIndex}}">
-    <button (click)="nextPage()">→</button>
+    <div class="right-arrow-container">
+        <i (click)="previousPage()" class="fa-solid fa-arrow-right fa-2xl click-arrow"></i>
+    </div>
 </div>
  
