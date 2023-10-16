@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiHandlerService } from 'src/app/services/api-handler.service';
 
 @Component({
   selector: 'app-connexion',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ConnexionComponent implements OnInit {
 
-  constructor() { }
+  email: string = "";
+  password: string = "";
+
+  constructor(private api_handler: ApiHandlerService) { }
 
   ngOnInit(): void {
+  }
+
+  onSubmit() {
+    this.api_handler.login({login: this.email, password: this.password}).subscribe((res: any) => {
+      console.log(res);
+    });
   }
 
 }
