@@ -26,7 +26,6 @@ export class ConnexionComponent implements OnInit {
     this.setLoadingState(true);
     this.api_handler.login({login: this.email, password: this.password}).subscribe(
       (data: any) => {
-        console.log('a');
         this.setLoadingState(false);
         this.router.navigate([this.callback]);
       },
@@ -42,7 +41,6 @@ export class ConnexionComponent implements OnInit {
   }
 
   setLoadingState(state: boolean){
-    console.log("setLoadingState to " + state)
     this.loading = state;
   }
 

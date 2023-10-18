@@ -12,6 +12,7 @@ import { AuteurComponent } from './pages/auteur/auteur.component';
 import { ConnexionComponent } from './pages/connexion/connexion.component';
 import { InscriptionComponent } from './pages/inscription/inscription.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
+import { MyProfileComponent } from './pages/my-profile/my-profile.component';
 
 const routes: Routes = [
   { path: 'accueil', component: AccueilComponent },
@@ -25,6 +26,7 @@ const routes: Routes = [
   { path: 'mangaview/:id', component: MangaViewComponent},
   { path: 'connexion', component: ConnexionComponent},
   { path: 'inscription', component: InscriptionComponent},
+  { path: 'my-profile', component: MyProfileComponent},
   { path: 'not-found', component: PageNotFoundComponent},
   { path: '', redirectTo: '/accueil', pathMatch: 'full' },
   { path: '**', redirectTo: '/not-found'},

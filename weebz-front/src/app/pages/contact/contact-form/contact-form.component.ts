@@ -23,7 +23,6 @@ export class ContactFormComponent implements OnInit {
 
   onSubmit(): void {
     //TODO : send mail
-    console.log(this.contactForm.value);
   }
 
 }

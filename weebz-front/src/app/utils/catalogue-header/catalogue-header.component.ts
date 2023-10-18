@@ -16,7 +16,6 @@ export class CatalogueHeaderComponent implements OnInit {
 
   updateCategorie(categorie: string) {
     this.categorie = categorie;
-    console.log(this.categorie)
   }
 
   getDynamicStyles() {

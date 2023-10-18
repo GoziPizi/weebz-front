@@ -60,7 +60,6 @@ export class MangaDoubleLiseuseComponent implements OnInit {
   }
 
   nextPage() {
-    console.log("a");
     if (this.currentPageIndex < this.pages.length - 1) {
       this.currentPageIndex += 2;
       this.updateArrows();
@@ -72,10 +71,6 @@ export class MangaDoubleLiseuseComponent implements OnInit {
       this.currentPageIndex -= 2;
       this.updateArrows();
     }
-  }
-
-  test() {
-    console.log("test")
   }
 
 }
