@@ -52,7 +52,7 @@
             <a routerLink=""><i class="header-icon fa-regular fa-xl fa-star"></i></a>
           </div>
           <div class="col-3 login-container ">
-              <a routerLink=""><i *ngIf="loggedIn" class="header-icon fa-regular fa-xl fa-user" (click)="onLogout()"></i></a>
+              <a routerLink="/my-profile"><i *ngIf="loggedIn" class="header-icon fa-regular fa-xl fa-user" (click)="onLogout()"></i></a>
               <a routerLink="/connexion"><i *ngIf="!loggedIn" class="header-icon fa-solid fa-xl fa-share-from-square"></i></a>
           </div>
         </div>

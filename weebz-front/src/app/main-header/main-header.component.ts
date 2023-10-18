@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiHandlerService } from '../services/api-handler.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-main-header',
@@ -8,9 +9,14 @@ import { ApiHandlerService } from '../services/api-handler.service';
 })
 export class MainHeaderComponent implements OnInit {
 
-  loggedIn = this.api_handler.isLoggedIn;
+  loggedIn = false;
+  private isLoggedInSubscription: Subscription;
 
-  constructor(private api_handler: ApiHandlerService) { }
+  constructor(private api_handler: ApiHandlerService) {
+    this.isLoggedInSubscription = this.api_handler.isLoggedIn$.subscribe(valeur => {
+      this.loggedIn = valeur;
+    });
+  }
 
   ngOnInit(): void {
   }

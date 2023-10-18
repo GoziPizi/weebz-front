@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { CookieService } from 'ngx-cookie-service';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -10,27 +11,17 @@ import { CookieService } from 'ngx-cookie-service';
 export class ApiHandlerService {
 
   url = "https://back.weebz.fr/"
-  token: string|null = null;
 
+  private isLoggedIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+  public isLoggedIn$ = this.isLoggedIn.asObservable();
 
   constructor(
     private http: HttpClient,
     private cookieService: CookieService
     ) { }
 
-  //Renvoie true si l'utilisateur est connecté, false sinon.
-  //Fais un appel à l'api pour verifier la validité du jeton.
-  get isLoggedIn() {
-    const token = this.cookieService.get('apiToken');
-    if(token == null) {
-      return false;
-    }
-
-    if(token == "") {
-      return false;
-    }
-
-    return true;
+  updateLoginStatus(val: boolean) {
+    this.isLoggedIn.next(val);
   }
 
   /*
@@ -41,18 +32,21 @@ export class ApiHandlerService {
   login(data: any): Observable<any> {
     return this.http.post(this.url + "api/v1/login", data).pipe(
       tap((res: any) => {
-        this.cookieService.set('apiToken', 'your_api_token_here');
+        let token = res.key;
+        this.cookieService.set('apiToken', token);
+        this.updateLoginStatus(true);
       })
     );
   }
 
   checkLogin(): Observable<any> {
-    let headers = {Authorization: "Bearer " + this.cookieService.get('apiToken')}
+    let headers = {Authorization : this.cookieService.get('apiToken')}
     return this.http.get(this.url + "api/v1/login/check", {headers: headers});
   }
 
   logout() {
     this.cookieService.set('apiToken',"");
+    this.updateLoginStatus(false);
   }
 
 }

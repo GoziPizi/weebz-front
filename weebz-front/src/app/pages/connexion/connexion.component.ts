@@ -20,12 +20,7 @@ export class ConnexionComponent implements OnInit {
     private router: Router  
     ) { }
 
-  ngOnInit(): void {
-    //On repart si l'utilisateur est deja connecté
-    if(this.api_handler.isLoggedIn) {
-      this.router.navigate([this.callback]);
-    }
-  }
+  ngOnInit(): void { }
 
   onSubmit() {
     this.setLoadingState(true);
