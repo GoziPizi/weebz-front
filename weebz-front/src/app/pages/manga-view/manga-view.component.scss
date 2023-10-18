@@ -19,3 +19,16 @@
     border: none;
     border-radius: 5px;
 }
+
+.display-mode-container {
+    margin-left: 2em;
+    display: inline-block;
+    padding: 1em;
+    border: 1px solid #FF7530;
+    border-radius: 5px;
+    cursor: pointer;
+
+    &:hover {
+        background-color: #FF7530;
+    }
+}

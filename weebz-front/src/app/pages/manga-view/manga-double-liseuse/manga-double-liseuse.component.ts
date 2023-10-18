@@ -68,7 +68,7 @@ export class MangaDoubleLiseuseComponent implements OnInit {
   }
 
   previousPage() {
-    if (this.currentPageIndex > 0) {
+    if (this.currentPageIndex > 1) {
       this.currentPageIndex -= 2;
       this.updateArrows();
     }

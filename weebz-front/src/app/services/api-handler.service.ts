@@ -9,7 +9,7 @@ import { CookieService } from 'ngx-cookie-service';
 })
 export class ApiHandlerService {
 
-  url = "http://13.48.192.123:8080/"
+  url = "https://back.weebz.fr/"
   token: string|null = null;
 
 

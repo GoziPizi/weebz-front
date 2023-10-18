@@ -1,7 +1,12 @@
 <h2 class="centered">{{title}}</h2>
-<div class="display-mode-button">
-    <button (click)="updateDoublePage()">Changer de vue</button>
+<div *ngIf="!doublePage" class="display-mode-container" (click)="updateDoublePage()">
+    <span>Vue Double Page </span><i class="fa-solid fa-book-open"></i>
 </div>
+<div *ngIf="doublePage" class="display-mode-container" (click)="updateDoublePage()">
+    <span>Vue Page Simple </span><i class="fa-regular fa-file"></i>
+</div>
+TODO : Ajouter un bouton pour centrer pile l'image verticalement 
+TODO : Ajouter le bouton plein ecran
 <app-manga-liseuse *ngIf="!doublePage"></app-manga-liseuse>
 <app-manga-double-liseuse *ngIf="doublePage"></app-manga-double-liseuse>
 <div class="navigation-buttons d-flex col-6 offset-3 justify-content-center align-items-center">

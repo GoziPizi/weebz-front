@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-manga-view',
@@ -12,7 +13,14 @@ export class MangaViewComponent implements OnInit {
   id : string|null = null;
   doublePage: boolean = false;
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(
+    private route: ActivatedRoute,
+    private cookieService: CookieService
+    ) { 
+      let favoriteView = this.cookieService.get('favoriteView');
+      if(favoriteView == 'doublePage') this.doublePage = true;
+      else this.doublePage = false;
+    }
 
   ngOnInit(): void {
     this.id = this.route.snapshot.paramMap.get('id');
@@ -20,6 +28,8 @@ export class MangaViewComponent implements OnInit {
 
   updateDoublePage() {
     this.doublePage = !this.doublePage;
+    if(this.doublePage) this.cookieService.set('favoriteView', 'doublePage');
+    else this.cookieService.set('favoriteView', 'singlePage');
   }
 
 }
