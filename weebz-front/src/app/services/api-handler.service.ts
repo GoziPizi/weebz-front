@@ -66,4 +66,8 @@ export class ApiHandlerService {
     return this.http.get(this.url + "api/v1/users/" + id, {headers: headers});
   }
 
+  createUser(data: any): Observable<any> {
+    return this.http.post(this.url + "api/v1/users/", data);
+  }
+
 }

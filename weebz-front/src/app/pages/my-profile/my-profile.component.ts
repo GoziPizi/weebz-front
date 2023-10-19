@@ -9,6 +9,9 @@ import { ApiHandlerService } from '../../services/api-handler.service';
 export class MyProfileComponent implements OnInit {
 
   id = "";
+  name = "";
+  surname = "";
+  email = "";
 
   constructor(
     private api_handler: ApiHandlerService
@@ -16,6 +19,9 @@ export class MyProfileComponent implements OnInit {
   {
     this.api_handler.getUserData().subscribe((res: any) => {
       this.id = res.id;
+      this.name = res.name;
+      this.surname = res.surname;
+      this.email = res.email;
     });
   }
 

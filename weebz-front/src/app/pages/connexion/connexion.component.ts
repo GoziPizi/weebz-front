@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiHandlerService } from 'src/app/services/api-handler.service';
+import { LoadingServiceService } from 'src/app/services/loading-service.service';
 
 @Component({
   selector: 'app-connexion',
@@ -12,12 +13,12 @@ export class ConnexionComponent implements OnInit {
   email: string = "";
   password: string = "";
   errorMessageShown: boolean = false;
-  loading: boolean = false;
   callback: string = "";
 
   constructor(
     private api_handler: ApiHandlerService,
-    private router: Router  
+    private router: Router,
+    private loading_service: LoadingServiceService
     ) { }
 
   ngOnInit(): void { }
@@ -41,7 +42,7 @@ export class ConnexionComponent implements OnInit {
   }
 
   setLoadingState(state: boolean){
-    this.loading = state;
+    this.loading_service.setLoadingState(state);
   }
 
 }

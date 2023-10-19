@@ -35,6 +35,7 @@ import { InscriptionComponent } from './pages/inscription/inscription.component'
 import { CookieService } from 'ngx-cookie-service';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { MyProfileComponent } from './pages/my-profile/my-profile.component';
+import { LoadingComponentComponent } from './utils/loading-component/loading-component.component';
 
 @NgModule({
   declarations: [
@@ -68,6 +69,7 @@ import { MyProfileComponent } from './pages/my-profile/my-profile.component';
     InscriptionComponent,
     PageNotFoundComponent,
     MyProfileComponent,
+    LoadingComponentComponent,
   ],
   imports: [
     BrowserModule,
