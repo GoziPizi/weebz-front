@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiHandlerService } from 'src/app/services/api-handler.service';
+import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
 
 @Component({
   selector: 'app-inscription',
@@ -8,36 +9,26 @@ import { ApiHandlerService } from 'src/app/services/api-handler.service';
 })
 export class InscriptionComponent implements OnInit {
 
-  name = "";
-  password = "";
+  registrationForm: FormGroup;
 
   constructor(
-    private api_handler: ApiHandlerService
-  ) { }
+    private api_handler: ApiHandlerService,
+    private fb: FormBuilder
+  ) {
+    this.registrationForm = this.fb.group({
+      email : ['', Validators.required],
+      name : ['', Validators.required],
+      surname : ['', Validators.required],
+      password : ['', Validators.required],
+      confirm_password : ['', Validators.required]
+    })
+  }
 
   ngOnInit(): void {
   }
 
   onSubmit(){
-    let data = {
-      id: 0,
-      name: "string",
-      surname: "string",
-      birthDate: "string",
-      pictureUrl: "string",
-      bannerUrl: "string",
-      tel: "string",
-      email: "string",
-      password: "string",
-      createdAt: "string",
-      lastConnexion: "string"
-    }
-    console.log(data);
-    this.api_handler.createUser(data).subscribe(
-      (res: any) => {
-        console.log(res);
-      }
-    )
+
   }
 
 }
