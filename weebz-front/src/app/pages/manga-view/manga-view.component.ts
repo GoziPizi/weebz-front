@@ -15,6 +15,7 @@ export class MangaViewComponent implements OnInit {
   chapter : string|null = null;
   pageCount : number = 21; //TODO: get this from the backend
   currentPage: BehaviorSubject<number> = new BehaviorSubject<number>(1);
+  currentPageIndex: number = 1;
   pages : string[] = [];
   doublePage: boolean = false;
 
@@ -37,6 +38,7 @@ export class MangaViewComponent implements OnInit {
     this.currentPage.subscribe((page) => {
       this.preloadImage(page+1);
       this.preloadImage(page+2);
+      this.currentPageIndex = page;
     });
   }
 

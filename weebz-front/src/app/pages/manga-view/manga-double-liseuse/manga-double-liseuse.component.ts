@@ -41,6 +41,8 @@ export class MangaDoubleLiseuseComponent implements OnInit {
     return this.pages[this.currentPageIndex];
   }
 
+  //TODO : empecher le scroll des images qui bloque la page
+
   nextPage() {
     if (this.currentPageIndex < this.pages.length - 1) {
       this.currentPageIndex += 2;
