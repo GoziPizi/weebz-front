@@ -1,5 +1,5 @@
-import { Component, OnInit, AfterViewInit, ElementRef, ViewChild } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, OnInit, Input, ElementRef, ViewChild } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-manga-double-liseuse',
@@ -9,19 +9,18 @@ import { ActivatedRoute } from '@angular/router';
 export class MangaDoubleLiseuseComponent implements OnInit {
 
   @ViewChild('mangaContainer') mangaContainer!: ElementRef;
+  @Input() pages: string[] = [];
+  @Input() currentPage: BehaviorSubject<number> = new BehaviorSubject<number>(1);
 
-  id: string | null = null;
-  url: string = "../../../assets/fixtures/";
-  pages: string[] = []; // url of the pages
   currentPageIndex: number = 1;
 
   left_arrow: boolean = true;
   right_arrow: boolean = false;
-  constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.id = this.route.snapshot.paramMap.get('id');
-    this.updatePages();
+    this.currentPage.subscribe((page) => {
+      this.currentPageIndex = page;
+    });
   }
 
   ngAfterViewInit() {
@@ -29,26 +28,9 @@ export class MangaDoubleLiseuseComponent implements OnInit {
   }
 
   onBlur() {
-    setTimeout(() => {  // Utiliser setTimeout pour éviter les conflits d'événements
+    setTimeout(() => {
       this.mangaContainer.nativeElement.focus();
     });
-  }
-
-  get_number_of_pages() : number {
-    return 10;
-  }
-
-  updatePages() {
-    let nb_pages = this.get_number_of_pages();
-    for (let i=1; i<=nb_pages; i++) {
-      if(this.id){
-        this.pages.push(this.url + this.id + "/" + i + ".png");
-      }
-    }
-  }
-
-  updateArrows() {
-
   }
 
   get rightPage() {
@@ -62,14 +44,14 @@ export class MangaDoubleLiseuseComponent implements OnInit {
   nextPage() {
     if (this.currentPageIndex < this.pages.length - 1) {
       this.currentPageIndex += 2;
-      this.updateArrows();
+      this.currentPage.next(this.currentPageIndex);
     }
   }
 
   previousPage() {
     if (this.currentPageIndex > 1) {
       this.currentPageIndex -= 2;
-      this.updateArrows();
+      this.currentPage.next(this.currentPageIndex);
     }
   }
 

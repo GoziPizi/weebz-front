@@ -1,5 +1,6 @@
-import { Component, OnInit, AfterViewInit, ElementRef, ViewChild } from '@angular/core';
+import { Component, OnInit, Input, ElementRef, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-manga-liseuse',
@@ -9,11 +10,10 @@ import { ActivatedRoute } from '@angular/router';
 export class MangaLiseuseComponent implements OnInit {
 
   @ViewChild('mangaContainer') mangaContainer!: ElementRef;
+  @Input() pages: string[] = [];
+  @Input() currentPage: BehaviorSubject<number> = new BehaviorSubject<number>(1);
 
-  id: string | null = null;
-  url: string = "../../../assets/fixtures/";
-  pages: string[] = [];
-  currentPageIndex: number = 0;
+  currentPageIndex: number = 1;
 
   left_arrow: boolean = true;
   right_arrow: boolean = false;
@@ -21,8 +21,9 @@ export class MangaLiseuseComponent implements OnInit {
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.id = this.route.snapshot.paramMap.get('id');
-    this.updatePages();
+    this.currentPage.subscribe((page) => {
+      this.currentPageIndex = page;
+    });
   }
 
   ngAfterViewInit() {
@@ -35,39 +36,22 @@ export class MangaLiseuseComponent implements OnInit {
     });
   }
 
-  get_number_of_pages() : number {
-    return 10;
-  }
-
-  updatePages() {
-    let nb_pages = this.get_number_of_pages();
-    for (let i=1; i<=nb_pages; i++) {
-      if(this.id){
-        this.pages.push(this.url + this.id + "/" + i + ".png");
-      }
-    }
-  }
-
-  updateArrows() {
-
-  }
-
-  get currentPage() {
-    return this.pages[this.currentPageIndex];
-  }
-
   nextPage() {
     if (this.currentPageIndex < this.pages.length - 1) {
       this.currentPageIndex++;
-      this.updateArrows();
+      this.currentPage.next(this.currentPageIndex);
     }
   }
 
   previousPage() {
     if (this.currentPageIndex > 0) {
       this.currentPageIndex--;
-      this.updateArrows();
+      this.currentPage.next(this.currentPageIndex);
     }
+  }
+
+  get currentPageImg() {
+    return this.pages[this.currentPageIndex-1];
   }
 
 }

@@ -23,7 +23,7 @@ const routes: Routes = [
   { path: 'manga', component: MangaAccueilComponent},
   { path: 'webtoon', component: WebtoonAccueilComponent},
   { path: 'lightnovel', component: LightnovelAccueilComponent},
-  { path: 'mangaview/:id', component: MangaViewComponent},
+  { path: 'mangaview/:artworkId/:chapter', component: MangaViewComponent},
   { path: 'connexion', component: ConnexionComponent},
   { path: 'inscription', component: InscriptionComponent},
   { path: 'my-profile', component: MyProfileComponent},
