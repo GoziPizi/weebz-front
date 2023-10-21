@@ -39,6 +39,7 @@ import { LoadingComponentComponent } from './utils/loading-component/loading-com
 import { ArtworkComponent } from './pages/artwork/artwork.component';
 import { ChapterThumbnailComponent } from './pages/artwork/chapter-thumbnail/chapter-thumbnail.component';
 import { ChapterRowThumbnailComponent } from './pages/artwork/chapter-row-thumbnail/chapter-row-thumbnail.component';
+import { ArtworkThumbnailComponent } from './utils/thumbnails/artwork-thumbnail/artwork-thumbnail.component';
 
 @NgModule({
   declarations: [
@@ -76,6 +77,7 @@ import { ChapterRowThumbnailComponent } from './pages/artwork/chapter-row-thumbn
     ArtworkComponent,
     ChapterThumbnailComponent,
     ChapterRowThumbnailComponent,
+    ArtworkThumbnailComponent,
   ],
   imports: [
     BrowserModule,

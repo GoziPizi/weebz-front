@@ -27,10 +27,6 @@ export class ApiHandlerService {
       this.id.next(1);
     }
 
-  updateLoginStatus(val: boolean) {
-    this.isLoggedIn.next(val);
-  }
-
   /*
   * POST 
   * @param data : {login: string, password: string}
@@ -45,6 +41,10 @@ export class ApiHandlerService {
         this.updateLoginStatus(true);
       })
     );
+  }
+
+  updateLoginStatus(val: boolean) {
+    this.isLoggedIn.next(val);
   }
 
   checkLogin(): Observable<any> {
