@@ -1,0 +1,31 @@
+.main-presentation {
+    padding-top: 2em;
+    background-image: url("../../../assets/test-news.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.author-name-container {
+    // center the author name
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1em;
+}
+
+.cover-container {
+    padding-right: 1em;
+    padding-left: 1em;
+}
+
+.cover {
+    //size the image to fit the container
+    width: 100%;
+    margin-left: 1em;
+    margin-right: 1em;
+}
+
+.right-presentation {
+    padding: 2em;
+}

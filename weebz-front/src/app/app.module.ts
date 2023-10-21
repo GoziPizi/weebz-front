@@ -36,6 +36,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { MyProfileComponent } from './pages/my-profile/my-profile.component';
 import { LoadingComponentComponent } from './utils/loading-component/loading-component.component';
+import { ArtworkComponent } from './pages/artwork/artwork.component';
 
 @NgModule({
   declarations: [
@@ -70,6 +71,7 @@ import { LoadingComponentComponent } from './utils/loading-component/loading-com
     PageNotFoundComponent,
     MyProfileComponent,
     LoadingComponentComponent,
+    ArtworkComponent,
   ],
   imports: [
     BrowserModule,

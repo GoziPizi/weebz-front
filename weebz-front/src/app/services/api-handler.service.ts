@@ -70,4 +70,8 @@ export class ApiHandlerService {
     return this.http.post(this.url + "api/v1/users/", data);
   }
 
+  getArtWork(id: number): Observable<any> {
+    return this.http.get(this.url + "api/v1/artworks/" + id);
+  }
+
 }
