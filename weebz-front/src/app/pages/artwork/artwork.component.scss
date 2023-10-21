@@ -29,3 +29,16 @@
 .right-presentation {
     padding: 2em;
 }
+
+.slider-container {
+    margin-top: 1em;
+    overflow: hidden;
+    white-space: nowrap;
+    cursor: grab;
+}
+
+.slider-content {
+    transition: transform 0.3s ease-out;
+    display: inline-block;
+    white-space: nowrap;
+}

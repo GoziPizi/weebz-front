@@ -32,6 +32,16 @@ export class ArtworkComponent implements OnInit {
 
   synopsisTemp = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
 
+  chaptersPerRow = 6;
+  chaptersInLastRow = 0;
+
+  isDragging: boolean = false;
+  startX: number = 0;
+  currentTranslateX: number = 0;
+
+  rows: number[] = [];
+  rowsIndex: number[] = [];
+
   constructor(
     private route: ActivatedRoute,
     private api: ApiHandlerService
@@ -62,12 +72,63 @@ export class ArtworkComponent implements OnInit {
       this.cover = res.cover;
       this.tags = res.tags;
       this.rating = res.rating;
-      this.numberOfChapters = res.numberOfChapters;
+      this.numberOfChapters = 34;
+      this.createRows();
     },
     (err: any) => {
       this.noIdGiven();
     }
     );
+  }
+
+  createRows() {
+    console.log("createRows");
+    const nbOfRows = Math.floor(this.numberOfChapters / this.chaptersPerRow)+1;
+    this.chaptersInLastRow = this.numberOfChapters % this.chaptersPerRow;
+    for (let i = 0; i < nbOfRows; i++) {
+      this.rows.push(i);
+    }
+    for (let i = 0; i < this.numberOfChapters; i++) {
+      this.rowsIndex.push(i);
+    }
+  }
+
+  onMouseDown(event: MouseEvent): void {
+    this.isDragging = true;
+    this.startX = event.clientX;
+    event.preventDefault();
+  }
+
+  onMouseUp(event: MouseEvent): void {
+    this.isDragging = false;
+    if(this.currentTranslateX > 0) {
+      this.currentTranslateX = 0;
+    }
+  }
+
+  onMouseMove(event: MouseEvent): void {
+    if (!this.isDragging) return;
+    const x = event.clientX;
+    const delta = x - this.startX;
+    this.currentTranslateX += delta;
+    this.startX = x;
+  }
+
+  onWheel(event: WheelEvent): void {
+    const sensitivity = 2;
+    
+    this.currentTranslateX -= event.deltaY * sensitivity;
+
+    if(this.currentTranslateX > 0) {
+      this.currentTranslateX = 0;
+    }
+
+    event.preventDefault();
+}
+
+  getTranslateX(): string {
+    console.log(this.currentTranslateX);
+    return `translateX(${this.currentTranslateX}px)`;
   }
 
 }

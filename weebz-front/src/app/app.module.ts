@@ -37,6 +37,8 @@ import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.com
 import { MyProfileComponent } from './pages/my-profile/my-profile.component';
 import { LoadingComponentComponent } from './utils/loading-component/loading-component.component';
 import { ArtworkComponent } from './pages/artwork/artwork.component';
+import { ChapterThumbnailComponent } from './pages/artwork/chapter-thumbnail/chapter-thumbnail.component';
+import { ChapterRowThumbnailComponent } from './pages/artwork/chapter-row-thumbnail/chapter-row-thumbnail.component';
 
 @NgModule({
   declarations: [
@@ -72,6 +74,8 @@ import { ArtworkComponent } from './pages/artwork/artwork.component';
     MyProfileComponent,
     LoadingComponentComponent,
     ArtworkComponent,
+    ChapterThumbnailComponent,
+    ChapterRowThumbnailComponent,
   ],
   imports: [
     BrowserModule,
