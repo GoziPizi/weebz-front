@@ -99,6 +99,8 @@ export class ArtworkComponent implements OnInit {
     event.preventDefault();
   }
 
+  //TODO ne pas le laisser aller trop loin
+
   onMouseUp(event: MouseEvent): void {
     this.isDragging = false;
     if(this.currentTranslateX > 0) {
