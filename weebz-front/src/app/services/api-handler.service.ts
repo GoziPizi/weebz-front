@@ -78,4 +78,15 @@ export class ApiHandlerService {
     return this.http.get(this.url + "api/v1/artworks/" + id + "/chapters");
   }
 
+  getArtworksByType(type:string, max_items?:number): Observable<any> {
+    let data:any = {};
+    if(max_items) {
+      data = {
+        ...data,
+        max_items: max_items
+      }
+    }
+    return this.http.get(this.url + "api/v1/artworks/types/"+type, {params: data});
+  }
+
 }

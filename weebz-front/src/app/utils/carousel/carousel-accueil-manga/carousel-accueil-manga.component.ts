@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiHandlerService } from 'src/app/services/api-handler.service';
 
 @Component({
   selector: 'app-carousel-accueil-manga',
@@ -7,16 +8,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CarouselAccueilMangaComponent implements OnInit {
 
-  carouselItems = [
-    { image: '../../../assets/test-accueil.png', text: 'Texte 1', link: 'link1' },
-    { image: '../../../assets/test-accueil.png', text: 'Texte 2', link: 'link2' },
-    { image: '../../../assets/test-accueil.png', text: 'Texte 2', link: 'link2' },
-    { image: '../../../assets/test-accueil.png', text: 'Texte 2', link: 'link2' },
-    { image: '../../../assets/test-accueil.png', text: 'Texte 2', link: 'link2' },
-  ];
-  constructor() { }
+  carouselItems:any[] = [];
+  constructor(
+    private apiHandler: ApiHandlerService
+  ) { }
 
   ngOnInit(): void {
+    this.fetchCarouselItems();
+  }
+
+  fetchCarouselItems() {
+    this.apiHandler.getArtworksByType('MANGA').subscribe( (artworks: any) => {
+      console.log(artworks);
+      artworks.forEach( (artwork: any) => {
+        this.carouselItems.push({
+          image: artwork.coverUrl,
+          text: artwork.title,
+          artworkId: artwork.id
+        });
+      });
+    });
   }
 
 }

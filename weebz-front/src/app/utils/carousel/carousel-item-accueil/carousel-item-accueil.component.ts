@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-carousel-item-accueil',
@@ -9,19 +10,22 @@ export class CarouselItemAccueilComponent implements OnInit {
   
   @Input() image: string;
   @Input() text: string;
-  @Input() link: string;
+  @Input() artworkId: string;
   
-  constructor() {
+  constructor(
+    private router: Router
+  ) {
     this.image = '';
     this.text = '';
-    this.link = '';
+    this.artworkId = '';
   }
 
   ngOnInit(): void {
   }
 
   navigate(){
-    window.location.href = this.link;
+    console.log(this.artworkId);
+    this.router.navigate(['/artwork/'+this.artworkId])
   }
 
 }
