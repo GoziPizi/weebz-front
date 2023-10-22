@@ -5,16 +5,18 @@
 <div *ngIf="doublePage" class="display-mode-container" (click)="updateDoublePage()">
     <span>Vue Page Simple </span><i class="fa-regular fa-file"></i>
 </div>
-TODO : Ajouter un bouton pour centrer pile l'image verticalement 
-TODO : Ajouter le bouton plein ecran
-<app-manga-liseuse [pages]="pages" [currentPage]="currentPage" *ngIf="!doublePage"></app-manga-liseuse>
-<app-manga-double-liseuse [pages]="pages" [currentPage]="currentPage" *ngIf="doublePage"></app-manga-double-liseuse>
+<span (click)="centerPage()" class="display-mode-container">Centrer</span>
+<div #liseuseContainer>
+    <app-manga-liseuse [pages]="pages" [currentPage]="currentPage" *ngIf="!doublePage"></app-manga-liseuse>
+    <app-manga-double-liseuse [pages]="pages" [currentPage]="currentPage" *ngIf="doublePage"></app-manga-double-liseuse>
+</div>
 <div class="page-numerotation centered">
     <span>{{currentPageIndex}}/{{pages.length}}</span>
 </div>
-<div class="navigation-buttons d-flex col-6 offset-3 justify-content-center align-items-center">
-    <button class="navigation-button">Suivant</button>
-    <button class="navigation-button">Précédant</button>
+<div class="social-buttons">
+    <button class="navigation-button">J'aime <i class="fa-regular fa-heart"></i></button>
+    <button class="navigation-button">Suivre <i class="fa-solid fa-user-plus"></i></button>
 </div>
-<button>J'aime</button>
-<button>Suivre l'oeuvre</button>
+<div class="navigation-buttons">
+    <button class="navigation-button">Episode Suivant <i class="fa-solid fa-arrow-right"></i></button>
+</div>

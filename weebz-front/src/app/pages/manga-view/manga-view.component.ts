@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { BehaviorSubject } from 'rxjs';
@@ -9,6 +9,8 @@ import { BehaviorSubject } from 'rxjs';
   styleUrls: ['./manga-view.component.scss']
 })
 export class MangaViewComponent implements OnInit {
+
+  @ViewChild('liseuseContainer') liseuseContainer!: ElementRef;
 
   title = "Manga View";
   artworkId : string|null = null;
@@ -51,6 +53,21 @@ export class MangaViewComponent implements OnInit {
     this.doublePage = !this.doublePage;
     if(this.doublePage) this.cookieService.set('favoriteView', 'doublePage');
     else this.cookieService.set('favoriteView', 'singlePage');
+  }
+
+  centerPage() {
+    const componentPosition = this.liseuseContainer.nativeElement.offsetTop;
+    const screenHeight = window.innerHeight;
+
+    // Calculer la position de défilement pour centrer le composant
+    const scrollToPosition = componentPosition - (screenHeight / 2) + (this.liseuseContainer.nativeElement.offsetHeight / 2);
+    
+    console.log("componentPosition: " + componentPosition);
+
+    window.scrollTo({
+        top: scrollToPosition,
+        behavior: 'smooth'  // Pour un défilement en douceur
+    });
   }
 
 }
