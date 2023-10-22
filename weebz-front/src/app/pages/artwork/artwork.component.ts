@@ -26,11 +26,13 @@ export class ArtworkComponent implements OnInit {
   author: string = "Author";
   synopsis: string = "Synopsis";
   cover: string = "Cover"; //url of the cover
+  background: string = "Background"; //url of the background
   tags: string[] = ["tag"];
   rating: number = 0;
   numberOfChapters: number = 0;
 
-  synopsisTemp = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
+  chaptersRoutes: string[] = [];
+  chaptersCovers: string[] = [];
 
   chaptersPerRow = 6;
   chaptersInLastRow = 0;
@@ -66,23 +68,28 @@ export class ArtworkComponent implements OnInit {
    */
   fetchArtworkData() {
     this.api.getArtWork(this.artWorkId).subscribe((res: any) => {
+      console.log(res)
       this.title = res.title;
       this.author = res.author;
-      this.synopsis = res.synopsis;
-      this.cover = res.cover;
+      this.synopsis = res.description;
+      this.cover = res.coverUrl;
+      this.background = res.backgroundImageUrl;
       this.tags = res.tags;
       this.rating = res.rating;
-      this.numberOfChapters = 34;
-      this.createRows();
     },
     (err: any) => {
       this.noIdGiven();
     }
     );
+    this.api.getAllChapters(this.artWorkId).subscribe((res: any) => {
+      this.numberOfChapters = res.length;
+      this.updateCovers(res);
+      this.updateRoutes(res);
+      this.createRows();
+    });
   }
 
   createRows() {
-    console.log("createRows");
     const nbOfRows = Math.floor(this.numberOfChapters / this.chaptersPerRow)+1;
     this.chaptersInLastRow = this.numberOfChapters % this.chaptersPerRow;
     for (let i = 0; i < nbOfRows; i++) {
@@ -93,10 +100,22 @@ export class ArtworkComponent implements OnInit {
     }
   }
 
+  updateCovers(res: any) {
+    for (let i = 0; i < res.length; i++) {
+      this.chaptersCovers.push(res[i].coverUrl);
+    }
+  }
+
+  updateRoutes(res: any) {
+    for (let i = 0; i < res.length; i++) {
+      this.chaptersRoutes.push("/mangaview/" + this.artWorkId + "/" + (i+1));
+    }
+  }
+
   onMouseDown(event: MouseEvent): void {
     this.isDragging = true;
     this.startX = event.clientX;
-    event.preventDefault();
+    //event.preventDefault();
   }
 
   //TODO ne pas le laisser aller trop loin
@@ -125,11 +144,10 @@ export class ArtworkComponent implements OnInit {
       this.currentTranslateX = 0;
     }
 
-    event.preventDefault();
+    //event.preventDefault();
 }
 
   getTranslateX(): string {
-    console.log(this.currentTranslateX);
     return `translateX(${this.currentTranslateX}px)`;
   }
 

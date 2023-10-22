@@ -3,16 +3,16 @@
         <div class="row">
             <div class="left-presentation col-3 offset-1">
                 <div class="cover-container">
-                    <img class="cover" src="../../../assets/test-accueil.png">
+                    <img class="cover" src="{{cover}}">
                 </div>
                 <div class="author-name-container">
                     <h2>Par <a class="author-name" href="#">Pseudo</a></h2>
                 </div>
             </div>
             <div class="right-presentation col-7">
-                <h2>Titre</h2>
+                <h2>{{title}}</h2>
                 <h4>Synopsis</h4>
-                <p>{{synopsisTemp}}</p>
+                <p>{{synopsis}}</p>
                 <div class="button-container">
                     <button class="socials-button btn btn-primary">
                         <i class="fa-solid fa-user-plus"></i>
@@ -30,12 +30,14 @@
         </div>
     </div>
 
-    <div class="slider-container" (mousedown)="onMouseDown($event)" (mouseup)="onMouseUp($event)" (mousemove)="onMouseMove($event)" (wheel)="onWheel($event)">
+    <div class="slider-container" (wheel)="onWheel($event)">
         <div class="slider-content" [style.transform]="getTranslateX()">
             <app-chapter-thumbnail
                 *ngFor="let i of rowsIndex"
                 [number]="i+1"
                 [artworkId]="artWorkId"
+                [route]="chaptersRoutes[i]"
+                [image]="chaptersCovers[i]"
             ></app-chapter-thumbnail>
         </div>
     </div>
@@ -60,4 +62,5 @@
             </ng-template>
         </ng-container>
     </div>-->
+    <!--(mousedown)="onMouseDown($event)" (mouseup)="onMouseUp($event)" (mousemove)="onMouseMove($event)" -->
 </div>

@@ -89,4 +89,8 @@ export class ApiHandlerService {
     return this.http.get(this.url + "api/v1/artworks/types/"+type, {params: data});
   }
 
+  getAllChaptersByArtworkId(id: number): Observable<any> {
+    return this.http.get(this.url + "api/v1/artworks/" + id + "/chapters");
+  }
+
 }

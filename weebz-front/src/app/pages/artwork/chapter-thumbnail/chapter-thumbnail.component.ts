@@ -1,4 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-chapter-thumbnail',
@@ -13,15 +15,24 @@ export class ChapterThumbnailComponent implements OnInit {
    * - The cover of the chapter
    * - The number of the chapter written under the cover
    * - On hover, a zoom.
+   * 
+   * How to use : 
+   *  Prove at least the artworkId and the chapter number.
+   *  You can provide an image and a link to the chapter.
+   *  If not, it will be asked to the api.
    */
 
   @Input() artworkId: number;
   @Input() number: number;
 
-  image="../../../../assets/test-accueil.png";
-  link="";
+  @Input() image:string="";
+  @Input() route:string="";
 
-  constructor() {
+  //TODO : ask api for image and link if not provided
+
+  constructor(
+    private router: Router
+  ) {
     this.artworkId = 0;
     this.number = 0;
   }
@@ -30,7 +41,9 @@ export class ChapterThumbnailComponent implements OnInit {
   }
 
   navigate(){
-    window.location.href = this.link;
+    if(this.route != ""){
+      this.router.navigate([this.route]);
+    }
   }
 
 }
