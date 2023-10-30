@@ -30,12 +30,10 @@
 .text-button{
   cursor: pointer;
   transition: color 0.3s;
-  transition: font-size 0.3s;
 }
 
 .text-button:hover {
   color: $orange;
-  font-size:larger;
 }
 
 .dropdown-container {
@@ -68,7 +66,6 @@
 .dropdown-button {
     color: white;
     padding: 16px;
-    font-size: 16px;
     cursor: pointer;
 }
 
@@ -106,3 +103,4 @@
 .header-icon {
   color: #FF7530;
 }
+
