@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { BehaviorSubject } from 'rxjs';
+import { FullscreenService } from 'src/app/services/fullscreen.service';
 
 @Component({
   selector: 'app-manga-view',
@@ -20,14 +21,20 @@ export class MangaViewComponent implements OnInit {
   currentPageIndex: number = 1;
   pages : string[] = [];
   doublePage: boolean = false;
+  isFullScreen: boolean = false;
+  private unsubscribeFullscreen: () => void;
 
   constructor(
     private route: ActivatedRoute,
-    private cookieService: CookieService
+    private cookieService: CookieService,
+    private fullscreenService: FullscreenService
     ) { 
       let favoriteView = this.cookieService.get('favoriteView');
       if(favoriteView == 'doublePage') this.doublePage = true;
       else this.doublePage = false;
+      this.unsubscribeFullscreen = this.fullscreenService.onFullscreenChange(() => {
+        this.isFullScreen = !!document.fullscreenElement;
+      });
     }
 
   ngOnInit(): void {
@@ -42,6 +49,10 @@ export class MangaViewComponent implements OnInit {
       this.preloadImage(page+2);
       this.currentPageIndex = page;
     });
+  }
+
+  ngAfterViewInit() {
+    this.centerPage();
   }
 
   preloadImage(n: number) {
@@ -63,6 +74,7 @@ export class MangaViewComponent implements OnInit {
     const scrollToPosition = componentPosition - (screenHeight / 2) + (this.liseuseContainer.nativeElement.offsetHeight / 2);
     
     console.log("componentPosition: " + componentPosition);
+    console.log(scrollToPosition)
 
     window.scrollTo({
         top: scrollToPosition,
@@ -70,4 +82,17 @@ export class MangaViewComponent implements OnInit {
     });
   }
 
+  toggleFullScreen() {
+    this.isFullScreen = !this.isFullScreen;
+    if(this.isFullScreen) {
+      this.fullscreenService.enterFullscreen(this.liseuseContainer.nativeElement);
+    } else {
+      this.fullscreenService.exitFullscreen();
+      this.centerPage();
+    }
+  }
+
+  ngOnDestroy() {
+    this.unsubscribeFullscreen();
+  }
 }

@@ -6,12 +6,16 @@
     <span>Vue Page Simple </span><i class="fa-regular fa-file"></i>
 </div>
 <span (click)="centerPage()" class="display-mode-container">Centrer</span>
-<div #liseuseContainer>
+<div #liseuseContainer class="liseuse-container">
+    <div class="fullscreen-button" (click)="toggleFullScreen()">
+        <i *ngIf="!isFullScreen" class="fa-solid fa-up-right-and-down-left-from-center fa-2xl"></i>
+        <i *ngIf="isFullScreen" class="fa-solid fa-down-left-and-up-right-to-center fa-2xl"></i>
+    </div>
     <app-manga-liseuse [pages]="pages" [currentPage]="currentPage" *ngIf="!doublePage"></app-manga-liseuse>
     <app-manga-double-liseuse [pages]="pages" [currentPage]="currentPage" *ngIf="doublePage"></app-manga-double-liseuse>
-</div>
-<div class="page-numerotation centered">
-    <span>{{currentPageIndex}}/{{pages.length}}</span>
+    <div class="page-numerotation centered">
+        <span>{{currentPageIndex}}/{{pages.length}}</span>
+    </div>
 </div>
 <div class="social-buttons">
     <button class="navigation-button">J'aime <i class="fa-regular fa-heart"></i></button>
