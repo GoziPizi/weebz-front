@@ -44,9 +44,14 @@ export class MangaViewComponent implements OnInit {
     for(let i = 1; i <= this.pageCount; i++) {
       this.pages.push(url + "/" + i + ".jpeg");
     }
+    console.log(this.pages);
     this.currentPage.subscribe((page) => {
-      this.preloadImage(page+1);
-      this.preloadImage(page+2);
+      if(page+1 < this.pages.length){
+        this.preloadImage(page+1);
+      }
+      if(page+2 < this.pages.length){
+        this.preloadImage(page+2);
+      }
       this.currentPageIndex = page;
     });
   }
@@ -94,5 +99,10 @@ export class MangaViewComponent implements OnInit {
 
   ngOnDestroy() {
     this.unsubscribeFullscreen();
+  }
+
+  min(a: number, b: number) {
+    console.log("min(" + a + ", " + b + ")");
+    return Math.min(a, b);
   }
 }

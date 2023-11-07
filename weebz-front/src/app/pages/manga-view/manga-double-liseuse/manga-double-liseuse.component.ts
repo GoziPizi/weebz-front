@@ -38,10 +38,13 @@ export class MangaDoubleLiseuseComponent implements OnInit {
   }
 
   get leftPage() {
-    return this.pages[this.currentPageIndex];
+    if (this.currentPageIndex < this.pages.length) {
+      return this.pages[this.currentPageIndex];
+    }
+    else {
+      return "../assets/test-accueil.png";
+    }
   }
-
-  //TODO : empecher le scroll des images qui bloque la page
 
   nextPage() {
     if (this.currentPageIndex < this.pages.length - 1) {

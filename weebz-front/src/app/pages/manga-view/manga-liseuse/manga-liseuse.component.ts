@@ -44,7 +44,7 @@ export class MangaLiseuseComponent implements OnInit {
   }
 
   previousPage() {
-    if (this.currentPageIndex > 0) {
+    if (this.currentPageIndex > 1) {
       this.currentPageIndex--;
       this.currentPage.next(this.currentPageIndex);
     }

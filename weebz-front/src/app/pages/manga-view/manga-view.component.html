@@ -14,7 +14,7 @@
     <app-manga-liseuse [pages]="pages" [currentPage]="currentPage" *ngIf="!doublePage"></app-manga-liseuse>
     <app-manga-double-liseuse [pages]="pages" [currentPage]="currentPage" *ngIf="doublePage"></app-manga-double-liseuse>
     <div class="page-numerotation centered">
-        <span>{{currentPageIndex}}/{{pages.length}}</span>
+        <span>{{min(currentPageIndex,pages.length-1)}}/{{pages.length-1}}</span>
     </div>
 </div>
 <div class="social-buttons">
