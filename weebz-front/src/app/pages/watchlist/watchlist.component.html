@@ -1,0 +1,10 @@
+<div class="container">
+    <div *ngIf="!logged" class="not-logged">
+        <h2>Tu n'es pas connecté !</h2>
+        <p>Connecte toi pour accéder à ta watchlist, et profiter pleinement de Weebz !</p>
+        <a routerLink="/connexion" class="login-link">Clique ici</a>
+    </div>
+    <div *ngIf="logged" class="logged">
+        Ta watchlist
+    </div>
+</div>
