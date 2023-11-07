@@ -14,6 +14,7 @@ import { InscriptionComponent } from './pages/inscription/inscription.component'
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { MyProfileComponent } from './pages/my-profile/my-profile.component';
 import { ArtworkComponent } from './pages/artwork/artwork.component';
+import { WatchlistComponent } from './pages/watchlist/watchlist.component';
 
 const routes: Routes = [
   { path: 'accueil', component: AccueilComponent },
@@ -29,6 +30,7 @@ const routes: Routes = [
   { path: 'connexion', component: ConnexionComponent},
   { path: 'inscription', component: InscriptionComponent},
   { path: 'my-profile', component: MyProfileComponent},
+  { path: 'watchlist', component: WatchlistComponent},
   { path: 'not-found', component: PageNotFoundComponent},
   { path: '', redirectTo: '/accueil', pathMatch: 'full' },
   { path: '**', redirectTo: '/not-found'},

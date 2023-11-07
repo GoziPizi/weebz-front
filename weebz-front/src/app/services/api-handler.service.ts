@@ -93,4 +93,8 @@ export class ApiHandlerService {
     return this.http.get(this.url + "api/v1/artworks/" + id + "/chapters");
   }
 
+  getIsLoggedIn() {
+    return this.isLoggedIn.getValue();
+  }
+
 }
