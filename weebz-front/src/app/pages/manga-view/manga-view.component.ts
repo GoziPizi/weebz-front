@@ -43,10 +43,8 @@ export class MangaViewComponent implements OnInit {
   ngOnInit(): void {
     this.artworkId = Number(this.route.snapshot.paramMap.get('artworkId'));
     this.chapter = Number(this.route.snapshot.paramMap.get('chapter'));
-    console.log("artworkId: " + this.artworkId);
-    console.log("chapter: " + this.chapter);
 
-    this.fetchUrl();
+    this.fetchPages();
 
     this.currentPage.subscribe((page) => {
       if(page+1 < this.pages.length){
@@ -63,15 +61,13 @@ export class MangaViewComponent implements OnInit {
     this.centerPage();
   }
 
-  fetchUrl() {
+  fetchPages() {
     this.apiHandlerService.getPages(this.artworkId!, this.chapter!).subscribe((res: any) => {
-      console.log(res);
       this.pages = res;
       this.pageCount = this.pages.length;
       for(let i = 0; i < this.pages.length; i++) {
         this.pagesUrl.push(this.pages[i]["pageUrl"]);
       }
-      console.log(this.pagesUrl);
     })
   }
 

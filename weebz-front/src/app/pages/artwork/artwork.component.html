@@ -6,7 +6,7 @@
                     <img class="cover" src="{{cover}}">
                 </div>
                 <div class="author-name-container">
-                    <h2>Par <a class="author-name" href="#">Pseudo</a></h2>
+                    <h2>Par <a class="author-name" href="#">{{author}}</a></h2>
                 </div>
             </div>
             <div class="right-presentation col-7">
@@ -33,7 +33,7 @@
     <div class="slider-container" (wheel)="onWheel($event)">
         <div class="slider-content" [style.transform]="getTranslateX()">
             <app-chapter-thumbnail
-                *ngFor="let i of rowsIndex"
+                *ngFor="let i of chaptersNumerotation"
                 [number]="i+1"
                 [artworkId]="artWorkId"
                 [route]="chaptersRoutes[i]"

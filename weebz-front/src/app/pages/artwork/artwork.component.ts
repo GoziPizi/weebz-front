@@ -23,26 +23,24 @@ export class ArtworkComponent implements OnInit {
 
   artWorkId: number = 0;
   title: string = "Title";
-  author: string = "Author";
   synopsis: string = "Synopsis";
   cover: string = "Cover"; //url of the cover
-  background: string = "Background"; //url of the background
+  background: string = "../assets/test-news.png"; //url of the background
   tags: string[] = ["tag"];
   rating: number = 0;
   numberOfChapters: number = 0;
 
+  author: string = "Author";
+  authorRoute: string = "/author/1";
+
   chaptersRoutes: string[] = [];
   chaptersCovers: string[] = [];
-
-  chaptersPerRow = 6;
-  chaptersInLastRow = 0;
 
   isDragging: boolean = false;
   startX: number = 0;
   currentTranslateX: number = 0;
 
-  rows: number[] = [];
-  rowsIndex: number[] = [];
+  chaptersNumerotation: number[] = [];
 
   constructor(
     private route: ActivatedRoute,
@@ -57,6 +55,7 @@ export class ArtworkComponent implements OnInit {
       this.noIdGiven();
     }
     this.fetchArtworkData();
+    this.fetchAuthorData();
   }
 
   noIdGiven() {
@@ -68,7 +67,6 @@ export class ArtworkComponent implements OnInit {
    */
   fetchArtworkData() {
     this.api.getArtWork(this.artWorkId).subscribe((res: any) => {
-      console.log(res)
       this.title = res.title;
       this.author = res.author;
       this.synopsis = res.description;
@@ -85,20 +83,16 @@ export class ArtworkComponent implements OnInit {
       this.numberOfChapters = res.length;
       this.updateCovers(res);
       this.updateRoutes(res);
-      this.createRows();
+      for(let i = 0; i < this.numberOfChapters; i++) {
+        this.chaptersNumerotation.push(i);
+      }
     });
   }
 
-  createRows() {
-    const nbOfRows = Math.floor(this.numberOfChapters / this.chaptersPerRow)+1;
-    this.chaptersInLastRow = this.numberOfChapters % this.chaptersPerRow;
-    for (let i = 0; i < nbOfRows; i++) {
-      this.rows.push(i);
-    }
-    for (let i = 0; i < this.numberOfChapters; i++) {
-      this.rowsIndex.push(i);
-    }
+  fetchAuthorData() {
+
   }
+
 
   updateCovers(res: any) {
     for (let i = 0; i < res.length; i++) {
@@ -144,7 +138,9 @@ export class ArtworkComponent implements OnInit {
       this.currentTranslateX = 0;
     }
 
-    //event.preventDefault();
+    //Si il n'y a plus de contenu dans la page, alors on ne peut pas aller plus loin
+
+    event.preventDefault();
 }
 
   getTranslateX(): string {
