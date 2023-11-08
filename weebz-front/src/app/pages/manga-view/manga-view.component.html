@@ -11,8 +11,8 @@
         <i *ngIf="!isFullScreen" class="fa-solid fa-up-right-and-down-left-from-center fa-2xl"></i>
         <i *ngIf="isFullScreen" class="fa-solid fa-down-left-and-up-right-to-center fa-2xl"></i>
     </div>
-    <app-manga-liseuse [pages]="pages" [currentPage]="currentPage" *ngIf="!doublePage"></app-manga-liseuse>
-    <app-manga-double-liseuse [pages]="pages" [currentPage]="currentPage" *ngIf="doublePage"></app-manga-double-liseuse>
+    <app-manga-liseuse [pages]="pagesUrl" [currentPage]="currentPage" *ngIf="!doublePage"></app-manga-liseuse>
+    <app-manga-double-liseuse [pages]="pagesUrl" [currentPage]="currentPage" *ngIf="doublePage"></app-manga-double-liseuse>
     <div class="page-numerotation centered">
         <span>{{min(currentPageIndex,pages.length-1)}}/{{pages.length-1}}</span>
     </div>

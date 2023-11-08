@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { BehaviorSubject } from 'rxjs';
 import { FullscreenService } from 'src/app/services/fullscreen.service';
+import { ApiHandlerService } from 'src/app/services/api-handler.service';
 
 @Component({
   selector: 'app-manga-view',
@@ -14,12 +15,13 @@ export class MangaViewComponent implements OnInit {
   @ViewChild('liseuseContainer') liseuseContainer!: ElementRef;
 
   title = "Manga View";
-  artworkId : string|null = null;
-  chapter : string|null = null;
+  artworkId : number|null = null;
+  chapter : number|null = null;
   pageCount : number = 21; //TODO: get this from the backend
   currentPage: BehaviorSubject<number> = new BehaviorSubject<number>(1);
   currentPageIndex: number = 1;
-  pages : string[] = [];
+  pages : any[] = [];
+  pagesUrl : string[] = [];
   doublePage: boolean = false;
   isFullScreen: boolean = false;
   private unsubscribeFullscreen: () => void;
@@ -27,7 +29,8 @@ export class MangaViewComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private cookieService: CookieService,
-    private fullscreenService: FullscreenService
+    private fullscreenService: FullscreenService,
+    private apiHandlerService: ApiHandlerService
     ) { 
       let favoriteView = this.cookieService.get('favoriteView');
       if(favoriteView == 'doublePage') this.doublePage = true;
@@ -38,13 +41,13 @@ export class MangaViewComponent implements OnInit {
     }
 
   ngOnInit(): void {
-    this.artworkId = this.route.snapshot.paramMap.get('artworkId');
-    this.chapter = this.route.snapshot.paramMap.get('chapter');
-    let url = "https://weebz-dev-2.s3.eu-west-3.amazonaws.com/artworks/" + this.artworkId + "/" + this.chapter;
-    for(let i = 1; i <= this.pageCount; i++) {
-      this.pages.push(url + "/" + i + ".jpeg");
-    }
-    console.log(this.pages);
+    this.artworkId = Number(this.route.snapshot.paramMap.get('artworkId'));
+    this.chapter = Number(this.route.snapshot.paramMap.get('chapter'));
+    console.log("artworkId: " + this.artworkId);
+    console.log("chapter: " + this.chapter);
+
+    this.fetchUrl();
+
     this.currentPage.subscribe((page) => {
       if(page+1 < this.pages.length){
         this.preloadImage(page+1);
@@ -60,9 +63,21 @@ export class MangaViewComponent implements OnInit {
     this.centerPage();
   }
 
+  fetchUrl() {
+    this.apiHandlerService.getPages(this.artworkId!, this.chapter!).subscribe((res: any) => {
+      console.log(res);
+      this.pages = res;
+      this.pageCount = this.pages.length;
+      for(let i = 0; i < this.pages.length; i++) {
+        this.pagesUrl.push(this.pages[i]["pageUrl"]);
+      }
+      console.log(this.pagesUrl);
+    })
+  }
+
   preloadImage(n: number) {
     let img = new Image();
-    img.src = this.pages[n];
+    img.src = this.pagesUrl[n];
   }
 
   updateDoublePage() {
@@ -77,9 +92,6 @@ export class MangaViewComponent implements OnInit {
 
     // Calculer la position de défilement pour centrer le composant
     const scrollToPosition = componentPosition - (screenHeight / 2) + (this.liseuseContainer.nativeElement.offsetHeight / 2);
-    
-    console.log("componentPosition: " + componentPosition);
-    console.log(scrollToPosition)
 
     window.scrollTo({
         top: scrollToPosition,
@@ -102,7 +114,6 @@ export class MangaViewComponent implements OnInit {
   }
 
   min(a: number, b: number) {
-    console.log("min(" + a + ", " + b + ")");
     return Math.min(a, b);
   }
 }

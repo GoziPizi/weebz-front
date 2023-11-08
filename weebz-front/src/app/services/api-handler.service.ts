@@ -97,4 +97,8 @@ export class ApiHandlerService {
     return this.isLoggedIn.getValue();
   }
 
+  getPages(artworkId: number, chapter: number): Observable<any> {
+    return this.http.get(this.url + "api/v1/artworks/" + artworkId + "/chapters/" + chapter + "/pages");
+  }
+
 }
