@@ -30,6 +30,7 @@ export class ArtworkComponent implements OnInit {
   rating: number = 0;
   numberOfChapters: number = 0;
 
+  authorId: number|null = null;
   author: string = "Author";
   authorRoute: string = "/author/1";
 
@@ -68,7 +69,6 @@ export class ArtworkComponent implements OnInit {
   fetchArtworkData() {
     this.api.getArtWork(this.artWorkId).subscribe((res: any) => {
       this.title = res.title;
-      this.author = res.author;
       this.synopsis = res.description;
       this.cover = res.coverUrl;
       this.background = res.backgroundImageUrl;

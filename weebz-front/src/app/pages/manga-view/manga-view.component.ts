@@ -14,16 +14,21 @@ export class MangaViewComponent implements OnInit {
 
   @ViewChild('liseuseContainer') liseuseContainer!: ElementRef;
 
-  title = "Manga View";
+  artworkTitle = "Manga View";
   artworkId : number|null = null;
   chapter : number|null = null;
-  pageCount : number = 21; //TODO: get this from the backend
+  pageCount : number = 0; //TODO: get this from the backend
+
   currentPage: BehaviorSubject<number> = new BehaviorSubject<number>(1);
   currentPageIndex: number = 1;
+
   pages : any[] = [];
   pagesUrl : string[] = [];
+
   doublePage: boolean = false;
+
   isFullScreen: boolean = false;
+
   private unsubscribeFullscreen: () => void;
 
   constructor(
@@ -46,6 +51,8 @@ export class MangaViewComponent implements OnInit {
 
     this.fetchPages();
 
+    this.fetchData();
+
     this.currentPage.subscribe((page) => {
       if(page+1 < this.pages.length){
         this.preloadImage(page+1);
@@ -63,12 +70,19 @@ export class MangaViewComponent implements OnInit {
 
   fetchPages() {
     this.apiHandlerService.getPages(this.artworkId!, this.chapter!).subscribe((res: any) => {
+      console.log(res);
       this.pages = res;
       this.pageCount = this.pages.length;
       for(let i = 0; i < this.pages.length; i++) {
         this.pagesUrl.push(this.pages[i]["pageUrl"]);
       }
     })
+  }
+
+  fetchData(){
+    this.apiHandlerService.getArtWork(this.artworkId!).subscribe((res: any) => {
+      this.artworkTitle = res.title;
+    });
   }
 
   preloadImage(n: number) {

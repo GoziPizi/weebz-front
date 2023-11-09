@@ -43,6 +43,16 @@ export class ApiHandlerService {
     );
   }
 
+  register(data: any): Observable<any> {
+    const { confirm_password, ...dataToSend } = data;
+    let data_to_send = {
+      user: {
+        ...dataToSend
+      }
+    }
+    return this.http.post(this.url + "api/v1/users/", data_to_send);
+  }
+
   updateLoginStatus(val: boolean) {
     this.isLoggedIn.next(val);
   }
@@ -61,7 +71,6 @@ export class ApiHandlerService {
     let headers = {
       Authorization : this.cookieService.get('apiToken')
     }
-    console.log(headers);
     let id = this.id.getValue();
     return this.http.get(this.url + "api/v1/users/" + id, {headers: headers});
   }
@@ -98,7 +107,7 @@ export class ApiHandlerService {
   }
 
   getPages(artworkId: number, chapter: number): Observable<any> {
-    return this.http.get(this.url + "api/v1/artworks/" + artworkId + "/chapters/" + chapter + "/pages");
+    return this.http.get(this.url + "api/v1/artworks/" + artworkId + "/chapters/pages?chapterIndex=" + chapter);
   }
 
 }
