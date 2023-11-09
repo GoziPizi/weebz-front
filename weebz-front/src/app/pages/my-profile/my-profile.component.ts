@@ -8,7 +8,9 @@ import { ApiHandlerService } from '../../services/api-handler.service';
 })
 export class MyProfileComponent implements OnInit {
 
-  id = "";
+  logedIn = true;
+
+  id:number = 0;
   name = "";
   surname = "";
   email = "";
@@ -22,10 +24,18 @@ export class MyProfileComponent implements OnInit {
       this.name = res.name;
       this.surname = res.surname;
       this.email = res.email;
+    },
+    (err: any) => {
+      this.logedIn = false;
+      this.showErrorMessage();
     });
   }
 
   ngOnInit(): void {
+  }
+
+  showErrorMessage() {
+
   }
 
 }

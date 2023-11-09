@@ -36,6 +36,7 @@ export class ApiHandlerService {
     //TODO set l'id on success
     return this.http.post(this.url + "api/v1/login", data).pipe(
       tap((res: any) => {
+        console.log(res)
         let token = res.key;
         this.cookieService.set('apiToken', token);
         this.updateLoginStatus(true);
