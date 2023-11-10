@@ -81,7 +81,7 @@ export class MangaViewComponent implements OnInit {
   }
 
   fetchData(){
-    this.apiHandlerService.getArtWork(this.artworkId!).subscribe((res: any) => {
+    this.apiHandlerService.getArtwork(this.artworkId!).subscribe((res: any) => {
       this.artworkTitle = res.title;
     });
   }

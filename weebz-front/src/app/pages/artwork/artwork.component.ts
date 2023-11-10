@@ -67,7 +67,8 @@ export class ArtworkComponent implements OnInit {
    * Fetches the artwork data from the backend.
    */
   fetchArtworkData() {
-    this.api.getArtWork(this.artWorkId).subscribe((res: any) => {
+    this.api.getArtwork(this.artWorkId).subscribe((res: any) => {
+      console.log(res);
       this.title = res.title;
       this.synopsis = res.description;
       this.cover = res.coverUrl;

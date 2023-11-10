@@ -42,6 +42,7 @@ import { ChapterRowThumbnailComponent } from './pages/artwork/chapter-row-thumbn
 import { ArtworkThumbnailComponent } from './utils/thumbnails/artwork-thumbnail/artwork-thumbnail.component';
 import { WatchlistComponent } from './pages/watchlist/watchlist.component';
 import { CreateArtworkComponent } from './pages/create-artwork/create-artwork.component';
+import { CreateChapterComponent } from './pages/create-chapter/create-chapter.component';
 
 @NgModule({
   declarations: [
@@ -82,6 +83,7 @@ import { CreateArtworkComponent } from './pages/create-artwork/create-artwork.co
     ArtworkThumbnailComponent,
     WatchlistComponent,
     CreateArtworkComponent,
+    CreateChapterComponent,
   ],
   imports: [
     BrowserModule,

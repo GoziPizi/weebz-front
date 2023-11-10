@@ -16,6 +16,7 @@ import { MyProfileComponent } from './pages/my-profile/my-profile.component';
 import { ArtworkComponent } from './pages/artwork/artwork.component';
 import { WatchlistComponent } from './pages/watchlist/watchlist.component';
 import { CreateArtworkComponent } from './pages/create-artwork/create-artwork.component';
+import { CreateChapterComponent } from './pages/create-chapter/create-chapter.component';
 
 const routes: Routes = [
   { path: 'accueil', component: AccueilComponent },
@@ -33,6 +34,7 @@ const routes: Routes = [
   { path: 'my-profile', component: MyProfileComponent},
   { path: 'watchlist', component: WatchlistComponent},
   { path: 'create-artwork', component: CreateArtworkComponent},
+  { path: 'create-chapter/:artworkId', component: CreateChapterComponent},
   { path: 'not-found', component: PageNotFoundComponent},
   { path: '', redirectTo: '/accueil', pathMatch: 'full' },
   { path: '**', redirectTo: '/not-found'},
