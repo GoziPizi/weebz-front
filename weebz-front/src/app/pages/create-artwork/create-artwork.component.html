@@ -1,0 +1,72 @@
+<div class="container-fluid">
+    <div class="upload-header">
+
+    </div>
+    <div class="row">
+        <div class="side-bar col-3">
+            <h2 class="drop-title">Couverture de l'oeuvre</h2>
+            <div 
+                class="drop-zone"
+                (dragover)="onDragOver($event)"
+                (drop)="onDropCover($event)"
+                (click)="triggerFileInputCover()">
+                    <p *ngIf="!coverPreviewSrc">Cover</p>
+                    <img 
+                        *ngIf="coverPreviewSrc"
+                        [src]="coverPreviewSrc"
+                        alt="Cover Preview"
+                        class="cover-preview"
+                    >
+            </div>
+            <input 
+                #fileCoverInput
+                type="file"
+                style="display: none;"
+                (change)="onFileSelectedCover($event)"
+            >
+            <h2 class="drop-title">Background de l'oeuvre</h2>
+            <div 
+                class="drop-zone"
+                (dragover)="onDragOver($event)"
+                (drop)="onDropBackground($event)"
+                (click)="triggerFileInputBackground()">
+                    <p *ngIf="!backgroundPreviewSrc">Background</p>
+                    <img 
+                        *ngIf="backgroundPreviewSrc"
+                        [src]="backgroundPreviewSrc"
+                        alt="Background Preview"
+                        class="background-preview"
+                    >
+            </div>
+            <input 
+                #fileBackgroundInput
+                type="file"
+                style="display: none;"
+                (change)="onFileSelectedBackground($event)"
+            >
+
+        </div>
+        <div class="main-content col-9">
+            <h2>Type d'oeuvre</h2>
+            <div class="row">
+                <span [ngClass]="{'selected': isMangaSelected}" class="artwork-type-selector" (click)="onMangaClick()">Manga</span>
+                <span [ngClass]="{'selected': isWebtoonSelected}" class="artwork-type-selector" (click)="onWebtoonClick()">Webtoon</span>
+                <span [ngClass]="{'selected': isLightNovelSelected}" class="artwork-type-selector" (click)="onLightNovelClick()">Light-Novel</span>
+            </div>
+            <h2>Informations générales</h2>
+            <h3>Titre</h3>
+            <input [(ngModel)]="title" type="text" class="text-input">
+            <h3>Résumé</h3>
+            <textarea name="" [(ngModel)]="description" cols="100" rows="10" class="text-input"></textarea>
+            <h3>Maison d'édition</h3>
+            <input type="text" class="text-input">
+            <h3>Rappels</h3>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Inventore iste, maiores exercitationem animi illo quibusdam molestias ipsa nobis rerum eius dolores debitis accusantium sapiente iusto eos cumque vero. Tenetur, voluptatem.</p>
+            <div >
+                <span (click)="onValidate()" id="validate-button" >
+                    Créer L'oeuvre
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
