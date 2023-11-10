@@ -24,7 +24,7 @@ export class ApiHandlerService {
     private http: HttpClient,
     private cookieService: CookieService
     ) {
-      this.id.next(1);
+      this.initilizeToken();
     }
 
   /*
@@ -36,12 +36,24 @@ export class ApiHandlerService {
     //TODO set l'id on success
     return this.http.post(this.url + "api/v1/login", data).pipe(
       tap((res: any) => {
-        console.log(res)
         let token = res.key;
-        this.cookieService.set('apiToken', token);
-        this.updateLoginStatus(true);
+        this.setTokenCookie(token);
       })
     );
+  }
+
+  setTokenCookie(token: string) {
+    const expiration = new Date();
+    expiration.setDate(expiration.getDate() + 5);
+    this.cookieService.set('apiToken', token, expiration);
+    this.updateLoginStatus(true);
+  }
+
+  initilizeToken() {
+    const token = this.cookieService.get('apiToken');
+    if(token) {
+      this.updateLoginStatus(true);
+    }
   }
 
   register(data: any): Observable<any> {
