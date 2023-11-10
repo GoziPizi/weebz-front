@@ -123,4 +123,22 @@ export class ApiHandlerService {
     return this.http.get(this.url + "api/v1/artworks/" + artworkId + "/chapters/pages?chapterIndex=" + chapter);
   }
 
+  /**
+   * 
+   * @param data : {title: string, description: string, type: string, cover: File, background: File}
+   * type : MANGA, WEBTOON, LIGHTNOVEL
+   */
+  postArtwork(data: any): Observable<any> {
+    let headers = {
+      Authorization : this.cookieService.get('apiToken')
+    }
+    let formData = new FormData();
+    formData.append('title', data.title);
+    formData.append('description', data.description);
+    formData.append('type', data.type);
+    formData.append('cover', data.cover);
+    formData.append('background', data.background);
+    return this.http.post(this.url + "api/v1/artworks/", formData, {headers: headers});
+  }
+
 }

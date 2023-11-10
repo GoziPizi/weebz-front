@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { ApiHandlerService } from 'src/app/services/api-handler.service';
 
 @Component({
   selector: 'app-create-artwork',
@@ -23,7 +24,9 @@ export class CreateArtworkComponent implements OnInit {
   title: string = "";
   description: string = "";
 
-  constructor() { }
+  constructor(
+    private apiHandler: ApiHandlerService
+  ) { }
 
   onDragOver(event : any) {
     event.preventDefault();
@@ -96,6 +99,26 @@ export class CreateArtworkComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onValidate() {}
-
+  onValidate() {
+    let type = "";
+    if(this.isLightNovelSelected){
+      type = "LIGHTNOVEL";
+    }
+    else if(this.isWebtoonSelected){
+      type = "WEBTOON";
+    }
+    else if(this.isMangaSelected){
+      type = "MANGA";
+    let data = {
+      title: this.title,
+      description: this.description,
+      type: type,
+      cover: this.cover,
+      background: this.background
+    }
+    this.apiHandler.postArtwork(data).subscribe((res:any) => {
+      console.log(res);
+    });
+  }
+  }
 }
