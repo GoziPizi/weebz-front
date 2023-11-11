@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
 export class CreateChapterComponent implements OnInit {
 
   artworkId: number = 0;
+  title: string = "";
   coverUrl: string = "";
   backgroundUrl: string = "";
 
@@ -31,6 +32,7 @@ export class CreateChapterComponent implements OnInit {
     this.apiHandler.getArtwork(this.artworkId).subscribe((res: any) => {
       this.coverUrl = res.coverUrl;
       this.backgroundUrl = res.backgroundImageUrl;
+      this.title = res.title;
     });
   }
 

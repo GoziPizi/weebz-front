@@ -1,1 +1,21 @@
-<img [src]="coverUrl">
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-3">
+            <div class="side-bar-header">
+                <h3>{{title}}</h3>
+                <img [src]="coverUrl" alt="Cover Preview" class="cover-preview">
+            </div>
+        </div>
+        <div class="col-9">
+            <div class="row">
+                <h3>Informations Générales</h3>
+                <p>Titre </p>
+                <input type="text">
+                <h3>Couverture du chapitre (optionnel)</h3>
+                <div class="drop-zone"></div>
+                <h3>Pages du chapitre</h3>
+                <app-upload-pages></app-upload-pages>
+            </div>
+        </div>
+    </div>
+</div>

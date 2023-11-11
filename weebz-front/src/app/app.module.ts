@@ -43,6 +43,8 @@ import { ArtworkThumbnailComponent } from './utils/thumbnails/artwork-thumbnail/
 import { WatchlistComponent } from './pages/watchlist/watchlist.component';
 import { CreateArtworkComponent } from './pages/create-artwork/create-artwork.component';
 import { CreateChapterComponent } from './pages/create-chapter/create-chapter.component';
+import { UploadPagesComponent } from './pages/create-chapter/upload-pages/upload-pages.component';
+import { UploadedPageComponent } from './pages/create-chapter/uploaded-page/uploaded-page.component';
 
 @NgModule({
   declarations: [
@@ -84,6 +86,8 @@ import { CreateChapterComponent } from './pages/create-chapter/create-chapter.co
     WatchlistComponent,
     CreateArtworkComponent,
     CreateChapterComponent,
+    UploadPagesComponent,
+    UploadedPageComponent,
   ],
   imports: [
     BrowserModule,
