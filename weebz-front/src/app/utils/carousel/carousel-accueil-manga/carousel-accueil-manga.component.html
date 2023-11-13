@@ -1,15 +1,13 @@
 <div class="carousel-title texte-souligne">
-  <h2>Mangas</h2>
+  <h2>Nos Mangas</h2>
 </div>
 <div class="carousel-container row">
-  <div class="carousel-header col-4">
-    <p class="carousel-subtitle">Découvrez une sélection de nos mangas les plus populaires</p>
-  </div>
-  <div class="carousel-content col-8">
+  
+  <div class="carousel-content col-8 offset-1">
     <div class="carousel row">
       <ng-container *ngFor="let item of carouselItems; let i = index">
         <app-carousel-item-accueil
-          class="col-2"
+          class="col-3"
           [image]="item.image" 
           [text]="item.text" 
           [artworkId]="item.artworkId">

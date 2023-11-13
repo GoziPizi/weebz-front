@@ -3,18 +3,37 @@
         <div class="col-3">
             <div class="side-bar-header">
                 <h3>{{title}}</h3>
-                <img [src]="coverUrl" alt="Cover Preview" class="cover-preview">
+                <img [src]="coverUrl" alt="artwork Cover" class="cover-preview">
             </div>
         </div>
-        <div class="col-9">
+        <div class="col-9 main-container">
+            <h3>Informations Générales</h3>
             <div class="row">
-                <h3>Informations Générales</h3>
-                <p>Titre </p>
-                <input type="text">
-                <h3>Couverture du chapitre (optionnel)</h3>
-                <div class="drop-zone"></div>
-                <h3>Pages du chapitre</h3>
-                <app-upload-pages></app-upload-pages>
+                <span>Titre du chapitre :</span>
+                <input type="text" class="text-input">
+            </div>
+            <h3>Couverture du chapitre (optionnel) :</h3>
+            <div class="row">
+                <div 
+                    class="drop-zone col-2"
+                    (dragover)="onDragOverChapterCover($event)"
+                    (drop)="onDropChapterCover($event)"
+                    (click)="triggerFileInputChapterCover()"
+                >   
+                    <span *ngIf="!chapterCoverUrl">Déposer ou clicker</span>
+                    <img *ngIf="chapterCoverUrl" [src]="chapterCoverUrl" class="image-chapter">
+                </div>
+                <input
+                    #chapterCoverInput
+                    type="file"
+                    style="display:none;"
+                    (change)="onFileSelectedChapterCover($event)"
+                >
+            </div>
+            <h3>Pages du chapitre</h3>
+            <app-upload-pages #pagesUploadComponent class="upload-pages"></app-upload-pages>
+            <div>
+                <span class="validate-button" (click)="onSubmit()">Valider</span>
             </div>
         </div>
     </div>

@@ -1,4 +1,8 @@
 .drop-zone {
-    background-color: #222;
-    padding: 10em;
+    background-color: #999;
+    width: 100%;
+    
+    &:hover {
+        background-color: #000;
+    }
 }

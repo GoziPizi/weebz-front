@@ -34,10 +34,14 @@ export class UploadPagesComponent implements OnInit {
       const page:Page = {
         image: files[i],
         imageSrc: reader.result as string,
-        index: i
+        index: this.pages.length + i + 1 //Index en comptage naturel
       }
       this.pages.push(page)
     }
+  }
+
+  getPageList() {
+    return this.pages;
   }
 
 }

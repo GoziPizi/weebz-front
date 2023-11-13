@@ -1,15 +1,7 @@
-<div class="container-fluid">
-    <div 
-        class="drop-zone"
-        (dragover)="onDragOver($event)"
-        (drop)="onDrop($event)"
-    >
-        <app-uploaded-page
-            *ngFor="let page of pages"
-            [page]="page"
-        >
-
-        </app-uploaded-page>
-    </div>
-
+<div class="drop-zone row" (dragover)="onDragOver($event)" (drop)="onDrop($event)">
+    <app-uploaded-page
+        *ngFor="let page of pages"
+        [page]="page"
+        class="col-3"
+    ></app-uploaded-page>
 </div>

@@ -141,4 +141,26 @@ export class ApiHandlerService {
     return this.http.post(this.url + "api/v1/artworks/", formData, {headers: headers});
   }
 
+  postChapter(data: any, artworkId: number): Observable<any> {
+    let headers = {
+      Authorization : this.cookieService.get('apiToken')
+    }
+    let formData = new FormData();
+    formData.append('title', data.title);
+    formData.append('cover', data.cover);
+    formData.append('index', data.index);
+    //TODO refaire apres le reroute
+    return this.http.post(this.url + "api/v1/artworks/" + artworkId + "/chapters", formData, {headers: headers});
+  }
+
+  postPage(data: any, artworkId: number, chapterIndex: number): Observable<any> {
+    //TODO refaire apres le reroute
+    let headers = {
+      Authorization : this.cookieService.get('apiToken')
+    }
+    let formData = new FormData();
+    formData.append('page', data.page);
+    formData.append('index', data.index);
+    return this.http.post(this.url + "api/v1/artworks/" + artworkId + "/chapters/10/pages?chapterIndex=" + chapterIndex, formData, {headers: headers});
+  }
 }

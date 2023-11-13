@@ -9,10 +9,19 @@ import { Page } from '../page';
 export class UploadedPageComponent implements OnInit {
 
   @Input() page!: Page;
+  isDeleteShown: boolean = false;
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  onMouseEnter() {
+    this.isDeleteShown = true;
+  }
+
+  onMouseLeave() {
+    this.isDeleteShown = false;
   }
 
 }
