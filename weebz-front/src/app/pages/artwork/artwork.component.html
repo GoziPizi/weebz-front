@@ -13,6 +13,9 @@
                 <h2>{{title}}</h2>
                 <h4>Synopsis</h4>
                 <p>{{synopsis}}</p>
+                <div class="shop-overview">
+                    <img class="shop-preview" src="../../../assets/fixtures/artwork-page/38.png">
+                </div>
                 <div class="button-container">
                     <button class="socials-button btn btn-primary">
                         <i class="fa-solid fa-user-plus"></i>
@@ -23,12 +26,11 @@
                         Like
                     </button>
                 </div>
-                <div class="shop-overview">
-                    TODO : SHOP OVERVIEW
-                </div>
             </div>
         </div>
     </div>
+
+    <h2 class="chapters-title">Chapitres</h2>
 
     <div class="slider-container" (wheel)="onWheel($event)">
         <div class="slider-content" [style.transform]="getTranslateX()">
