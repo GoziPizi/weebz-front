@@ -46,6 +46,7 @@ import { CreateChapterComponent } from './pages/create-chapter/create-chapter.co
 import { UploadPagesComponent } from './pages/create-chapter/upload-pages/upload-pages.component';
 import { UploadedPageComponent } from './pages/create-chapter/uploaded-page/uploaded-page.component';
 import { AccueilWeebzNewsComponent } from './pages/accueil/accueil-weebz-news/accueil-weebz-news.component';
+import { AccueilWeebzAuteursComponent } from './pages/accueil/accueil-weebz-auteurs/accueil-weebz-auteurs.component';
 
 @NgModule({
   declarations: [
@@ -90,6 +91,7 @@ import { AccueilWeebzNewsComponent } from './pages/accueil/accueil-weebz-news/ac
     UploadPagesComponent,
     UploadedPageComponent,
     AccueilWeebzNewsComponent,
+    AccueilWeebzAuteursComponent,
   ],
   imports: [
     BrowserModule,

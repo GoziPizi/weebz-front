@@ -30,7 +30,7 @@
   position: absolute;
   left: 0;
   right: 0;
-  bottom: 0; /* vous pouvez ajuster cette valeur pour déplacer le soulignement vers le haut ou vers le bas */
+  bottom: -1em; /* vous pouvez ajuster cette valeur pour déplacer le soulignement vers le haut ou vers le bas */
   height: 3px; /* épaisseur du soulignement */
   background-color: #ff6400; /* couleur du soulignement */
 
