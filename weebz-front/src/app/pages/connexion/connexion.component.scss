@@ -51,6 +51,11 @@ input {
     margin-top: 1em;
     margin-bottom: 1em;
     border-radius: 10px;
+
+    &:hover {
+        background-color: #DFC643;
+        color: black;
+    }
 }
 
 .inscription {
