@@ -45,6 +45,7 @@ import { CreateArtworkComponent } from './pages/create-artwork/create-artwork.co
 import { CreateChapterComponent } from './pages/create-chapter/create-chapter.component';
 import { UploadPagesComponent } from './pages/create-chapter/upload-pages/upload-pages.component';
 import { UploadedPageComponent } from './pages/create-chapter/uploaded-page/uploaded-page.component';
+import { AccueilWeebzNewsComponent } from './pages/accueil/accueil-weebz-news/accueil-weebz-news.component';
 
 @NgModule({
   declarations: [
@@ -88,6 +89,7 @@ import { UploadedPageComponent } from './pages/create-chapter/uploaded-page/uplo
     CreateChapterComponent,
     UploadPagesComponent,
     UploadedPageComponent,
+    AccueilWeebzNewsComponent,
   ],
   imports: [
     BrowserModule,
