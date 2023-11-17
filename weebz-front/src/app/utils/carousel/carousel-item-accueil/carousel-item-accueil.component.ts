@@ -10,13 +10,15 @@ export class CarouselItemAccueilComponent implements OnInit {
   
   @Input() image: string;
   @Input() text: string;
+  @Input() text2: string;
   @Input() artworkId: string;
   
   constructor(
     private router: Router
   ) {
     this.image = '';
-    this.text = '';
+    this.text = 'Titre';
+    this.text2 = 'Auteur';
     this.artworkId = '';
   }
 
