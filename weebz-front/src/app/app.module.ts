@@ -48,6 +48,12 @@ import { UploadedPageComponent } from './pages/create-chapter/uploaded-page/uplo
 import { AccueilWeebzNewsComponent } from './pages/accueil/accueil-weebz-news/accueil-weebz-news.component';
 import { AccueilWeebzAuteursComponent } from './pages/accueil/accueil-weebz-auteurs/accueil-weebz-auteurs.component';
 import { CguComponent } from './pages/mentions-legales/cgu/cgu.component';
+import { AccueilBoutiqueComponent } from './pages/boutique/accueil-boutique/accueil-boutique.component';
+import { PageProduitComponent } from './pages/boutique/page-produit/page-produit.component';
+import { MonPanierComponent } from './pages/boutique/mon-panier/mon-panier.component';
+import { AllBoutiqueComponent } from './pages/boutique/all-boutique/all-boutique.component';
+import { RechercheBoutiqueComponent } from './pages/boutique/recherche-boutique/recherche-boutique.component';
+import { ConnectedDropdownComponent } from './main-header/connected-dropdown/connected-dropdown.component';
 
 @NgModule({
   declarations: [
@@ -94,6 +100,12 @@ import { CguComponent } from './pages/mentions-legales/cgu/cgu.component';
     AccueilWeebzNewsComponent,
     AccueilWeebzAuteursComponent,
     CguComponent,
+    AccueilBoutiqueComponent,
+    PageProduitComponent,
+    MonPanierComponent,
+    AllBoutiqueComponent,
+    RechercheBoutiqueComponent,
+    ConnectedDropdownComponent,
   ],
   imports: [
     BrowserModule,

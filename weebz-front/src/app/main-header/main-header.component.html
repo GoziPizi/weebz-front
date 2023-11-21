@@ -52,8 +52,8 @@
             <a routerLink="/watchlist"><i class="header-icon fa-regular fa-xl fa-star"></i></a>
           </div>
           <div class="col-3 login-container ">
-              <a routerLink="/my-profile"><i *ngIf="loggedIn" class="header-icon fa-solid fa-xl fa-user-check"></i></a>
               <a routerLink="/connexion"><i *ngIf="!loggedIn" class="header-icon fa-solid fa-xl fa-share-from-square"></i></a>
+              <app-connected-dropdown *ngIf="loggedIn" class="connected-dropdown" #connectedDropdown></app-connected-dropdown>
           </div>
         </div>
       </div>
