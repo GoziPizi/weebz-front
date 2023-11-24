@@ -7,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ConnectedDropdownComponent implements OnInit {
 
+  pseudo: string = "Pseudo";
+  profilePicture: string = "../../../assets/profile_picture.png";
+
   constructor() { }
 
   ngOnInit(): void {

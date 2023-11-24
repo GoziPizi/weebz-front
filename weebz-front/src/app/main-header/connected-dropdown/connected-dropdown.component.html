@@ -1,23 +1,30 @@
 <div class="dropdown-container">
     <a routerLink="/my-profile"><i class="header-icon fa-solid fa-xl fa-user-check"></i></a>
     <div class="dropdown-content">
-        <div class="dropdown-item">
-            <p>BOUTON</p>
+        <div class="dropdown-header">
+            <div class="row align-items-center">
+                <img class="profile-picture col-3" src="{{profilePicture}}">
+                <h3 class="col-6 pseudo" >{{pseudo}}</h3>
+            </div>
+            
         </div>
         <div class="dropdown-item">
-            <p>BOUTON</p>
+            <i class="fa-regular fa-bookmark dropdown-icon fa-xl"></i><p class="col-9">Favoris</p>
         </div>
         <div class="dropdown-item">
-            <p>BOUTON</p>
+            <i class="fa-regular fa-user dropdown-icon fa-xl"></i><p>Mon Compte</p>
         </div>
         <div class="dropdown-item">
-            <p>BOUTON</p>
+            <i class="fa-solid fa-clock-rotate-left dropdown-icon fa-xl"></i><p>Historique</p>
         </div>
         <div class="dropdown-item">
-            <p>BOUTON</p>
+            <i class="fa-solid fa-award dropdown-icon fa-xl"></i><p>Récompenses</p>
         </div>
         <div class="dropdown-item">
-            <p>BOUTON</p>
+            <i class="fa-regular fa-bell dropdown-icon fa-xl"></i><p>Notifications</p>
+        </div>
+        <div class="dropdown-item">
+            <i class="fa-solid fa-right-from-bracket dropdown-icon fa-xl"></i><p>Déconnexion</p>
         </div>  
     </div>
 </div>
