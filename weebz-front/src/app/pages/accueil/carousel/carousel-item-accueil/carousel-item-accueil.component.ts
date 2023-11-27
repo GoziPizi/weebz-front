@@ -11,11 +11,8 @@ export class CarouselItemAccueilComponent implements OnInit {
   @Input() image: string;
   @Input() text: string;
   @Input() text2: string;
-  @Input() synopsis: string;
   @Input() artworkId: string;
-  @Input() faved: boolean;
-  @Input() views: number;
-
+  
   constructor(
     private router: Router
   ) {
@@ -23,28 +20,14 @@ export class CarouselItemAccueilComponent implements OnInit {
     this.text = 'Titre';
     this.text2 = 'Auteur';
     this.artworkId = '';
-    this.synopsis = 'lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nisl eget ultricies ultricies, nunc nisl luctus nisl, quis lacinia nisl nisl eget nisl. Nullam auctor, nisl eget ultricies ultricies, nunc nisl luctus nisl, quis lacinia nisl nisl eget nisl.';
-    this.faved = false;
-    this.views = 0;
   }
 
   ngOnInit(): void {
   }
 
-  ngAfterViewInit(): void {
-    //Tronque le synopsis si trop long
-    this.synopsis = this.synopsis.substring(0, 200)+'...';
-  }
-
   navigate(){
     console.log(this.artworkId);
     this.router.navigate(['/artwork/'+this.artworkId])
-  }
-
-  onFav(event: any){
-    //TODO : Ajouter l'oeuvre aux favoris appel API
-    this.faved = !this.faved;
-    event.stopPropagation();
   }
 
 }

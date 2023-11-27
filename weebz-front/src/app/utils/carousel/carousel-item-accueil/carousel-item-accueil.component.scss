@@ -12,38 +12,62 @@
 }
 
 .carousel-item:hover  {
-    transition: filter 0.3s;
-    filter: brightness(0.5);
-    transition: transform 0.3s;
     transform: scale(1.1);
 }
-  
-/*.carousel-item p {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: white;
-    opacity: 0;
-    transition: opacity 0.5s;
-    text-align: center;
-    width: 90%;
-}
-  
-.carousel-item:hover p {
-    opacity: 1;
-    display: block;
+
+img {
+    transition: filter 0.3s;
 }
 
-p {
-    display: block;
-}*/
+.carousel-item:hover img {
+    filter: brightness(0.1);
+}
+
+.carousel-item:hover .synopsis {
+    visibility: visible;
+}
+
+.synopsis {
+    position: absolute;
+    top: 25%;
+    left: 25%;
+    transform: translate(-25%, -25%);
+    visibility: hidden;
+}
+
+@media only screen and (max-width: 1200px) {
+    .synopsis {
+        font-size: 12px;
+    }
+}
+
+.fav-icon {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0.5em;
+    color: gray;
+    font-size: 1.5em;
+    transition: color 0.3s;
+    visibility: hidden;
+}
+
+.carousel-item:hover .fav-icon {
+    visibility: visible;
+}
+
+.fav-icon:hover {
+    color: white;
+    cursor: pointer;
+    scale: 1.5;
+}
 
 .name {
     padding-top: 0.5em;
     text-align: center;
     justify-content: center;
 }
+
 .author {
     text-align: center;
     justify-content: center;

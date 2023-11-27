@@ -1,0 +1,11 @@
+<div class="carousel-news-container row">
+    <i (click)="onLeftArrowClick()" class="fa-solid fa-arrow-left fa-2x carousel-arrow"></i>
+    <ng-container *ngFor="let item of carouselItems; let i = index">
+        <app-carousel-news-item
+            class="col-4 image-{{i}}"
+            [image]="item.image"
+            [text]="item.text">
+        </app-carousel-news-item>
+    </ng-container>
+    <i (click)="onRightArrowClick()" class="fa-solid fa-arrow-right fa-2x carousel-arrow"></i>
+</div>
