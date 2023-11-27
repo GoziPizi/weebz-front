@@ -8,11 +8,11 @@ import { Component, OnInit } from '@angular/core';
 export class CarouselAccueilNewsComponent implements OnInit {
 
   carouselItems = [
-    { image: '../../../assets/test-news.png', text: 'Texte 0', link: 'link1' },
-    { image: '../../../assets/test-news.png', text: 'Texte 1', link: 'link2' },
-    { image: '../../../assets/test-news.png', text: 'Texte 2', link: 'link2' },
-    { image: '../../../assets/test-news.png', text: 'Texte 3', link: 'link1' },
-    { image: '../../../assets/test-news.png', text: 'Texte 4', link: 'link2' },
+    { image: '../../../assets/fixtures/accueil/news/1.png', text: 'Pain sur la Planche x Weebz', link: 'link1' },
+    { image: '../../../assets/fixtures/accueil/news/2.png', text: 'Kagen x Weebz', link: 'link2' },
+    { image: '../../../assets/fixtures/accueil/news/3.png', text: 'Ink House x Weebz', link: 'link2' },
+    { image: '../../../assets/fixtures/accueil/news/4.png', text: 'Weebz arrive', link: 'link1' },
+    { image: '../../../assets/fixtures/accueil/news/1.png', text: 'Pain sur la Planche x Weebz', link: 'link2' },
   ];
 
   constructor() { }

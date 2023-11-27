@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { ApiHandlerService } from 'src/app/services/api-handler.service';
+import { LoadingServiceService } from 'src/app/services/loading-service.service';
 
 @Component({
   selector: 'app-create-artwork',
@@ -25,7 +26,8 @@ export class CreateArtworkComponent implements OnInit {
   description: string = "";
 
   constructor(
-    private apiHandler: ApiHandlerService
+    private apiHandler: ApiHandlerService,
+    private loadingService: LoadingServiceService
   ) { }
 
   onDragOver(event : any) {
@@ -101,6 +103,7 @@ export class CreateArtworkComponent implements OnInit {
   }
 
   onValidate() {
+    this.loadingService.setLoadingState(true);
     let type = "";
     if(this.isLightNovelSelected){
       type = "LIGHTNOVEL";
@@ -118,7 +121,7 @@ export class CreateArtworkComponent implements OnInit {
       background: this.background
     }
     this.apiHandler.postArtwork(data).subscribe((res:any) => {
-      console.log(res);
+      this.loadingService.setLoadingState(false);
     });
   }
   }

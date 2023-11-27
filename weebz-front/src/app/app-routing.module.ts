@@ -18,6 +18,7 @@ import { WatchlistComponent } from './pages/watchlist/watchlist.component';
 import { CreateArtworkComponent } from './pages/create-artwork/create-artwork.component';
 import { CreateChapterComponent } from './pages/create-chapter/create-chapter.component';
 import { CguComponent } from './pages/mentions-legales/cgu/cgu.component';
+import { PageProduitComponent } from './pages/boutique/page-produit/page-produit.component';
 
 const routes: Routes = [
   { path: 'accueil', component: AccueilComponent },
@@ -36,6 +37,7 @@ const routes: Routes = [
   { path: 'watchlist', component: WatchlistComponent},
   { path: 'create-artwork', component: CreateArtworkComponent},
   { path: 'create-chapter/:artworkId', component: CreateChapterComponent},
+  { path: 'product/:productId', component: PageProduitComponent},
   { path: 'cgu', component: CguComponent},
   { path: 'not-found', component: PageNotFoundComponent},
   { path: '', redirectTo: '/accueil', pathMatch: 'full' },

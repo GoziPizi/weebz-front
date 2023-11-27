@@ -11,9 +11,9 @@ export class MyProfileComponent implements OnInit {
   logedIn = true;
 
   id:number = 0;
-  name = "";
-  surname = "";
-  email = "";
+  name = "Name";
+  surname = "Surname";
+  email = "email";
 
   constructor(
     private api_handler: ApiHandlerService

@@ -42,14 +42,14 @@
   
       <div class="row ml-auto right-side-container align-items-center">
         <div class="col-3 publish-container">
-          <button class="publish-button">Publier</button>
+          <button routerLink="/create-artwork" class="publish-button">Publier</button>
         </div>
         <div class="icons-container d-flex align-items-center">
           <div class="col-3 search-container">
             <a routerLink=""><i class="header-icon fa-solid fa-xl fa-magnifying-glass"></i></a>
           </div>
           <div class="col-3 favorite-container " >
-            <a routerLink="/watchlist"><i class="header-icon fa-regular fa-xl fa-star"></i></a>
+            <a routerLink="/watchlist"><i class="header-icon fa-regular fa-bookmark fa-xl"></i></a>
           </div>
           <div class="col-3 login-container ">
               <a routerLink="/connexion"><i *ngIf="!loggedIn" class="header-icon fa-solid fa-xl fa-share-from-square"></i></a>

@@ -7,19 +7,19 @@
   
 .carousel-news-item {
     transition: filter 0.3s;
-    filter: brightness(1);
     transition: transform 0.3s;
-    transform: scale(1);
+}
+
+.carousel-news-item:hover img{
+    filter: brightness(0.1);
+    transform: scale(1.1);
 }
 
 .carousel-news-item:hover {
-    transition: filter 0.3s;
-    filter: brightness(0.5);
-    transition: transform 0.3s;
     transform: scale(1.1);
 }
   
-.carousel-news-item p {
+.carousel-news-item h3 {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -31,11 +31,11 @@
     width: 90%;
 }
   
-.carousel-news-item:hover p {
+.carousel-news-item:hover h3 {
     opacity: 1;
     display: block;
 }
 
-p {
+h3 {
     display: block;
 }

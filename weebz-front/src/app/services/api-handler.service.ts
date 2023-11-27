@@ -4,6 +4,8 @@ import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { CookieService } from 'ngx-cookie-service';
 import { BehaviorSubject } from 'rxjs';
+import { LoadingServiceService } from './loading-service.service';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +13,7 @@ import { BehaviorSubject } from 'rxjs';
 export class ApiHandlerService {
 
   url = "https://back.weebz.fr/"
+  user: any = {};
 
   //Login status observable
   private isLoggedIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
@@ -22,7 +25,9 @@ export class ApiHandlerService {
 
   constructor(
     private http: HttpClient,
-    private cookieService: CookieService
+    private cookieService: CookieService,
+    private loadingService: LoadingServiceService,
+    private router: Router
     ) {
       this.initilizeToken();
     }
@@ -63,6 +68,7 @@ export class ApiHandlerService {
         ...dataToSend
       }
     }
+    console.log(data_to_send);
     return this.http.post(this.url + "api/v1/users/", data_to_send);
   }
 
@@ -78,6 +84,11 @@ export class ApiHandlerService {
   logout() {
     this.cookieService.set('apiToken',"");
     this.updateLoginStatus(false);
+    this.loadingService.setLoadingState(true);
+    setTimeout(() => {
+      this.loadingService.setLoadingState(false);
+      this.router.navigate(['/accueil']);
+    }, 500);
   }
 
   getUserData(){
@@ -138,7 +149,7 @@ export class ApiHandlerService {
     formData.append('type', data.type);
     formData.append('cover', data.cover);
     formData.append('background', data.background);
-    return this.http.post(this.url + "api/v1/artworks/", formData, {headers: headers});
+    return this.http.post(this.url + "api/v1/artworks", formData, {headers: headers});
   }
 
   postChapter(data: any, artworkId: number): Observable<any> {

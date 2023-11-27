@@ -29,6 +29,7 @@ export class ArtworkComponent implements OnInit {
   tags: string[] = ["tag"];
   rating: number = 0;
   numberOfChapters: number = 0;
+  viewCount: number = 0;
 
   authorId: number|null = null;
   author: string = "Author";

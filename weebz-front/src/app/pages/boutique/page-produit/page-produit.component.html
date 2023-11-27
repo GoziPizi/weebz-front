@@ -1,1 +1,19 @@
-<p>page-produit works!</p>
+<div class="container-fluid">
+    <div class="content" style="background-image: url({{backgroundImage}});">
+        <div class="row"> 
+            <div class="image-container col-2">
+                <img class="product-image" src="{{ productImages[currentProductImage] }}" alt="{{ productName }}">
+                <div class="arrow-container">
+                    <i class="fa-solid fa-arrow-left fa-xl click-arrow" (click)="onLeftArrow()"></i>
+                    <i class="fa-solid fa-arrow-right fa-xl click-arrow" (click)="onRightArrow()"></i>
+                </div>
+            </div>
+            <div class="col-8">
+                <h1>{{ productName }}</h1>
+                <p>{{ productDescription }}</p>
+                <p>{{ productPrice }}€</p>
+                <button class="btn btn-primary">Ajouter au panier</button>
+            </div>
+        </div>
+    </div>
+</div>
