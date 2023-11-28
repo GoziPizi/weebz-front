@@ -87,6 +87,7 @@ export class ArtworkComponent implements OnInit {
 
   onChaptersReceived(res: any) {
     this.chapters = res;
+    this.chapters.sort((a, b) => a.index - b.index);
   }
 
   fetchAuthorData() {

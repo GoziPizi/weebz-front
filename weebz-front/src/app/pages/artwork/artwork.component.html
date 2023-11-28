@@ -43,26 +43,4 @@
             ></app-chapter-thumbnail>
         </div>
     </div>
-    <!--
-    <div class="chapters-container">
-        <h2>Chapitres</h2>
-        <ng-container *ngFor="let i of rows">
-            <div *ngIf="i!=rows.length-1; then thenBlock else elseBlock"></div>
-            <ng-template #thenBlock>
-                <app-chapter-row-thumbnail
-                [startingChapter]="i * chaptersPerRow + 1"
-                [numberOfChapters]="chaptersPerRow"
-                [unrendered]="0"
-            ></app-chapter-row-thumbnail>
-            </ng-template>
-            <ng-template #elseBlock>
-                <app-chapter-row-thumbnail
-                [startingChapter]="i * chaptersPerRow + 1"
-                [numberOfChapters]="chaptersPerRow"
-                [unrendered]="chaptersPerRow - chaptersInLastRow"
-            ></app-chapter-row-thumbnail>
-            </ng-template>
-        </ng-container>
-    </div>-->
-    <!--(mousedown)="onMouseDown($event)" (mouseup)="onMouseUp($event)" (mousemove)="onMouseMove($event)" -->
 </div>

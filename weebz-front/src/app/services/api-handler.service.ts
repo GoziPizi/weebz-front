@@ -131,7 +131,7 @@ export class ApiHandlerService {
   }
 
   getPages(artworkId: number, chapter: number): Observable<any> {
-    return this.http.get(this.url + "api/v1/artworks/" + artworkId + "/chapters" + chapter + "/pages");
+    return this.http.get(this.url + "api/v1/artworks/" + artworkId + "/chapters/" + chapter + "/pages");
   }
 
   /**

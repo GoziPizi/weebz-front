@@ -50,7 +50,6 @@ export class MangaViewComponent implements OnInit {
     this.chapter = Number(this.route.snapshot.paramMap.get('chapter'));
 
     this.fetchPages();
-
     this.fetchData();
 
     this.currentPage.subscribe((page) => {
