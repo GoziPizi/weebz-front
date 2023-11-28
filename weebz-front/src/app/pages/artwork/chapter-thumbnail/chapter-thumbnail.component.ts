@@ -24,6 +24,7 @@ export class ChapterThumbnailComponent implements OnInit {
 
   @Input() artworkId: number;
   @Input() number: number;
+  @Input() id: number;
 
   @Input() image:string="";
   @Input() route:string="";
@@ -35,6 +36,7 @@ export class ChapterThumbnailComponent implements OnInit {
   ) {
     this.artworkId = 0;
     this.number = 0;
+    this.id = 0;
   }
 
   ngOnInit(): void {

@@ -35,14 +35,11 @@ export class ArtworkComponent implements OnInit {
   author: string = "Author";
   authorRoute: string = "/author/1";
 
-  chaptersRoutes: string[] = [];
-  chaptersCovers: string[] = [];
+  chapters: any[] = [];
 
   isDragging: boolean = false;
   startX: number = 0;
   currentTranslateX: number = 0;
-
-  chaptersNumerotation: number[] = [];
 
   constructor(
     private route: ActivatedRoute,
@@ -69,43 +66,31 @@ export class ArtworkComponent implements OnInit {
    */
   fetchArtworkData() {
     this.api.getArtwork(this.artWorkId).subscribe((res: any) => {
-      console.log(res);
-      this.title = res.title;
-      this.synopsis = res.description;
-      this.cover = res.coverUrl;
-      this.background = res.backgroundImageUrl;
-      this.tags = res.tags;
-      this.rating = res.rating;
+      this.onArtworkReceived(res);
     },
-    (err: any) => {
-      this.noIdGiven();
-    }
+    (err: any) => this.noIdGiven()
     );
     this.api.getAllChapters(this.artWorkId).subscribe((res: any) => {
-      this.numberOfChapters = res.length;
-      this.updateCovers(res);
-      this.updateRoutes(res);
-      for(let i = 0; i < this.numberOfChapters; i++) {
-        this.chaptersNumerotation.push(i);
-      }
+      console.log(res);
+      this.onChaptersReceived(res);
     });
+  }
+
+  onArtworkReceived(res: any) {
+    this.title = res.title;
+    this.synopsis = res.description;
+    this.cover = res.coverUrl;
+    this.background = res.backgroundImageUrl;
+    this.tags = res.tags;
+    this.rating = res.rating;
+  }
+
+  onChaptersReceived(res: any) {
+    this.chapters = res;
   }
 
   fetchAuthorData() {
 
-  }
-
-
-  updateCovers(res: any) {
-    for (let i = 0; i < res.length; i++) {
-      this.chaptersCovers.push(res[i].coverUrl);
-    }
-  }
-
-  updateRoutes(res: any) {
-    for (let i = 0; i < res.length; i++) {
-      this.chaptersRoutes.push("/mangaview/" + this.artWorkId + "/" + (i+1));
-    }
   }
 
   onMouseDown(event: MouseEvent): void {

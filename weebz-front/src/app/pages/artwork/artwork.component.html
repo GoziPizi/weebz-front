@@ -35,11 +35,11 @@
     <div class="slider-container" (wheel)="onWheel($event)">
         <div class="slider-content" [style.transform]="getTranslateX()">
             <app-chapter-thumbnail
-                *ngFor="let i of chaptersNumerotation"
-                [number]="i+1"
+                *ngFor="let c of chapters"
+                [number]="c.index"
                 [artworkId]="artWorkId"
-                [route]="chaptersRoutes[i]"
-                [image]="chaptersCovers[i]"
+                [route]="'/mangaview/' + artWorkId + '/' + c.index"
+                [image]="c.coverUrl"
             ></app-chapter-thumbnail>
         </div>
     </div>
