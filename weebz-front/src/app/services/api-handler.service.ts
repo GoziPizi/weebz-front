@@ -14,6 +14,7 @@ export class ApiHandlerService {
 
   url = "https://back.weebz.fr/"
   user: any = {};
+  public user$: BehaviorSubject<any> = new BehaviorSubject<any>({});
 
   //Login status observable
   private isLoggedIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
@@ -43,8 +44,35 @@ export class ApiHandlerService {
       tap((res: any) => {
         let token = res.key;
         this.setTokenCookie(token);
+        this.fetchUserData().subscribe(
+          res => {
+            this.loadingService.setLoadingState(false);
+          },
+          err => {
+            this.user = {};
+            this.isLoggedIn.next(false);
+          }
+        );
       })
     );
+  }
+
+  fetchUserData() {
+    const header = {
+      Authorization : this.cookieService.get('apiToken')
+    }
+    return this.http.get(this.url + "api/v1/users/profile", {headers: header}).pipe(
+      tap((res: any) => {
+        this.user = res;
+        this.user$.next(res);
+        this.id.next(res.id);
+        console.log(this.user);
+      })
+    );
+  }
+
+  getUser() {
+    return this.user;
   }
 
   setTokenCookie(token: string) {
@@ -58,6 +86,15 @@ export class ApiHandlerService {
     const token = this.cookieService.get('apiToken');
     if(token) {
       this.updateLoginStatus(true);
+      this.fetchUserData().subscribe(
+        res => {
+          this.loadingService.setLoadingState(false);
+        },
+        err => {
+          this.user = {};
+          this.isLoggedIn.next(false);
+        }
+      );
     }
   }
 

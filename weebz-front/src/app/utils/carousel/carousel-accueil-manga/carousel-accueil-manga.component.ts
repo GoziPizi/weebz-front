@@ -23,7 +23,8 @@ export class CarouselAccueilMangaComponent implements OnInit {
         this.carouselItems.push({
           image: artwork.coverUrl,
           text: artwork.title,
-          artworkId: artwork.id
+          artworkId: artwork.id,
+          views: artwork.views,
         });
       });
     });

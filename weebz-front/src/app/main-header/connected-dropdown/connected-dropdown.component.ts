@@ -13,7 +13,11 @@ export class ConnectedDropdownComponent implements OnInit {
 
   constructor(
     private apiHandlerService: ApiHandlerService
-  ) { }
+  ) {
+    this.apiHandlerService.user$.subscribe((user: any) => {
+      this.pseudo = user.name;
+    });
+  }
 
   ngOnInit(): void {
   }
