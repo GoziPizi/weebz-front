@@ -105,10 +105,10 @@ export class CreateArtworkComponent implements OnInit {
     this.loadingService.setLoadingState(true);
     let type = "";
     if(this.isLightNovelSelected){
-      type = "LIGHTNOVEL";
+      type = "NOVEL";
     }
     else if(this.isWebtoonSelected){
-      type = "WEBTOON";
+      type = "COMIC";
     }
     else if(this.isMangaSelected){
       type = "MANGA";

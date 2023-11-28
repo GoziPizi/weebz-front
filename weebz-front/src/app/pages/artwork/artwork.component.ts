@@ -58,7 +58,6 @@ export class ArtworkComponent implements OnInit {
   }
 
   noIdGiven() {
-    console.log("No artwork id given");
   }
 
   /**

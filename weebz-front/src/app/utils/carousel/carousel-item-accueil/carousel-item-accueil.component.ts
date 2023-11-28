@@ -33,11 +33,9 @@ export class CarouselItemAccueilComponent implements OnInit {
 
   ngAfterViewInit(): void {
     //Tronque le synopsis si trop long
-    this.synopsis = this.synopsis.substring(0, 200)+'...';
   }
 
   navigate(){
-    console.log(this.artworkId);
     this.router.navigate(['/artwork/'+this.artworkId])
   }
 

@@ -34,7 +34,6 @@ export class InscriptionComponent implements OnInit {
   onSubmit(){
     this.loading_service.setLoadingState(true);
     if(this.registrationForm.valid){
-      console.log(this.registrationForm.value);
       this.api_handler.register(this.registrationForm.value).subscribe(
         (res:any) => {
           this.loading_service.setLoadingState(false);
@@ -43,7 +42,6 @@ export class InscriptionComponent implements OnInit {
         (err:any) => {
           this.loading_service.setLoadingState(false);
           this.showErrorMessage();
-          console.log(err);
         }
       )
     }

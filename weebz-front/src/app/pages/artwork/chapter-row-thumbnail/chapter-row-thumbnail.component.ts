@@ -22,7 +22,6 @@ export class ChapterRowThumbnailComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log(this.unrendered)
     this.row_size = Math.floor(12 / this.numberOfChapters);
     for (let i = 0; i < this.numberOfChapters; i++) {
       if(i < this.numberOfChapters - this.unrendered) {

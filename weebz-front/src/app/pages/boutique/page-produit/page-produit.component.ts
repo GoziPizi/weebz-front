@@ -33,7 +33,6 @@ export class PageProduitComponent implements OnInit {
 
   onRightArrow() {
     this.currentProductImage = (this.currentProductImage + 1) % this.productImages.length;
-    console.log(this.currentProductImage);
   }
 
 }
