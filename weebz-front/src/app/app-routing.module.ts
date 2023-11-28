@@ -8,6 +8,7 @@ import { MangaAccueilComponent } from './pages/manga-accueil/manga-accueil.compo
 import { WebtoonAccueilComponent } from './pages/webtoon-accueil/webtoon-accueil.component';
 import { LightnovelAccueilComponent } from './pages/lightnovel-accueil/lightnovel-accueil.component';
 import { MangaViewComponent } from './pages/manga-view/manga-view.component';
+import { WebtoonViewComponent } from './pages/webtoon-view/webtoon-view.component';
 import { AuteurComponent } from './pages/auteur/auteur.component';
 import { ConnexionComponent } from './pages/connexion/connexion.component';
 import { InscriptionComponent } from './pages/inscription/inscription.component';
@@ -31,6 +32,7 @@ const routes: Routes = [
   { path: 'lightnovel', component: LightnovelAccueilComponent},
   { path: 'artwork/:artworkId', component: ArtworkComponent},
   { path: 'mangaview/:artworkId/:chapter', component: MangaViewComponent},
+  { path: 'webtoonview', component: WebtoonViewComponent},
   { path: 'connexion', component: ConnexionComponent},
   { path: 'inscription', component: InscriptionComponent},
   { path: 'my-profile', component: MyProfileComponent},

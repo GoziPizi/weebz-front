@@ -54,6 +54,7 @@ import { MonPanierComponent } from './pages/boutique/mon-panier/mon-panier.compo
 import { AllBoutiqueComponent } from './pages/boutique/all-boutique/all-boutique.component';
 import { RechercheBoutiqueComponent } from './pages/boutique/recherche-boutique/recherche-boutique.component';
 import { ConnectedDropdownComponent } from './main-header/connected-dropdown/connected-dropdown.component';
+import { WebtoonViewComponent } from './pages/webtoon-view/webtoon-view.component';
 
 @NgModule({
   declarations: [
@@ -106,6 +107,7 @@ import { ConnectedDropdownComponent } from './main-header/connected-dropdown/con
     AllBoutiqueComponent,
     RechercheBoutiqueComponent,
     ConnectedDropdownComponent,
+    WebtoonViewComponent,
   ],
   imports: [
     BrowserModule,
