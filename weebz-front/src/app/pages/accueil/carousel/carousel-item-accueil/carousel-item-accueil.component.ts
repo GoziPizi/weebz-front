@@ -26,7 +26,6 @@ export class CarouselItemAccueilComponent implements OnInit {
   }
 
   navigate(){
-    console.log(this.artworkId);
     this.router.navigate(['/artwork/'+this.artworkId])
   }
 

@@ -19,7 +19,6 @@ export class CarouselAccueilMangaComponent implements OnInit {
 
   fetchCarouselItems() {
     this.apiHandler.getArtworksByType('MANGA').subscribe( (artworks: any) => {
-      console.log(artworks);
       artworks.forEach( (artwork: any) => {
         this.carouselItems.push({
           image: artwork.coverUrl,

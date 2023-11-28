@@ -51,7 +51,6 @@ export class CreateChapterComponent implements OnInit {
     });
     this.apiHandler.getAllChapters(this.artworkId).subscribe((res: any) => {
       this.chaptersNumber = res.length;
-      console.log("Chapters number : " + this.chaptersNumber)
     })
   }
 
@@ -92,7 +91,6 @@ export class CreateChapterComponent implements OnInit {
       cover: this.chapterCover,
       index: this.chaptersNumber+1
     }
-    console.log(chapter);
     this.apiHandler.postChapter(chapter, this.artworkId).subscribe((res: any) => {
       this.postPages(this.chaptersNumber+1);
     },

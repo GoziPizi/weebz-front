@@ -71,7 +71,6 @@ export class ArtworkComponent implements OnInit {
     (err: any) => this.noIdGiven()
     );
     this.api.getAllChapters(this.artWorkId).subscribe((res: any) => {
-      console.log(res);
       this.onChaptersReceived(res);
     });
   }

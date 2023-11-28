@@ -68,7 +68,6 @@ export class ApiHandlerService {
         ...dataToSend
       }
     }
-    console.log(data_to_send);
     return this.http.post(this.url + "api/v1/users/", data_to_send);
   }
 

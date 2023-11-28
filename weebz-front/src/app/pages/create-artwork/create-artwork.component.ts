@@ -54,7 +54,6 @@ export class CreateArtworkComponent implements OnInit {
     reader.readAsDataURL(this.cover);
     reader.onload = () => {
       this.coverPreviewSrc = reader.result;
-      console.log(this.coverPreviewSrc);
     }
   }
 

@@ -71,7 +71,6 @@ export class MangaViewComponent implements OnInit {
     this.apiHandlerService.getPages(this.artworkId!, this.chapter!).subscribe((res: any) => {
       this.pages = res;
       this.pages.sort((a, b) => a.index - b.index);
-      console.log(this.pages)
       this.pageCount = this.pages.length;
       for(let i = 0; i < this.pages.length; i++) {
         this.pagesUrl.push(this.pages[i]["pageUrl"]);
