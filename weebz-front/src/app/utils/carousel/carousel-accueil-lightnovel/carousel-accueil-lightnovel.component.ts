@@ -26,6 +26,8 @@ export class CarouselAccueilLightnovelComponent implements OnInit {
           text: artwork.title,
           artworkId: artwork.id,
           views: artwork.views,
+          description: artwork.description,
+          author: artwork.author
         });
       });
     });

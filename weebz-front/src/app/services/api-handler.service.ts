@@ -66,7 +66,6 @@ export class ApiHandlerService {
         this.user = res;
         this.user$.next(res);
         this.id.next(res.id);
-        console.log(this.user);
       })
     );
   }
@@ -86,15 +85,6 @@ export class ApiHandlerService {
     const token = this.cookieService.get('apiToken');
     if(token) {
       this.updateLoginStatus(true);
-      this.fetchUserData().subscribe(
-        res => {
-          this.loadingService.setLoadingState(false);
-        },
-        err => {
-          this.user = {};
-          this.isLoggedIn.next(false);
-        }
-      );
     }
   }
 
@@ -125,14 +115,6 @@ export class ApiHandlerService {
       this.loadingService.setLoadingState(false);
       this.router.navigate(['/accueil']);
     }, 500);
-  }
-
-  getUserData(){
-    let headers = {
-      Authorization : this.cookieService.get('apiToken')
-    }
-    let id = this.id.getValue();
-    return this.http.get(this.url + "api/v1/users/" + id, {headers: headers});
   }
 
   createUser(data: any): Observable<any> {
@@ -209,5 +191,16 @@ export class ApiHandlerService {
     formData.append('page', data.page);
     formData.append('index', data.index);
     return this.http.post(this.url + "api/v1/artworks/" + artworkId + "/chapters/10/pages?chapterIndex=" + chapterIndex, formData, {headers: headers});
+  }
+
+  updateProfilePicture(picture: File) {
+    let headers = {
+      Authorization : this.cookieService.get('apiToken')
+    }
+
+    const formData = new FormData();
+    formData.append('profile-picture', picture);
+
+    return this.http.patch(this.url + "api/v1/users/profile/profile-picture", formData, {headers: headers});
   }
 }

@@ -3,7 +3,7 @@
     <p class="synopsis">{{synopsis}}</p>
     <h3 class="name">{{text}}</h3>
     <p class="author">{{text2}}</p>
-    <p>{{views}} vues</p>
+    <p class="views">{{views}} vues</p>
     <div class="fav-icon">
         <i *ngIf="!faved" (click)="onFav($event)" class="fa-regular fa-bookmark fa-xl"></i>
         <i *ngIf="faved" (click)="onFav($event)" class="fa-solid fa-bookmark fa-xl"></i>

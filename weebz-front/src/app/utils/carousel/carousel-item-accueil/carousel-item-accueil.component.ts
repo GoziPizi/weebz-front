@@ -23,16 +23,14 @@ export class CarouselItemAccueilComponent implements OnInit {
     this.text = 'Titre';
     this.text2 = 'Auteur';
     this.artworkId = '';
-    this.synopsis = 'lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nisl eget ultricies ultricies, nunc nisl luctus nisl, quis lacinia nisl nisl eget nisl. Nullam auctor, nisl eget ultricies ultricies, nunc nisl luctus nisl, quis lacinia nisl nisl eget nisl.';
+    this.synopsis = '';
     this.faved = false;
     this.views = 0;
   }
 
   ngOnInit(): void {
-  }
-
-  ngAfterViewInit(): void {
-    //Tronque le synopsis si trop long
+    this.synopsis = this.synopsis.substring(0,250);
+    this.synopsis += '...';
   }
 
   navigate(){

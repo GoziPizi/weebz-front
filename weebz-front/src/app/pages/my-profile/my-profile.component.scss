@@ -13,3 +13,33 @@
 .main-content {
     padding: 3em;
 }
+
+.surname {
+    margin-top: 2em;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.modif-profile-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    visibility: hidden;
+    transition: transform 0.3s 
+}
+
+.image-container {
+    position: relative;
+}
+
+.image-container:hover img {
+    opacity: 25%;
+    cursor: pointer;
+}
+
+.image-container:hover .modif-profile-icon {
+    cursor: pointer;
+    visibility: visible;
+    transform: scale(1.5) translate(-25%, -25%);
+}

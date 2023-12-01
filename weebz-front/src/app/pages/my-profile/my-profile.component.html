@@ -2,8 +2,18 @@
     <div class="row">
         <div class="side-bar col-2">
             <div class="side-bar-header">
-                <img id="profile-picture"src="../../../assets/icon.png">
-                <h3>{{name}}</h3>
+                <div class="image-container">
+                    <img id="profile-picture" src="{{showedPicture}}" (click)="triggerFileInput()">
+                    <i class="fa-solid fa-plus fa-2x modif-profile-icon" (click)="triggerFileInput()"></i>
+                    <input #newPictureInput type="file" style="display:none;" (change)="onFileSelected($event)"> 
+                </div>
+                <div *ngIf="!isPictureValid">
+                    <p class="error-message">Le format de l'image doit être 1:1</p>
+                </div>
+                <div *ngIf="pictureEdition">
+                    <button class="btn btn-primary" (click)="updateProfilePicture()" [disabled]="!isPictureValid" >Modifier</button>
+                </div>
+                <h3 class="surname">{{surname}}</h3>
             </div>
         </div>
         <div class="main-content col-10">

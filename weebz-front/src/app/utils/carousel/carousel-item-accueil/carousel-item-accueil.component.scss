@@ -35,12 +35,6 @@ img {
     visibility: hidden;
 }
 
-@media only screen and (max-width: 1200px) {
-    .synopsis {
-        font-size: 12px;
-    }
-}
-
 .fav-icon {
     position: absolute;
     top: 0;
@@ -53,6 +47,10 @@ img {
 }
 
 .carousel-item:hover .fav-icon {
+    visibility: visible;
+}
+
+.carousel-item:hover .views {
     visibility: visible;
 }
 
@@ -71,4 +69,15 @@ img {
 .author {
     text-align: center;
     justify-content: center;
+}
+
+.views {
+
+    visibility: hidden;
+}
+
+@media only screen and (max-width: 1600px) {
+    .synopsis {
+        font-size: 12px;
+    }
 }

@@ -16,6 +16,9 @@ export class ConnectedDropdownComponent implements OnInit {
   ) {
     this.apiHandlerService.user$.subscribe((user: any) => {
       this.pseudo = user.name;
+      if(user.pictureUrl != ""){
+        this.profilePicture = user.pictureUrl;
+      }
     });
   }
 

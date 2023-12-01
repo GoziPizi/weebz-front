@@ -26,6 +26,7 @@ export class CarouselAccueilWebtoonComponent implements OnInit {
           text: artwork.title,
           artworkId: artwork.id,
           views: artwork.views,
+          description: artwork.description
         });
       });
     });

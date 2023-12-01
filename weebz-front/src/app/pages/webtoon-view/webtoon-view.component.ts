@@ -11,14 +11,7 @@ export class WebtoonViewComponent implements OnInit {
   @ViewChild('liseuseContainer') liseuseContainer!: ElementRef;
 
   images: string[] = [
-    "../../../assets/test-accueil.png",
-    "../../../assets/test-accueil.png",
-    "../../../assets/test-accueil.png",
-    "../../../assets/test-accueil.png",
-    "../../../assets/test-accueil.png",
-    "../../../assets/test-accueil.png",
-    "../../../assets/test-accueil.png",
-    "../../../assets/test-accueil.png"
+    "../../../assets/fixtures/webtoonview/1.jpg"
   ]
 
   artworkTitle: string = "Webtoon View";
