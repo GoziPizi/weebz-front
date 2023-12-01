@@ -1,0 +1,19 @@
+<div class="carousel-title texte-souligne" [ngStyle]="{'--couleur-fond-after': color}">
+    <h2>{{title}}</h2>
+</div>
+<div class="carousel-container row"> 
+    <div class="carousel-content col-11 offset-1">
+        <div class="carousel row">
+            <ng-container *ngFor="let item of carouselItems; let i = index">
+                <app-artwork-carousel-item
+                    class="col-2"
+                    [image]="item.image" 
+                    [text]="item.text" 
+                    [artworkId]="item.artworkId"
+                    [views]="item.views"
+                    [synopsis]="item.description">
+                </app-artwork-carousel-item>
+            </ng-container>
+        </div>
+    </div>
+</div>

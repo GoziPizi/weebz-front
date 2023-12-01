@@ -1,13 +1,14 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 
+
 @Component({
-  selector: 'app-carousel-item-accueil',
-  templateUrl: './carousel-item-accueil.component.html',
-  styleUrls: ['./carousel-item-accueil.component.scss']
+  selector: 'app-artwork-carousel-item',
+  templateUrl: './artwork-carousel-item.component.html',
+  styleUrls: ['./artwork-carousel-item.component.scss']
 })
-export class CarouselItemAccueilComponent implements OnInit {
-  
+export class ArtworkCarouselItemComponent implements OnInit {
+
   @Input() image: string;
   @Input() text: string;
   @Input() text2: string;

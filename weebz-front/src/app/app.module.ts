@@ -17,10 +17,6 @@ import { WebtoonAccueilComponent } from './pages/webtoon-accueil/webtoon-accueil
 import { LightnovelAccueilComponent } from './pages/lightnovel-accueil/lightnovel-accueil.component';
 import { MangaViewComponent } from './pages/manga-view/manga-view.component';
 import { MangaLiseuseComponent } from './pages/manga-view/manga-liseuse/manga-liseuse.component';
-import { CarouselAccueilMangaComponent } from './utils/carousel/carousel-accueil-manga/carousel-accueil-manga.component';
-import { CarouselItemAccueilComponent } from './utils/carousel/carousel-item-accueil/carousel-item-accueil.component';
-import { CarouselAccueilWebtoonComponent } from './utils/carousel/carousel-accueil-webtoon/carousel-accueil-webtoon.component';
-import { CarouselAccueilLightnovelComponent } from './utils/carousel/carousel-accueil-lightnovel/carousel-accueil-lightnovel.component';
 import { CarouselAccueilNewsComponent } from './utils/carousel/carousel-accueil-news/carousel-accueil-news.component';
 import { CarouselNewsItemComponent } from './utils/carousel/carousel-accueil-news/carousel-news-item/carousel-news-item.component';
 import { AuteurComponent } from './pages/auteur/auteur.component';
@@ -55,6 +51,8 @@ import { AllBoutiqueComponent } from './pages/boutique/all-boutique/all-boutique
 import { RechercheBoutiqueComponent } from './pages/boutique/recherche-boutique/recherche-boutique.component';
 import { ConnectedDropdownComponent } from './main-header/connected-dropdown/connected-dropdown.component';
 import { WebtoonViewComponent } from './pages/webtoon-view/webtoon-view.component';
+import { CarouselArtworkComponent } from './pages/accueil/artwork-carousel/artwork-carousel.component';
+import { ArtworkCarouselItemComponent } from './pages/accueil/artwork-carousel/artwork-carousel-item/artwork-carousel-item.component';
 
 @NgModule({
   declarations: [
@@ -71,10 +69,6 @@ import { WebtoonViewComponent } from './pages/webtoon-view/webtoon-view.componen
     LightnovelAccueilComponent,
     MangaViewComponent,
     MangaLiseuseComponent,
-    CarouselAccueilMangaComponent,
-    CarouselItemAccueilComponent,
-    CarouselAccueilWebtoonComponent,
-    CarouselAccueilLightnovelComponent,
     CarouselAccueilNewsComponent,
     CarouselNewsItemComponent,
     AuteurComponent,
@@ -108,6 +102,8 @@ import { WebtoonViewComponent } from './pages/webtoon-view/webtoon-view.componen
     RechercheBoutiqueComponent,
     ConnectedDropdownComponent,
     WebtoonViewComponent,
+    CarouselArtworkComponent,
+    ArtworkCarouselItemComponent,
   ],
   imports: [
     BrowserModule,
