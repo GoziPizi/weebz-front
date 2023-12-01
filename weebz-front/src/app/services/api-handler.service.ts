@@ -30,16 +30,24 @@ export class ApiHandlerService {
     private loadingService: LoadingServiceService,
     private router: Router
     ) {
-      this.initilizeToken();
+      this.initilize();
     }
 
-  /*
-  * POST 
-  * @param data : {login: string, password: string}
-  * @return Observable : {key: string, created: string, expiration: string}
-  */
+  initilize() {
+    this.updateLoginStatus(false);
+    const token = this.cookieService.get('apiToken');
+    if(token) {
+      this.validateToken().subscribe({
+        error: err => {
+          this.updateLoginStatus(false);
+          this.loadingService.setLoadingState(false);
+          this.router.navigate(['/connexion']);
+        }
+      })
+    }
+  }
+
   login(data: any): Observable<any> {
-    //TODO set l'id on success
     return this.http.post(this.url + "api/v1/login", data).pipe(
       tap((res: any) => {
         let token = res.key;
@@ -53,6 +61,17 @@ export class ApiHandlerService {
             this.isLoggedIn.next(false);
           }
         );
+      })
+    );
+  }
+
+  validateToken() {
+    const header = {
+      Authorization : this.cookieService.get('apiToken')
+    }
+    return this.http.get(this.url + "api/v1/login/check", {headers: header}).pipe(
+      tap((res: any) => {
+        this.updateLoginStatus(true);
       })
     );
   }
@@ -79,13 +98,6 @@ export class ApiHandlerService {
     expiration.setDate(expiration.getDate() + 5);
     this.cookieService.set('apiToken', token, expiration);
     this.updateLoginStatus(true);
-  }
-
-  initilizeToken() {
-    const token = this.cookieService.get('apiToken');
-    if(token) {
-      this.updateLoginStatus(true);
-    }
   }
 
   register(data: any): Observable<any> {
