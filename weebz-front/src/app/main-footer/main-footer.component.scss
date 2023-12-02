@@ -1,3 +1,5 @@
+@import 'src/_variables.scss';
+
 .footer {
     background-color: black;
     width: 100%;
@@ -9,8 +11,9 @@
     text-decoration: none;
 }
 
-.logos {
-    margin-top: 2em;
+.logos i {
+    padding: 0.5em;
+    color: $orange;
 }
 
 .bottom-footer {
