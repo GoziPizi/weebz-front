@@ -21,7 +21,7 @@ import { CreateChapterComponent } from './pages/create-chapter/create-chapter.co
 import { CguComponent } from './pages/mentions-legales/cgu/cgu.component';
 import { PageProduitComponent } from './pages/boutique/page-produit/page-produit.component';
 
-const routes: Routes = [
+let routes: Routes = [
   { path: 'accueil', component: AccueilComponent },
   { path: 'blog', component: BlogComponent },
   { path: 'catalogue', component: CatalogueComponent},
