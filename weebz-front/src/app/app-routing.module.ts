@@ -20,6 +20,7 @@ import { CreateArtworkComponent } from './pages/create-artwork/create-artwork.co
 import { CreateChapterComponent } from './pages/create-chapter/create-chapter.component';
 import { CguComponent } from './pages/mentions-legales/cgu/cgu.component';
 import { PageProduitComponent } from './pages/boutique/page-produit/page-produit.component';
+import { AccueilBoutiqueComponent } from './pages/boutique/accueil-boutique/accueil-boutique.component';
 
 let routes: Routes = [
   { path: 'accueil', component: AccueilComponent },
@@ -39,6 +40,7 @@ let routes: Routes = [
   { path: 'watchlist', component: WatchlistComponent},
   { path: 'create-artwork', component: CreateArtworkComponent},
   { path: 'create-chapter/:artworkId', component: CreateChapterComponent},
+  { path: 'shop/:shopId', component: AccueilBoutiqueComponent},
   { path: 'product/:productId', component: PageProduitComponent},
   { path: 'cgu', component: CguComponent},
   { path: 'not-found', component: PageNotFoundComponent},

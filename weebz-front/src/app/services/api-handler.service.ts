@@ -41,7 +41,7 @@ export class ApiHandlerService {
         error: err => {
           this.updateLoginStatus(false);
           this.loadingService.setLoadingState(false);
-          this.router.navigate(['/connexion']);
+          //this.router.navigate(['/connexion']);
         }
       })
     }
@@ -214,5 +214,9 @@ export class ApiHandlerService {
     formData.append('profile-picture', picture);
 
     return this.http.patch(this.url + "api/v1/users/profile/profile-picture", formData, {headers: headers});
+  }
+
+  getShopData(shopId: number): Observable<any> {
+    return this.http.get(this.url + "api/v1/shops/" + shopId);
   }
 }
