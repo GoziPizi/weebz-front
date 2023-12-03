@@ -14,8 +14,24 @@
    height: auto;
 }
 
-img {
-   margin: 0.5em;
+.pages-container {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   height: 100%; /* Hauteur de la div à 100% de la hauteur du composant parent */
+}
+
+.page {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   height: 100%;
+
+}
+
+.page p {
+   padding: 0.5em;
 }
 
 :host {

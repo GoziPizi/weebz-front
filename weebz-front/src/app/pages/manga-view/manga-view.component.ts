@@ -19,6 +19,7 @@ export class MangaViewComponent implements OnInit {
   chapter : number|null = null;
   pageCount : number = 0; //TODO: get this from the backend
 
+  //Contains the value of the current page. Starts at 1.
   currentPage: BehaviorSubject<number> = new BehaviorSubject<number>(1);
   currentPageIndex: number = 1;
 
@@ -26,6 +27,8 @@ export class MangaViewComponent implements OnInit {
   pagesUrl : string[] = [];
 
   doublePage: boolean = false;
+
+  leftToRight: boolean = false;
 
   isFullScreen: boolean = false;
 
@@ -91,6 +94,12 @@ export class MangaViewComponent implements OnInit {
 
   updateDoublePage() {
     this.doublePage = !this.doublePage;
+    if(this.doublePage) {
+      if(this.currentPageIndex % 2 == 0) {
+        this.currentPageIndex--;
+        this.currentPage.next(this.currentPageIndex);
+      }
+    }
     if(this.doublePage) this.cookieService.set('favoriteView', 'doublePage');
     else this.cookieService.set('favoriteView', 'singlePage');
   }
@@ -124,5 +133,9 @@ export class MangaViewComponent implements OnInit {
 
   min(a: number, b: number) {
     return Math.min(a, b);
+  }
+
+  switchReadingDirection() {
+    this.leftToRight = !this.leftToRight;
   }
 }

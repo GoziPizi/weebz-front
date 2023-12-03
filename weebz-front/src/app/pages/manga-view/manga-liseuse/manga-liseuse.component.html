@@ -2,16 +2,25 @@
     #mangaContainer
     class="manga-container"
     tabindex="0"
-    (keydown.ArrowLeft)="nextPage()"
-    (keydown.ArrowRight)="previousPage()"
+    (keydown.ArrowLeft)="leftArrowInput()"
+    (keydown.ArrowRight)="rightArrowInput()"
     (blur)="onBlur()"
     >
-    <div class="left-arrow-container">
+    <div *ngIf="!leftToRight" class="left-arrow-container">
         <i (click)="nextPage()" class="fa-solid fa-arrow-left fa-2xl click-arrow"></i>
     </div>
-    <img [src]="currentPageImg" alt="Page Manga {{currentPageIndex}}">
-    <div class="right-arrow-container">
+    <div *ngIf="leftToRight" class="left-arrow-container">
+        <i (click)="previousPage()" class="fa-solid fa-arrow-left fa-2xl click-arrow"></i>
+    </div>
+    <div class="page-container">
+        <img [src]="currentPageImg" alt="Page Manga {{currentPageIndex}}">
+        <p>{{currentPageIndex}}</p>
+    </div>
+    <div *ngIf="!leftToRight" class="right-arrow-container">
         <i (click)="previousPage()" class="fa-solid fa-arrow-right fa-2xl click-arrow"></i>
+    </div>
+    <div *ngIf="leftToRight" class="right-arrow-container">
+        <i (click)="nextPage()" class="fa-solid fa-arrow-right fa-2xl click-arrow"></i>
     </div>
 </div>
  
