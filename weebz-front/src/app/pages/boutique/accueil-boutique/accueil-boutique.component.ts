@@ -33,12 +33,15 @@ export class AccueilBoutiqueComponent implements OnInit {
 
     this.loadingService.setLoadingState(true);
 
-    this.apiHandler.getShopData(this.idShop).subscribe(
-      (res: Shop) => {
+    this.apiHandler.getShopData(this.idShop).subscribe({
+      next: (res: Shop) => {
         this.shop = res;
         this.fetchAuthorData();
+      },
+      complete: () => {
+        this.loadingService.setLoadingState(false);
       }
-    )
+    })
   }
 
   fetchAuthorData() {

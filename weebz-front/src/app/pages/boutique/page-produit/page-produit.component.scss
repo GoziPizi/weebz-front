@@ -10,9 +10,16 @@ img {
 }
 
 #back-to-shop {
+    cursor: pointer;
     padding: 1em 2em;
     color: black;
     display: flex;
+    width: fit-content;
+
+    &:hover {
+        color: $orange;
+        text-decoration: underline;
+    }
 }
 
 #back-to-shop i {

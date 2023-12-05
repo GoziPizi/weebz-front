@@ -10,13 +10,16 @@
         </div>
         <div id="product-presentation">
             <div id="images-container">
-                <img [src]="product.images[0]">
+                <img [src]="mainImage">
                 <div id="carousel">
-                    <i class="fa-solid fa-angle-left fa-xl carousel-arrow"></i>
+                    <i class="fa-solid fa-angle-left fa-xl carousel-arrow" (click)="onCarouselPrevious()" ></i>
                     <div id="image-carousel-container">
-                        <img *ngFor="let image of imagesToShowCarousel" [src]="image">
+                        <img 
+                            *ngFor="let image of imagesToShowCarousel" 
+                            [src]="image"
+                            (click)="onImageCarouselClick(image)">
                     </div>
-                    <i class="fa-solid fa-angle-right fa-xl carousel-arrow"></i>
+                    <i class="fa-solid fa-angle-right fa-xl carousel-arrow" (click)="onCarouselNext()" ></i>
                 </div>
             </div>
             <div id="text-presentation">
@@ -35,17 +38,24 @@
                     </div>
                     
                     <p>{{product.price}}€</p>
-                    <div id="buy-button">
-                        <h3>Acheter</h3>
-                    </div>
+                    <a href="https://buy.stripe.com/test_aEUaIaf9vc4Z0PCcMN">
+                        <div id="buy-button">
+                            <h3>Acheter</h3>
+                        </div>
+                    </a>
                 </div>
                 <div id="line"></div>
                 <div id="description">
                     <h2>Description</h2>
                     <p>{{product.description}}</p>
                 </div>
+                <div id="certifications">
+                    TODO : Mettre les certifications et garantie.
+                </div>
             </div>
         </div>
-        <div>FAIRE COMPONENT POUR PROPRIETES DES METADATAS</div>
+        <div>TODO FAIRE COMPONENT POUR PROPRIETES DES METADATAS</div>
+        <div>TODO COMPONENT AUTRES ARTICLES (meme boutique)</div>
+        <div>TODO COMPONENT COMMENTAIRES</div>
     </div>
 </div>
