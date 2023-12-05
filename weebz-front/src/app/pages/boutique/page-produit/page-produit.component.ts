@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Product } from 'src/app/models/product';
+import { ApiHandlerService } from 'src/app/services/api-handler.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-page-produit',
@@ -8,31 +11,39 @@ import { Component, OnInit } from '@angular/core';
 export class PageProduitComponent implements OnInit {
 
   productId:number=0;
-  productName:string="productName";
-  productPrice:number=0;
-  productDescription:string="lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur";
-  productImages:string[]=[
-    "/assets/fixtures/products/product1.png",
-    "/assets/fixtures/products/product2.png",
-    "/assets/fixtures/products/product3.png",
-  ];
-  currentProductImage=0;
-  backgroundImage:string="/assets/Backgroundweebz.png"
+  product: Product = new Product();
 
-  constructor() { }
+  imagesToShowCarousel: string[] = [];
+
+  constructor(
+    private apiHandler: ApiHandlerService,
+    private route: ActivatedRoute
+  ) { }
 
   ngOnInit(): void {
+    this.route.paramMap.subscribe(params => {
+      this.productId = Number(params.get('productId'));
+    })
+    this.fetchProductData();
   }
 
-  onLeftArrow() {
-    this.currentProductImage = this.currentProductImage - 1;
-    if(this.currentProductImage < 0) {
-      this.currentProductImage = this.productImages.length - 1;
-    }
+  fetchProductData() {
+    this.apiHandler.getProductData(this.productId).subscribe(
+      (res: Product) => {
+        this.product = res;
+        this.imagesToShowCarousel = [res.images[0],res.images[0],res.images[0]];
+      }
+    )
   }
 
-  onRightArrow() {
-    this.currentProductImage = (this.currentProductImage + 1) % this.productImages.length;
+
+  //getters for template 
+
+  get shopId() {
+    return this.product.shopId;
   }
 
+  get productName() {
+    return this.product.name;
+  }
 }

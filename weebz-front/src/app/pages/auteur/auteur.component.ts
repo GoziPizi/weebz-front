@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { ApiHandlerService } from 'src/app/services/api-handler.service';
 
 @Component({
   selector: 'app-auteur',
@@ -9,20 +10,52 @@ import { CommonModule } from '@angular/common';
 })
 export class AuteurComponent implements OnInit {
 
-  auteur: string|null = 'auteur';
-  profilePicRoute: string = "../../../assets/icon.png";
-  bannerPicRoute: string = "../../../assets/test-news.png";
-  description: string = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla euismod, nisl eget ultricies ultrices, nunc nisl aliquam nunc, vita";
-  followers: number = 0;
-  weebzers: number = 0;
-  likes: number = 0;
-  related_authors: string[] = ["1","2","3"];
-  artworks: string[] = [];
+  authorId: number = 0;
+  author: any = {};
 
-  constructor(private route: ActivatedRoute) { }
+  followed: boolean = false;
+
+  constructor(
+    private route: ActivatedRoute,
+    private apiHandler: ApiHandlerService
+  ) { }
 
   ngOnInit(): void {
-    this.auteur = this.route.snapshot.paramMap.get('auteur');
+    this.authorId = Number(this.route.snapshot.paramMap.get('authorId'));
+    this.fetchAuthorData();
+  }
+
+  fetchAuthorData() {
+    if(this.authorId == 0) return;
+    this.apiHandler.getAuthorData(this.authorId).subscribe({
+      next: (data: any) => {
+        this.author = data;
+      }
+    }
+    )
+  }
+
+  //Events of the template
+
+  onFollow() {
+    this.followed = !this.followed;
+  }
+
+
+  //getters for the template
+
+  get authorName() {
+    if (Object.keys(this.author).length === 0) {
+      return "";
+    }
+    return this.author.user.surname;
+  }
+
+  get authorPicture() {
+    if (Object.keys(this.author).length === 0) {
+      return "";
+    }
+    return this.author.user.pictureUrl;
   }
 
 }

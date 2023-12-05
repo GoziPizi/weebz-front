@@ -1,19 +1,51 @@
 <div class="container-fluid">
-    <div class="content" style="background-image: url({{backgroundImage}});">
-        <div class="row"> 
-            <div class="image-container col-2">
-                <img class="product-image" src="{{ productImages[currentProductImage] }}" alt="{{ productName }}">
-                <div class="arrow-container">
-                    <i class="fa-solid fa-arrow-left fa-xl click-arrow" (click)="onLeftArrow()"></i>
-                    <i class="fa-solid fa-arrow-right fa-xl click-arrow" (click)="onRightArrow()"></i>
+    <div class="header">
+
+    </div>
+
+    <div class="main-content">
+        <div id="back-to-shop" routerLink="/shop/{{shopId}}" >
+            <i class="fa-solid fa-arrow-left"></i>
+            <p>Retour Boutique</p>
+        </div>
+        <div id="product-presentation">
+            <div id="images-container">
+                <img [src]="product.images[0]">
+                <div id="carousel">
+                    <i class="fa-solid fa-angle-left fa-xl carousel-arrow"></i>
+                    <div id="image-carousel-container">
+                        <img *ngFor="let image of imagesToShowCarousel" [src]="image">
+                    </div>
+                    <i class="fa-solid fa-angle-right fa-xl carousel-arrow"></i>
                 </div>
             </div>
-            <div class="col-8">
-                <h1>{{ productName }}</h1>
-                <p>{{ productDescription }}</p>
-                <p>{{ productPrice }}€</p>
-                <button class="btn btn-primary">Ajouter au panier</button>
+            <div id="text-presentation">
+                <div id="main-information">
+                    <h1>{{productName}}</h1>
+                    <p>Category</p>
+                    <div id="star-comm">
+                        <div id="star-container">
+                            <i class="fa-regular fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                        </div>
+                        <p id="commentaires">Commentaires</p>
+                    </div>
+                    
+                    <p>{{product.price}}€</p>
+                    <div id="buy-button">
+                        <h3>Acheter</h3>
+                    </div>
+                </div>
+                <div id="line"></div>
+                <div id="description">
+                    <h2>Description</h2>
+                    <p>{{product.description}}</p>
+                </div>
             </div>
         </div>
+        <div>FAIRE COMPONENT POUR PROPRIETES DES METADATAS</div>
     </div>
 </div>

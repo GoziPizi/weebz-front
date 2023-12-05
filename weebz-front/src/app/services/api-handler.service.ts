@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 })
 export class ApiHandlerService {
 
-  url = "https://back.weebz.fr/"
+  url = "https://back-dev.weebz.fr/"
   user: any = {};
   public user$: BehaviorSubject<any> = new BehaviorSubject<any>({});
 
@@ -133,6 +133,10 @@ export class ApiHandlerService {
     return this.http.post(this.url + "api/v1/users/", data);
   }
 
+  getAuthorData(id: number): Observable<any> {
+    return this.http.get(this.url + "api/v1/authors/" + id);
+  }
+
   getArtwork(id: number): Observable<any> {
     return this.http.get(this.url + "api/v1/artworks/" + id);
   }
@@ -218,5 +222,9 @@ export class ApiHandlerService {
 
   getShopData(shopId: number): Observable<any> {
     return this.http.get(this.url + "api/v1/shops/" + shopId);
+  }
+
+  getProductData(productId: number): Observable<any> {
+    return this.http.get(this.url + "api/v1/products/" + productId);
   }
 }

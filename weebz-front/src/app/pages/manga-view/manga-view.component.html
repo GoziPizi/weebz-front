@@ -1,28 +1,32 @@
-<h2 class="centered">{{artworkTitle}}</h2>
+<div id="main-content">
 
-<div *ngIf="!doublePage" class="display-mode-container" (click)="updateDoublePage()">
-    <span>Vue Double Page </span><i class="fa-solid fa-book-open"></i>
-</div>
+    <div id="command-container">
+        <div *ngIf="!doublePage" class="display-mode-container" (click)="updateDoublePage()">
+            <span>Vue Double Page </span><i class="fa-solid fa-book-open"></i>
+        </div>
 
-<div *ngIf="doublePage" class="display-mode-container" (click)="updateDoublePage()">
-    <span>Vue Page Simple </span><i class="fa-regular fa-file"></i>
-</div>
+        <div *ngIf="doublePage" class="display-mode-container" (click)="updateDoublePage()">
+            <span>Vue Page Simple </span><i class="fa-regular fa-file"></i>
+        </div>
 
-<span (click)="centerPage()" class="display-mode-container">Centrer</span>
+        <span (click)="centerPage()" class="display-mode-container">Centrer</span>
 
-<span id="reading-direction" > Sens de lecture : </span>
-<span *ngIf="leftToRight" (click)="switchReadingDirection()" ><i class="fa-solid fa-arrow-right display-mode-container"></i></span>
-<span *ngIf="!leftToRight" (click)="switchReadingDirection()"><i class="fa-solid fa-arrow-left display-mode-container"></i></span>
-
-<div #liseuseContainer class="liseuse-container">
-    <div class="fullscreen-button" (click)="toggleFullScreen()">
-        <i *ngIf="!isFullScreen" class="fa-solid fa-up-right-and-down-left-from-center fa-2xl"></i>
-        <i *ngIf="isFullScreen" class="fa-solid fa-down-left-and-up-right-to-center fa-2xl"></i>
+        <span id="reading-direction" > Sens de lecture : </span>
+        <span *ngIf="leftToRight" (click)="switchReadingDirection()" ><i class="fa-solid fa-arrow-right display-mode-container"></i></span>
+        <span *ngIf="!leftToRight" (click)="switchReadingDirection()"><i class="fa-solid fa-arrow-left display-mode-container"></i></span>
     </div>
-    <app-manga-liseuse [pages]="pagesUrl" [currentPage]="currentPage" [leftToRight]="leftToRight" *ngIf="!doublePage"></app-manga-liseuse>
-    <app-manga-double-liseuse [pages]="pagesUrl" [currentPage]="currentPage" [leftToRight]="leftToRight" *ngIf="doublePage"></app-manga-double-liseuse>
-</div>
 
+
+
+    <div #liseuseContainer class="liseuse-container">
+        <div class="fullscreen-button" (click)="toggleFullScreen()">
+            <i *ngIf="!isFullScreen" class="fa-solid fa-up-right-and-down-left-from-center fa-2xl"></i>
+            <i *ngIf="isFullScreen" class="fa-solid fa-down-left-and-up-right-to-center fa-2xl"></i>
+        </div>
+        <app-manga-liseuse [pages]="pagesUrl" [currentPage]="currentPage" [leftToRight]="leftToRight" *ngIf="!doublePage"></app-manga-liseuse>
+        <app-manga-double-liseuse [pages]="pagesUrl" [currentPage]="currentPage" [leftToRight]="leftToRight" *ngIf="doublePage"></app-manga-double-liseuse>
+    </div>
+</div>
 <div class="social-buttons">
     <button class="navigation-button">J'aime <i class="fa-regular fa-heart"></i></button>
     <button class="navigation-button">Suivre <i class="fa-solid fa-user-plus"></i></button>

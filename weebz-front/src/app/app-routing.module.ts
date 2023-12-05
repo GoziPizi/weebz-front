@@ -26,7 +26,7 @@ let routes: Routes = [
   { path: 'accueil', component: AccueilComponent },
   { path: 'blog', component: BlogComponent },
   { path: 'catalogue', component: CatalogueComponent},
-  { path: 'auteur/:auteur', component: AuteurComponent},
+  { path: 'author/:authorId', component: AuteurComponent},
   { path: 'contact', component: ContactComponent},
   { path: 'manga', component: MangaAccueilComponent},
   { path: 'webtoon', component: WebtoonAccueilComponent},

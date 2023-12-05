@@ -1,7 +1,24 @@
-<div class="container-fluid main-container">
-    <div class="title-header"><h2>{{shop.name}}</h2></div>
+<div class="container-fluid main-container" [style.background-image]="'url(' + shop.backgroundUrl + ')'">
+    <div id="presentation">
+        <img src="../../../../assets/icon.png">
+        <div class="" id="side-presentation" >
+            <h3>{{getAuthorName}}</h3>
+            <span id="follow-button">Suivre +</span>
+        </div>
+        <div id="navigation-menu">
+            <h3 class="navigation-text">Livres</h3>
+            <h3 class="navigation-text">Articles</h3>
+            <h3 class="navigation-text">Créations</h3>
+            <h3 class="navigation-text">Oeuvres Digitales</h3>
+        </div>
+    </div>
     <div class="articles-display">
-        <div class="articles-container"> </div>
-        
+        <div id="articles-container">
+            <app-product-vignette
+                *ngFor="let product of shop.products"
+                [product]="product"
+                class="product-vignette"
+            ></app-product-vignette>
+        </div>
     </div>
 </div>

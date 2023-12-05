@@ -1,10 +1,20 @@
+@import '../../../variables.scss';
+
 .centered {
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    margin-top: 2em;
-    margin-bottom: 2em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+#header {
+    margin-top: 1em;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    background-color: $dark-gray;
+    border-radius: 20px;
 }
 
 .navigation-buttons {
@@ -28,9 +38,9 @@
 }
 
 .display-mode-container {
-    margin-left: 2em;
+    margin-left: 1em;
     display: inline-block;
-    padding: 1em;
+    padding: 0.5em;
     border: 1px solid #FF7530;
     border-radius: 5px;
     cursor: pointer;
@@ -40,9 +50,9 @@
     }
 }
 
-#reading-direction {
-    margin-left : 1em;
-    margin-right: 1em;
+#main-content {
+    padding-top: 2em;
+    border: 2px solid #555;
 }
 
 .liseuse-container {

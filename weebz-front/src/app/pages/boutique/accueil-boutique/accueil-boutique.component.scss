@@ -1,24 +1,95 @@
+@import '../../../../variables.scss';
+
 .main-container {
-    background-color: #fff;
+    background-size: 100% auto;
+    background-repeat: repeat-y;  
     padding: 0;
-}
-
-.title-header {
-    text-align: center;
+    color: black;
     align-items: center;
-    background-color: #D9D9D9;
-    padding: 1em 0;
-    width: 100%;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
 }
 
-.title-header h2 {
-    font-size: 2em;
+#presentation {
+    padding: 0 6em;
+    width: fit-content;
+    margin-top: 2em;
+    background-color: white;
+    border-radius: 2em;
+    border: 1px solid grey;
+    display: flex;
+    flex-direction: row;
+}
+
+#presentation img {
+    height: 8em;
+    border-radius: 50%;
+}
+
+#side-presentation {
+    position: relative;
+}
+
+#follow-button {
+    position: absolute;
+    bottom: 1em;
+    left: 1em;
+}
+
+#side-presentation h3 {
+    cursor: pointer;
     font-weight: bold;
-    color: #fff;
-    text-shadow: 0 0 10px #000;
+    color: $dark-gray;
+    margin-top: 0.5em;
+    margin-left: 0.5em;
+
+    &:hover {
+        color: $orange;
+        text-decoration: underline;
+    }
 }
 
-.articles-container {
+#author h3 {
+    margin-top: 0.5em;
+}
+
+#follow-button {
+    cursor: pointer;
+    background-color: $orange;
+    padding: 0 0.5em;
+    border: 2px solid grey 
+}
+
+#navigation-menu {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+}
+
+.navigation-text {
+    cursor: pointer;
+    font-size: larger;
+    margin: 1em;
+    bottom: 1em;
+
+    &:hover {
+        font-weight: bold;
+        text-decoration: underline;
+    }
+}
+
+.articles-display {
+    margin-top: 10em;
+    background-size: 100% auto;
+    background-repeat: repeat-y;
+}
+
+#articles-container {
     display: flex;
     flex-wrap: wrap;
+}
+
+.product-vignette {
+    width: 25%;
 }

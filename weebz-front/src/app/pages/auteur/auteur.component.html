@@ -1,27 +1,17 @@
 <div class="container-fluid">
-    <div [style.backgroundImage]="'url(' + bannerPicRoute + ')'" class="row header">
+    <div class="row header">
         <div class="col-2 left-side-bar">
             <div class="picture-container d-flex justify-content-center">
-                <img class="profile-picture" src="../../../assets/icon.png">
+                <img class="profile-picture" src="{{authorPicture}}">
             </div>
             <div class="author-name-container d-flex justify-content-center">
-                <h3 class="author-name">@{{auteur}}</h3>
+                <h3 class="author-name">{{authorName}}</h3>
+                <i *ngIf="!followed" class="fa-regular fa-bookmark fa-2x follow-icon" (click)="onFollow()"></i>
+                <i *ngIf="followed" class="fa-solid fa-bookmark fa-2x follow-icon" (click)="onFollow()"></i>
             </div>
         </div>
-        <div class="col-8 main-content">
-        </div>
-        <div class="col-2 right-side-bar">
-        </div>
-    </div>
-    <div class="row main-content">
-        <div class="col-2 left-side-bar">
-            <p class="author-description">{{description}}</p>
-        </div>
-        <div class="col-8">
-
-        </div>
-        <div class="col-2 right-side-bar">
-            <app-auteur-icon *ngFor="let name of related_authors;" [auteur]="name"></app-auteur-icon>
+        <div>
+            
         </div>
     </div>
 </div>

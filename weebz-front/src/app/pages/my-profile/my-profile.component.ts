@@ -71,7 +71,6 @@ export class MyProfileComponent implements OnInit {
       img.onload = () => {
         const width = img.width;
         const height = img.height;
-        console.log(width, height);
         if(width == height) {
           this.isPictureValid = true;
         } else {

@@ -53,6 +53,7 @@ import { ConnectedDropdownComponent } from './main-header/connected-dropdown/con
 import { WebtoonViewComponent } from './pages/webtoon-view/webtoon-view.component';
 import { CarouselArtworkComponent } from './pages/accueil/artwork-carousel/artwork-carousel.component';
 import { ArtworkCarouselItemComponent } from './pages/accueil/artwork-carousel/artwork-carousel-item/artwork-carousel-item.component';
+import { ProductVignetteComponent } from './pages/boutique/product-vignette/product-vignette.component';
 
 @NgModule({
   declarations: [
@@ -104,6 +105,7 @@ import { ArtworkCarouselItemComponent } from './pages/accueil/artwork-carousel/a
     WebtoonViewComponent,
     CarouselArtworkComponent,
     ArtworkCarouselItemComponent,
+    ProductVignetteComponent
   ],
   imports: [
     BrowserModule,
