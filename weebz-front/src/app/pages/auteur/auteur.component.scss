@@ -1,5 +1,9 @@
 @import '../../../variables.scss';
 
+.container-fluid {
+    justify-content: center;
+}
+
 .header {
     background-size: cover;
     background-position: center;
@@ -30,4 +34,35 @@
     &:hover {
         transform: scale(1.2);
     }
+}
+
+#right-side-header {
+    padding: 1em;
+}
+
+#presentation-title {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+#main-content {
+    margin-top: 1em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#artworks {
+    background-color: gray;
+    height: 5em;
+    width: 100%;
+    max-width: 2000px;
+}
+
+#shops {
+    margin-top: 1em;
+    background-color: gray;
+    height: 5em;
+    width: 100%;
+    max-width: 2000px;
 }

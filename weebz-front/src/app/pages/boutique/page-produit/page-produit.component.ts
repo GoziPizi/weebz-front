@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Product } from 'src/app/models/product';
 import { ApiHandlerService } from 'src/app/services/api-handler.service';
 import { ActivatedRoute } from '@angular/router';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-page-produit',
@@ -12,6 +13,7 @@ export class PageProduitComponent implements OnInit {
 
   productId:number=0;
   product: Product = new Product();
+  product$: BehaviorSubject<Product> = new BehaviorSubject<Product>(new Product());
 
   //starting position of the carousel. 0 = first image
   carouselIndex: number = 0;
@@ -35,6 +37,7 @@ export class PageProduitComponent implements OnInit {
     this.apiHandler.getProductData(this.productId).subscribe(
       (res: Product) => {
         this.product = res;
+        this.product$.next(res);
       }
     )
   }
@@ -70,7 +73,6 @@ export class PageProduitComponent implements OnInit {
   }
 
   get imagesToShowCarousel() {
-    //FIXME les imagees tournent mal
     const index0 = this.carouselIndex;
     const index1 = (this.carouselIndex + 1) % this.product.images.length;
     const index2 = (this.carouselIndex + 2) % this.product.images.length;

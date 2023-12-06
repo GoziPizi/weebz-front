@@ -1,0 +1,8 @@
+<ng-component *ngIf="shops.length == 0">
+    aa
+</ng-component>
+<ng-component *ngIf="shops.length > 0">
+    <div id="shops-container">
+        <app-shop-vignette *ngFor="let shop of shops" ></app-shop-vignette>
+    </div>
+</ng-component>

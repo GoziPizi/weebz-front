@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { BehaviorSubject } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { ApiHandlerService } from 'src/app/services/api-handler.service';
 
@@ -12,6 +13,9 @@ export class AuteurComponent implements OnInit {
 
   authorId: number = 0;
   author: any = {};
+
+  //Observable sur l'auteur pour les child components
+  author$: BehaviorSubject<any> = new BehaviorSubject<any>({});
 
   followed: boolean = false;
 
@@ -30,6 +34,7 @@ export class AuteurComponent implements OnInit {
     this.apiHandler.getAuthorData(this.authorId).subscribe({
       next: (data: any) => {
         this.author = data;
+        this.author$.next(data);
       }
     }
     )
@@ -56,6 +61,13 @@ export class AuteurComponent implements OnInit {
       return "";
     }
     return this.author.user.pictureUrl;
+  }
+
+  get presentation() {
+    if (Object.keys(this.author).length === 0) {
+      return "";
+    }
+    return this.author.presentation;
   }
 
 }

@@ -54,6 +54,11 @@ import { WebtoonViewComponent } from './pages/webtoon-view/webtoon-view.componen
 import { CarouselArtworkComponent } from './pages/accueil/artwork-carousel/artwork-carousel.component';
 import { ArtworkCarouselItemComponent } from './pages/accueil/artwork-carousel/artwork-carousel-item/artwork-carousel-item.component';
 import { ProductVignetteComponent } from './pages/boutique/product-vignette/product-vignette.component';
+import { AuthorArtworksComponent } from './pages/auteur/author-artworks/author-artworks.component';
+import { ArtworkPreviewComponent } from './pages/auteur/author-artworks/artwork-preview/artwork-preview.component';
+import { AuthorShopsComponent } from './pages/auteur/author-shops/author-shops.component';
+import { ShopVignetteComponent } from './pages/boutique/shop-vignette/shop-vignette.component';
+import { PageProduitSimilarProductComponent } from './pages/boutique/page-produit/page-produit-similar-product/page-produit-similar-product.component';
 
 @NgModule({
   declarations: [
@@ -105,7 +110,12 @@ import { ProductVignetteComponent } from './pages/boutique/product-vignette/prod
     WebtoonViewComponent,
     CarouselArtworkComponent,
     ArtworkCarouselItemComponent,
-    ProductVignetteComponent
+    ProductVignetteComponent,
+    AuthorArtworksComponent,
+    ArtworkPreviewComponent,
+    AuthorShopsComponent,
+    ShopVignetteComponent,
+    PageProduitSimilarProductComponent
   ],
   imports: [
     BrowserModule,

@@ -10,9 +10,19 @@
                 <i *ngIf="followed" class="fa-solid fa-bookmark fa-2x follow-icon" (click)="onFollow()"></i>
             </div>
         </div>
-        <div>
-            
+        <div class="col-10" id="right-side-header">
+            <h3 id="presentation-title">Présentation :</h3>
+            <p>{{presentation}}</p>
         </div>
     </div>
+    <div id="main-content">
+        <div id="artworks">
+            <app-author-artworks [author]="author"></app-author-artworks>
+        </div>
+        <div id="shops">
+            <app-author-shops [author$]="author$"></app-author-shops>
+        </div>
+    </div>
+    
 </div>
   

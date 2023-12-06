@@ -50,12 +50,23 @@
                     <p>{{product.description}}</p>
                 </div>
                 <div id="certifications">
-                    TODO : Mettre les certifications et garantie.
+                    <h2>Garanties et Sécurité</h2>
+                    <div id="stripe">
+                        <p>Paiement assuré par : Stripe <img src="../../../../assets/stripe_logo.png"></p>
+                    </div>
+                    <div id="secured-transaction">
+                        <img src="../../../../assets/secured-transaction.webp">
+                    </div>
+                    Voir nos conditions de vente <a>ici</a>.
                 </div>
             </div>
         </div>
         <div>TODO FAIRE COMPONENT POUR PROPRIETES DES METADATAS</div>
-        <div>TODO COMPONENT AUTRES ARTICLES (meme boutique)</div>
+        <div id="similar-products">
+            <app-page-produit-similar-product [product$]="product$">
+
+            </app-page-produit-similar-product>
+        </div>
         <div>TODO COMPONENT COMMENTAIRES</div>
     </div>
 </div>

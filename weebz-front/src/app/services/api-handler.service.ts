@@ -141,6 +141,10 @@ export class ApiHandlerService {
     return this.http.get(this.url + "api/v1/artworks/" + id);
   }
 
+  getAuthorArtworks(id: number): Observable<any> {
+    return this.http.get(this.url + "api/v1/authors/" + id + "/artworks");
+  }
+
   getAllChapters(id: number): Observable<any> {
     return this.http.get(this.url + "api/v1/artworks/" + id + "/chapters");
   }
@@ -226,5 +230,9 @@ export class ApiHandlerService {
 
   getProductData(productId: number): Observable<any> {
     return this.http.get(this.url + "api/v1/products/" + productId);
+  }
+
+  getShopsFromAuthor(authorId: number): Observable<any> {
+    return this.http.get(this.url + "api/v1/authors/" + authorId + "/shops");
   }
 }
