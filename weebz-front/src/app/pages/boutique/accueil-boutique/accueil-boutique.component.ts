@@ -45,18 +45,30 @@ export class AccueilBoutiqueComponent implements OnInit {
   }
 
   fetchAuthorData() {
-    this.apiHandler.getAuthorData(this.shop.authorId).subscribe(
-      (res: any) => {
+    console.log(this.shop.authorId);
+    this.apiHandler.getAuthorData(this.shop.authorId).subscribe({
+      next: (res: any) => {
         this.author = res;
+      },
+      complete: () => {
+        this.loadingService.setLoadingState(false);
+        console.log(this.author);
       }
-    )
+    })
   }
 
   //template getters
 
   get getAuthorName() {
     if (Object.keys(this.author).length !== 0) {
-      return this.author.name;
+      return this.author.user.surname;
+    }
+    return ""
+  }
+
+  get authorImage() {
+    if (Object.keys(this.author).length !== 0) {
+      return this.author.user.pictureUrl;
     }
     return ""
   }

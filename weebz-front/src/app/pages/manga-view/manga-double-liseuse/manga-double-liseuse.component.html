@@ -2,9 +2,6 @@
     #mangaContainer
     class="manga-container"
     tabindex="0"
-    (keydown.ArrowLeft)="leftArrowInput()"
-    (keydown.ArrowRight)="rightArrowInput()"
-    (blur)="onBlur()"
     >
     <div *ngIf="!leftToRight" class="left-arrow-container">
         <i (click)="nextPage()" class="fa-solid fa-arrow-left fa-2xl click-arrow"></i>

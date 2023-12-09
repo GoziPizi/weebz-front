@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, OnDestroy, Renderer2 } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { BehaviorSubject } from 'rxjs';
@@ -11,6 +11,8 @@ import { ApiHandlerService } from 'src/app/services/api-handler.service';
   styleUrls: ['./manga-view.component.scss']
 })
 export class MangaViewComponent implements OnInit {
+
+  private globalKeyListener: Function;
 
   @ViewChild('liseuseContainer') liseuseContainer!: ElementRef;
 
@@ -38,13 +40,23 @@ export class MangaViewComponent implements OnInit {
     private route: ActivatedRoute,
     private cookieService: CookieService,
     private fullscreenService: FullscreenService,
-    private apiHandlerService: ApiHandlerService
+    private apiHandlerService: ApiHandlerService,
+    private renderer: Renderer2,
+    private elementRef: ElementRef
     ) { 
       let favoriteView = this.cookieService.get('favoriteView');
       if(favoriteView == 'doublePage') this.doublePage = true;
       else this.doublePage = false;
       this.unsubscribeFullscreen = this.fullscreenService.onFullscreenChange(() => {
         this.isFullScreen = !!document.fullscreenElement;
+      });
+
+      this.globalKeyListener = this.renderer.listen('window', 'keydown', (event) => {
+        if (event.key === 'ArrowLeft') {
+          this.onArrowLeft();
+        } else if (event.key === 'ArrowRight') {
+          this.onArrowRight();
+        }
       });
     }
 
@@ -129,6 +141,9 @@ export class MangaViewComponent implements OnInit {
 
   ngOnDestroy() {
     this.unsubscribeFullscreen();
+    if (this.globalKeyListener) {
+      this.globalKeyListener();
+    }
   }
 
   min(a: number, b: number) {
@@ -137,5 +152,55 @@ export class MangaViewComponent implements OnInit {
 
   switchReadingDirection() {
     this.leftToRight = !this.leftToRight;
+  }
+
+  //pages navigation
+
+  onSingleNextPage() {
+    if(this.currentPageIndex < this.pageCount) {
+      this.currentPageIndex++;
+      this.currentPage.next(this.currentPageIndex);
+    }
+  }
+
+  onSinglePreviousPage() {
+    if(this.currentPageIndex > 1) {
+      this.currentPageIndex--;
+      this.currentPage.next(this.currentPageIndex);
+    }
+  }
+
+  onDoubleNextPage() {
+    if(this.currentPageIndex < this.pageCount-2) {
+      this.currentPageIndex += 2;
+      this.currentPage.next(this.currentPageIndex);
+    }
+  }
+
+  onDoublePreviousPage() {
+    if(this.currentPageIndex > 1) {
+      this.currentPageIndex -= 2;
+      this.currentPage.next(this.currentPageIndex);
+    }
+  }
+
+  onNextPage() {
+    if(this.doublePage) this.onDoubleNextPage();
+    else this.onSingleNextPage();
+  }
+
+  onPreviousPage() {
+    if(this.doublePage) this.onDoublePreviousPage();
+    else this.onSinglePreviousPage();
+  }
+
+  onArrowLeft() {
+    if(this.leftToRight) this.onPreviousPage();
+    else this.onNextPage();
+  }
+
+  onArrowRight() {
+    if(this.leftToRight) this.onNextPage();
+    else this.onPreviousPage();
   }
 }

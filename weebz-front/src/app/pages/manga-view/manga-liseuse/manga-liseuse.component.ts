@@ -23,18 +23,16 @@ export class MangaLiseuseComponent implements OnInit {
 
   ngOnInit(): void {
     this.currentPage.subscribe((page) => {
+      console.log(page);
+      if(page == 0 ) {
+        this.currentPageIndex = 1;
+      }
       this.currentPageIndex = page;
     });
   }
 
   ngAfterViewInit() {
     this.mangaContainer.nativeElement.focus();
-  }
-
-  onBlur() {
-    setTimeout(() => {  // Utiliser setTimeout pour éviter les conflits d'événements
-      this.mangaContainer.nativeElement.focus();
-    });
   }
 
   leftArrowInput() {

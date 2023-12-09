@@ -1,4 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
+import { Author } from 'src/app/models/author';
 import { ApiHandlerService } from 'src/app/services/api-handler.service';
 
 
@@ -9,21 +11,28 @@ import { ApiHandlerService } from 'src/app/services/api-handler.service';
 })
 export class AuthorArtworksComponent implements OnInit {
 
-  @Input() author: any = {};
+  @Input() author$: BehaviorSubject<Author> = new BehaviorSubject<Author>(new Author());
+  localAuthor: Author = new Author();
 
   constructor(
     private apiHandler: ApiHandlerService
   ) { }
 
   ngOnInit(): void {
-    this.fetchArtworks();
+    this.author$.subscribe({
+      next: (data: Author) => {
+        this.localAuthor = data;
+        if(this.localAuthor.id != 0 && this.localAuthor.id != undefined) {
+          this.fetchArtworks();
+        }
+      }
+    })
   }
 
   fetchArtworks() {
-    this.apiHandler.getAuthorArtworks(this.author.id).subscribe({
+    this.apiHandler.getAuthorArtworks(this.localAuthor.id).subscribe({
       next: (data: any) => {
-        console.log(data)
-        this.author.artworks = data;
+        console.log(data);
       }
     })
   }

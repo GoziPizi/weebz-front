@@ -28,12 +28,6 @@ export class MangaDoubleLiseuseComponent implements OnInit {
     this.mangaContainer.nativeElement.focus();
   }
 
-  onBlur() {
-    setTimeout(() => {
-      this.mangaContainer.nativeElement.focus();
-    });
-  }
-
   get rightPage() {
     if(this.leftToRight){
       if(this.currentPageIndex <= this.pages.length) {

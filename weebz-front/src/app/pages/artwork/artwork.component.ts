@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ApiHandlerService } from 'src/app/services/api-handler.service';
+import { Artwork } from 'src/app/models/artwork';
 
 @Component({
   selector: 'app-artwork',
@@ -9,30 +10,11 @@ import { ApiHandlerService } from 'src/app/services/api-handler.service';
 })
 export class ArtworkComponent implements OnInit {
 
-  /**
-   * A component that displays the presentation of an artwork. 
-   * It is made of : 
-   *  - The title of the artwork
-   *  - The author of the artwork
-   *  - The synopsis of the artwork
-   *  - The cover of the artwork
-   *  - The tags of the artwork
-   *  - The rating of the artwork TODO
-   *  - The list of chapters of the artwork, each "chapter" is a chapter thumbnail.
-   */
-
   artWorkId: number = 0;
-  title: string = "Title";
-  synopsis: string = "Synopsis";
-  cover: string = "Cover"; //url of the cover
-  background: string = "../assets/test-news.png"; //url of the background
-  tags: string[] = ["tag"];
-  rating: number = 0;
-  numberOfChapters: number = 0;
-  viewCount: number = 0;
+  artwork: Artwork = new Artwork();
 
   authorId: number|null = null;
-  author: string = "Author";
+  author: any = {};
   authorRoute: string = "/author/1";
 
   chapters: any[] = [];
@@ -50,11 +32,8 @@ export class ArtworkComponent implements OnInit {
     let id = this.route.snapshot.paramMap.get('artworkId');
     if(id != null) {
       this.artWorkId = parseInt(id);
-    } else {
-      this.noIdGiven();
     }
     this.fetchArtworkData();
-    this.fetchAuthorData();
   }
 
   noIdGiven() {
@@ -65,7 +44,8 @@ export class ArtworkComponent implements OnInit {
    */
   fetchArtworkData() {
     this.api.getArtwork(this.artWorkId).subscribe((res: any) => {
-      this.onArtworkReceived(res);
+      console.log(res)
+      this.artwork = res;
     },
     (err: any) => this.noIdGiven()
     );
@@ -74,22 +54,12 @@ export class ArtworkComponent implements OnInit {
     });
   }
 
-  onArtworkReceived(res: any) {
-    this.title = res.title;
-    this.synopsis = res.description;
-    this.cover = res.coverUrl;
-    this.background = res.backgroundImageUrl;
-    this.tags = res.tags;
-    this.rating = res.rating;
-  }
-
   onChaptersReceived(res: any) {
     this.chapters = res;
     this.chapters.sort((a, b) => a.index - b.index);
   }
 
   fetchAuthorData() {
-
   }
 
   onMouseDown(event: MouseEvent): void {
@@ -131,6 +101,14 @@ export class ArtworkComponent implements OnInit {
 
   getTranslateX(): string {
     return `translateX(${this.currentTranslateX}px)`;
+  }
+
+  //getter for the template
+  get authorName() {
+    if(Object.keys(this.author).length === 0) {
+      return "Author";
+    }
+    return this.author.user.surname;
   }
 
 }

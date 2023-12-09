@@ -1,18 +1,18 @@
 <div class="container-fluid main-container">
-    <div class="main-presentation" [ngStyle]="{ 'background-image': 'url(' + background + ')'}" >
+    <div class="main-presentation" [ngStyle]="{ 'background-image': 'url(' + artwork.backgroundImageUrl + ')'}" >
         <div class="row">
             <div class="left-presentation col-4">
                 <div class="cover-container">
-                    <img class="cover" src="{{cover}}">
+                    <img class="cover" src="{{artwork.coverUrl}}">
                 </div>
                 <div class="author-name-container">
-                    <h2>Par <a class="author-name" href="#">{{author}}</a></h2>
+                    <h2>Par <a class="author-name" href="#">{{authorName}}</a></h2>
                 </div>
             </div>
             <div class="right-presentation col-7">
-                <h2>{{title}}</h2>
+                <h2>{{artwork.title}}</h2>
                 <h4>Synopsis</h4>
-                <p class="synopsis">{{synopsis}}</p>
+                <p class="synopsis">{{artwork.description}}</p>
                 <div class="button-container">
                     <button class="socials-button btn btn-primary">
                         <i class="fa-solid fa-user-plus"></i>
@@ -24,7 +24,7 @@
                     </button>
                 </div>
                 <p>
-                    {{viewCount}} Vues
+                    {{artwork.views}} Vues
                 </p>
             </div>
         </div>

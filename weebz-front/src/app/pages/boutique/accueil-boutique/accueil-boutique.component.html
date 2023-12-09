@@ -1,9 +1,9 @@
 <div class="container-fluid main-container" [style.background-image]="'url(' + shop.backgroundUrl + ')'">
     <div id="presentation">
-        <img src="../../../../assets/icon.png">
+        <img src="{{authorImage}}">
         <div class="" id="side-presentation" >
-            <h3>{{getAuthorName}}</h3>
-            <span id="follow-button">Suivre +</span>
+            <h3 routerLink="/author/{{author.id}}">{{getAuthorName}}</h3>
+            <p id="follow-button">Suivre +</p>
         </div>
         <div id="navigation-menu">
             <h3 class="navigation-text">Livres</h3>
