@@ -1,5 +1,5 @@
 <div class="container-fluid">
-    <div class="row">
+    <div class="row" id="header" [ngStyle]="{'background-image': 'url(' + user.bannerUrl + ')'}" >
         <div class="side-bar col-2">
             <div class="side-bar-header">
                 <div class="image-container">
@@ -13,16 +13,23 @@
                 <div *ngIf="pictureEdition">
                     <button class="btn btn-primary" (click)="updateProfilePicture()" [disabled]="!isPictureValid" >Modifier</button>
                 </div>
-                <h3 class="surname">{{surname}}</h3>
+                <h3 class="surname">{{user.surname}}</h3>
             </div>
         </div>
         <div class="main-content col-10">
-            <div class="title-container"><h2>Mon Profil :</h2></div>
-            <div class="personal-data">
-                <p>Nom : {{name}}</p>
-                <p>Surnom : {{surname}}</p>
-                <p>Mail : {{email}}</p>
-            </div>
+    
+        </div>
+    </div>
+    <div id="content-container">
+        <div id="sidebar">
+            <p (click)="navigateTo('compte')">Mon compte</p>
+            <p (click)="navigateTo('oeuvres')">Mes oeuvres</p>
+            <p (click)="navigateTo('favoris')">Mes préférences</p>
+            <p (click)="navigateTo('commandes')">Mes commandes</p>
+        </div>
+        <div id="content">
+            <app-my-account-gestion *ngIf="navigation=='compte'" [user$]="user$" ></app-my-account-gestion>
+            <app-my-artworks-gestion *ngIf="navigation=='oeuvres'" [user$]="user$" ></app-my-artworks-gestion>
         </div>
     </div>
 </div>

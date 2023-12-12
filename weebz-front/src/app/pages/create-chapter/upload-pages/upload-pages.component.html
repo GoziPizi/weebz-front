@@ -3,5 +3,6 @@
         *ngFor="let page of pages"
         [page]="page"
         class="col-3"
+        (deleteEvent)="onDelete($event)"
     ></app-uploaded-page>
 </div>

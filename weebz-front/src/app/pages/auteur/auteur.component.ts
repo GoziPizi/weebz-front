@@ -31,7 +31,6 @@ export class AuteurComponent implements OnInit {
 
   fetchAuthorData() {
     if(this.authorId == 0) return;
-    console.log(this.authorId);
     this.apiHandler.getAuthorData(this.authorId).subscribe({
       next: (data: any) => {
         this.author = data;

@@ -1,6 +1,13 @@
+@import '../../../variables';
+
 .side-bar-header {
     padding: 3em;
     text-align: center;
+}
+
+#header {
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 #profile-picture {
@@ -34,7 +41,7 @@
 }
 
 .image-container:hover img {
-    opacity: 25%;
+    opacity: 75%;
     cursor: pointer;
 }
 
@@ -42,4 +49,28 @@
     cursor: pointer;
     visibility: visible;
     transform: scale(1.5) translate(-25%, -25%);
+}
+
+#content-container {
+    display: flex;
+}
+
+#sidebar {
+    width: max-content;
+    position: sticky;
+    top: 20px;
+}
+
+#sidebar p {
+    background-color: $dark-gray;
+    margin: 0;
+    padding: .5em 1em;
+    font-size: 1.5em;
+    border: 1px solid rgb(68, 68, 68);
+    text-align: center;
+
+    &:hover {
+        cursor: pointer;
+        color: $orange;
+    }
 }

@@ -32,7 +32,6 @@ export class AuthorArtworksComponent implements OnInit {
   fetchArtworks() {
     this.apiHandler.getAuthorArtworks(this.localAuthor.id).subscribe({
       next: (data: any) => {
-        console.log(data);
       }
     })
   }

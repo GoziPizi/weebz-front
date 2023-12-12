@@ -45,14 +45,12 @@ export class AccueilBoutiqueComponent implements OnInit {
   }
 
   fetchAuthorData() {
-    console.log(this.shop.authorId);
     this.apiHandler.getAuthorData(this.shop.authorId).subscribe({
       next: (res: any) => {
         this.author = res;
       },
       complete: () => {
         this.loadingService.setLoadingState(false);
-        console.log(this.author);
       }
     })
   }

@@ -11,6 +11,16 @@
     padding: 2em;
 }
 
+#title-selection {
+    display: flex;
+    align-items: center;
+}
+
+#title-selection p {
+    align-self: center;
+    margin: 0;
+}
+
 h3 {
     padding-top: 1em;
     padding-bottom: 1em;
@@ -54,8 +64,13 @@ h3 {
 }
 
 .validate-button {
+    cursor: pointer;
     padding: 1em;
     background-color: black;
     border: 1px solid white;
     border-radius: 10px;
+
+    &:hover {
+        background-color: #222;
+    }
 }

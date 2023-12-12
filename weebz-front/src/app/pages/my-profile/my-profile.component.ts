@@ -2,6 +2,8 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ApiHandlerService } from '../../services/api-handler.service';
 import { LoadingServiceService } from 'src/app/services/loading-service.service';
 import { Router } from '@angular/router';
+import { User } from 'src/app/models/user';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-my-profile',
@@ -14,13 +16,9 @@ export class MyProfileComponent implements OnInit {
 
   logedIn = true;
 
-  id:number = 0;
+  user$ = new BehaviorSubject<User>(new User());
+  user: User = new User();
 
-  name = "Name";
-  surname = "Surname";
-  email = "email";
-
-  picture = "";
   showedPicture = "";
   newPicture: File = new File([""], "");
   newPictureSrc: string | ArrayBuffer | null = null;
@@ -28,31 +26,31 @@ export class MyProfileComponent implements OnInit {
   isPictureValid = true;
   pictureEdition = false;
 
+  navigation = "compte";
+
   constructor(
     private api_handler: ApiHandlerService,
     private loadingService: LoadingServiceService,
     private router: Router
   )
   {
-    this.api_handler.fetchUserData().subscribe((res: any) => {
-      this.id = res.id;
-      this.name = res.name;
-      this.surname = res.surname;
-      this.email = res.email;
-      this.picture = res.pictureUrl;
-      this.showedPicture = this.picture;
-    },
-    (err: any) => {
-      this.logedIn = false;
-      this.showErrorMessage();
+    this.api_handler.fetchUserData().subscribe({
+      next: (res: any) => {
+        this.user = res;
+        this.user$.next(this.user);
+        this.showedPicture = this.user.pictureUrl;
+      },
+      error: (err: any) => {
+        this.logedIn = false;
+        this.router.navigate(['/connexion']);
+      },
+      complete: () => {
+        this.loadingService.setLoadingState(false);
+    }
     });
   }
 
   ngOnInit(): void {
-  }
-
-  showErrorMessage() {
-
   }
 
   triggerFileInput() {
@@ -92,7 +90,7 @@ export class MyProfileComponent implements OnInit {
     this.api_handler.updateProfilePicture(this.newPicture).subscribe({
       next: (res: any) => {
         this.pictureEdition = false;
-        this.showedPicture = this.picture;
+        this.showedPicture = this.user.pictureUrl;
         window.location.reload();
       },
       error: (err: any) => {
@@ -101,5 +99,9 @@ export class MyProfileComponent implements OnInit {
         this.loadingService.setLoadingState(false);
       }
     })
+  }
+
+  navigateTo(navigation: string) {
+    this.navigation = navigation;
   }
 }

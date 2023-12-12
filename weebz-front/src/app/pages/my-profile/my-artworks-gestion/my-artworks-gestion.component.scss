@@ -1,0 +1,41 @@
+@import '../../../../variables';
+
+.artwork-cover {
+    height: 50vh;
+}
+
+.artwork-container {
+    display: flex;
+    padding: 2vh;
+}
+
+.cover-container {
+    position: relative;
+}
+
+.artwork-description {
+    padding: 2vh;
+}
+
+.new-chapter-button {
+    cursor: pointer;
+    position: absolute;
+
+    bottom: 80%;
+    left: 50%;
+
+    transform: translate(-50%, 50%);
+
+    background-color: $orange;
+    padding: 0.5em;
+
+    visibility: hidden;
+}
+
+.cover-container:hover .new-chapter-button {
+    visibility: visible;
+}
+
+.cover-container:hover img {
+    opacity: 25%;
+}

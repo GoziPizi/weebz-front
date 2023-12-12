@@ -1,7 +1,5 @@
-<div class="container" (mouseenter)="onMouseEnter()" (mouseleave)="onMouseLeave()">
+<div id="container">
     <img [src]="page.imageSrc">
-    <div *ngIf="isDeleteShown" class="delete-icon">
-        <i class="fa-solid fa-xmark"></i>
-    </div>
+    <i (click)="onDelete()" class="fa-solid fa-xmark fa-5x"></i>
     <p>{{page.index}}</p>
 </div>

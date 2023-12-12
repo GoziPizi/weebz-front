@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Page } from '../page';
 
 @Component({
@@ -9,19 +9,16 @@ import { Page } from '../page';
 export class UploadedPageComponent implements OnInit {
 
   @Input() page!: Page;
-  isDeleteShown: boolean = false;
+
+  @Output() deleteEvent = new EventEmitter<number>();
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  onMouseEnter() {
-    this.isDeleteShown = true;
-  }
-
-  onMouseLeave() {
-    this.isDeleteShown = false;
+  onDelete() {
+    this.deleteEvent.emit(this.page.index);
   }
 
 }

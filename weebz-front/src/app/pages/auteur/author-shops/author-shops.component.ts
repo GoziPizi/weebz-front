@@ -32,7 +32,6 @@ export class AuthorShopsComponent implements OnInit {
   fetchShops() {
     this.apiHandler.getShopsFromAuthor(this.author.id).subscribe({
       next: (data: any) => {
-        console.log(data)
         this.shops = data;
       }
     })

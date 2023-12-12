@@ -31,7 +31,6 @@ export class PageProduitSimilarProductComponent implements OnInit {
   fetchShopData(shopId: number) {
     this.apiHandler.getShopData(shopId).subscribe(
       (res: Shop) => {
-        console.log(res);
         this.shop = res;
       }
     )

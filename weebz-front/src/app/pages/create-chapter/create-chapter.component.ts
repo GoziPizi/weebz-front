@@ -49,8 +49,13 @@ export class CreateChapterComponent implements OnInit {
       this.backgroundUrl = res.backgroundImageUrl;
       this.title = res.title;
     });
-    this.apiHandler.getAllChapters(this.artworkId).subscribe((res: any) => {
-      this.chaptersNumber = res.length;
+    this.apiHandler.getAllChapters(this.artworkId).subscribe({
+      next: (res: any) => {
+        this.chaptersNumber = res.length+1;
+      },
+      error: (error: any) => {
+        this.chaptersNumber = 1;
+      }
     })
   }
 
@@ -92,14 +97,15 @@ export class CreateChapterComponent implements OnInit {
       index: this.chaptersNumber+1
     }
     this.apiHandler.postChapter(chapter, this.artworkId).subscribe((res: any) => {
-      this.postPages(this.chaptersNumber+1);
+      const chapterId = res.id;
+      this.postPages(chapterId);
     },
     (error: any) => {
       this.loadingService.setLoadingState(false);
     });
   }
 
-  postPages(chapterIndex: number) {
+  postPages(chapterId: number) {
     const pages = this.pagesUploadComponent.getPageList();
     for(let i = 0; i < pages.length; i++){
       let data = {
@@ -107,7 +113,7 @@ export class CreateChapterComponent implements OnInit {
         index: i+1
       }
       this.pagesRemaining++;
-      this.apiHandler.postPage(data,this.artworkId, chapterIndex).subscribe((res:any) => {
+      this.apiHandler.postPage(data,this.artworkId, chapterId).subscribe((res:any) => {
         this.pagesRemaining--;
         if(this.pagesRemaining == 0){
           this.loadingService.setLoadingState(false);

@@ -23,7 +23,6 @@ export class MangaLiseuseComponent implements OnInit {
 
   ngOnInit(): void {
     this.currentPage.subscribe((page) => {
-      console.log(page);
       if(page == 0 ) {
         this.currentPageIndex = 1;
       }

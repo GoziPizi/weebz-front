@@ -1,3 +1,32 @@
-img {
+
+
+#container {
+    position: relative;
+}
+
+#container i {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0.5em;
+    color: white;
+    visibility: hidden;
+}
+
+#container:hover i {
+    visibility: visible;
+}
+
+#container img {
     width: 100%;
+}
+
+#container:hover img {
+    //devient presque noir
+    filter: brightness(0.2);
+}
+
+#container p {
+    text-align: center;
+    font-size: 2em;
 }

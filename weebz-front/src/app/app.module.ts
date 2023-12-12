@@ -59,6 +59,8 @@ import { ArtworkPreviewComponent } from './pages/auteur/author-artworks/artwork-
 import { AuthorShopsComponent } from './pages/auteur/author-shops/author-shops.component';
 import { ShopVignetteComponent } from './pages/boutique/shop-vignette/shop-vignette.component';
 import { PageProduitSimilarProductComponent } from './pages/boutique/page-produit/page-produit-similar-product/page-produit-similar-product.component';
+import { MyAccountGestionComponent } from './pages/my-profile/my-account-gestion/my-account-gestion.component';
+import { MyArtworksGestionComponent } from './pages/my-profile/my-artworks-gestion/my-artworks-gestion.component';
 
 @NgModule({
   declarations: [
@@ -115,7 +117,9 @@ import { PageProduitSimilarProductComponent } from './pages/boutique/page-produi
     ArtworkPreviewComponent,
     AuthorShopsComponent,
     ShopVignetteComponent,
-    PageProduitSimilarProductComponent
+    PageProduitSimilarProductComponent,
+    MyAccountGestionComponent,
+    MyArtworksGestionComponent
   ],
   imports: [
     BrowserModule,

@@ -44,7 +44,6 @@ export class ArtworkComponent implements OnInit {
    */
   fetchArtworkData() {
     this.api.getArtwork(this.artWorkId).subscribe((res: any) => {
-      console.log(res)
       this.artwork = res;
     },
     (err: any) => this.noIdGiven()
@@ -109,6 +108,13 @@ export class ArtworkComponent implements OnInit {
       return "Author";
     }
     return this.author.user.surname;
+  }
+
+  get artworkCover() {
+    if(Object.keys(this.artwork).length === 0) {
+      return "";
+    }
+    return this.artwork.coverUrl;
   }
 
 }

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { tap } from 'rxjs/operators';
+import { delay, tap } from 'rxjs/operators';
 import { CookieService } from 'ngx-cookie-service';
 import { BehaviorSubject } from 'rxjs';
 import { LoadingServiceService } from './loading-service.service';
@@ -133,8 +133,20 @@ export class ApiHandlerService {
     return this.http.post(this.url + "api/v1/users/", data);
   }
 
+  //Get an author from his author_id
   getAuthorData(id: number): Observable<any> {
     return this.http.get(this.url + "api/v1/authors/" + id);
+  }
+
+  getAuthorDataFromToken(): Observable<any> {
+    // const header = {
+    //   Authorization : this.cookieService.get('apiToken')
+    // }
+    // return this.http.get(this.url + "api/v1/authors/profile", {headers: header});
+    //TODO fake data
+    return this.http.get('/assets/fixtures/api/data_get_author_data_from_token.json').pipe(
+      delay(500)
+    );
   }
 
   getArtwork(id: number): Observable<any> {
@@ -202,7 +214,7 @@ export class ApiHandlerService {
     return this.http.post(this.url + "api/v1/artworks/" + artworkId + "/chapters", formData, {headers: headers});
   }
 
-  postPage(data: any, artworkId: number, chapterIndex: number): Observable<any> {
+  postPage(data: any, artworkId: number, chapterId: number): Observable<any> {
     //TODO refaire apres le reroute
     let headers = {
       Authorization : this.cookieService.get('apiToken')
@@ -210,7 +222,7 @@ export class ApiHandlerService {
     let formData = new FormData();
     formData.append('page', data.page);
     formData.append('index', data.index);
-    return this.http.post(this.url + "api/v1/artworks/" + artworkId + "/chapters/10/pages?chapterIndex=" + chapterIndex, formData, {headers: headers});
+    return this.http.post(this.url + "api/v1/artworks/" + artworkId + "/chapters/" + chapterId + "/pages/", formData, {headers: headers});
   }
 
   updateProfilePicture(picture: File) {

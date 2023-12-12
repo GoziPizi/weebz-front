@@ -1,8 +1,8 @@
 .drop-zone {
     background-color: #999;
     width: 100%;
-    
+    cursor: pointer;
     &:hover {
-        background-color: #000;
+        background-color: #777;
     }
 }
