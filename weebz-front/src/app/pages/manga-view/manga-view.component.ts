@@ -1,9 +1,10 @@
-import { Component, OnInit, ViewChild, ElementRef, OnDestroy, Renderer2 } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, Renderer2 } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { BehaviorSubject } from 'rxjs';
 import { FullscreenService } from 'src/app/services/fullscreen.service';
 import { ApiHandlerService } from 'src/app/services/api-handler.service';
+import { Artwork } from 'src/app/models/artwork';
 
 @Component({
   selector: 'app-manga-view',
@@ -16,8 +17,9 @@ export class MangaViewComponent implements OnInit {
 
   @ViewChild('liseuseContainer') liseuseContainer!: ElementRef;
 
-  artworkTitle = "Manga View";
   artworkId : number|null = null;
+  artwork : Artwork = new Artwork();
+
   chapter : number|null = null;
   pageCount : number = 0; //TODO: get this from the backend
 
@@ -33,6 +35,9 @@ export class MangaViewComponent implements OnInit {
   leftToRight: boolean = false;
 
   isFullScreen: boolean = false;
+
+  isLiked: boolean = false; //TODO init
+  isFollowed: boolean = false; //TODO init
 
   private unsubscribeFullscreen: () => void;
 
@@ -95,7 +100,7 @@ export class MangaViewComponent implements OnInit {
 
   fetchData(){
     this.apiHandlerService.getArtwork(this.artworkId!).subscribe((res: any) => {
-      this.artworkTitle = res.title;
+      this.artwork = res;
     });
   }
 
@@ -202,5 +207,19 @@ export class MangaViewComponent implements OnInit {
   onArrowRight() {
     if(this.leftToRight) this.onNextPage();
     else this.onPreviousPage();
+  }
+
+  //pages input
+  onLike() {
+    this.isLiked = !this.isLiked;
+  }
+
+  onFollow() {
+    this.isFollowed = !this.isFollowed;
+  }
+
+  onScrollComments() {
+    const comments = document.getElementById("comments");
+    comments?.scrollIntoView({behavior: "smooth"});
   }
 }

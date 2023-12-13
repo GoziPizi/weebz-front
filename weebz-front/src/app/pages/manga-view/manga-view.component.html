@@ -1,34 +1,51 @@
 <div id="main-content">
 
-    <div id="command-container">
-        <div *ngIf="!doublePage" class="display-mode-container" (click)="updateDoublePage()">
-            <span>Vue Double Page </span><i class="fa-solid fa-book-open"></i>
-        </div>
-
-        <div *ngIf="doublePage" class="display-mode-container" (click)="updateDoublePage()">
-            <span>Vue Page Simple </span><i class="fa-regular fa-file"></i>
-        </div>
-
-        <span (click)="centerPage()" class="display-mode-container">Centrer</span>
-
-        <span id="reading-direction" > Sens de lecture : </span>
-        <span *ngIf="leftToRight" (click)="switchReadingDirection()" ><i class="fa-solid fa-arrow-right display-mode-container"></i></span>
-        <span *ngIf="!leftToRight" (click)="switchReadingDirection()"><i class="fa-solid fa-arrow-left display-mode-container"></i></span>
+    <div id="header">
+        <h2># {{chapter}} - {{artwork.title}}</h2>
     </div>
 
-    <div #liseuseContainer class="liseuse-container">
-        <div class="fullscreen-button" (click)="toggleFullScreen()">
-            <i *ngIf="!isFullScreen" class="fa-solid fa-up-right-and-down-left-from-center fa-2xl"></i>
-            <i *ngIf="isFullScreen" class="fa-solid fa-down-left-and-up-right-to-center fa-2xl"></i>
+    <div id="command-and-view">
+        <div id="command-container">
+            <div *ngIf="!doublePage" class="display-mode-container" (click)="updateDoublePage()">
+                <span>Vue Double Page </span>
+            </div>
+
+            <div *ngIf="doublePage" class="display-mode-container" (click)="updateDoublePage()">
+                <span>Vue Page Simple </span>
+            </div>
+            
+            <span class="display-mode-container middle" (click)="switchReadingDirection()">
+                <span *ngIf="leftToRight"><i class="fa-solid fa-arrow-right"></i></span>
+                <span *ngIf="!leftToRight"><i class="fa-solid fa-arrow-left"></i></span>
+                <span id="reading-direction" > Sens de lecture : </span>
+            </span>
+
+            <span (click)="centerPage()" class="display-mode-container">Centrer</span>
         </div>
-        <app-manga-liseuse [pages]="pagesUrl" [currentPage]="currentPage" [leftToRight]="leftToRight" *ngIf="!doublePage"></app-manga-liseuse>
-        <app-manga-double-liseuse [pages]="pagesUrl" [currentPage]="currentPage" [leftToRight]="leftToRight" *ngIf="doublePage"></app-manga-double-liseuse>
+
+        <div #liseuseContainer class="liseuse-container">
+            <div class="fullscreen-button" (click)="toggleFullScreen()">
+                <i *ngIf="!isFullScreen" class="fa-solid fa-up-right-and-down-left-from-center fa-2xl"></i>
+                <i *ngIf="isFullScreen" class="fa-solid fa-down-left-and-up-right-to-center fa-2xl"></i>
+            </div>
+            <app-manga-liseuse [pages]="pagesUrl" [currentPage]="currentPage" [leftToRight]="leftToRight" *ngIf="!doublePage"></app-manga-liseuse>
+            <app-manga-double-liseuse [pages]="pagesUrl" [currentPage]="currentPage" [leftToRight]="leftToRight" *ngIf="doublePage"></app-manga-double-liseuse>
+        </div>
+    </div>
+
+    <div id="social-icons">
+        <i class="fa-regular fa-comment-dots fa-xl" (click)="onScrollComments()"></i>
+        <i *ngIf="!isLiked" class="fa-regular fa-heart fa-xl" (click)="onLike()"></i>
+        <i *ngIf="isLiked" class="fa-solid fa-heart fa-xl" (click)="onLike()"></i>
+        <i class="fa-solid fa-shop fa-xl"></i>
+        <i *ngIf="!isFollowed" class="fa-solid fa-user-plus fa-xl" (click)="onFollow()"></i>
     </div>
 </div>
-<div class="social-buttons">
-    <button class="navigation-button">J'aime <i class="fa-regular fa-heart"></i></button>
-    <button class="navigation-button">Suivre <i class="fa-solid fa-user-plus"></i></button>
-</div>
-<div class="navigation-buttons">
-    <button class="navigation-button">Episode Suivant <i class="fa-solid fa-arrow-right"></i></button>
+<div id="sub-content">
+    <div id="comments" #comments>
+
+    </div>
+    <div id="next-chapters">
+
+    </div>
 </div>
