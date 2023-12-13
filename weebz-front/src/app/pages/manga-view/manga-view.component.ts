@@ -2,9 +2,12 @@ import { Component, OnInit, ViewChild, ElementRef, Renderer2 } from '@angular/co
 import { ActivatedRoute } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { BehaviorSubject } from 'rxjs';
+import { Subscription } from 'rxjs';
 import { FullscreenService } from 'src/app/services/fullscreen.service';
 import { ApiHandlerService } from 'src/app/services/api-handler.service';
 import { Artwork } from 'src/app/models/artwork';
+import { Router } from '@angular/router';
+import { LoadingServiceService } from 'src/app/services/loading-service.service';
 
 @Component({
   selector: 'app-manga-view',
@@ -20,7 +23,7 @@ export class MangaViewComponent implements OnInit {
   artworkId : number|null = null;
   artwork : Artwork = new Artwork();
 
-  chapter : number|null = null;
+  chapterIndex : number|null = null;
   pageCount : number = 0; //TODO: get this from the backend
 
   //Contains the value of the current page. Starts at 1.
@@ -40,6 +43,7 @@ export class MangaViewComponent implements OnInit {
   isFollowed: boolean = false; //TODO init
 
   private unsubscribeFullscreen: () => void;
+  private paramSubscription: Subscription;
 
   constructor(
     private route: ActivatedRoute,
@@ -47,7 +51,8 @@ export class MangaViewComponent implements OnInit {
     private fullscreenService: FullscreenService,
     private apiHandlerService: ApiHandlerService,
     private renderer: Renderer2,
-    private elementRef: ElementRef
+    private router: Router,
+    private loadingService: LoadingServiceService
     ) { 
       let favoriteView = this.cookieService.get('favoriteView');
       if(favoriteView == 'doublePage') this.doublePage = true;
@@ -63,11 +68,15 @@ export class MangaViewComponent implements OnInit {
           this.onArrowRight();
         }
       });
+
+      this.paramSubscription = this.route.params.subscribe(params => {
+        this.resetComponent();
+      });
     }
 
   ngOnInit(): void {
     this.artworkId = Number(this.route.snapshot.paramMap.get('artworkId'));
-    this.chapter = Number(this.route.snapshot.paramMap.get('chapter'));
+    this.chapterIndex = Number(this.route.snapshot.paramMap.get('chapter'));
 
     this.fetchPages();
     this.fetchData();
@@ -83,19 +92,47 @@ export class MangaViewComponent implements OnInit {
     });
   }
 
+  resetComponent() {
+    this.chapterIndex = Number(this.route.snapshot.paramMap.get('chapter'));
+    if(this.artworkId) this.fetchPages();
+    this.currentPage.next(1);
+  }
+
+  ngOnDestroy() {
+    this.unsubscribeFullscreen();
+    if (this.globalKeyListener) {
+      this.globalKeyListener();
+    }
+    this.paramSubscription.unsubscribe();
+  }
+
   ngAfterViewInit() {
     this.centerPage();
   }
 
   fetchPages() {
-    this.apiHandlerService.getPages(this.artworkId!, this.chapter!).subscribe((res: any) => {
-      this.pages = res;
-      this.pages.sort((a, b) => a.index - b.index);
-      this.pageCount = this.pages.length;
-      for(let i = 0; i < this.pages.length; i++) {
-        this.pagesUrl.push(this.pages[i]["pageUrl"]);
+    this.loadingService.setLoadingState(true);
+    return this.apiHandlerService.getPages(this.artworkId!, this.chapterIndex!).subscribe({
+      next: (res: any) => {
+        this.updatePages(res);
+      },
+      error: (err: any) => {
+        this.loadingService.setLoadingState(false);
+        this.router.navigate(['/artwork', this.artworkId!]);
+      },
+      complete: () => {
+        this.loadingService.setLoadingState(false);
       }
     })
+  }
+
+  updatePages(res: any) {
+    this.pages = res;
+    this.pages.sort((a, b) => a.index - b.index);
+    this.pageCount = this.pages.length;
+    for(let i = 0; i < this.pages.length; i++) {
+      this.pagesUrl.push(this.pages[i]["pageUrl"]);
+    }
   }
 
   fetchData(){
@@ -141,13 +178,6 @@ export class MangaViewComponent implements OnInit {
     } else {
       this.fullscreenService.exitFullscreen();
       this.centerPage();
-    }
-  }
-
-  ngOnDestroy() {
-    this.unsubscribeFullscreen();
-    if (this.globalKeyListener) {
-      this.globalKeyListener();
     }
   }
 
@@ -209,7 +239,7 @@ export class MangaViewComponent implements OnInit {
     else this.onPreviousPage();
   }
 
-  //pages input
+  //pages events
   onLike() {
     this.isLiked = !this.isLiked;
   }
@@ -221,5 +251,9 @@ export class MangaViewComponent implements OnInit {
   onScrollComments() {
     const comments = document.getElementById("comments");
     comments?.scrollIntoView({behavior: "smooth"});
+  }
+
+  onGoToNextChapter() {
+    this.router.navigate(['/mangaview', this.artworkId, this.chapterIndex! + 1]);
   }
 }

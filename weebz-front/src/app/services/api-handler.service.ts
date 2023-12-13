@@ -41,7 +41,7 @@ export class ApiHandlerService {
         error: err => {
           this.updateLoginStatus(false);
           this.loadingService.setLoadingState(false);
-          //this.router.navigate(['/connexion']);
+          this.cookieService.delete('apiToken');
         }
       })
     }
