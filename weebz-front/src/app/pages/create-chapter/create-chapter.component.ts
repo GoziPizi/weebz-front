@@ -54,7 +54,7 @@ export class CreateChapterComponent implements OnInit {
         this.chaptersNumber = res.length+1;
       },
       error: (error: any) => {
-        this.chaptersNumber = 1;
+        this.chaptersNumber = 0;
       }
     })
   }

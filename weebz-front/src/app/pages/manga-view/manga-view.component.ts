@@ -8,6 +8,7 @@ import { ApiHandlerService } from 'src/app/services/api-handler.service';
 import { Artwork } from 'src/app/models/artwork';
 import { Router } from '@angular/router';
 import { LoadingServiceService } from 'src/app/services/loading-service.service';
+import { Chapter } from 'src/app/models/chapter';
 
 @Component({
   selector: 'app-manga-view',
@@ -20,10 +21,11 @@ export class MangaViewComponent implements OnInit {
 
   @ViewChild('liseuseContainer') liseuseContainer!: ElementRef;
 
-  artworkId : number|null = null;
+  artworkId : number = 0;
   artwork : Artwork = new Artwork();
 
-  chapterIndex : number|null = null;
+  chapterId : number = 0
+  chapter: Chapter = new Chapter();
   pageCount : number = 0; //TODO: get this from the backend
 
   //Contains the value of the current page. Starts at 1.
@@ -76,11 +78,19 @@ export class MangaViewComponent implements OnInit {
 
   ngOnInit(): void {
     this.artworkId = Number(this.route.snapshot.paramMap.get('artworkId'));
-    this.chapterIndex = Number(this.route.snapshot.paramMap.get('chapter'));
+    this.chapterId = Number(this.route.snapshot.paramMap.get('chapterId'));
+
+    console.log(this.artworkId);
+    console.log(this.chapterId);
 
     this.fetchPages();
+    this.fetchChapter();
     this.fetchData();
 
+    this.preloadSubscriptions();
+  }
+
+  preloadSubscriptions() {
     this.currentPage.subscribe((page) => {
       if(page+1 < this.pages.length){
         this.preloadImage(page+1);
@@ -93,9 +103,7 @@ export class MangaViewComponent implements OnInit {
   }
 
   resetComponent() {
-    this.chapterIndex = Number(this.route.snapshot.paramMap.get('chapter'));
-    if(this.artworkId) this.fetchPages();
-    this.currentPage.next(1);
+    //TODO: attention id pas index
   }
 
   ngOnDestroy() {
@@ -112,7 +120,7 @@ export class MangaViewComponent implements OnInit {
 
   fetchPages() {
     this.loadingService.setLoadingState(true);
-    return this.apiHandlerService.getPages(this.artworkId!, this.chapterIndex!).subscribe({
+    return this.apiHandlerService.getPages(this.artworkId, this.chapterId).subscribe({
       next: (res: any) => {
         this.updatePages(res);
       },
@@ -136,8 +144,14 @@ export class MangaViewComponent implements OnInit {
   }
 
   fetchData(){
-    this.apiHandlerService.getArtwork(this.artworkId!).subscribe((res: any) => {
+    return this.apiHandlerService.getArtwork(this.artworkId!).subscribe((res: any) => {
       this.artwork = res;
+    });
+  }
+
+  fetchChapter(){
+    return this.apiHandlerService.getChapterById(this.chapterId).subscribe((res: any) => {
+      this.chapter = res;
     });
   }
 
@@ -254,6 +268,11 @@ export class MangaViewComponent implements OnInit {
   }
 
   onGoToNextChapter() {
-    this.router.navigate(['/mangaview', this.artworkId, this.chapterIndex! + 1]);
+    //TODO
+  }
+
+  //template getters
+  get chapterIndex() {
+    return this.chapter.index;
   }
 }

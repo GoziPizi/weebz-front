@@ -139,14 +139,10 @@ export class ApiHandlerService {
   }
 
   getAuthorDataFromToken(): Observable<any> {
-    // const header = {
-    //   Authorization : this.cookieService.get('apiToken')
-    // }
-    // return this.http.get(this.url + "api/v1/authors/profile", {headers: header});
-    //TODO fake data
-    return this.http.get('/assets/fixtures/api/data_get_author_data_from_token.json').pipe(
-      delay(500)
-    );
+    const header = {
+      Authorization : this.cookieService.get('apiToken')
+    }
+    return this.http.get(this.url + "api/v1/authors/profile", {headers: header});
   }
 
   getArtwork(id: number): Observable<any> {
@@ -159,6 +155,10 @@ export class ApiHandlerService {
 
   getAllChapters(id: number): Observable<any> {
     return this.http.get(this.url + "api/v1/artworks/" + id + "/chapters");
+  }
+
+  getChapterById(id: number): Observable<any> {
+    return this.http.get(this.url + "api/v1/chapters/" + id);
   }
 
   getArtworksByType(type:string, max_items?:number): Observable<any> {
@@ -210,12 +210,10 @@ export class ApiHandlerService {
     formData.append('title', data.title);
     formData.append('cover', data.cover);
     formData.append('index', data.index);
-    //TODO refaire apres le reroute
     return this.http.post(this.url + "api/v1/artworks/" + artworkId + "/chapters", formData, {headers: headers});
   }
 
   postPage(data: any, artworkId: number, chapterId: number): Observable<any> {
-    //TODO refaire apres le reroute
     let headers = {
       Authorization : this.cookieService.get('apiToken')
     }
@@ -247,4 +245,22 @@ export class ApiHandlerService {
   getShopsFromAuthor(authorId: number): Observable<any> {
     return this.http.get(this.url + "api/v1/authors/" + authorId + "/shops");
   }
+
+  //Comments 
+
+  getComments(artworkId: number): Observable<any> {
+    //return this.http.get(this.url + "api/v1/artworks/" + artworkId + "/comments");
+    //TODO: Remove this when the backend is ready
+    return this.http.get('/assets/fixtures/api/comments.json').pipe(delay(500));
+  }
+
+  //postComment
+
+  //deleteComment
+
+  //replyComment
+
+  //likeComment
+
+  //dislikeComment
 }

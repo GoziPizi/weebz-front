@@ -1,0 +1,24 @@
+{
+    "artworkId": "identifiant de l'artwork",
+    "comments": [
+      {
+        "commentId": "identifiant du commentaire",
+        "userId": "identifiant de l'utilisateur qui a commenté",
+        "username": "nom d'utilisateur",
+        "comment": "texte du commentaire",
+        "timestamp": "horodatage du commentaire",
+        "likes": "nombre de likes",
+        "replies": [
+          {
+            "replyId": "identifiant de la réponse",
+            "userId": "identifiant de l'utilisateur qui a répondu",
+            "username": "nom d'utilisateur",
+            "reply": "texte de la réponse",
+            "timestamp": "horodatage de la réponse",
+            "likes": "nombre de likes"
+          }
+        ]
+      }
+    ]
+  }
+  

@@ -61,6 +61,9 @@ import { ShopVignetteComponent } from './pages/boutique/shop-vignette/shop-vigne
 import { PageProduitSimilarProductComponent } from './pages/boutique/page-produit/page-produit-similar-product/page-produit-similar-product.component';
 import { MyAccountGestionComponent } from './pages/my-profile/my-account-gestion/my-account-gestion.component';
 import { MyArtworksGestionComponent } from './pages/my-profile/my-artworks-gestion/my-artworks-gestion.component';
+import { CommentsDisplayerComponent } from './utils/comments/comments-displayer/comments-displayer.component';
+import { SingleCommentComponent } from './utils/comments/comments-displayer/single-comment/single-comment.component';
+import { CommentInputComponent } from './utils/comments/comment-input/comment-input.component';
 
 @NgModule({
   declarations: [
@@ -119,7 +122,10 @@ import { MyArtworksGestionComponent } from './pages/my-profile/my-artworks-gesti
     ShopVignetteComponent,
     PageProduitSimilarProductComponent,
     MyAccountGestionComponent,
-    MyArtworksGestionComponent
+    MyArtworksGestionComponent,
+    CommentsDisplayerComponent,
+    SingleCommentComponent,
+    CommentInputComponent
   ],
   imports: [
     BrowserModule,

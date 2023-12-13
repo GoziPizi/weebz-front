@@ -1,11 +1,6 @@
 <h2 class="centered">{{artworkTitle}}</h2>
 
-<span (click)="centerPage()" class="display-mode-container">Centrer</span>
 <div #liseuseContainer class="liseuse-container">
-    <div class="fullscreen-button" (click)="toggleFullScreen()">
-        <i *ngIf="!isFullScreen" class="fa-solid fa-up-right-and-down-left-from-center fa-2xl"></i>
-        <i *ngIf="isFullScreen" class="fa-solid fa-down-left-and-up-right-to-center fa-2xl"></i>
-    </div>
     <div class="image-container">
         <img *ngFor="let image of images" [src]="image" alt="image" class="image" (click)="toggleFullScreen()"/>
     </div>

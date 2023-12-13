@@ -1,3 +1,5 @@
+@import '../../../variables';
+
 .main-presentation {
     padding-top: 2em;
     background-size: cover;
@@ -11,6 +13,26 @@
     justify-content: center;
     align-items: center;
     margin-top: 1em;
+    padding: 1em;
+    background-color: rgba(0,0,0,0.8);
+}
+
+.author-name-container i {
+    margin: 0;
+    color: $orange;
+}
+
+.author-name-container h2 {
+    margin: 0em 0.5em;
+}
+
+.follow-icon {
+    margin-left: 1em;
+    margin-right: 1em;
+
+    &:hover {
+        transform: scale(1.2);
+    }
 }
 
 .cover-container {
@@ -21,8 +43,6 @@
 .cover {
     //size the image to fit the container
     width: 100%;
-    margin-left: 1em;
-    margin-right: 1em;
 }
 
 .left-presentation {
@@ -31,7 +51,7 @@
 
 .right-presentation {
     padding: 2em;
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0,0,0,0.8);
     margin-bottom: 2em;
     border-radius: 1em;
 }
@@ -40,6 +60,7 @@
     margin-top: 1em;
     overflow: hidden;
     white-space: nowrap;
+    overflow-x: auto;
 }
 
 .slider-content {
@@ -68,4 +89,8 @@
 
 .synopsis {
     font-size: large
+}
+
+#comments {
+    width: 50%;
 }

@@ -1,5 +1,8 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { FullscreenService } from 'src/app/services/fullscreen.service';
+import { ApiHandlerService } from 'src/app/services/api-handler.service';
+import { ActivatedRoute } from '@angular/router';
+import { Artwork } from 'src/app/models/artwork';
 
 @Component({
   selector: 'app-webtoon-view',
@@ -14,13 +17,17 @@ export class WebtoonViewComponent implements OnInit {
     "../../../assets/fixtures/webtoonview/1.jpg"
   ]
 
-  artworkTitle: string = "Webtoon View";
+  artworkId: number = 0;
+  artwork: Artwork = new Artwork();
+  chapterIndex: number = 0;
 
   isFullScreen: boolean = false;
   private unsubscribeFullscreen: () => void;
 
   constructor(
-    private fullscreenService: FullscreenService
+    private fullscreenService: FullscreenService,
+    private route: ActivatedRoute,
+    private apiHandler: ApiHandlerService
   ) {
     this.unsubscribeFullscreen = this.fullscreenService.onFullscreenChange(() => {
       this.isFullScreen = !!document.fullscreenElement;
@@ -30,6 +37,32 @@ export class WebtoonViewComponent implements OnInit {
 
 
   ngOnInit(): void {
+    this.route.params.subscribe(params => {
+      this.artworkId = params['artworkId'];
+      this.chapterIndex = params['chapter'];
+    });
+  }
+
+  fetchArtwork() {
+    return this.apiHandler.getArtwork(this.artworkId).subscribe({
+      next: (artwork: Artwork) => {
+        this.artwork = artwork;
+      },
+      error: (error: any) => {
+        console.log(error);
+      }
+    })
+  }
+
+  fetchPages() {
+    return this.apiHandler.getPages(this.artworkId, this.chapterIndex).subscribe({
+      next: (pages: string[]) => {
+        this.images = pages;
+      },
+      error: (error: any) => {
+        console.log(error);
+      }
+    })
   }
 
   ngOnDestroy() {
@@ -42,21 +75,15 @@ export class WebtoonViewComponent implements OnInit {
       this.fullscreenService.enterFullscreen(this.liseuseContainer.nativeElement);
     } else {
       this.fullscreenService.exitFullscreen();
-      this.centerPage();
     }
   }
 
-  centerPage() {
-    const componentPosition = this.liseuseContainer.nativeElement.offsetTop;
-    const screenHeight = window.innerHeight;
-
-    // Calculer la position de défilement pour centrer le composant
-    const scrollToPosition = componentPosition - (screenHeight / 2) + (this.liseuseContainer.nativeElement.offsetHeight / 2);
-
-    window.scrollTo({
-        top: scrollToPosition,
-        behavior: 'smooth'  // Pour un défilement en douceur
-    });
+  //getters of the templaye 
+  get artworkTitle() {
+    if(this.artwork.id == 0){
+      return "Titre"
+    }
+    return this.artwork.title;
   }
 
 }

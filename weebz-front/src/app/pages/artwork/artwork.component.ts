@@ -13,15 +13,13 @@ export class ArtworkComponent implements OnInit {
   artWorkId: number = 0;
   artwork: Artwork = new Artwork();
 
-  authorId: number|null = null;
+  authorId: number = 0;
   author: any = {};
   authorRoute: string = "/author/1";
 
   chapters: any[] = [];
 
-  isDragging: boolean = false;
-  startX: number = 0;
-  currentTranslateX: number = 0;
+  isFollowing: boolean = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -45,6 +43,7 @@ export class ArtworkComponent implements OnInit {
   fetchArtworkData() {
     this.api.getArtwork(this.artWorkId).subscribe((res: any) => {
       this.artwork = res;
+      console.log(res);
     },
     (err: any) => this.noIdGiven()
     );
@@ -59,47 +58,17 @@ export class ArtworkComponent implements OnInit {
   }
 
   fetchAuthorData() {
+    console.log("fetching author data");
+    return this.api.getAuthorData(this.authorId).subscribe((res: any) => {
+      this.author = res;
+    });
   }
 
-  onMouseDown(event: MouseEvent): void {
-    this.isDragging = true;
-    this.startX = event.clientX;
-    //event.preventDefault();
-  }
+  //tempmlate actions 
 
-  //TODO ne pas le laisser aller trop loin
-
-  onMouseUp(event: MouseEvent): void {
-    this.isDragging = false;
-    if(this.currentTranslateX > 0) {
-      this.currentTranslateX = 0;
-    }
-  }
-
-  onMouseMove(event: MouseEvent): void {
-    if (!this.isDragging) return;
-    const x = event.clientX;
-    const delta = x - this.startX;
-    this.currentTranslateX += delta;
-    this.startX = x;
-  }
-
-  onWheel(event: WheelEvent): void {
-    const sensitivity = 2;
-    
-    this.currentTranslateX -= event.deltaY * sensitivity;
-
-    if(this.currentTranslateX > 0) {
-      this.currentTranslateX = 0;
-    }
-
-    //Si il n'y a plus de contenu dans la page, alors on ne peut pas aller plus loin
-
-    event.preventDefault();
-}
-
-  getTranslateX(): string {
-    return `translateX(${this.currentTranslateX}px)`;
+  onFollow(){
+    //TODO : follow
+    this.isFollowing = !this.isFollowing;
   }
 
   //getter for the template

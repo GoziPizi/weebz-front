@@ -7,6 +7,8 @@
                 </div>
                 <div class="author-name-container">
                     <h2>Par <a class="author-name" href="#">{{authorName}}</a></h2>
+                    <i class="fa-solid fa-bookmark fa-2x follow-icon" *ngIf="isFollowing" (click)="onFollow()"></i>
+                    <i class="fa-regular fa-bookmark fa-2x follow-icon" *ngIf="!isFollowing" (click)="onFollow()"></i>
                 </div>
             </div>
             <div class="right-presentation col-7">
@@ -32,15 +34,20 @@
 
     <h2 class="chapters-title">Chapitres</h2>
 
-    <div class="slider-container" (wheel)="onWheel($event)">
-        <div class="slider-content" [style.transform]="getTranslateX()">
+    <div class="slider-container">
+        <div class="slider-content">
             <app-chapter-thumbnail
                 *ngFor="let c of chapters"
                 [number]="c.index"
                 [artworkId]="artWorkId"
-                [route]="'/mangaview/' + artWorkId + '/' + c.index"
+                [route]="'/mangaview/' + artWorkId + '/' + c.id"
                 [image]="c.coverUrl"
             ></app-chapter-thumbnail>
+        </div>
+    </div>
+    <div id="sub-presentation">
+        <div id="comments">
+            <app-comments-displayer></app-comments-displayer>
         </div>
     </div>
 </div>
