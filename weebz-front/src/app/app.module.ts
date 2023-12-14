@@ -65,6 +65,7 @@ import { CommentsDisplayerComponent } from './utils/comments/comments-displayer/
 import { SingleCommentComponent } from './utils/comments/comments-displayer/single-comment/single-comment.component';
 import { CommentInputComponent } from './utils/comments/comment-input/comment-input.component';
 import { SingleResponseComponent } from './utils/comments/comments-displayer/single-response/single-response.component';
+import { NextChaptersForViewComponent } from './utils/navigation/next-chapters-for-view/next-chapters-for-view.component';
 
 @NgModule({
   declarations: [
@@ -127,7 +128,8 @@ import { SingleResponseComponent } from './utils/comments/comments-displayer/sin
     CommentsDisplayerComponent,
     SingleCommentComponent,
     CommentInputComponent,
-    SingleResponseComponent
+    SingleResponseComponent,
+    NextChaptersForViewComponent
   ],
   imports: [
     BrowserModule,

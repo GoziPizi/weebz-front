@@ -41,12 +41,11 @@
         <i *ngIf="!isFollowed" class="fa-solid fa-user-plus fa-xl" (click)="onFollow()"></i>
     </div>
 </div>
-<button (click)="onGoToNextChapter()" >Page suivante</button>
 <div id="sub-content">
     <div id="comments" #comments>
-
+        <app-comments-displayer></app-comments-displayer>
     </div>
     <div id="next-chapters">
-
+        <app-next-chapters-for-view [artworkId]="artworkId"></app-next-chapters-for-view>
     </div>
 </div>
