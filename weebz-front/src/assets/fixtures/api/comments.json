@@ -1,24 +1,35 @@
 {
-    "artworkId": "identifiant de l'artwork",
-    "comments": [
-      {
-        "commentId": "identifiant du commentaire",
-        "userId": "identifiant de l'utilisateur qui a commenté",
-        "username": "nom d'utilisateur",
-        "comment": "texte du commentaire",
-        "timestamp": "horodatage du commentaire",
-        "likes": "nombre de likes",
-        "replies": [
-          {
-            "replyId": "identifiant de la réponse",
-            "userId": "identifiant de l'utilisateur qui a répondu",
-            "username": "nom d'utilisateur",
-            "reply": "texte de la réponse",
-            "timestamp": "horodatage de la réponse",
-            "likes": "nombre de likes"
-          }
-        ]
-      }
-    ]
-  }
-  
+  "artworkId": "identifiant de l'artwork",
+  "comments": [
+    {
+      "commentId": 1,
+      "userId": "identifiant de l'utilisateur qui a commenté",
+      "surname": "nom d'utilisateur",
+      "pictureUrl": "https://weebz-dev-2.s3.eu-west-3.amazonaws.com/users/6/1701532994636_099c00f1-7823-4b0a-b743-99063316b0f8",
+      "content": "texte du commentaire, c'est le commentaire avec réponse.",
+      "date": "horodatage du commentaire",
+      "likes": "nombre de likes",
+      "replies": [
+        {
+          "commentId": 2,
+          "userId": "identifiant de l'utilisateur qui a répondu",
+          "surname": "nom d'utilisateur",
+          "pictureUrl": "https://weebz-dev-2.s3.eu-west-3.amazonaws.com/users/6/1701532994636_099c00f1-7823-4b0a-b743-99063316b0f8",
+          "content": "texte de la réponse",
+          "date": "horodatage de la réponse",
+          "likes": "nombre de likes"
+        }
+      ]
+    },
+    {
+      "commentId": 3,
+      "userId": "identifiant de l'utilisateur qui a commenté",
+      "surname": "nom d'utilisateur",
+      "pictureUrl": "https://weebz-dev-2.s3.eu-west-3.amazonaws.com/users/6/1701532994636_099c00f1-7823-4b0a-b743-99063316b0f8",
+      "content": "texte du commentaire, c'est le commentaire sans réponse.",
+      "date": "horodatage du commentaire",
+      "likes": "nombre de likes",
+      "replies": []
+    }
+  ]
+}

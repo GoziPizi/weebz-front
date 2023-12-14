@@ -49,7 +49,6 @@ export class WebtoonViewComponent implements OnInit {
         this.artwork = artwork;
       },
       error: (error: any) => {
-        console.log(error);
       }
     })
   }
@@ -60,7 +59,6 @@ export class WebtoonViewComponent implements OnInit {
         this.images = pages;
       },
       error: (error: any) => {
-        console.log(error);
       }
     })
   }

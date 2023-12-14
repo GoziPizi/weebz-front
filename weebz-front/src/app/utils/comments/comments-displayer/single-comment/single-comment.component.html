@@ -1,5 +1,24 @@
 <div id="comment">
-    <h4>{{author}}</h4>
-    <p>{{content}}</p>
-    <p>{{date}}</p>
+    <div id="img-container">
+        <img [src]="comment.pictureUrl"> 
+    </div>
+    <div id="content">
+        <h4>{{comment.surname}}</h4>
+        <p>{{comment.content}}</p>
+    </div>
+</div>
+<div id="display-responses" (click)="displayResponses()" *ngIf="hasResponses">
+    <div class="display" *ngIf="!repliesDisplayed">
+        <p>Afficher les réponses</p>
+        <i class="fa-solid fa-chevron-down"></i>
+    </div>
+    <div class="display" *ngIf="repliesDisplayed">
+        <p>Masquer les réponses</p>
+        <i class="fa-solid fa-chevron-up"></i>
+    </div>
+</div>
+<div *ngIf="repliesDisplayed" id="response-container">
+    <div *ngFor="let reply of comment.replies" class="response">
+        <app-single-response [comment]="reply"></app-single-response>
+    </div>
 </div>

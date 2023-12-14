@@ -3,4 +3,43 @@
 #comment {
     background-color: $orange;
     border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    padding: 1vh;
+    margin: 1vh;
+}
+
+#comment #img-container {
+    width: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#img-container img {
+    width: 100%;
+    border-radius: 50%;
+}
+
+#response-container {
+    //80% of the comment width, and pushed to the right
+    width: 80%;
+    margin-left: 20%;
+    display: flex;
+    flex-direction: column;
+}
+
+#display-responses {
+    margin-top: 1vh;
+    margin-right: 1vw;
+    margin-left: auto;    
+    width: max-content;
+
+    cursor: pointer;
+}
+
+.display {
+    color: gray;
+    display: flex;
+    flex-direction: row;
 }

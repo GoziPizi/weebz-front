@@ -28,16 +28,12 @@ export class UploadPagesComponent implements OnInit {
   onDrop(event : any) {
     event.preventDefault();
     const files: FileList = event.dataTransfer.files;
-    console.log("Files dropped")
-    console.log(files);
     for (let i = 0; i < files.length; i++) {
       this.imageSubscription(files, i);
     }
   }
 
   imageSubscription(files: FileList, i: number) {
-    console.log("Image subscription")
-    console.log(files[i],i)
     let reader = new FileReader();
     reader.readAsDataURL(files[i]);
     reader.onload = () => {
@@ -46,7 +42,6 @@ export class UploadPagesComponent implements OnInit {
         imageSrc: reader.result as string,
         index: this.pages.length + 1 //Index en comptage naturel
       }
-      console.log(page)
       this.pages.push(page)
     }
   }

@@ -1,9 +1,6 @@
 <div id="comments-container">
     <h2>Commentaires</h2>
-    <div *ngFor="let comment of comments.comments">
-        <app-single-comment 
-            [author]="comment.username" 
-            [content]="comment.comment" 
-            [date]="comment.timestamp"></app-single-comment>
+    <div *ngFor="let comment of comments">
+        <app-single-comment [comment]="comment"></app-single-comment>
     </div>
 </div>

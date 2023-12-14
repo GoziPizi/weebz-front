@@ -36,7 +36,6 @@ export class MyArtworksGestionComponent implements OnInit {
   }
 
   fetchAuthor() {
-    console.log("fetching author");
     this.loadingService.setLoadingState(true);
     this.api_handler.getAuthorDataFromToken().subscribe({
       next: (res: any) => {
@@ -53,7 +52,6 @@ export class MyArtworksGestionComponent implements OnInit {
   }
 
   fetchArtworks() {
-    console.log("fetching artworks");
     this.api_handler.getAuthorArtworks(this.author.id).subscribe({
       next: (res: any) => {
         this.artworks = res;

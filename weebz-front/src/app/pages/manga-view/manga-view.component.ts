@@ -80,9 +80,6 @@ export class MangaViewComponent implements OnInit {
     this.artworkId = Number(this.route.snapshot.paramMap.get('artworkId'));
     this.chapterId = Number(this.route.snapshot.paramMap.get('chapterId'));
 
-    console.log(this.artworkId);
-    console.log(this.chapterId);
-
     this.fetchPages();
     this.fetchChapter();
     this.fetchData();

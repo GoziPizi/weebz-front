@@ -64,6 +64,7 @@ import { MyArtworksGestionComponent } from './pages/my-profile/my-artworks-gesti
 import { CommentsDisplayerComponent } from './utils/comments/comments-displayer/comments-displayer.component';
 import { SingleCommentComponent } from './utils/comments/comments-displayer/single-comment/single-comment.component';
 import { CommentInputComponent } from './utils/comments/comment-input/comment-input.component';
+import { SingleResponseComponent } from './utils/comments/comments-displayer/single-response/single-response.component';
 
 @NgModule({
   declarations: [
@@ -125,7 +126,8 @@ import { CommentInputComponent } from './utils/comments/comment-input/comment-in
     MyArtworksGestionComponent,
     CommentsDisplayerComponent,
     SingleCommentComponent,
-    CommentInputComponent
+    CommentInputComponent,
+    SingleResponseComponent
   ],
   imports: [
     BrowserModule,
