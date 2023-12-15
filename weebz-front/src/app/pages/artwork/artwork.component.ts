@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ApiHandlerService } from 'src/app/services/api-handler.service';
 import { Artwork } from 'src/app/models/artwork';
+import { Chapter } from 'src/app/models/chapter';
 
 @Component({
   selector: 'app-artwork',
@@ -17,7 +18,7 @@ export class ArtworkComponent implements OnInit {
   author: any = {};
   authorRoute: string = "/author/1";
 
-  chapters: any[] = [];
+  chapters: Chapter[] = [];
 
   isFollowing: boolean = false;
 

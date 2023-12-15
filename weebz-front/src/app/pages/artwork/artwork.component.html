@@ -38,10 +38,7 @@
         <div class="slider-content">
             <app-chapter-thumbnail
                 *ngFor="let c of chapters"
-                [number]="c.index"
-                [artworkId]="artWorkId"
-                [route]="'/mangaview/' + artWorkId + '/' + c.id"
-                [image]="c.coverUrl"
+                [chapter]="c"
             ></app-chapter-thumbnail>
         </div>
     </div>

@@ -9,5 +9,6 @@
         <p *ngIf="chapters.length==0">
             Il n'y a plus d'épisodes à regarder !
         </p>
+        <app-chapter-thumbnail class="chapter-thumbnail" *ngFor="let chapter of chapters" [chapter]="chapter"></app-chapter-thumbnail>
     </div>
 </div>

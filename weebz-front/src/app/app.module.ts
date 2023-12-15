@@ -33,8 +33,7 @@ import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.com
 import { MyProfileComponent } from './pages/my-profile/my-profile.component';
 import { LoadingComponentComponent } from './utils/loading-component/loading-component.component';
 import { ArtworkComponent } from './pages/artwork/artwork.component';
-import { ChapterThumbnailComponent } from './pages/artwork/chapter-thumbnail/chapter-thumbnail.component';
-import { ChapterRowThumbnailComponent } from './pages/artwork/chapter-row-thumbnail/chapter-row-thumbnail.component';
+import { ChapterThumbnailComponent } from './utils/thumbnails/chapter-thumbnail/chapter-thumbnail.component';
 import { ArtworkThumbnailComponent } from './utils/thumbnails/artwork-thumbnail/artwork-thumbnail.component';
 import { WatchlistComponent } from './pages/watchlist/watchlist.component';
 import { CreateArtworkComponent } from './pages/create-artwork/create-artwork.component';
@@ -98,7 +97,6 @@ import { NextChaptersForViewComponent } from './utils/navigation/next-chapters-f
     LoadingComponentComponent,
     ArtworkComponent,
     ChapterThumbnailComponent,
-    ChapterRowThumbnailComponent,
     ArtworkThumbnailComponent,
     WatchlistComponent,
     CreateArtworkComponent,

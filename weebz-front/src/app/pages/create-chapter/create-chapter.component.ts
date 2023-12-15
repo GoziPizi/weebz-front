@@ -51,7 +51,7 @@ export class CreateChapterComponent implements OnInit {
     });
     this.apiHandler.getAllChapters(this.artworkId).subscribe({
       next: (res: any) => {
-        this.chaptersNumber = res.length+1;
+        this.chaptersNumber = res.length;
       },
       error: (error: any) => {
         this.chaptersNumber = 0;

@@ -143,6 +143,7 @@ export class ApiHandlerService {
       Authorization : this.cookieService.get('apiToken')
     }
     return this.http.get(this.url + "api/v1/authors/profile", {headers: header});
+    // return this.http.get('/assets/fixtures/api/author.json').pipe(delay(500));
   }
 
   getArtwork(id: number): Observable<any> {

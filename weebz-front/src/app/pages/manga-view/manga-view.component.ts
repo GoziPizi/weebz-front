@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef, Renderer2 } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { Subscription } from 'rxjs';
 import { FullscreenService } from 'src/app/services/fullscreen.service';
 import { ApiHandlerService } from 'src/app/services/api-handler.service';
@@ -26,7 +26,9 @@ export class MangaViewComponent implements OnInit {
 
   chapterId : number = 0
   chapter: Chapter = new Chapter();
-  pageCount : number = 0; //TODO: get this from the backend
+  pageCount : number = 0;
+
+  reloadObservable: BehaviorSubject<void> = new BehaviorSubject<void>(undefined);
 
   //Contains the value of the current page. Starts at 1.
   currentPage: BehaviorSubject<number> = new BehaviorSubject<number>(1);
@@ -72,7 +74,7 @@ export class MangaViewComponent implements OnInit {
       });
 
       this.paramSubscription = this.route.params.subscribe(params => {
-        this.resetComponent();
+        this.reInit();
       });
     }
 
@@ -87,6 +89,16 @@ export class MangaViewComponent implements OnInit {
     this.preloadSubscriptions();
   }
 
+  reInit() {
+    this.artworkId = Number(this.route.snapshot.paramMap.get('artworkId'));
+    this.chapterId = Number(this.route.snapshot.paramMap.get('chapterId'));
+    this.fetchPages();
+    this.fetchChapter();
+    this.currentPageIndex = 1;
+    this.currentPage.next(this.currentPageIndex);
+    this.reloadObservable.next(undefined);
+  }
+
   preloadSubscriptions() {
     this.currentPage.subscribe((page) => {
       if(page+1 < this.pages.length){
@@ -97,10 +109,6 @@ export class MangaViewComponent implements OnInit {
       }
       this.currentPageIndex = page;
     });
-  }
-
-  resetComponent() {
-    //TODO: attention id pas index
   }
 
   ngOnDestroy() {
