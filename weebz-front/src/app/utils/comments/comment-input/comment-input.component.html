@@ -1,1 +1,5 @@
-<p>comment-input works!</p>
+<div id="comment-input-container">
+    <h3>Ajouter un commentaire</h3>
+    <textarea id="comment-input" placeholder="Votre commentaire..." [(ngModel)]="commentContent"></textarea>
+    <button id="comment-submit" (click)="submitComment()">Envoyer</button>
+</div>

@@ -1,0 +1,38 @@
+@import '../../../../variables';
+
+#comment-input-container {
+    background-color: $orange;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    padding: 1vh;
+    margin: 1vh;
+}
+
+#comment-input {
+    resize: none;
+    border: none;
+    border-radius: 1vh;
+    padding: 1vh;
+    background-color: white;
+    color: black;
+    margin-left: 3vw;
+}
+
+#comment-input:focus {
+    outline: none;
+}
+
+#comment-submit {
+    margin-top: 1vh;
+    margin-right: 1vw;
+    margin-left: auto;    
+    width: max-content;
+
+    border: none; 
+    border-radius: 1vh;
+    background-color: orange;
+    color: white;
+
+    cursor: pointer;
+}

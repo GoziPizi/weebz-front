@@ -21,6 +21,23 @@
     border-radius: 50%;
 }
 
+#content p{
+    margin: 0;
+    margin-left: 1vw;
+    width: 100%;
+}   
+
+#content h4 {
+    margin: 0;
+    margin-bottom: 1vh;
+    cursor: pointer;
+
+    &:hover {
+        color: black;
+        text-decoration: underline;
+    }
+}
+
 #response-container {
     //80% of the comment width, and pushed to the right
     width: 80%;

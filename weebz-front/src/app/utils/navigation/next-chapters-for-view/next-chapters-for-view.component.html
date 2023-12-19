@@ -6,9 +6,10 @@
 
     </div>
     <div id="chapters-thumbnails" class="shady">
-        <p *ngIf="chapters.length==0">
-            Il n'y a plus d'épisodes à regarder !
-        </p>
+        <div *ngIf="chapters.length==0">
+            <h4>Tu as regardé tous les épisodes !</h4>
+            <p>Consulte la <a routerLink="/author/{{authorId}}">page de l'auteur</a> pour voir ses autres oeuvres !</p>
+        </div>
         <app-chapter-thumbnail class="chapter-thumbnail" *ngFor="let chapter of chapters" [chapter]="chapter"></app-chapter-thumbnail>
     </div>
 </div>

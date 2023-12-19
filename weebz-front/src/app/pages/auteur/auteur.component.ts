@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
-import { CommonModule } from '@angular/common';
+import { Author } from 'src/app/models/author';
 import { ApiHandlerService } from 'src/app/services/api-handler.service';
 
 @Component({
@@ -12,7 +12,7 @@ import { ApiHandlerService } from 'src/app/services/api-handler.service';
 export class AuteurComponent implements OnInit {
 
   authorId: number = 0;
-  author: any = {};
+  author: Author = new Author();
 
   //Observable sur l'auteur pour les child components
   author$: BehaviorSubject<any> = new BehaviorSubject<any>({});
@@ -34,6 +34,9 @@ export class AuteurComponent implements OnInit {
     this.apiHandler.getAuthorData(this.authorId).subscribe({
       next: (data: any) => {
         this.author = data;
+        this.author.presentation = this.author.presentation.replace(/(?:\r\n|\r|\n)/g, '<br>');
+        this.author.presentation = "<p>" + this.author.presentation + "</p>";
+        console.log(this.author.presentation);
         this.author$.next(data);
       }
     }
@@ -50,21 +53,21 @@ export class AuteurComponent implements OnInit {
   //getters for the template
 
   get authorName() {
-    if (Object.keys(this.author).length === 0) {
+    if (this.author.user.id == 0) {
       return "";
     }
     return this.author.user.surname;
   }
 
   get authorPicture() {
-    if (Object.keys(this.author).length === 0) {
+    if (this.author.user.id == 0) {
       return "";
     }
     return this.author.user.pictureUrl;
   }
 
   get presentation() {
-    if (Object.keys(this.author).length === 0) {
+    if (this.author.user.id == 0) {
       return "";
     }
     return this.author.presentation;

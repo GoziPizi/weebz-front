@@ -17,7 +17,7 @@
             <span class="display-mode-container middle" (click)="switchReadingDirection()">
                 <span *ngIf="leftToRight"><i class="fa-solid fa-arrow-right"></i></span>
                 <span *ngIf="!leftToRight"><i class="fa-solid fa-arrow-left"></i></span>
-                <span id="reading-direction" > Sens de lecture : </span>
+                <span id="reading-direction" > Sens de Lecture</span>
             </span>
 
             <span (click)="centerPage()" class="display-mode-container">Centrer</span>
@@ -46,6 +46,6 @@
         <app-comments-displayer></app-comments-displayer>
     </div>
     <div id="next-chapters">
-        <app-next-chapters-for-view [artworkId]="artworkId" [chapterIndex]="chapter.index" [reloadObservable]="reloadObservable" ></app-next-chapters-for-view>
+        <app-next-chapters-for-view [artworkId]="artworkId" [chapterIndex]="chapter.index" [reloadObservable]="reloadObservable" [authorId]="artwork.authorId"></app-next-chapters-for-view>
     </div>
 </div>

@@ -70,7 +70,16 @@ export class MangaViewComponent implements OnInit {
           this.onArrowLeft();
         } else if (event.key === 'ArrowRight') {
           this.onArrowRight();
+        } else if (event.key === 'f') {
+          this.toggleFullScreen();
+        } else if (event.key === 'd') {
+          this.updateDoublePage();
+        } else if (event.key === 'r') {
+          this.switchReadingDirection();
+        } else if (event.key === 'Escape' && this.isFullScreen) {
+          this.toggleFullScreen();
         }
+
       });
 
       this.paramSubscription = this.route.params.subscribe(params => {
@@ -196,7 +205,9 @@ export class MangaViewComponent implements OnInit {
       this.fullscreenService.enterFullscreen(this.liseuseContainer.nativeElement);
     } else {
       this.fullscreenService.exitFullscreen();
-      this.centerPage();
+      setTimeout(() => {
+        this.centerPage();
+      }, 100);
     }
   }
 

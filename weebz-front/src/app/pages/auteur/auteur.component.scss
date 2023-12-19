@@ -4,26 +4,16 @@
     justify-content: center;
 }
 
-.header {
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+#profile-picture-container {
+    width: 10vw;
 }
 
-.profile-picture {
+#profile-picture {
     margin-top: 1rem;
     width: 100%;
     height: 100%;
     object-fit: cover;
     border-radius: 50%;
-}
-
-.author-name-container {
-    margin-top: 1rem;
-}
-
-.author-description {
-    margin-top: 1rem;
 }
 
 .follow-icon {
@@ -36,8 +26,21 @@
     }
 }
 
-#right-side-header {
-    padding: 1em;
+#profile-picture-text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#profile-picture-text h3 {
+    margin: 0;
+}
+
+#banner {
+    margin-top: 1em;
+    width: 100%;
+    height: 20vh;
+    object-fit: cover;
 }
 
 #presentation-title {

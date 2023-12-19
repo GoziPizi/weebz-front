@@ -1,18 +1,13 @@
 <div class="container-fluid">
-    <div class="row header">
-        <div class="col-2 left-side-bar">
-            <div class="picture-container d-flex justify-content-center">
-                <img class="profile-picture" src="{{authorPicture}}">
+    <div class="header">
+        <div id="profile-picture-container">
+            <img id="profile-picture" [src]="authorPicture" alt="profile picture">
+            <div id="profile-picture-text">
+                <h3>{{author.user.surname}}</h3>
+                <i class="fa-regular fa-bookmark fa-2x follow-icon"  *ngIf="!followed" (click)="onFollow()"></i>
+                <i class="fa-solid fa-bookmark fa-2x follow-icon"*ngIf="followed" (click)="onFollow()"></i>
             </div>
-            <div class="author-name-container d-flex justify-content-center">
-                <h3 class="author-name">{{authorName}}</h3>
-                <i *ngIf="!followed" class="fa-regular fa-bookmark fa-2x follow-icon" (click)="onFollow()"></i>
-                <i *ngIf="followed" class="fa-solid fa-bookmark fa-2x follow-icon" (click)="onFollow()"></i>
-            </div>
-        </div>
-        <div class="col-10" id="right-side-header">
-            <h3 id="presentation-title">Présentation :</h3>
-            <p>{{presentation}}</p>
+            
         </div>
     </div>
     <div id="main-content">
@@ -23,6 +18,5 @@
             <app-author-shops [author$]="author$"></app-author-shops>
         </div>
     </div>
-    
 </div>
   

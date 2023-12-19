@@ -135,7 +135,7 @@ export class ApiHandlerService {
 
   //Get an author from his author_id
   getAuthorData(id: number): Observable<any> {
-    return this.http.get(this.url + "api/v1/authors/" + id);
+    return this.http.get(this.url + "api/v1/authors/" + id + "/infos");
   }
 
   getAuthorDataFromToken(): Observable<any> {
@@ -249,13 +249,36 @@ export class ApiHandlerService {
 
   //Comments 
 
-  getComments(artworkId: number): Observable<any> {
-    //return this.http.get(this.url + "api/v1/artworks/" + artworkId + "/comments");
-    //TODO: Remove this when the backend is ready
-    return this.http.get('/assets/fixtures/api/comments.json').pipe(delay(500));
+  getComments(commentableId: number, commentableType: string): Observable<any> {
+    if(commentableType == "artwork") {
+      return this.http.get(this.url + "api/v1/artworks/" + commentableId + "/comments");
+    }
+    else if(commentableType == "chapter") {
+      return this.http.get(this.url + "api/v1/chapters/" + commentableId + "/comments");
+    }
+    else {
+      return new Observable();
+    }
   }
-
   //postComment
+
+  postComment(commentableId: number, commentableType: string, content: string): Observable<any> {
+    let headers = {
+      Authorization : this.cookieService.get('apiToken')
+    }
+    let data = {
+      content: content
+    }
+    if(commentableType == "artwork") {
+      return this.http.post(this.url + "api/v1/artworks/" + commentableId + "/comments", data, {headers: headers});
+    }
+    else if(commentableType == "chapter") {
+      return this.http.post(this.url + "api/v1/chapters/" + commentableId + "/comments", data, {headers: headers});
+    }
+    else {
+      return new Observable();
+    }
+  }
 
   //deleteComment
 

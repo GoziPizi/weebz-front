@@ -10,6 +10,7 @@ import { ApiHandlerService } from 'src/app/services/api-handler.service';
 })
 export class NextChaptersForViewComponent implements OnInit {
 
+  @Input() authorId: number = 0;
   @Input() reloadObservable: Observable<void> = new Observable<void>();
   @Input() artworkId: number = 0;
   @Input() chapterIndex: number = 1;
@@ -41,7 +42,6 @@ export class NextChaptersForViewComponent implements OnInit {
 
   trimChapters() {
     this.chapters = this.chapters.filter(chapter => chapter.index > this.chapterIndex);
-    console.log(this.chapters)
   }
 
   sortChapters() {
