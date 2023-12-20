@@ -6,6 +6,17 @@
     background: linear-gradient(90deg, #FF6F00 0%, #119DA4 25%, #D9D9D9 85%, #000000 95%);
 }
 
+#main-content {
+    display: flex;
+    flex-direction: row;
+}
+
+.side-bar {
+    width: 20%;
+    padding-left: 2em;
+    padding-right: 2em;
+}
+
 .drop-zone {
     background-color: #111;
     border: 2px solid #ccc;
@@ -24,6 +35,10 @@
     padding-top: 2em;
     text-align: center;
     padding-bottom: 2em;
+}
+
+#cover-drop-zone {
+    width: 100%;
 }
 
 .cover-preview {

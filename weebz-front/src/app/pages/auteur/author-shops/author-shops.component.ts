@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { Author } from 'src/app/models/author';
 import { Shop } from 'src/app/models/shop';
 
 import { ApiHandlerService } from 'src/app/services/api-handler.service';
@@ -12,7 +13,7 @@ import { ApiHandlerService } from 'src/app/services/api-handler.service';
 export class AuthorShopsComponent implements OnInit {
 
   @Input() author$: BehaviorSubject<any> = new BehaviorSubject<any>({});
-  author: any = {};
+  author: Author = new Author();
 
   shops: Shop[] = [];
 
@@ -35,6 +36,14 @@ export class AuthorShopsComponent implements OnInit {
         this.shops = data;
       }
     })
+  }
+
+  //template getters
+  get authorName() {
+    if(this.author.user){
+      return this.author.user.surname;
+    }
+    return "";
   }
 
 }

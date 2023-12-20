@@ -1,8 +1,15 @@
-<ng-component *ngIf="shops.length == 0">
-    aa
-</ng-component>
-<ng-component *ngIf="shops.length > 0">
-    <div id="shops-container">
-        <app-shop-vignette *ngFor="let shop of shops" ></app-shop-vignette>
+<div id="container">
+    <div id="header">
+        <h3>Boutiques de {{authorName}}</h3>
+        <p>Retrouvez ici les boutiques de {{authorName}}.</p>
     </div>
-</ng-component>
+    
+    <div *ngIf="shops.length == 0">
+        <p>Cet auteur n'a pas encore de boutique</p>
+    </div>
+    <div *ngIf="shops.length > 0">
+        <div id="shops-container">
+            <app-four-products-shop-thumbnail *ngFor="let shop of shops" [shop]="shop"></app-four-products-shop-thumbnail>
+        </div>
+    </div>    
+</div>

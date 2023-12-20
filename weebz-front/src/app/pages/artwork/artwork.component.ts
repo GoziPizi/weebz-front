@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ApiHandlerService } from 'src/app/services/api-handler.service';
+import { Router } from '@angular/router';
 import { Artwork } from 'src/app/models/artwork';
 import { Chapter } from 'src/app/models/chapter';
 
@@ -16,7 +17,6 @@ export class ArtworkComponent implements OnInit {
 
   authorId: number = 0;
   author: any = {};
-  authorRoute: string = "/author/1";
 
   chapters: Chapter[] = [];
 
@@ -24,7 +24,8 @@ export class ArtworkComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private api: ApiHandlerService
+    private api: ApiHandlerService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -44,6 +45,8 @@ export class ArtworkComponent implements OnInit {
   fetchArtworkData() {
     this.api.getArtwork(this.artWorkId).subscribe((res: any) => {
       this.artwork = res;
+      this.authorId = res.authorId;
+      this.fetchAuthorData();
     },
     (err: any) => this.noIdGiven()
     );
@@ -68,6 +71,10 @@ export class ArtworkComponent implements OnInit {
   onFollow(){
     //TODO : follow
     this.isFollowing = !this.isFollowing;
+  }
+
+  navigateToAuthor() {
+    this.router.navigate(['/author', this.authorId]);
   }
 
   //getter for the template

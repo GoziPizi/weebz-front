@@ -2,28 +2,31 @@
     <div class="upload-header">
         <h1>Publier une série</h1>
     </div>
-    <div class="row">
-        <div class="side-bar col-3">
-            <h2 class="drop-title">Couverture de l'oeuvre</h2>
-            <div 
-                class="drop-zone"
-                (dragover)="onDragOver($event)"
-                (drop)="onDropCover($event)"
-                (click)="triggerFileInputCover()">
-                    <p *ngIf="!coverPreviewSrc">Cover</p>
-                    <img 
-                        *ngIf="coverPreviewSrc"
-                        [src]="coverPreviewSrc"
-                        alt="Cover Preview"
-                        class="cover-preview"
-                    >
+    <div id="main-content">
+        <div class="side-bar">
+            <div id="cover-input-container">
+                <h2 class="drop-title">Couverture de l'oeuvre</h2>
+                <div 
+                    id="cover-drop-zone"
+                    class="drop-zone"
+                    (dragover)="onDragOver($event)"
+                    (drop)="onDropCover($event)"
+                    (click)="triggerFileInputCover()">
+                        <p *ngIf="!coverPreviewSrc">Cover</p>
+                        <img 
+                            *ngIf="coverPreviewSrc"
+                            [src]="coverPreviewSrc"
+                            alt="Cover Preview"
+                            class="cover-preview"
+                        >
+                </div>
+                <input 
+                    #fileCoverInput
+                    type="file"
+                    style="display: none;"
+                    (change)="onFileSelectedCover($event)"
+                >
             </div>
-            <input 
-                #fileCoverInput
-                type="file"
-                style="display: none;"
-                (change)="onFileSelectedCover($event)"
-            >
             <h2 class="drop-title">Background de l'oeuvre</h2>
             <div 
                 class="drop-zone"
@@ -46,7 +49,7 @@
             >
 
         </div>
-        <div class="main-content col-9">
+        <div class="artwork-infos">
             <h2>Type d'oeuvre</h2>
             <div class="row">
                 <span [ngClass]="{'selected': isMangaSelected}" class="artwork-type-selector" (click)="onMangaClick()">Manga</span>

@@ -36,7 +36,6 @@ export class AuteurComponent implements OnInit {
         this.author = data;
         this.author.presentation = this.author.presentation.replace(/(?:\r\n|\r|\n)/g, '<br>');
         this.author.presentation = "<p>" + this.author.presentation + "</p>";
-        console.log(this.author.presentation);
         this.author$.next(data);
       }
     }

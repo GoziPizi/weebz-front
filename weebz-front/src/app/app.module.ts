@@ -65,6 +65,7 @@ import { SingleCommentComponent } from './utils/comments/comments-displayer/sing
 import { CommentInputComponent } from './utils/comments/comment-input/comment-input.component';
 import { SingleResponseComponent } from './utils/comments/comments-displayer/single-response/single-response.component';
 import { NextChaptersForViewComponent } from './utils/navigation/next-chapters-for-view/next-chapters-for-view.component';
+import { FourProductsShopThumbnailComponent } from './utils/thumbnails/shop-thumbnails/four-products-shop-thumbnail/four-products-shop-thumbnail.component';
 
 @NgModule({
   declarations: [
@@ -127,7 +128,8 @@ import { NextChaptersForViewComponent } from './utils/navigation/next-chapters-f
     SingleCommentComponent,
     CommentInputComponent,
     SingleResponseComponent,
-    NextChaptersForViewComponent
+    NextChaptersForViewComponent,
+    FourProductsShopThumbnailComponent
   ],
   imports: [
     BrowserModule,

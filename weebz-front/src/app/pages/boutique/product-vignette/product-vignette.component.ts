@@ -15,4 +15,11 @@ export class ProductVignetteComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  //template getters
+
+  get price() {
+    return this.product.price.toFixed(2);
+  }
+
+
 }

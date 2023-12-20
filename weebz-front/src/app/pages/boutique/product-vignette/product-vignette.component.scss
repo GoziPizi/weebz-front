@@ -1,8 +1,9 @@
 @import "../../../../variables.scss";
 
 #container {
+    height: 100%;
     color: black;
-    padding: 5em;
+    padding: 5vh;
     transition: all 0.2s ease-in-out;
     background-color: white;
 

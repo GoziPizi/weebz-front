@@ -235,6 +235,8 @@ export class ApiHandlerService {
     return this.http.patch(this.url + "api/v1/users/profile/profile-picture", formData, {headers: headers});
   }
 
+  //shop
+
   getShopData(shopId: number): Observable<any> {
     return this.http.get(this.url + "api/v1/shops/" + shopId);
   }
