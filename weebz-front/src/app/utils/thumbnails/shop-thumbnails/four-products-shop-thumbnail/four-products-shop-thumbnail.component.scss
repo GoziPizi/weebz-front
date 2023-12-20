@@ -1,5 +1,10 @@
+#header h3 {
+    margin: 3vh;
+    font-weight: bold;
+}
+
 #container {
-    padding: 2vh;
+    padding: 4vh;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -7,6 +12,7 @@
 }
 
 #products-container {
+    padding: 2vh;
     display: flex;
     flex-wrap: nowrap;
     overflow: hidden;
