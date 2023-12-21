@@ -21,6 +21,12 @@
     text-align: center;
 }
 
+#header h4 {
+    cursor: pointer;
+    text-align: center;
+    color: gray;
+}
+
 #command-and-view {
     width: min-content;
     background-color: $dark-gray;
@@ -84,7 +90,7 @@
 }
 
 #social-icons i {
-    padding: 1em;
+    padding: 1.5vh;
     margin-bottom: 1em;
 
     background-color: $dark-gray;

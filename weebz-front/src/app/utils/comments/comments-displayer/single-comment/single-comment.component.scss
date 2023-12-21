@@ -21,10 +21,19 @@
     border-radius: 50%;
 }
 
+#content {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+}
+
 #content p{
+    padding: 0.5vh;
     margin: 0;
     margin-left: 1vw;
-    width: 100%;
+    background-color: orangered;
+    border: 1px solid orange;
+    border-radius: 10px;
 }   
 
 #content h4 {

@@ -9,6 +9,7 @@ import { Artwork } from 'src/app/models/artwork';
 import { Router } from '@angular/router';
 import { LoadingServiceService } from 'src/app/services/loading-service.service';
 import { Chapter } from 'src/app/models/chapter';
+import { Author } from 'src/app/models/author';
 
 @Component({
   selector: 'app-manga-view',
@@ -23,6 +24,8 @@ export class MangaViewComponent implements OnInit {
 
   artworkId : number = 0;
   artwork : Artwork = new Artwork();
+
+  author: Author = new Author();
 
   chapterId : number = 0
   chapter: Chapter = new Chapter();
@@ -160,12 +163,19 @@ export class MangaViewComponent implements OnInit {
   fetchData(){
     return this.apiHandlerService.getArtwork(this.artworkId!).subscribe((res: any) => {
       this.artwork = res;
+      this.fetchAuthor();
     });
   }
 
   fetchChapter(){
     return this.apiHandlerService.getChapterById(this.chapterId).subscribe((res: any) => {
       this.chapter = res;
+    });
+  }
+
+  fetchAuthor() {
+    return this.apiHandlerService.getAuthorData(this.artwork.authorId).subscribe((res: any) => {
+      this.author = res;
     });
   }
 
@@ -287,8 +297,17 @@ export class MangaViewComponent implements OnInit {
     //TODO
   }
 
+  navigateAuthor() {
+    this.router.navigate(['/author', this.author.id]);
+  }
+
   //template getters
   get chapterIndex() {
     return this.chapter.index;
+  }
+
+  get authorName() {
+    if(this.author.id == 0) return "Unknown";
+    return this.author.user.surname;
   }
 }

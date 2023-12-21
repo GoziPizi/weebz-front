@@ -30,8 +30,7 @@ export class ArtworkCarouselItemComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.synopsis = this.synopsis.substring(0,250);
-    this.synopsis += '...';
+
   }
 
   navigate(){

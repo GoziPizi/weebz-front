@@ -1,5 +1,9 @@
 @import '../../../../variables';
 
+#header h2 {
+    font-size: 3vh;
+}
+
 #chapters-thumbnails {
     display: flex;
     flex-wrap: nowrap;
