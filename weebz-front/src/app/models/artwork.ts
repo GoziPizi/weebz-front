@@ -6,5 +6,6 @@ export class Artwork {
     backgroundImageUrl: string = "../assets/test-news.png"; //url of the background
     views: number = 0;
     authorId: number = 0 ;
+    type= "MANGA";
     shopId: number|null = null;
 }

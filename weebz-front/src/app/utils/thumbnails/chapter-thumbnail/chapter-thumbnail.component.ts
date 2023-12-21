@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 export class ChapterThumbnailComponent implements OnInit {
 
   @Input() chapter: Chapter = new Chapter();
-  @Input() type = "manga";
+  @Input() type = "MANGA";
 
   constructor(
     private router: Router
@@ -21,13 +21,13 @@ export class ChapterThumbnailComponent implements OnInit {
 
   navigate() {
     switch (this.type) {
-      case "manga":
+      case "MANGA":
         this.router.navigate(["/mangaview", this.chapter.artworkId, this.chapter.id]);
         break;
-      case "webtoon":
+      case "COMIC":
         this.router.navigate(["/webtoonview", this.chapter.artworkId, this.chapter.id]);
         break;
-      case "lightnovel":
+      case "NOVEL":
         this.router.navigate(["/lightnovel", this.chapter.artworkId, this.chapter.id]);
         break;
     }

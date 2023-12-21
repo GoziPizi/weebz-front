@@ -50,9 +50,12 @@ img {
 #image-carousel-container {
     display: flex;
     flex-direction: row;
+    align-items: center;
+    justify-content: center;
 }
 
 #image-carousel-container img {
+    width: 33%;
     margin: 0.5em;
     cursor: pointer;
     &:hover {
@@ -124,7 +127,7 @@ img {
     }
 }
 
-#buy-button h3 {
+#buy-button h4 {
     margin: 0;
 }
 
@@ -160,4 +163,8 @@ img {
         text-decoration: underline;
         color: $orange;
     }
+}
+
+#similar-products {
+    margin-top: 2em;
 }

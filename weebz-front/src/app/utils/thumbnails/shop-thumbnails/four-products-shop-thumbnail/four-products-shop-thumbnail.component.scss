@@ -13,6 +13,8 @@
 
 #products-container {
     padding: 2vh;
+    border-radius: 2vh;
+    background-color: rgba(0, 0, 0, 0.8);
     display: flex;
     flex-wrap: nowrap;
     overflow: hidden;
@@ -22,7 +24,8 @@
 }
 
 .product-vignette {
-    height: fit-content;
+    margin-bottom: 0;
+    height: auto;
     width: 25%;
     flex-shrink: 0;
 }

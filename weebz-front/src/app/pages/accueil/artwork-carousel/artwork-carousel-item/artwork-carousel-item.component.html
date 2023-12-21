@@ -1,11 +1,20 @@
 <div class="carousel-item" (click)="navigate()">
-    <img [src]="image" alt="Image de carrousel" class="img-fluid">
-    <p class="synopsis">{{synopsis}}</p>
+    <div id="image-container">
+        <img [src]="image" alt="Image de carrousel" class="img-fluid">
+        <div class="showed-on-hover" >
+            <div class="fav-icon">
+                <i *ngIf="!faved" (click)="onFav($event)" class="fa-regular fa-bookmark fa-xl"></i>
+                <i *ngIf="faved" (click)="onFav($event)" class="fa-solid fa-bookmark fa-xl"></i>
+            </div>
+            <h4 id="title">{{text}}</h4>
+            <p id="author">{{text2}}</p>
+            <p id="synopsis">{{synopsis}}</p>
+            <div id="views">
+                <i class="fa-regular fa-eye"></i>
+                <p>{{views}}</p>
+            </div>
+        </div>
+    </div>
     <h3 class="name">{{text}}</h3>
     <p class="author">{{text2}}</p>
-    <p class="views">{{views}} vues</p>
-    <div class="fav-icon">
-        <i *ngIf="!faved" (click)="onFav($event)" class="fa-regular fa-bookmark fa-xl"></i>
-        <i *ngIf="faved" (click)="onFav($event)" class="fa-solid fa-bookmark fa-xl"></i>
-    </div>
 </div>

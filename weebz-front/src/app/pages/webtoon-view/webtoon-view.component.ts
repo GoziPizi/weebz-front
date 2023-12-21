@@ -3,6 +3,7 @@ import { FullscreenService } from 'src/app/services/fullscreen.service';
 import { ApiHandlerService } from 'src/app/services/api-handler.service';
 import { ActivatedRoute } from '@angular/router';
 import { Artwork } from 'src/app/models/artwork';
+import { Page } from '../create-chapter/page';
 
 @Component({
   selector: 'app-webtoon-view',
@@ -13,9 +14,7 @@ export class WebtoonViewComponent implements OnInit {
 
   @ViewChild('liseuseContainer') liseuseContainer!: ElementRef;
 
-  images: string[] = [
-    "../../../assets/fixtures/webtoonview/1.jpg"
-  ]
+  pages: any[] = []
 
   artworkId: number = 0;
   artwork: Artwork = new Artwork();
@@ -39,8 +38,10 @@ export class WebtoonViewComponent implements OnInit {
   ngOnInit(): void {
     this.route.params.subscribe(params => {
       this.artworkId = params['artworkId'];
-      this.chapterIndex = params['chapter'];
+      this.chapterIndex = params['chapterId'];
     });
+    this.fetchArtwork();
+    this.fetchPages();
   }
 
   fetchArtwork() {
@@ -55,12 +56,17 @@ export class WebtoonViewComponent implements OnInit {
 
   fetchPages() {
     return this.apiHandler.getPages(this.artworkId, this.chapterIndex).subscribe({
-      next: (pages: string[]) => {
-        this.images = pages;
+      next: (pages) => {
+        this.pages = pages;
+        this.sortPages();
       },
       error: (error: any) => {
       }
     })
+  }
+
+  sortPages() {
+    this.pages.sort((a, b) => a.index - b.index);
   }
 
   ngOnDestroy() {

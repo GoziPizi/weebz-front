@@ -57,11 +57,17 @@
 
 #artworks {
     width: 100%;
-    max-width: 2000px;
 }
 
 #shops {
     margin-top: 1em;
     width: 100%;
-    max-width: 2000px;
+}
+
+.line {
+    margin-top: 1em;
+    margin-bottom: 1em;
+    width: 100%;
+    height: 1px;
+    background-color: grey;
 }

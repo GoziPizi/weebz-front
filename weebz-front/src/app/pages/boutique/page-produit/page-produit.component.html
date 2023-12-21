@@ -11,7 +11,7 @@
         <div id="product-presentation">
             <div id="images-container">
                 <img [src]="mainImage">
-                <div id="carousel">
+                <div id="carousel" *ngIf="isCarouselDisplayed">
                     <i class="fa-solid fa-angle-left fa-xl carousel-arrow" (click)="onCarouselPrevious()" ></i>
                     <div id="image-carousel-container">
                         <img 
@@ -37,10 +37,10 @@
                         <p id="commentaires">Commentaires</p>
                     </div>
                     
-                    <p>{{product.price}}€</p>
+                    <p>{{productPrice}}€</p>
                     <a href="https://buy.stripe.com/test_aEUaIaf9vc4Z0PCcMN">
                         <div id="buy-button">
-                            <h3>Acheter</h3>
+                            <h4>Acheter</h4>
                         </div>
                     </a>
                 </div>
@@ -61,12 +61,10 @@
                 </div>
             </div>
         </div>
-        <div>TODO FAIRE COMPONENT POUR PROPRIETES DES METADATAS</div>
         <div id="similar-products">
             <app-page-produit-similar-product [product$]="product$">
 
             </app-page-produit-similar-product>
         </div>
-        <div>TODO COMPONENT COMMENTAIRES</div>
     </div>
 </div>
