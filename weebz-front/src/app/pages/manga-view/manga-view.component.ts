@@ -152,9 +152,9 @@ export class MangaViewComponent implements OnInit {
   }
 
   updatePages(res: any) {
-    this.pages = res;
-    this.pages.sort((a, b) => a.index - b.index);
+    this.pages = res.sort((a: any, b: any) => a.index - b.index);
     this.pageCount = this.pages.length;
+    this.pagesUrl = [];
     for(let i = 0; i < this.pages.length; i++) {
       this.pagesUrl.push(this.pages[i]["pageUrl"]);
     }
@@ -291,10 +291,6 @@ export class MangaViewComponent implements OnInit {
   onScrollComments() {
     const comments = document.getElementById("comments");
     comments?.scrollIntoView({behavior: "smooth"});
-  }
-
-  onGoToNextChapter() {
-    //TODO
   }
 
   navigateAuthor() {

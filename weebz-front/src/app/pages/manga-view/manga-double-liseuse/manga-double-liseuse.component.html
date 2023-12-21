@@ -3,29 +3,15 @@
     class="manga-container"
     tabindex="0"
     >
-    <div *ngIf="!leftToRight" class="left-arrow-container">
-        <i (click)="nextPage()" class="fa-solid fa-arrow-left fa-2xl click-arrow"></i>
-    </div>
-    <div *ngIf="leftToRight" class="left-arrow-container">
-        <i (click)="previousPage()" class="fa-solid fa-arrow-left fa-2xl click-arrow"></i>
-    </div>
-
     <div class="pages-container">
-        <div class="page leftpage">
+        <div class="page leftpage" (click)="leftArrowInput()">
             <img [src]="leftPage" alt="Page Manga">
             <p>{{leftPageIndex}}</p>
         </div>
 
-        <div class="page rightpage">
+        <div class="page rightpage" (click)="rightArrowInput()">
             <img [src]="rightPage" alt="Page Manga">
             <p>{{rightPageIndex}}</p>
         </div>
-    </div>
-
-    <div *ngIf="!leftToRight" class="right-arrow-container">
-        <i (click)="previousPage()" class="fa-solid fa-arrow-right fa-2xl click-arrow"></i>
-    </div>
-    <div *ngIf="leftToRight" class="right-arrow-container">
-        <i (click)="nextPage()" class="fa-solid fa-arrow-right fa-2xl click-arrow"></i>
     </div>
 </div>

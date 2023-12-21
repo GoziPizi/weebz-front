@@ -21,14 +21,14 @@
                 <span id="reading-direction" > Sens de Lecture</span>
             </span>
 
-            <span (click)="centerPage()" class="display-mode-container">Centrer</span>
-        </div>
-
-        <div #liseuseContainer class="liseuse-container">
             <div class="fullscreen-button" (click)="toggleFullScreen()">
                 <i *ngIf="!isFullScreen" class="fa-solid fa-up-right-and-down-left-from-center fa-2xl"></i>
                 <i *ngIf="isFullScreen" class="fa-solid fa-down-left-and-up-right-to-center fa-2xl"></i>
             </div>
+        </div>
+        
+        <div #liseuseContainer class="liseuse-container">
+            
             <app-manga-liseuse [pages]="pagesUrl" [currentPage]="currentPage" [leftToRight]="leftToRight" *ngIf="!doublePage"></app-manga-liseuse>
             <app-manga-double-liseuse [pages]="pagesUrl" [currentPage]="currentPage" [leftToRight]="leftToRight" *ngIf="doublePage"></app-manga-double-liseuse>
         </div>
