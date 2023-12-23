@@ -1,11 +1,11 @@
-<div class="container-fluid">
+<div class="container-fluid main-container">
     <div class="upload-header">
         <h1>Publier une série</h1>
     </div>
     <div id="main-content">
         <div class="side-bar">
             <div id="cover-input-container">
-                <h2 class="drop-title">Couverture de l'oeuvre</h2>
+                <h4 class="drop-title">Couverture de l'oeuvre</h4>
                 <div 
                     id="cover-drop-zone"
                     class="drop-zone"
@@ -49,27 +49,31 @@
             >
 
         </div>
-        <div class="artwork-infos">
-            <h2>Type d'oeuvre</h2>
-            <div class="row">
+        <div id="artwork-infos">
+            <h2>Type de l'oeuvre</h2>
+            <div id="type-container">
                 <span [ngClass]="{'selected': isMangaSelected}" class="artwork-type-selector" (click)="onMangaClick()">Manga</span>
                 <span [ngClass]="{'selected': isWebtoonSelected}" class="artwork-type-selector" (click)="onWebtoonClick()">Webtoon</span>
                 <span [ngClass]="{'selected': isLightNovelSelected}" class="artwork-type-selector" (click)="onLightNovelClick()">Light-Novel</span>
             </div>
-            <h2>Informations générales</h2>
-            <h3>Titre</h3>
+            <h3>Titre de l'oeuvre</h3>
             <input [(ngModel)]="title" type="text" class="text-input">
             <h3>Résumé</h3>
-            <textarea name="" [(ngModel)]="description" cols="100" rows="10" class="text-input"></textarea>
-            <h3>Maison d'édition</h3>
-            <input type="text" class="text-input">
-            <h3>Rappels</h3>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Inventore iste, maiores exercitationem animi illo quibusdam molestias ipsa nobis rerum eius dolores debitis accusantium sapiente iusto eos cumque vero. Tenetur, voluptatem.</p>
+            <textarea name="" [(ngModel)]="description" cols="100" rows="10" class="text-input" id="description-input"></textarea>
             <div >
-                <span (click)="onValidate()" id="validate-button" >
+                <p (click)="onValidate()" id="validate-button" >
                     Créer L'oeuvre
-                </span>
+                </p>
+            </div>
+            <div id="publish-informations">
+                <p>Si tu as besoin d'informations, consulte notre page: <a class="weebz-link">Comment créer une oeuvre ?</a></p>
             </div>
         </div>
+    </div>
+</div>
+<div id="not-connected" *ngIf="!isConnected">
+    <div id="not-connected-content">
+        <p>Tu dois être connecté pour publier une oeuvre</p>
+        <a class="weebz-link" href="/connexion">Se connecter</a>
     </div>
 </div>

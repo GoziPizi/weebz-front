@@ -25,10 +25,18 @@ export class CreateArtworkComponent implements OnInit {
   title: string = "";
   description: string = "";
 
+  isConnected: boolean = false;
+
   constructor(
     private apiHandler: ApiHandlerService,
     private loadingService: LoadingServiceService
   ) { }
+
+  ngOnInit(): void {
+    this.apiHandler.isLoggedIn$.subscribe((res: any) => {
+      this.isConnected = res;
+    });
+  }
 
   onDragOver(event : any) {
     event.preventDefault();
@@ -96,9 +104,6 @@ export class CreateArtworkComponent implements OnInit {
     this.isMangaSelected = false;
     this.isWebtoonSelected = false;
     this.isLightNovelSelected = true;
-  }
-
-  ngOnInit(): void {
   }
 
   onValidate() {
