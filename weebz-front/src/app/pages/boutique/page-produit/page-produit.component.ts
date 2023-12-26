@@ -68,6 +68,21 @@ export class PageProduitComponent implements OnInit {
     this.mainImageIndex = this.product.images.indexOf(image);
   }
 
+  onBuy() {
+    this.loadingService.setLoadingState(true);
+    this.apiHandler.getSessionFromProduct(this.product.id).subscribe({
+      next: (res: any) => {
+        window.location.href = res.url;
+      },
+      error: err => {
+        console.log(err);
+      },
+      complete: () => {
+        this.loadingService.setLoadingState(false);
+      }
+    })
+  }
+
   //getters for template 
 
   get shopId() {

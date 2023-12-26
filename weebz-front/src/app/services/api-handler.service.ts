@@ -249,6 +249,10 @@ export class ApiHandlerService {
     return this.http.get(this.url + "api/v1/authors/" + authorId + "/shops");
   }
 
+  getSessionFromProduct(productId: number): Observable<any> {
+    return this.http.get(this.url + "api/v1/products/" + productId + "/checkout-session");
+  }
+
   //Comments 
 
   getComments(commentableId: number, commentableType: string): Observable<any> {
