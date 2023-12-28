@@ -69,4 +69,8 @@ export class MyArtworksGestionComponent implements OnInit {
   onAddChapter(artworkId: number) {
     this.router.navigate(['create-chapter/' + artworkId]);
   }
+
+  onEditArtwork(artworkId: number) {
+    this.router.navigate(['edit-artwork/' + artworkId]);
+  }
 }

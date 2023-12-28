@@ -4,9 +4,14 @@
         <div class="artwork-container" *ngFor="let artwork of artworks">
             <div class="cover-container">
                 <img class="artwork-cover" src="{{artwork.coverUrl}}" alt="">
-                <p (click)="onAddChapter(artwork.id)" class="new-chapter-button">
-                    Ajouter un chapitre
-                </p>
+                <div class="cover-button-container">
+                    <p (click)="onAddChapter(artwork.id)" class="cover-button">
+                        Ajouter un chapitre
+                    </p>
+                    <p (click)="onEditArtwork(artwork.id)" class="cover-button">
+                        Modifier l'oeuvre
+                    </p>
+                </div>
             </div>
             <div class="artwork-description">
                 <h1>{{artwork.title}}</h1>

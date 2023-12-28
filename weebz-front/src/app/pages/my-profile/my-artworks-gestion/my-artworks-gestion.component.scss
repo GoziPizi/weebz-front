@@ -17,22 +17,30 @@
     padding: 2vh;
 }
 
-.new-chapter-button {
-    cursor: pointer;
+.cover-button-container {
+    display: flex;
+    flex-direction: column;
     position: absolute;
-
     bottom: 80%;
     left: 50%;
-
     transform: translate(-50%, 50%);
+}
+
+.cover-button {
+    cursor: pointer;
+    text-align: center;
 
     background-color: $orange;
     padding: 0.5em;
 
     visibility: hidden;
+
+    &:hover {
+        background-color: #b44e00;
+    }
 }
 
-.cover-container:hover .new-chapter-button {
+.cover-container:hover .cover-button {
     visibility: visible;
 }
 

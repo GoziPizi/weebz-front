@@ -66,6 +66,7 @@ import { CommentInputComponent } from './utils/comments/comment-input/comment-in
 import { SingleResponseComponent } from './utils/comments/comments-displayer/single-response/single-response.component';
 import { NextChaptersForViewComponent } from './utils/navigation/next-chapters-for-view/next-chapters-for-view.component';
 import { FourProductsShopThumbnailComponent } from './utils/thumbnails/shop-thumbnails/four-products-shop-thumbnail/four-products-shop-thumbnail.component';
+import { MyShopsGestionComponent } from './pages/my-profile/my-shops-gestion/my-shops-gestion.component';
 
 @NgModule({
   declarations: [
@@ -129,7 +130,8 @@ import { FourProductsShopThumbnailComponent } from './utils/thumbnails/shop-thum
     CommentInputComponent,
     SingleResponseComponent,
     NextChaptersForViewComponent,
-    FourProductsShopThumbnailComponent
+    FourProductsShopThumbnailComponent,
+    MyShopsGestionComponent
   ],
   imports: [
     BrowserModule,
