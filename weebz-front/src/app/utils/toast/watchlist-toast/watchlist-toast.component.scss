@@ -1,0 +1,19 @@
+@import '../../../../variables';
+
+#container {
+    border-radius: 20px;
+    z-index: 100;
+    position: fixed;
+    top: 2vw;
+    right : 50%;
+    transform: translateX(50%);
+    padding: 2vh;
+    color: gray;
+    background-color: $dark-gray;
+    border: 1px solid gray;
+}
+
+#container p {
+    margin: 0;
+    padding: 0;
+}

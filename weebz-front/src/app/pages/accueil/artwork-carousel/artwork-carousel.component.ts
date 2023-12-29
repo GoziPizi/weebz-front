@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, ElementRef, Renderer2 } from '@angular/core';
+import { Artwork } from 'src/app/models/artwork';
 import { ApiHandlerService } from 'src/app/services/api-handler.service';
 
 @Component({
@@ -12,7 +13,8 @@ export class CarouselArtworkComponent implements OnInit {
   @Input() category: string = '';
   @Input() color: string = '';
 
-  carouselItems:any[] = [];
+  carouselItems:Artwork[] = [];
+
   constructor(
     private apiHandler: ApiHandlerService,
     private elRef: ElementRef,
@@ -30,14 +32,8 @@ export class CarouselArtworkComponent implements OnInit {
 
   fetchCarouselItems() {
     this.apiHandler.getArtworksByType(this.category).subscribe( (artworks: any) => {
-      artworks.forEach( (artwork: any) => {
-        this.carouselItems.push({
-          image: artwork.coverUrl,
-          text: artwork.title,
-          artworkId: artwork.id,
-          views: artwork.views,
-          description: artwork.description
-        });
+      artworks.forEach( (artwork: Artwork) => {
+        this.carouselItems.push(artwork);
       });
     });
   }

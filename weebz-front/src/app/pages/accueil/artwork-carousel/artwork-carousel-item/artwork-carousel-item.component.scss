@@ -1,3 +1,5 @@
+@import '../../../../../variables';
+
 .carousel-item {
     display: block;
     background-color: transparent;
@@ -72,6 +74,10 @@ img {
     height: 100%;
     overflow: hidden;
     visibility: hidden;
+}
+
+.orange {
+    color: $orange;
 }
 
 #views {

@@ -67,6 +67,7 @@ import { SingleResponseComponent } from './utils/comments/comments-displayer/sin
 import { NextChaptersForViewComponent } from './utils/navigation/next-chapters-for-view/next-chapters-for-view.component';
 import { FourProductsShopThumbnailComponent } from './utils/thumbnails/shop-thumbnails/four-products-shop-thumbnail/four-products-shop-thumbnail.component';
 import { MyShopsGestionComponent } from './pages/my-profile/my-shops-gestion/my-shops-gestion.component';
+import { WatchlistToastComponent } from './utils/toast/watchlist-toast/watchlist-toast.component';
 
 @NgModule({
   declarations: [
@@ -131,7 +132,8 @@ import { MyShopsGestionComponent } from './pages/my-profile/my-shops-gestion/my-
     SingleResponseComponent,
     NextChaptersForViewComponent,
     FourProductsShopThumbnailComponent,
-    MyShopsGestionComponent
+    MyShopsGestionComponent,
+    WatchlistToastComponent
   ],
   imports: [
     BrowserModule,

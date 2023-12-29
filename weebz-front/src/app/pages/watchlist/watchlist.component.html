@@ -1,4 +1,6 @@
 <div id="container">
+    <div class="title">
+        <h1>Ma Watchlist</h1>
     <div *ngIf="!logged" class="not-logged">
         <h2>Tu n'es pas connecté !</h2>
         <p>Connecte toi pour accéder à ta watchlist, et profiter pleinement de Weebz !</p>
@@ -6,9 +8,7 @@
     </div>
     <div *ngIf="logged" class="logged">
         <div id="watchlist-container">
-            <div *ngFor="let artwork of watchlist">
-                <p>{{ artwork.title }}</p>
-            </div>
+            <app-artwork-carousel-item *ngFor="let artwork of watchlist" class="item" [artwork]="artwork"></app-artwork-carousel-item>
         </div>
     </div>
 </div>

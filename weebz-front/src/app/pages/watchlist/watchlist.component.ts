@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Artwork } from 'src/app/models/artwork';
 import { ApiHandlerService } from 'src/app/services/api-handler.service';
+import { WatchlistService } from 'src/app/services/watchlist.service';
 
 @Component({
   selector: 'app-watchlist',
@@ -13,7 +14,8 @@ export class WatchlistComponent implements OnInit {
   watchlist: Artwork[] = [];
 
   constructor(
-    private apiHandler: ApiHandlerService
+    private apiHandler: ApiHandlerService,
+    private watchlistService: WatchlistService
   ) {
     this.apiHandler.checkLogin().subscribe({
       next: res => {
@@ -26,13 +28,17 @@ export class WatchlistComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.apiHandler.getWatchlist().subscribe({
+    this.watchlistService.updateWatchlist();
+    this.watchlistService.updateWatchlist$.subscribe({
       next: res => {
-        this.watchlist = res.watchlist;
-        console.log(this.watchlist);
-      },
-      error: err => {
-        console.log(err);
+        this.apiHandler.getWatchlist().subscribe({
+          next: res => {
+            this.watchlist = res.watchlist;
+          },
+          error: err => {
+            console.log(err);
+          }
+        })
       }
     })
   }
