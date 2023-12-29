@@ -38,6 +38,9 @@ export class ApiHandlerService {
     const token = this.cookieService.get('apiToken');
     if(token) {
       this.validateToken().subscribe({
+        next: res => {
+          this.updateLoginStatus(true);
+        },
         error: err => {
           this.updateLoginStatus(false);
           this.loadingService.setLoadingState(false);
@@ -293,4 +296,27 @@ export class ApiHandlerService {
   //likeComment
 
   //dislikeComment
+
+  //watchlist
+
+  addToWatchlist(artworkId: number): Observable<any> {
+    let headers = {
+      Authorization : this.cookieService.get('apiToken')
+    }
+    return this.http.post(this.url + "api/v1/artworks/" + artworkId + "/follow", {}, {headers: headers});
+  }
+
+  removeFromWatchlist(artworkId: number): Observable<any> {
+    let headers = {
+      Authorization : this.cookieService.get('apiToken')
+    }
+    return this.http.delete(this.url + "api/v1/artworks/" + artworkId + "/follow", {headers: headers});
+  }
+
+  getWatchlist(): Observable<any> {
+    let headers = {
+      Authorization : this.cookieService.get('apiToken')
+    }
+    return this.http.get(this.url + "api/v1/users/watchlist", {headers: headers});
+  }
 }
