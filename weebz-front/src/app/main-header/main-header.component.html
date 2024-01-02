@@ -13,16 +13,16 @@
           <!-- Dropdown pour "Catalogue" -->
           <div class="dropdown justify-content-center header-button">
             <div class="dropdown-container">
-              <span routerLink="catalogue" class="text-button">Catalogue</span>
+              <span routerLink="search" class="text-button">Catalogue</span>
               <div class="dropdown-content">
                 <div class="dropdown-item">
-                  <a class="dropdown-element"routerLink="manga">Manga</a>
+                  <a (click)="onNavigate('manga')">Manga</a>
                 </div>
                 <div class="dropdown-item">
-                  <a routerLink="webtoon">Webtoon</a>
+                  <a (click)="onNavigate('webtoon')">Webtoon</a>
                 </div>
                 <div class="dropdown-item">
-                  <a routerLink="lightnovel">Light Novel</a>
+                  <a (click)="onNavigate('lightnovel')">Light Novel</a>
                 </div>
                 
               </div>
@@ -46,7 +46,7 @@
         </div>
         <div class="icons-container d-flex align-items-center">
           <div class="col-3 search-container">
-            <a routerLink=""><i class="header-icon fa-solid fa-xl fa-magnifying-glass"></i></a>
+            <a routerLink="/search"><i class="header-icon fa-solid fa-xl fa-magnifying-glass"></i></a>
           </div>
           <div class="col-3 favorite-container " >
             <a routerLink="/watchlist"><i class="header-icon fa-regular fa-bookmark fa-xl"></i></a>

@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MangaAccueilComponent } from './manga-accueil.component';
+import { SearchPageComponent } from './search-page.component';
 
-describe('MangaAccueilComponent', () => {
-  let component: MangaAccueilComponent;
-  let fixture: ComponentFixture<MangaAccueilComponent>;
+describe('SearchPageComponent', () => {
+  let component: SearchPageComponent;
+  let fixture: ComponentFixture<SearchPageComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MangaAccueilComponent ]
+      declarations: [ SearchPageComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(MangaAccueilComponent);
+    fixture = TestBed.createComponent(SearchPageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

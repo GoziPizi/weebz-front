@@ -6,6 +6,7 @@
 }
 
 #header {
+    position:relative;
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -77,4 +78,22 @@
 
 #content {
     padding: 2vh;
+}
+
+#new-background-input {
+    position: absolute;
+    top: 2vh;
+    right: 2vh;
+}
+
+#new-background-input p {
+    z-index: 1000;
+    color: white;
+    cursor: pointer;
+
+    &:hover {
+        color: $orange;
+        text-decoration: underline;
+    }
+    
 }

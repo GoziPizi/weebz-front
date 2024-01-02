@@ -36,7 +36,6 @@ export class WatchlistComponent implements OnInit {
             this.watchlist = res.watchlist;
           },
           error: err => {
-            console.log(err);
           }
         })
       }

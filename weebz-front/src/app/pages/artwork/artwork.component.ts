@@ -45,7 +45,6 @@ export class ArtworkComponent implements OnInit {
   fetchArtworkData() {
     this.api.getArtwork(this.artWorkId).subscribe((res: any) => {
       this.artwork = res;
-      console.log(res);
       this.authorId = res.authorId;
       this.fetchAuthorData();
     },

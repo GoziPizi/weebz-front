@@ -75,7 +75,6 @@ export class PageProduitComponent implements OnInit {
         window.location.href = res.url;
       },
       error: err => {
-        console.log(err);
       },
       complete: () => {
         this.loadingService.setLoadingState(false);

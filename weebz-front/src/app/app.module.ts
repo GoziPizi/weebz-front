@@ -12,9 +12,6 @@ import { BlogComponent } from './pages/blog/blog.component';
 import { CatalogueComponent } from './pages/catalogue/catalogue.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { ContactFormComponent } from './pages/contact/contact-form/contact-form.component';
-import { MangaAccueilComponent } from './pages/manga-accueil/manga-accueil.component';
-import { WebtoonAccueilComponent } from './pages/webtoon-accueil/webtoon-accueil.component';
-import { LightnovelAccueilComponent } from './pages/lightnovel-accueil/lightnovel-accueil.component';
 import { MangaViewComponent } from './pages/manga-view/manga-view.component';
 import { MangaLiseuseComponent } from './pages/manga-view/manga-liseuse/manga-liseuse.component';
 import { CarouselAccueilNewsComponent } from './utils/carousel/carousel-accueil-news/carousel-accueil-news.component';
@@ -68,6 +65,7 @@ import { NextChaptersForViewComponent } from './utils/navigation/next-chapters-f
 import { FourProductsShopThumbnailComponent } from './utils/thumbnails/shop-thumbnails/four-products-shop-thumbnail/four-products-shop-thumbnail.component';
 import { MyShopsGestionComponent } from './pages/my-profile/my-shops-gestion/my-shops-gestion.component';
 import { WatchlistToastComponent } from './utils/toast/watchlist-toast/watchlist-toast.component';
+import { SearchPageComponent } from './pages/search/search-page/search-page.component';
 
 @NgModule({
   declarations: [
@@ -79,9 +77,6 @@ import { WatchlistToastComponent } from './utils/toast/watchlist-toast/watchlist
     CatalogueComponent,
     ContactComponent,
     ContactFormComponent,
-    MangaAccueilComponent,
-    WebtoonAccueilComponent,
-    LightnovelAccueilComponent,
     MangaViewComponent,
     MangaLiseuseComponent,
     CarouselAccueilNewsComponent,
@@ -133,7 +128,8 @@ import { WatchlistToastComponent } from './utils/toast/watchlist-toast/watchlist
     NextChaptersForViewComponent,
     FourProductsShopThumbnailComponent,
     MyShopsGestionComponent,
-    WatchlistToastComponent
+    WatchlistToastComponent,
+    SearchPageComponent
   ],
   imports: [
     BrowserModule,

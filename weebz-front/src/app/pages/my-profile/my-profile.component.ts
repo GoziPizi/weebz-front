@@ -13,6 +13,7 @@ import { BehaviorSubject } from 'rxjs';
 export class MyProfileComponent implements OnInit {
 
   @ViewChild('newPictureInput') fileInput!: ElementRef;
+  @ViewChild('newBackgroundInput') fileInputBackground!: ElementRef;
 
   logedIn = true;
 
@@ -23,8 +24,15 @@ export class MyProfileComponent implements OnInit {
   newPicture: File = new File([""], "");
   newPictureSrc: string | ArrayBuffer | null = null;
 
+  showedBackground = "";
+  newBackground: File = new File([""], "");
+  newBackgroundSrc: string | ArrayBuffer | null = null;
+
   isPictureValid = true;
   pictureEdition = false;
+
+  isBackgroundValid = true;
+  backgroundEdition = false;
 
   navigation = "compte";
 
@@ -39,6 +47,7 @@ export class MyProfileComponent implements OnInit {
         this.user = res;
         this.user$.next(this.user);
         this.showedPicture = this.user.pictureUrl;
+        this.showedBackground = this.user.bannerUrl;
       },
       error: (err: any) => {
         this.logedIn = false;
@@ -55,6 +64,10 @@ export class MyProfileComponent implements OnInit {
 
   triggerFileInput() {
     this.fileInput.nativeElement.click();
+  }
+
+  triggerFileInputBackground() {
+    this.fileInputBackground.nativeElement.click();
   }
 
   onFileSelected(event : any) {
@@ -85,12 +98,51 @@ export class MyProfileComponent implements OnInit {
     }
   }
 
+  onFileSelectedBackground(event : any) {
+
+    this.backgroundEdition = true;
+
+    const file = event.target.files[0];
+
+    if(file) {
+      this.newBackground = file;
+      const img = new Image();
+      img.onload = () => {
+        const width = img.width;
+        const height = img.height;
+      }
+      let reader = new FileReader();
+      reader.readAsDataURL(this.newBackground);
+      reader.onload = (e:any) => {
+        img.src = reader.result as string;
+        this.newBackgroundSrc = reader.result;
+        this.showedBackground = this.newBackgroundSrc as string;
+      }
+    }
+  }
+
   updateProfilePicture() {
     this.loadingService.setLoadingState(true);
     this.api_handler.updateProfilePicture(this.newPicture).subscribe({
       next: (res: any) => {
         this.pictureEdition = false;
         this.showedPicture = this.user.pictureUrl;
+        window.location.reload();
+      },
+      error: (err: any) => {
+      },
+      complete: () => {
+        this.loadingService.setLoadingState(false);
+      }
+    })
+  }
+
+  updateProfileBackground() {
+    this.loadingService.setLoadingState(true);
+    this.api_handler.updateProfileBackground(this.newBackground).subscribe({
+      next: (res: any) => {
+        this.pictureEdition = false;
+        this.showedBackground = this.user.bannerUrl;
         window.location.reload();
       },
       error: (err: any) => {

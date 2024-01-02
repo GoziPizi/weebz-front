@@ -23,7 +23,6 @@ export class FourProductsShopThumbnailComponent implements OnInit {
     this.apiHandler.getShopData(this.shop.id).subscribe({
       next: (data: any) => {
         this.shop = data;
-        console.log(this.shop);
       }
     })
   }

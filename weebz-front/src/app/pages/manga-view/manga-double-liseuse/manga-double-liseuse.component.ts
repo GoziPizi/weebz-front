@@ -84,7 +84,6 @@ export class MangaDoubleLiseuseComponent implements OnInit {
     if (this.currentPageIndex < this.pages.length - 1) {
       this.currentPageIndex += 2;
     }
-    console.log(this.currentPageIndex, this.pages.length);
     this.currentPage.next(this.currentPageIndex);
   }
 

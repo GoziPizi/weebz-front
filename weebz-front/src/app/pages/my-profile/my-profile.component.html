@@ -1,5 +1,10 @@
 <div class="container-fluid">
-    <div class="row" id="header" [ngStyle]="{'background-image': 'url(' + user.bannerUrl + ')'}" >
+    <div class="row" id="header" [ngStyle]="{'background-image': 'url(' + showedBackground + ')'}" >
+        <div id="new-background-input">
+            <input #newBackgroundInput type="file" style="display:none;" (change)="onFileSelectedBackground($event)">
+            <p (click)="triggerFileInputBackground()">Modifier ma banière</p>
+            <button *ngIf="backgroundEdition" class="btn btn-primary" (click)="updateProfileBackground()" [disabled]="!isBackgroundValid" >Modifier</button>
+        </div>
         <div class="side-bar col-2">
             <div class="side-bar-header">
                 <div class="image-container">
@@ -15,9 +20,6 @@
                 </div>
                 <h3 class="surname">{{user.surname}}</h3>
             </div>
-        </div>
-        <div class="main-content col-10">
-    
         </div>
     </div>
     <div id="content-container">

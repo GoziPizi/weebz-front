@@ -238,6 +238,17 @@ export class ApiHandlerService {
     return this.http.patch(this.url + "api/v1/users/profile/profile-picture", formData, {headers: headers});
   }
 
+  updateProfileBackground(picture: File) {
+    let headers = {
+      Authorization : this.cookieService.get('apiToken')
+    }
+
+    const formData = new FormData();
+    formData.append('background-picture', picture);
+
+    return this.http.patch(this.url + "api/v1/users/profile/background-picture", formData, {headers: headers});
+  }
+
   //shop
 
   getShopData(shopId: number): Observable<any> {
@@ -318,5 +329,11 @@ export class ApiHandlerService {
       Authorization : this.cookieService.get('apiToken')
     }
     return this.http.get(this.url + "api/v1/users/watchlist", {headers: headers});
+  }
+
+  //search
+
+  searchArtworks(params: any): Observable<any> {
+    return this.http.get(this.url + "api/v1/search", {params: params});
   }
 }
