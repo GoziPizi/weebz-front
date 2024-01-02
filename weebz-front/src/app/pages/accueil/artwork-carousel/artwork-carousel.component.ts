@@ -33,7 +33,9 @@ export class CarouselArtworkComponent implements OnInit {
   fetchCarouselItems() {
     this.apiHandler.getArtworksByType(this.category).subscribe( (artworks: any) => {
       artworks.forEach( (artwork: Artwork) => {
-        this.carouselItems.push(artwork);
+        if(this.carouselItems.length < 5){
+          this.carouselItems.push(artwork);
+        }
       });
     });
   }
