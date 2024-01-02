@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ApiHandlerService } from 'src/app/services/api-handler.service';
+import { WatchlistService } from 'src/app/services/watchlist.service';
 import { Router } from '@angular/router';
 import { Artwork } from 'src/app/models/artwork';
 import { Chapter } from 'src/app/models/chapter';
@@ -25,7 +26,8 @@ export class ArtworkComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private api: ApiHandlerService,
-    private router: Router
+    private router: Router,
+    private watchlistService: WatchlistService
   ) { }
 
   ngOnInit(): void {
@@ -34,6 +36,7 @@ export class ArtworkComponent implements OnInit {
       this.artWorkId = parseInt(id);
     }
     this.fetchArtworkData();
+    this.isFollowing = this.watchlistService.isArtworkInWatchlist(this.artWorkId);
   }
 
   noIdGiven() {
@@ -69,7 +72,11 @@ export class ArtworkComponent implements OnInit {
   //tempmlate actions 
 
   onFollow(){
-    //TODO : follow
+    if(this.isFollowing) {
+      this.watchlistService.removeArtwork(this.artWorkId);
+    } else {
+      this.watchlistService.addArtwork(this.artWorkId);
+    }
     this.isFollowing = !this.isFollowing;
   }
 

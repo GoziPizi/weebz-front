@@ -28,16 +28,9 @@ export class WatchlistComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.watchlistService.updateWatchlist();
-    this.watchlistService.updateWatchlist$.subscribe({
-      next: res => {
-        this.apiHandler.getWatchlist().subscribe({
-          next: res => {
-            this.watchlist = res.watchlist;
-          },
-          error: err => {
-          }
-        })
+    this.watchlistService.getUpdateWatchlistObservable().subscribe({
+      next: () => {
+        this.watchlist = this.watchlistService.getWatchlist();
       }
     })
   }

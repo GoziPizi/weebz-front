@@ -20,7 +20,7 @@ export class WatchlistService {
   }
 
   updateWatchlist() {
-    if(this.apiHandlerService.getIsLoggedIn()) {
+    if(!this.apiHandlerService.getIsLoggedIn()) {
       return
     }
     this.apiHandlerService.getWatchlist().subscribe({
@@ -36,7 +36,7 @@ export class WatchlistService {
       next: res => {
         this.toastText$.next("Ajouté à la watchlist");
         this.visibleTimer$.next(1000);
-        this.Artworks.push(res.artwork);
+        this.Artworks.push(res);
         this.updateWatchlist$.next(undefined);
       }
     });
@@ -61,6 +61,10 @@ export class WatchlistService {
       }
     });
     return result;
+  }
+
+  getWatchlist() {
+    return this.Artworks;
   }
 
   //getters for the watchlist

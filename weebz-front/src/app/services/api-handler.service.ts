@@ -34,7 +34,6 @@ export class ApiHandlerService {
     }
 
   initilize() {
-    this.updateLoginStatus(false);
     const token = this.cookieService.get('apiToken');
     if(token) {
       this.validateToken().subscribe({
