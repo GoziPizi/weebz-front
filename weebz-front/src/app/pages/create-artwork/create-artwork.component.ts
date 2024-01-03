@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { ApiHandlerService } from 'src/app/services/api-handler.service';
 import { LoadingServiceService } from 'src/app/services/loading-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-artwork',
@@ -29,7 +30,8 @@ export class CreateArtworkComponent implements OnInit {
 
   constructor(
     private apiHandler: ApiHandlerService,
-    private loadingService: LoadingServiceService
+    private loadingService: LoadingServiceService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -126,6 +128,8 @@ export class CreateArtworkComponent implements OnInit {
     }
     this.apiHandler.postArtwork(data).subscribe((res:any) => {
       this.loadingService.setLoadingState(false);
+      const artworkId = res.artworkId;
+      this.router.navigate(['/create-chapter', artworkId]);
     });
   }
   }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Page } from '../page';
 
 @Component({
@@ -13,7 +13,7 @@ export class UploadPagesComponent implements OnInit {
   //This component is used to upload the pages of a chapter.
   //The pages array is used to store the pages of a chapter, each page knows its index in the chapter.
 
-
+  @ViewChild('fileInput') fileInput!: any;
   pages: Page[] = [];
 
   constructor() { }
@@ -31,6 +31,17 @@ export class UploadPagesComponent implements OnInit {
     for (let i = 0; i < files.length; i++) {
       this.imageSubscription(files, i);
     }
+  }
+
+  onFileSelected(event: any) {
+    const files: FileList = event.target.files;
+    for (let i = 0; i < files.length; i++) {
+      this.imageSubscription(files, i);
+    }
+  }
+
+  triggerFileInput() {
+    this.fileInput.nativeElement.click();
   }
 
   imageSubscription(files: FileList, i: number) {

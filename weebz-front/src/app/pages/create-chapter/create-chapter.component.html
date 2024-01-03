@@ -1,14 +1,17 @@
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-3">
+<div id="container">
+    <div class="upload-header">
+        <h1>Publier un chapitre</h1>
+    </div>
+    <div id="content">
+        <div id="left-side-content">
             <div class="side-bar-header">
                 <h3>{{title}}</h3>
                 <img [src]="coverUrl" alt="artwork Cover" class="cover-preview">
             </div>
         </div>
-        <div class="col-9 main-container">
-            <h3>Informations Générales</h3>
-            <div class="">
+        <div id="right-side-content">
+            <h3>Informations du chapitre</h3>
+            <div>
                 <div>
                     <p>Chapitre numéro {{chaptersNumber+1}}</p>
                 </div>
@@ -17,10 +20,10 @@
                     <input type="text" class="text-input">
                 </div>
             </div>
-            <h3>Couverture du chapitre (optionnel) :</h3>
-            <div class="row">
+            <h3>Couverture du chapitre :</h3>
+            <div id="chapter-cover">
                 <div 
-                    class="drop-zone col-2"
+                    class="drop-zone"
                     (dragover)="onDragOverChapterCover($event)"
                     (drop)="onDropChapterCover($event)"
                     (click)="triggerFileInputChapterCover()"
@@ -37,7 +40,7 @@
             </div>
             <h3>Pages du chapitre</h3>
             <app-upload-pages #pagesUploadComponent class="upload-pages"></app-upload-pages>
-            <div>
+            <div id="validate-button-container">
                 <span class="validate-button" (click)="onSubmit()">Valider</span>
             </div>
         </div>

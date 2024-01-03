@@ -17,8 +17,9 @@ export class UploadedPageComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onDelete() {
+  onDelete($event: any) {
     this.deleteEvent.emit(this.page.index);
+    $event.stopPropagation();
   }
 
 }
