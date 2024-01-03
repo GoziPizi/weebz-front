@@ -2,6 +2,7 @@
 
 #container {
     position: relative;
+    cursor:default;
 }
 
 #container i {
@@ -11,6 +12,11 @@
     margin: 0.5em;
     color: white;
     visibility: hidden;
+    cursor: pointer;
+
+    &:hover {
+        color: #333
+    }
 }
 
 #container:hover i {
@@ -22,11 +28,29 @@
 }
 
 #container:hover img {
-    //devient presque noir
     filter: brightness(0.2);
 }
 
 #container p {
     text-align: center;
     font-size: 2em;
+    margin: 0;
+    padding: 0;
+}
+
+#navigation-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0.2em;  
+}
+
+#navigation-container i {
+    margin-top: 0.7em;
+    position: inherit;
+    cursor: pointer;
+
+    &:hover {
+        color: #333
+    }
 }

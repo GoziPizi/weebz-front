@@ -1,5 +1,9 @@
 <div id="container">
     <img [src]="page.imageSrc">
     <i (click)="onDelete($event)" class="fa-solid fa-xmark fa-5x"></i>
-    <p>{{page.index}}</p>
+    <div id="navigation-container">
+        <i class="fa-solid fa-chevron-left fa-xl"></i>
+        <p>{{page.index}}</p>
+        <i class="fa-solid fa-chevron-right fa-xl"></i>
+    </div>
 </div>

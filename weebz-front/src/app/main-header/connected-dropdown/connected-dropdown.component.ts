@@ -8,14 +8,14 @@ import { ApiHandlerService } from 'src/app/services/api-handler.service';
 })
 export class ConnectedDropdownComponent implements OnInit {
 
-  pseudo: string = "Pseudo";
+  surname: string = "Pseudo";
   profilePicture: string = "../../../assets/profile_picture.png";
 
   constructor(
     private apiHandlerService: ApiHandlerService
   ) {
     this.apiHandlerService.user$.subscribe((user: any) => {
-      this.pseudo = user.name;
+      this.surname = user.surname;
       if(user.pictureUrl != ""){
         this.profilePicture = user.pictureUrl;
       }

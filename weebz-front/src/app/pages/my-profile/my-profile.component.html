@@ -1,24 +1,24 @@
-<div class="container-fluid">
-    <div class="row" id="header" [ngStyle]="{'background-image': 'url(' + showedBackground + ')'}" >
+<div id="container">
+    <div id="header" [ngStyle]="{'background-image': 'url(' + showedBackground + ')'}" >
         <div id="new-background-input">
             <input #newBackgroundInput type="file" style="display:none;" (change)="onFileSelectedBackground($event)">
             <p (click)="triggerFileInputBackground()">Modifier ma banière</p>
-            <button *ngIf="backgroundEdition" class="btn btn-primary" (click)="updateProfileBackground()" [disabled]="!isBackgroundValid" >Modifier</button>
+            <button *ngIf="backgroundEdition" class="btn btn-primary" (click)="updateProfileBackground()" [disabled]="!isBackgroundValid" >Valider</button>
         </div>
-        <div class="side-bar col-2">
-            <div class="side-bar-header">
-                <div class="image-container">
-                    <img id="profile-picture" src="{{showedPicture}}" (click)="triggerFileInput()">
-                    <i class="fa-solid fa-plus fa-2x modif-profile-icon" (click)="triggerFileInput()"></i>
-                    <input #newPictureInput type="file" style="display:none;" (change)="onFileSelected($event)"> 
-                </div>
+        <div id="profil-info">
+            <div class="image-container">
+                <img id="profile-picture" src="{{showedPicture}}" (click)="triggerFileInput()">
+                <i class="fa-solid fa-plus fa-2x modif-profile-icon" (click)="triggerFileInput()"></i>
+                <input #newPictureInput type="file" style="display:none;" (change)="onFileSelected($event)"> 
+            </div>
+            <h3 class="surname">{{user.surname}}</h3>
+            <div id="modify-picture-info">
                 <div *ngIf="!isPictureValid">
                     <p class="error-message">Le format de l'image doit être 1:1</p>
                 </div>
                 <div *ngIf="pictureEdition">
-                    <button class="btn btn-primary" (click)="updateProfilePicture()" [disabled]="!isPictureValid" >Modifier</button>
+                    <button class="btn btn-primary" (click)="updateProfilePicture()" [disabled]="!isPictureValid" >Valider</button>
                 </div>
-                <h3 class="surname">{{user.surname}}</h3>
             </div>
         </div>
     </div>
