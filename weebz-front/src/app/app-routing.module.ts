@@ -19,6 +19,7 @@ import { CguComponent } from './pages/mentions-legales/cgu/cgu.component';
 import { PageProduitComponent } from './pages/boutique/page-produit/page-produit.component';
 import { AccueilBoutiqueComponent } from './pages/boutique/accueil-boutique/accueil-boutique.component';
 import { SearchPageComponent } from './pages/search/search-page/search-page.component';
+import { HowToUploadPageComponent } from './pages/utils/how-to-upload-page/how-to-upload-page.component';
 
 let routes: Routes = [
   { path: 'accueil', component: AccueilComponent },
@@ -46,6 +47,7 @@ let routes: Routes = [
   { path: 'search', component: SearchPageComponent},
 
   //utils
+  { path: 'tuto-upload', component: HowToUploadPageComponent},
   { path: 'cgu', component: CguComponent},
   { path: 'not-found', component: PageNotFoundComponent},
   { path: '', redirectTo: '/accueil', pathMatch: 'full' },

@@ -67,6 +67,7 @@ import { MyShopsGestionComponent } from './pages/my-profile/my-shops-gestion/my-
 import { WatchlistToastComponent } from './utils/toast/watchlist-toast/watchlist-toast.component';
 import { SearchPageComponent } from './pages/search/search-page/search-page.component';
 import { AuthorPresentationComponent } from './pages/auteur/author-presentation/author-presentation.component';
+import { HowToUploadPageComponent } from './pages/utils/how-to-upload-page/how-to-upload-page.component';
 
 @NgModule({
   declarations: [
@@ -131,7 +132,8 @@ import { AuthorPresentationComponent } from './pages/auteur/author-presentation/
     MyShopsGestionComponent,
     WatchlistToastComponent,
     SearchPageComponent,
-    AuthorPresentationComponent
+    AuthorPresentationComponent,
+    HowToUploadPageComponent
   ],
   imports: [
     BrowserModule,

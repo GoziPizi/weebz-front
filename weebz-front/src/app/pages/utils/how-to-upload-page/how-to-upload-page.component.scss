@@ -1,0 +1,45 @@
+@import '../../../../variables';
+
+#container {
+    width: 100%;
+    background-color: $dark-gray;
+}
+
+.upload-header {
+    text-align: center;
+    padding-top: 2em;
+    padding-bottom: 2em;
+    //degradé pour le background
+    background: linear-gradient(90deg, #FF6F00 0%, #119DA4 25%, #D9D9D9 85%, #000000 95%);
+}
+
+img {
+    //centre les images 
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+    border: 1px solid gray;
+    border-radius: 10px;
+
+    margin-top: 2em;
+    margin-bottom: 2em;
+
+    max-width: 80vw;
+}
+
+p {
+    margin-left: 2em;
+}
+
+h2 {
+    text-align: center;
+    margin-top: 2em;
+    margin-bottom: 2em;
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
+span {
+    font-weight: bold;
+}

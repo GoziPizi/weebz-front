@@ -112,3 +112,17 @@ h3 {
     flex-direction: column;
     padding: 2vh;
 }
+
+#publish-informations {
+    margin-top: 2vh;
+}
+
+.weebz-link {
+    color: $orange;
+    text-decoration: none;
+    cursor: pointer;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
