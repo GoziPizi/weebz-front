@@ -6,6 +6,7 @@
     <app-uploaded-page
         *ngFor="let page of pages"
         [page]="page"
+        [changeIndexStream]="changeIndexStream"
         class="col-3"
         (deleteEvent)="onDelete($event)"
     ></app-uploaded-page>

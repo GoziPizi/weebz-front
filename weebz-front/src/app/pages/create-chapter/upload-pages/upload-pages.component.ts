@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, EventEmitter, OnInit, ViewChild } from '@angular/core';
 import { Page } from '../page';
 
 @Component({
@@ -15,10 +15,28 @@ export class UploadPagesComponent implements OnInit {
 
   @ViewChild('fileInput') fileInput!: any;
   pages: Page[] = [];
+  changeIndexStream: 
+    EventEmitter<{indexPageOrigin: number, indexPageToExchange: number}> 
+    = new EventEmitter<{indexPageOrigin: number, indexPageToExchange: number}>();
 
   constructor() { }
 
   ngOnInit(): void {
+    this.changeIndexStreamInit();
+  }
+
+  changeIndexStreamInit() {
+    this.changeIndexStream.subscribe((change: {indexPageOrigin: number, indexPageToExchange: number}) => {
+      const indexPageOrigin = change.indexPageOrigin;
+      const indexPageToExchange = change.indexPageToExchange;
+      const pageOrigin = this.pages.find(page => page.index === indexPageOrigin);
+      const pageToExchange = this.pages.find(page => page.index === indexPageToExchange);
+      if (pageOrigin && pageToExchange) {
+        pageOrigin.index = indexPageToExchange;
+        pageToExchange.index = indexPageOrigin;
+        this.sortPages();
+      }
+    });
   }
 
   onDragOver(event : any) {
@@ -60,6 +78,10 @@ export class UploadPagesComponent implements OnInit {
   onDelete(index: number) {
     this.pages.splice(index - 1, 1);
     this.pages.forEach((page, index) => page.index = index + 1);
+  }
+
+  sortPages() {
+    this.pages = this.pages.sort((a: Page, b: Page) => a.index - b.index);
   }
 
   getPageList() {
