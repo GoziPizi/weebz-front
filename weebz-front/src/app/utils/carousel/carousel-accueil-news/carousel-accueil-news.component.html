@@ -4,7 +4,8 @@
         <app-carousel-news-item
             class="col-4 image-{{i}}"
             [image]="item.image"
-            [text]="item.text">
+            [text]="item.text"
+            [route]="item.route">
         </app-carousel-news-item>
     </ng-container>
     <i (click)="onRightArrowClick()" class="fa-solid fa-arrow-right fa-2x carousel-arrow"></i>
