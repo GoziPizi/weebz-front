@@ -90,7 +90,9 @@
 }
 
 #content {
+    flex-grow: 1;
     padding: 2vh;
+    display: flex;
 }
 
 .content-component {

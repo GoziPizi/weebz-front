@@ -135,9 +135,15 @@ export class ApiHandlerService {
     return this.http.post(this.url + "api/v1/users/", data);
   }
 
-  //Get an author from his author_id
+  //Author
+
   getAuthorData(id: number): Observable<any> {
     return this.http.get(this.url + "api/v1/authors/" + id + "/infos");
+  }
+
+  updateAuthorData(id: number, data: any): Observable<any> {
+    let headers = {Authorization : this.cookieService.get('apiToken')}
+    return this.http.put(this.url + "api/v1/authors/" + id + "/profile", data, {headers: headers});
   }
 
   getAuthorDataFromToken(): Observable<any> {
