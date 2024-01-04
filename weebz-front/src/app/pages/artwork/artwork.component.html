@@ -1,4 +1,4 @@
-<div class="container-fluid main-container">
+<div class="main-container">
     <div class="main-presentation" [ngStyle]="{ 'background-image': 'url(' + artwork.backgroundImageUrl + ')'}" >
         <div class="row">
             <div class="left-presentation col-4">
@@ -13,7 +13,7 @@
             </div>
             <div class="right-presentation col-7">
                 <h2>{{artwork.title}}</h2>
-                <h4>Synopsis</h4>
+                <h4>Synopsis:</h4>
                 <p class="synopsis">{{artwork.description}}</p>
                 <p>
                     {{artwork.views}} Vues
@@ -22,7 +22,7 @@
         </div>
     </div>
 
-    <h2 class="chapters-title">Chapitres</h2>
+    <h2 class="chapters-title">Les chapitres:</h2>
 
     <div class="slider-container">
         <div class="slider-content">

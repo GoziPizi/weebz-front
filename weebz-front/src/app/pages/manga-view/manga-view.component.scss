@@ -19,15 +19,17 @@
 
 #header h2 {
     text-align: center;
+    margin-bottom: 0;
 }
 
-#header h4 {
+#header h5 {
     cursor: pointer;
     text-align: center;
     color: gray;
 }
 
 #command-and-view {
+    margin-top: 1em;
     width: min-content;
     background-color: $dark-gray;
 }
