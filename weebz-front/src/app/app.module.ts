@@ -66,6 +66,7 @@ import { FourProductsShopThumbnailComponent } from './utils/thumbnails/shop-thum
 import { MyShopsGestionComponent } from './pages/my-profile/my-shops-gestion/my-shops-gestion.component';
 import { WatchlistToastComponent } from './utils/toast/watchlist-toast/watchlist-toast.component';
 import { SearchPageComponent } from './pages/search/search-page/search-page.component';
+import { AuthorPresentationComponent } from './pages/auteur/author-presentation/author-presentation.component';
 
 @NgModule({
   declarations: [
@@ -129,7 +130,8 @@ import { SearchPageComponent } from './pages/search/search-page/search-page.comp
     FourProductsShopThumbnailComponent,
     MyShopsGestionComponent,
     WatchlistToastComponent,
-    SearchPageComponent
+    SearchPageComponent,
+    AuthorPresentationComponent
   ],
   imports: [
     BrowserModule,

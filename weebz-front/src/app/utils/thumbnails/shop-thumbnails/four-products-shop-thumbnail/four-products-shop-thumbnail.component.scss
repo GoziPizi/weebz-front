@@ -1,6 +1,19 @@
+#header {
+    background-color: black;
+    width: max-content;
+    padding: 1em;
+    margin: 3em;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
 #header h3 {
-    margin: 3vh;
     font-weight: bold;
+    margin: 0;
+}
+
+#header:hover h3 {
+    text-decoration: underline;
 }
 
 #container {

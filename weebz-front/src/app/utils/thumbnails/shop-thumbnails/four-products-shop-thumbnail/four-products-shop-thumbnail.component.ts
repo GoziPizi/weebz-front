@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Shop } from 'src/app/models/shop';
 import { ApiHandlerService } from 'src/app/services/api-handler.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-four-products-shop-thumbnail',
@@ -12,7 +13,8 @@ export class FourProductsShopThumbnailComponent implements OnInit {
   @Input() shop: Shop = new Shop();
 
   constructor(
-    private apiHandler: ApiHandlerService
+    private apiHandler: ApiHandlerService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -25,6 +27,10 @@ export class FourProductsShopThumbnailComponent implements OnInit {
         this.shop = data;
       }
     })
+  }
+
+  navigateToShop() {
+    this.router.navigate([`/shop/${this.shop.id}`]);
   }
 
   //template getters

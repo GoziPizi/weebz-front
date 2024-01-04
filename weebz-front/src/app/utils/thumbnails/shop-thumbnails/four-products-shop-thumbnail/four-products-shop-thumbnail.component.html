@@ -1,8 +1,7 @@
-<div id="header">
-    <h3>{{shop.name}}</h3>
-</div>
-
 <div id="container" [ngStyle]="{ 'background-image': backgroundUrl}">
+    <div id="header" (click)="navigateToShop()">
+        <h3>{{shop.name}}</h3>
+    </div>
     <div id="products-container">
         <app-product-vignette
             class="product-vignette"

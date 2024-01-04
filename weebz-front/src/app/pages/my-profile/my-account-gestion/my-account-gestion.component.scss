@@ -1,3 +1,13 @@
+@import '../../../../variables';
+
+.container {
+    width: 100%;
+    background-color: $dark-gray;
+    border: 1px solid rgb(68, 68, 68);
+    border-radius: 10px;
+    padding: 2em;
+}
+
 #personal-infos {
     margin-left: 2vh;
 }

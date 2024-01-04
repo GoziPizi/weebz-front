@@ -31,9 +31,9 @@
             <p (click)="navigateTo('commandes')">Mes commandes</p>
         </div>
         <div id="content">
-            <app-my-account-gestion *ngIf="navigation=='compte'" [user$]="user$" ></app-my-account-gestion>
-            <app-my-artworks-gestion *ngIf="navigation=='oeuvres'" [user$]="user$" ></app-my-artworks-gestion>
-            <app-my-shops-gestion *ngIf="navigation=='boutiques'" [user$]="user$" ></app-my-shops-gestion>
+            <app-my-account-gestion *ngIf="navigation=='compte'" [user$]="user$" class="content-component" ></app-my-account-gestion>
+            <app-my-artworks-gestion *ngIf="navigation=='oeuvres'" [user$]="user$" class="content-component"></app-my-artworks-gestion>
+            <app-my-shops-gestion *ngIf="navigation=='boutiques'" [user$]="user$" class="content-component"></app-my-shops-gestion>
         </div>
     </div>
 </div>
