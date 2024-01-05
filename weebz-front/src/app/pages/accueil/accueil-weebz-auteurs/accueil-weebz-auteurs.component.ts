@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Author } from 'src/app/models/author';
+import { ApiHandlerService } from 'src/app/services/api-handler.service';
+
 
 @Component({
   selector: 'app-accueil-weebz-auteurs',
@@ -7,9 +10,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AccueilWeebzAuteursComponent implements OnInit {
 
-  constructor() { }
+  authors: Author[] = [];
+
+  constructor(
+    private apiHandler: ApiHandlerService
+  ) { }
 
   ngOnInit(): void {
+    this.fetchAuthors();
+  }
+
+  fetchAuthors(): void {
+    this.apiHandler.getAuthorsHomepage().subscribe(
+      (authors: Author[]) => {
+        //Only take the first 5 authors
+        this.authors = authors.slice(0, 5);
+      }
+    );
   }
 
 }

@@ -68,6 +68,7 @@ import { WatchlistToastComponent } from './utils/toast/watchlist-toast/watchlist
 import { SearchPageComponent } from './pages/search/search-page/search-page.component';
 import { AuthorPresentationComponent } from './pages/auteur/author-presentation/author-presentation.component';
 import { HowToUploadPageComponent } from './pages/utils/how-to-upload-page/how-to-upload-page.component';
+import { AuthorThumbnailComponent } from './utils/thumbnails/author-thumbnail/author-thumbnail.component';
 
 @NgModule({
   declarations: [
@@ -133,7 +134,8 @@ import { HowToUploadPageComponent } from './pages/utils/how-to-upload-page/how-t
     WatchlistToastComponent,
     SearchPageComponent,
     AuthorPresentationComponent,
-    HowToUploadPageComponent
+    HowToUploadPageComponent,
+    AuthorThumbnailComponent
   ],
   imports: [
     BrowserModule,

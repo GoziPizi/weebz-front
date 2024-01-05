@@ -72,4 +72,10 @@ export class AuteurComponent implements OnInit {
     return this.author.presentation;
   }
 
+  get banner() {
+    if (this.author.user.id == 0 || this.author.user.bannerUrl == "" || this.author.user.bannerUrl == null) {
+      return "../../assets/default_images/default_profil_banner.png";
+    }
+    return this.author.user.bannerUrl;
+  }
 }

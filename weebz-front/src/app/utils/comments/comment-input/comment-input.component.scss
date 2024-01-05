@@ -1,7 +1,8 @@
 @import '../../../../variables';
+@import '../comments';
 
 #comment-input-container {
-    background-color: $orange;
+    background-color: $background-commennt;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
@@ -14,8 +15,8 @@
     border: none;
     border-radius: 1vh;
     padding: 1vh;
-    background-color: white;
-    color: black;
+    background-color: $text-area;
+    color: white;
     margin-left: 3vw;
 }
 
@@ -31,7 +32,7 @@
 
     border: none; 
     border-radius: 1vh;
-    background-color: orange;
+    background-color: $orange;
     color: white;
 
     cursor: pointer;

@@ -27,12 +27,9 @@
     transform: translateX(-100%);
   }
 
-img {
-  width: 100%;
-}
-
 .author-container {
-  padding-top: 2em;
+  width: 20%;
+  padding: 2em;
   transition: 0.5s;
 
   &:hover {
@@ -41,11 +38,7 @@ img {
   }
 }
 
-.carousel-container {
-  padding-left: 4em;
-}
-
-.author-name {
-  text-align: center;
-  justify-content: center;
+#authors-container {
+  display: flex;
+  flex-direction: row;
 }

@@ -22,7 +22,7 @@ export class InscriptionComponent implements OnInit {
     this.registrationForm = this.fb.group({
       email : ['', Validators.required],
       name : ['', Validators.required],
-      firstname : ['', Validators.required],
+      firstName : ['', Validators.required],
       surname : ['', Validators.required],
       password : ['', Validators.required],
       confirm_password : ['', Validators.required]

@@ -154,6 +154,11 @@ export class ApiHandlerService {
     // return this.http.get('/assets/fixtures/api/author.json').pipe(delay(500));
   }
 
+  //Hardcoded function in the backend for now
+  getAuthorsHomepage(): Observable<any> {
+    return this.http.get(this.url + "api/v1/authors/homepage");
+  }
+
   getArtwork(id: number): Observable<any> {
     return this.http.get(this.url + "api/v1/artworks/" + id);
   }
