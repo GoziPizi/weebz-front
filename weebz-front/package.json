@@ -19,7 +19,8 @@
     "@angular/platform-browser-dynamic": "^17.0.8",
     "@angular/router": "^17.0.8",
     "angular-fontawesome": "^1.0.0",
-    "ngx-cookie-service": "^16.0.1",
+    "ngx-cookie-service": "^17.0.1",
+    "ngx-device-detector": "^7.0.0",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.2"
