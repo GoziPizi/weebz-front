@@ -35,7 +35,6 @@ export class AccueilBoutiqueComponent implements OnInit {
     this.loadingService.setLoadingState(true);
     this.apiHandler.getShopData(this.idShop).subscribe({
       next: (res: Shop) => {
-        console.log(res)
         this.shop = res;
         this.fetchAuthorData();
       },

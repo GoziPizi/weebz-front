@@ -293,7 +293,6 @@ export class ApiHandlerService {
       ids: productsIds,
       quantities: quantities
     }
-    console.log(data);
     return this.http.post(this.url + "api/v1/products/checkout-session", data);
   }
 

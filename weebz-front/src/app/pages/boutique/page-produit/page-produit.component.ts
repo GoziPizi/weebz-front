@@ -82,7 +82,6 @@ export class PageProduitComponent implements OnInit {
     this.loadingService.setLoadingState(true);
     this.apiHandler.getSessionFromProduct(this.product.id).subscribe({
       next: (res: any) => {
-        console.log(res);
         window.location.href = res.url;
       },
       error: err => {

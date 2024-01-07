@@ -22,7 +22,6 @@ export class AllBoutiqueComponent implements OnInit {
   fetchShops() {
     this.apiHandler.getAllShops().subscribe(
       (shops: Shop[]) => {
-        console.log(shops);
         this.shops = shops;
       }
     )
