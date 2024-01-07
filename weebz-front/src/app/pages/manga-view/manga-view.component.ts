@@ -10,6 +10,8 @@ import { Router } from '@angular/router';
 import { LoadingServiceService } from 'src/app/services/loading-service.service';
 import { Chapter } from 'src/app/models/chapter';
 import { Author } from 'src/app/models/author';
+import { Shop } from 'src/app/models/shop';
+import { FourProductsShopThumbnailComponent } from 'src/app/utils/thumbnails/shop-thumbnails/four-products-shop-thumbnail/four-products-shop-thumbnail.component';
 
 @Component({
   selector: 'app-manga-view',
@@ -48,6 +50,9 @@ export class MangaViewComponent implements OnInit {
 
   isLiked: boolean = false; //TODO init
   isFollowed: boolean = false; //TODO init
+
+  shopData: Shop|null = null;
+  @ViewChild('shopContainer') shopContainer!: FourProductsShopThumbnailComponent;
 
   private unsubscribeFullscreen: () => void;
   private paramSubscription: Subscription;
@@ -97,6 +102,7 @@ export class MangaViewComponent implements OnInit {
     this.fetchPages();
     this.fetchChapter();
     this.fetchData();
+    this.fetchShopData();
 
     this.preloadSubscriptions();
   }
@@ -176,6 +182,13 @@ export class MangaViewComponent implements OnInit {
   fetchAuthor() {
     return this.apiHandlerService.getAuthorData(this.artwork.authorId).subscribe((res: any) => {
       this.author = res;
+    });
+  }
+
+  fetchShopData() {
+    return this.apiHandlerService.getShopDataFromArtworkId(this.artworkId).subscribe((res: any) => {
+      this.shopData = res;
+      this.shopContainer?.fetchData();
     });
   }
 

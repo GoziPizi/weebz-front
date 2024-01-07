@@ -1,9 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Product } from 'src/app/models/product';
 import { ApiHandlerService } from 'src/app/services/api-handler.service';
 import { ActivatedRoute } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 import { LoadingServiceService } from 'src/app/services/loading-service.service';
+import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
+import { MyShoppingCartComponent } from 'src/app/utils/shop/my-shopping-cart/my-shopping-cart.component';
 
 @Component({
   selector: 'app-page-produit',
@@ -24,10 +26,13 @@ export class PageProduitComponent implements OnInit {
   //main image index.
   mainImageIndex: number = 0;
 
+  @ViewChild('cartComponent') cartComponent!: MyShoppingCartComponent;
+
   constructor(
     private apiHandler: ApiHandlerService,
     private route: ActivatedRoute,
-    public loadingService: LoadingServiceService
+    public loadingService: LoadingServiceService,
+    public shoppingCartService: ShoppingCartService
   ) { }
 
   ngOnInit(): void {
@@ -68,10 +73,16 @@ export class PageProduitComponent implements OnInit {
     this.mainImageIndex = this.product.images.indexOf(image);
   }
 
+  onAddToCart() {
+    this.shoppingCartService.addToCart(this.product, 1);
+    this.cartComponent.openCart();
+  }
+
   onBuy() {
     this.loadingService.setLoadingState(true);
     this.apiHandler.getSessionFromProduct(this.product.id).subscribe({
       next: (res: any) => {
+        console.log(res);
         window.location.href = res.url;
       },
       error: err => {

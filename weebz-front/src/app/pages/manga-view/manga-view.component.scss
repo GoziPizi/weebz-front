@@ -28,7 +28,7 @@
     color: gray;
 }
 
-#command-and-view {
+#command-and-view-manga {
     margin-top: 1em;
     width: min-content;
     background-color: $dark-gray;
@@ -91,7 +91,7 @@
 }
 
 #social-icons i {
-    padding: 1.5vh;
+    padding: 2vh;
     margin-bottom: 1em;
 
     background-color: $dark-gray;
@@ -104,6 +104,20 @@
     &:hover {
         background-color: #555;
     }
+}
+
+.image-container {
+    width: 60%; 
+    border: 1px solid #ccc;
+    display: flex;
+    flex-direction: column;
+}
+
+.image-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
 }
 
 #sub-content {

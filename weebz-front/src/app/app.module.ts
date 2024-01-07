@@ -46,7 +46,6 @@ import { MonPanierComponent } from './pages/boutique/mon-panier/mon-panier.compo
 import { AllBoutiqueComponent } from './pages/boutique/all-boutique/all-boutique.component';
 import { RechercheBoutiqueComponent } from './pages/boutique/recherche-boutique/recherche-boutique.component';
 import { ConnectedDropdownComponent } from './main-header/connected-dropdown/connected-dropdown.component';
-import { WebtoonViewComponent } from './pages/webtoon-view/webtoon-view.component';
 import { CarouselArtworkComponent } from './pages/accueil/artwork-carousel/artwork-carousel.component';
 import { ArtworkCarouselItemComponent } from './pages/accueil/artwork-carousel/artwork-carousel-item/artwork-carousel-item.component';
 import { ProductVignetteComponent } from './pages/boutique/product-vignette/product-vignette.component';
@@ -69,6 +68,9 @@ import { SearchPageComponent } from './pages/search/search-page/search-page.comp
 import { AuthorPresentationComponent } from './pages/auteur/author-presentation/author-presentation.component';
 import { HowToUploadPageComponent } from './pages/utils/how-to-upload-page/how-to-upload-page.component';
 import { AuthorThumbnailComponent } from './utils/thumbnails/author-thumbnail/author-thumbnail.component';
+import { MyShoppingCartComponent } from './utils/shop/my-shopping-cart/my-shopping-cart.component';
+import { ShoppingCartItemComponent } from './utils/shop/my-shopping-cart/shopping-cart-item/shopping-cart-item.component';
+import { ThankYouComponent } from './pages/boutique/thank-you/thank-you.component';
 
 @NgModule({
   declarations: [
@@ -113,7 +115,6 @@ import { AuthorThumbnailComponent } from './utils/thumbnails/author-thumbnail/au
     AllBoutiqueComponent,
     RechercheBoutiqueComponent,
     ConnectedDropdownComponent,
-    WebtoonViewComponent,
     CarouselArtworkComponent,
     ArtworkCarouselItemComponent,
     ProductVignetteComponent,
@@ -135,7 +136,10 @@ import { AuthorThumbnailComponent } from './utils/thumbnails/author-thumbnail/au
     SearchPageComponent,
     AuthorPresentationComponent,
     HowToUploadPageComponent,
-    AuthorThumbnailComponent
+    AuthorThumbnailComponent,
+    MyShoppingCartComponent,
+    ShoppingCartItemComponent,
+    ThankYouComponent
   ],
   imports: [
     BrowserModule,

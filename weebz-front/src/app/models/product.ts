@@ -5,4 +5,5 @@ export class Product {
     price: number = 0;
     images: string[] = [];
     shopId: number = 0;
+    category: string = "";
 }

@@ -1,0 +1,42 @@
+<div id="cart-open-button" *ngIf="!isCartOpen" (click)="openCart()">
+    <p>Mon panier</p>
+    <i class="fa-solid fa-cart-shopping fa-xl"></i>
+</div>
+
+<div id="cart-screen" *ngIf="isCartOpen">
+    <div id="cart">
+        <div id="close-button">
+            <i class="fa-solid fa-xmark fa-2x" (click)="closeCart()"></i>
+        </div>
+        <div id="cart-header">
+            <h2>Mon Panier</h2>
+        </div>
+
+        <div class="line"></div>
+
+        <div id="product-container">
+            <div *ngIf="productsWithQty.length === 0">
+                <p id="empty-cart">Votre panier est vide</p>
+            </div>
+            <app-shopping-cart-item *ngFor="let productWithQty of productsWithQty" [productWithQty]="productWithQty"></app-shopping-cart-item>
+        </div>
+
+        <div class="line"></div>
+
+        <div id="cart-footer">
+            <div id="total-price">
+                <p>Total: {{totalPrice}}€</p>
+            </div>
+            <div id="buy-button" (click)="onBuy()">
+                <p>Payer</p>
+            </div>
+            <div id="informations">
+                <p>En savoir plus sur nos conditions de vente <a>ici</a></p>
+                <p>Paiement assuré par : Stripe <img src="../../../../assets/stripe_logo.png"></p>
+                <div id="secured-transaction">
+                    <img src="../../../../assets/secured-transaction.webp">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

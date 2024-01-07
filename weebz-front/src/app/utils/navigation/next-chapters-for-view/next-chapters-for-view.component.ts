@@ -36,6 +36,7 @@ export class NextChaptersForViewComponent implements OnInit {
       next: res => {
         this.chapters = res;
         this.trimChapters();
+        this.sortChapters();
       }
     })
   }

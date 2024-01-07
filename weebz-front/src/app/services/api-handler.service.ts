@@ -6,6 +6,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { BehaviorSubject } from 'rxjs';
 import { LoadingServiceService } from './loading-service.service';
 import { Router } from '@angular/router';
+import { ProductWithQty } from '../models/productWithQty';
 
 @Injectable({
   providedIn: 'root'
@@ -261,6 +262,10 @@ export class ApiHandlerService {
 
   //shop
 
+  getAllShops(): Observable<any> {
+    return this.http.get(this.url + "api/v1/shops");
+  }
+
   getShopData(shopId: number): Observable<any> {
     return this.http.get(this.url + "api/v1/shops/" + shopId);
   }
@@ -273,8 +278,23 @@ export class ApiHandlerService {
     return this.http.get(this.url + "api/v1/authors/" + authorId + "/shops");
   }
 
+  getShopDataFromArtworkId(artworkId: number): Observable<any> {
+    return this.http.get(this.url + "api/v1/artworks/" + artworkId + "/shop");
+  }
+
   getSessionFromProduct(productId: number): Observable<any> {
     return this.http.get(this.url + "api/v1/products/" + productId + "/checkout-session");
+  }
+
+  getMultipleProductsSession(products: ProductWithQty[]): Observable<any> {
+    let productsIds = products.map(p => p.product.id);
+    let quantities = products.map(p => p.quantity);
+    let data = {
+      ids: productsIds,
+      quantities: quantities
+    }
+    console.log(data);
+    return this.http.post(this.url + "api/v1/products/checkout-session", data);
   }
 
   //Comments 

@@ -20,17 +20,6 @@ export class ChapterThumbnailComponent implements OnInit {
   }
 
   navigate() {
-    switch (this.type) {
-      case "MANGA":
-        this.router.navigate(["/mangaview", this.chapter.artworkId, this.chapter.id]);
-        break;
-      case "COMIC":
-        this.router.navigate(["/webtoonview", this.chapter.artworkId, this.chapter.id]);
-        break;
-      case "NOVEL":
-        this.router.navigate(["/mangaview", this.chapter.artworkId, this.chapter.id]);
-        break;
+      this.router.navigate(["/mangaview", this.chapter.artworkId, this.chapter.id]);
     }
-  }
-
 }

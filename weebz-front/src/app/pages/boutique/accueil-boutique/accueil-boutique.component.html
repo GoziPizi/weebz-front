@@ -2,23 +2,23 @@
     <div id="presentation">
         <img src="{{authorImage}}">
         <div class="" id="side-presentation" >
-            <h3 routerLink="/author/{{author.id}}">{{getAuthorName}}</h3>
-            <p id="follow-button">Suivre +</p>
-        </div>
-        <div id="navigation-menu">
-            <h3 class="navigation-text">Livres</h3>
-            <h3 class="navigation-text">Articles</h3>
-            <h3 class="navigation-text">Créations</h3>
-            <h3 class="navigation-text">Oeuvres Digitales</h3>
+            <h3>{{shopName}}</h3>
+            <div id="navigation-menu">
+                <h3 class="navigation-text" (click)="filtersValue('')">Tout</h3>
+                <h3 class="navigation-text" (click)="filtersValue('BOOK')">Livres</h3>
+                <h3 class="navigation-text" (click)="filtersValue('GOODIE')">Articles</h3>
+                <h3 class="navigation-text" (click)="filtersValue('DIGITAL')">Oeuvres Digitales</h3>
+            </div>
         </div>
     </div>
     <div class="articles-display">
         <div id="articles-container">
             <app-product-vignette
-                *ngFor="let product of shop.products"
+                *ngFor="let product of productsToDisplay"
                 [product]="product"
                 class="product-vignette"
             ></app-product-vignette>
         </div>
     </div>
 </div>
+<app-my-shopping-cart></app-my-shopping-cart>

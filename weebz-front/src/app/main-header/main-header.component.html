@@ -31,7 +31,7 @@
   
           <!-- Lien "Blog" -->
           <div class="justify-content-center header-button">
-          <span routerLink="blog" class="ml-3 text-button">Blog</span>
+          <span routerLink="shop" class="ml-3 text-button">Boutique</span>
           </div>
   
           <!-- Lien "Publier" -->
@@ -52,7 +52,7 @@
             <a routerLink="/watchlist"><i class="header-icon fa-regular fa-bookmark fa-xl"></i></a>
           </div>
           <div class="col-3 login-container ">
-              <a routerLink="/connexion"><i *ngIf="!loggedIn" class="header-icon fa-solid fa-xl fa-share-from-square"></i></a>
+              <a routerLink="/connexion"><i *ngIf="!loggedIn" class="header-icon fa-regular fa-xl fa-user"></i></a>
               <app-connected-dropdown *ngIf="loggedIn" class="connected-dropdown" #connectedDropdown></app-connected-dropdown>
           </div>
         </div>

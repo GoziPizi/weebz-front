@@ -1,10 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ApiHandlerService } from 'src/app/services/api-handler.service';
 import { WatchlistService } from 'src/app/services/watchlist.service';
 import { Router } from '@angular/router';
 import { Artwork } from 'src/app/models/artwork';
 import { Chapter } from 'src/app/models/chapter';
+import { Shop } from 'src/app/models/shop';
+import { FourProductsShopThumbnailComponent } from 'src/app/utils/thumbnails/shop-thumbnails/four-products-shop-thumbnail/four-products-shop-thumbnail.component';
 
 @Component({
   selector: 'app-artwork',
@@ -21,7 +23,11 @@ export class ArtworkComponent implements OnInit {
 
   chapters: Chapter[] = [];
 
+  shop: Shop|null = null;
+  @ViewChild('shopComponent') shopComponent: FourProductsShopThumbnailComponent|null = null;
+
   isFollowing: boolean = false;
+
 
   constructor(
     private route: ActivatedRoute,
@@ -36,6 +42,7 @@ export class ArtworkComponent implements OnInit {
       this.artWorkId = parseInt(id);
     }
     this.fetchArtworkData();
+    this.fetchShopData();
     this.isFollowing = this.watchlistService.isArtworkInWatchlist(this.artWorkId);
   }
 
@@ -66,6 +73,13 @@ export class ArtworkComponent implements OnInit {
   fetchAuthorData() {
     return this.api.getAuthorData(this.authorId).subscribe((res: any) => {
       this.author = res;
+    });
+  }
+
+  fetchShopData() {
+    return this.api.getShopDataFromArtworkId(this.artWorkId).subscribe((res: any) => {
+      this.shop = res;
+      this.shopComponent?.fetchData();
     });
   }
 

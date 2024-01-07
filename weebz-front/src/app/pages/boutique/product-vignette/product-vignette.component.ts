@@ -21,5 +21,11 @@ export class ProductVignetteComponent implements OnInit {
     return this.product.price.toFixed(2);
   }
 
-
+  get category() {
+    if(this.product.category == 'BOOK') {
+      return 'Livre';
+    }
+    
+    return 'Goodies';
+  }
 }

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Shop } from 'src/app/models/shop';
+import { ApiHandlerService } from 'src/app/services/api-handler.service';
 
 @Component({
   selector: 'app-all-boutique',
@@ -7,9 +9,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AllBoutiqueComponent implements OnInit {
 
-  constructor() { }
+  shops: Shop[] = [];
+
+  constructor(
+    private apiHandler: ApiHandlerService
+  ) { }
 
   ngOnInit(): void {
+    this.fetchShops();
+  }
+
+  fetchShops() {
+    this.apiHandler.getAllShops().subscribe(
+      (shops: Shop[]) => {
+        console.log(shops);
+        this.shops = shops;
+      }
+    )
   }
 
 }

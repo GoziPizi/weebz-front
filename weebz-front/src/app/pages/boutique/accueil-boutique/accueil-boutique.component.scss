@@ -1,8 +1,10 @@
 @import '../../../../variables.scss';
 
 .main-container {
+    background-color: white;
     background-size: 100% auto;
-    background-repeat: repeat-y;  
+    background-repeat: no-repeat;
+    background-position: top, top;
     padding: 0;
     color: black;
     align-items: center;
@@ -38,16 +40,10 @@
 }
 
 #side-presentation h3 {
-    cursor: pointer;
     font-weight: bold;
     color: $dark-gray;
     margin-top: 0.5em;
     margin-left: 0.5em;
-
-    &:hover {
-        color: $orange;
-        text-decoration: underline;
-    }
 }
 
 #author h3 {
@@ -65,12 +61,14 @@
     display: flex;
     flex-direction: row;
     align-items: flex-end;
+    margin-top: 2em;
+    margin-bottom: 1em;
 }
 
 .navigation-text {
     cursor: pointer;
     font-size: larger;
-    margin: 1em;
+    margin: 0 1em;
     bottom: 1em;
 }
 

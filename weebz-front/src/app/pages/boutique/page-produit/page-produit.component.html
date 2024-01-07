@@ -38,9 +38,9 @@
                     </div>
                     
                     <p>{{productPrice}}€</p>
-                    <a (click)="onBuy()">
+                    <a (click)="onAddToCart()">
                         <div id="buy-button">
-                            <h4>Acheter</h4>
+                            <h4>Ajouter au panier</h4>
                         </div>
                     </a>
                 </div>
@@ -68,3 +68,4 @@
         </div>
     </div>
 </div>
+<app-my-shopping-cart #cartComponent></app-my-shopping-cart>

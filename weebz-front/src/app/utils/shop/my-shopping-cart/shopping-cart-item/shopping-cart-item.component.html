@@ -1,0 +1,19 @@
+<div id="container">
+    <div id="delete" (click)="onRemove()">
+        <i class="fa-solid fa-xmark fa-2x"></i>
+    </div>
+    <div id="image-container">
+        <img [src]="productWithQty.product.images[0]">
+    </div>
+    <div id="info-container">
+        <h4>{{productWithQty.product.name}}</h4>
+        <div id="quantity-container">
+            <p>Quantité: {{productWithQty.quantity}}</p>
+            <div id="quantity-button-container">
+                <i class="fa-solid fa-caret-up" (click)="addQuantity()"></i>
+                <i class="fa-solid fa-caret-down" (click)="substractQuantity()"></i>
+            </div>
+        </div>
+        <p>{{totalPrice}}€</p>
+    </div>
+</div>

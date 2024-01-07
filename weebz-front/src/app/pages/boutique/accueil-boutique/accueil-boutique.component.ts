@@ -16,6 +16,8 @@ export class AccueilBoutiqueComponent implements OnInit {
   shop: Shop = new Shop();
   author: any = {};
 
+  filters: string = "";
+
   constructor(
     private apiHandler: ApiHandlerService,
     private loadingService: LoadingServiceService,
@@ -30,11 +32,10 @@ export class AccueilBoutiqueComponent implements OnInit {
   }
 
   fetchShopData() {
-
     this.loadingService.setLoadingState(true);
-
     this.apiHandler.getShopData(this.idShop).subscribe({
       next: (res: Shop) => {
+        console.log(res)
         this.shop = res;
         this.fetchAuthorData();
       },
@@ -57,11 +58,28 @@ export class AccueilBoutiqueComponent implements OnInit {
 
   //template getters
 
+  filtersValue(value: string) {
+    this.filters = value;
+  }
+
+  get productsToDisplay() {
+    if (this.filters === "") {
+      return this.shop.products;
+    }
+    return this.shop.products.filter((product: Product) => {
+      return product.category.includes(this.filters);
+    })
+  }
+
   get getAuthorName() {
     if (Object.keys(this.author).length !== 0) {
       return this.author.user.surname;
     }
     return ""
+  }
+
+  get shopName() {
+    return this.shop.name;
   }
 
   get authorImage() {

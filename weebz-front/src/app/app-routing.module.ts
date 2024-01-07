@@ -5,7 +5,6 @@ import { BlogComponent } from './pages/blog/blog.component';
 import { CatalogueComponent } from './pages/catalogue/catalogue.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { MangaViewComponent } from './pages/manga-view/manga-view.component';
-import { WebtoonViewComponent } from './pages/webtoon-view/webtoon-view.component';
 import { AuteurComponent } from './pages/auteur/auteur.component';
 import { ConnexionComponent } from './pages/connexion/connexion.component';
 import { InscriptionComponent } from './pages/inscription/inscription.component';
@@ -20,6 +19,8 @@ import { PageProduitComponent } from './pages/boutique/page-produit/page-produit
 import { AccueilBoutiqueComponent } from './pages/boutique/accueil-boutique/accueil-boutique.component';
 import { SearchPageComponent } from './pages/search/search-page/search-page.component';
 import { HowToUploadPageComponent } from './pages/utils/how-to-upload-page/how-to-upload-page.component';
+import { ThankYouComponent } from './pages/boutique/thank-you/thank-you.component';
+import { AllBoutiqueComponent } from './pages/boutique/all-boutique/all-boutique.component';
 
 let routes: Routes = [
   { path: 'accueil', component: AccueilComponent },
@@ -29,7 +30,6 @@ let routes: Routes = [
   { path: 'contact', component: ContactComponent},
   { path: 'artwork/:artworkId', component: ArtworkComponent},
   { path: 'mangaview/:artworkId/:chapterId', component: MangaViewComponent},
-  { path: 'webtoonview/:artworkId/:chapterId', component: WebtoonViewComponent},
   { path: 'connexion', component: ConnexionComponent},
   { path: 'inscription', component: InscriptionComponent},
   { path: 'my-profile', component: MyProfileComponent},
@@ -40,8 +40,10 @@ let routes: Routes = [
   { path: 'create-chapter/:artworkId', component: CreateChapterComponent},
 
   //boutique
+  { path: 'shop', component: AllBoutiqueComponent},
   { path: 'shop/:shopId', component: AccueilBoutiqueComponent},
   { path: 'product/:productId', component: PageProduitComponent},
+  { path: 'thank-you', component: ThankYouComponent},
 
   //search
   { path: 'search', component: SearchPageComponent},

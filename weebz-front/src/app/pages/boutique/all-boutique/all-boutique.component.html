@@ -1,1 +1,14 @@
-<p>all-boutique works!</p>
+<div id="container">
+    <div id="header">
+        <h1>Boutique</h1>
+        <p>Retrouvez ici les boutiques de nos auteurs !</p>
+        <div id="navigation">
+
+        </div>
+    </div>
+    <app-four-products-shop-thumbnail 
+        *ngFor="let shop of shops" 
+        [shop]="shop"
+        class="shop-thumbnail"></app-four-products-shop-thumbnail>
+</div>
+<app-my-shopping-cart></app-my-shopping-cart>

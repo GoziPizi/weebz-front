@@ -5,7 +5,7 @@
         <h5 (click)="navigateAuthor()" >{{authorName}}</h5>
     </div>
 
-    <div id="command-and-view">
+    <div id="command-and-view-manga" *ngIf="artwork.type != 'COMIC'">
         <div id="command-container">
             <div *ngIf="!doublePage" class="display-mode-container" (click)="updateDoublePage()">
                 <span>Vue Double Page </span>
@@ -34,6 +34,10 @@
         </div>
     </div>
 
+    <div *ngIf="artwork.type == 'COMIC'" class="image-container">
+        <img *ngFor="let page of pages" [src]="page.pageUrl" alt="image" class="image" (click)="toggleFullScreen()"/>
+    </div>
+
     <div id="social-icons">
         <i class="fa-regular fa-comment-dots fa-xl" (click)="onScrollComments()"></i>
         <i *ngIf="!isLiked" class="fa-regular fa-heart fa-xl" (click)="onLike()"></i>
@@ -48,5 +52,6 @@
     </div>
     <div id="next-chapters">
         <app-next-chapters-for-view [artworkId]="artworkId" [chapterIndex]="chapter.index" [reloadObservable]="reloadObservable" [authorId]="artwork.authorId"></app-next-chapters-for-view>
+        <app-four-products-shop-thumbnail *ngIf="shopData" [shop]="shopData" #shopComponent></app-four-products-shop-thumbnail>
     </div>
 </div>

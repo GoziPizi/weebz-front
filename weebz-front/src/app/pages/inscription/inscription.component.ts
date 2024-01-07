@@ -38,7 +38,7 @@ export class InscriptionComponent implements OnInit {
       this.api_handler.register(this.registrationForm.value).subscribe(
         (res:any) => {
           this.loading_service.setLoadingState(false);
-          this.router.navigate(['/connexion']);
+          this.connect();
         },
         (err:any) => {
           this.loading_service.setLoadingState(false);
@@ -46,6 +46,24 @@ export class InscriptionComponent implements OnInit {
         }
       )
     }
+  }
+
+  connect(){
+    this.loading_service.setLoadingState(true);
+    const data = {
+      login: this.registrationForm.value.email,
+      password: this.registrationForm.value.password
+    }
+    this.api_handler.login(data).subscribe({
+      next: (res:any) => {
+        this.loading_service.setLoadingState(false);
+        this.router.navigate(['/accueil']);
+      },
+      error: (err:any) => {
+        this.loading_service.setLoadingState(false);
+        this.showErrorMessage();
+      }
+    })
   }
 
   showErrorMessage() {

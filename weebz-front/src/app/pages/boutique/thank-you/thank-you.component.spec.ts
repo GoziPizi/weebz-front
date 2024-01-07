@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { WebtoonViewComponent } from './webtoon-view.component';
+import { ThankYouComponent } from './thank-you.component';
 
-describe('WebtoonViewComponent', () => {
-  let component: WebtoonViewComponent;
-  let fixture: ComponentFixture<WebtoonViewComponent>;
+describe('ThankYouComponent', () => {
+  let component: ThankYouComponent;
+  let fixture: ComponentFixture<ThankYouComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ WebtoonViewComponent ]
+      declarations: [ ThankYouComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(WebtoonViewComponent);
+    fixture = TestBed.createComponent(ThankYouComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
