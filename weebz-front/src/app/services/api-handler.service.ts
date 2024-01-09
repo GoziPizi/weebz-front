@@ -286,12 +286,14 @@ export class ApiHandlerService {
     return this.http.get(this.url + "api/v1/products/" + productId + "/checkout-session");
   }
 
-  getMultipleProductsSession(products: ProductWithQty[]): Observable<any> {
+  getMultipleProductsSession(products: ProductWithQty[], shippingMethod: string, relayInfo?: any): Observable<any> {
     let productsIds = products.map(p => p.product.id);
     let quantities = products.map(p => p.quantity);
     let data = {
       ids: productsIds,
-      quantities: quantities
+      quantities: quantities,
+      shippingMethod: shippingMethod,
+      relayInfo: relayInfo
     }
     return this.http.post(this.url + "api/v1/products/checkout-session", data);
   }

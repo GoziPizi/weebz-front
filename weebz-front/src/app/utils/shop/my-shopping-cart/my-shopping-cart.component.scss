@@ -120,6 +120,57 @@
     margin: 0;
 }
 
+//Shipping
+
+#shipping-container {
+    padding: 1em;
+}
+
+#shipping-container h3 {
+    margin: 0;
+    margin-left: 1em;
+}
+
+#shipping-selection {
+    margin-left: 1em;
+    margin-right: 1em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    display: flex;
+    flex-direction: column;
+}
+
+#mondial-relay-recap {
+    display: flex;
+    flex-direction: row;
+}
+
+#mondial-relay-recap i {
+    margin-left: 0.5em;
+    color: green;
+}
+
+.selected-shipping {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.shipping-method {
+    padding: 0.5em;
+    border-radius: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    margin-top: 1em;
+    display: flex;
+    flex-direction: row;
+    cursor: pointer;
+}
+
+.shipping-method p {
+    margin: 0;
+    margin-left: 0.5em;
+}
+
+//Footer
+
 #cart-footer {
     margin-top: 2em;
     margin-left: 2em;
@@ -160,4 +211,64 @@
 
 #secured-transaction img {
     height: 5em;
+}
+
+#mondial-relay-container {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+#close-button-mondial-relay {
+    position: absolute;
+    top: 1em;
+    right: 1em;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    padding: 1em;
+    border: none;
+
+    cursor: pointer;
+    color: white;
+}
+
+#mondial-relay-content {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.not-available {
+    color: $gray !important;
+    background-color: $dark-gray !important;
+    cursor: not-allowed !important;
+
+    &:hover {
+        background-color: $gray;
+    }
+}
+
+#mondial-relay-content p {
+    text-align: center;
+    padding: 0.5em 1em;
+    margin: 0;
+    width: max-content;
+    color: white;
+    background-color: $gray;
+    border-radius: 1em;
+    cursor: pointer;
+
+    &:hover {
+        background-color: darken($gray, 10%);
+    }
 }

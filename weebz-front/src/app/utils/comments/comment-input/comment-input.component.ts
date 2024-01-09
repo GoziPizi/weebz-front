@@ -15,12 +15,15 @@ export class CommentInputComponent implements OnInit {
 
   @Input() reInitSubject: Subject<void> = new Subject<void>();
 
+  isConnected: boolean = false;
   commentContent: string = "";
 
   constructor(
     private apiHandler: ApiHandlerService,
     private loadingService: LoadingServiceService
-  ) { }
+  ) {
+    this.isConnected = this.apiHandler.getIsLoggedIn();
+  }
 
   ngOnInit(): void {
   }

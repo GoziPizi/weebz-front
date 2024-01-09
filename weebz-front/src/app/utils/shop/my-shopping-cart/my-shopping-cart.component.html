@@ -23,6 +23,29 @@
 
         <div class="line"></div>
 
+        <div id="shipping-container">
+            <h3>Expédition: </h3>
+            <div id="shipping-selection" >
+                <div class="shipping-method" (click)="onDomicileSelect()"[ngClass]="{'selected-shipping': !isShippingMondialRelay}">
+                    <p>A domicile:</p>
+                    <p>6.99€</p>
+                </div>
+                <div class="shipping-method" (click)="onMondialRelaySelect()" [ngClass]="{'selected-shipping': isShippingMondialRelay}">
+                    <p>Point Relay:</p>
+                    <p>5.99€</p>
+                </div>
+            </div>
+            <div id="mondial-relay-recap" *ngIf="isShippingMondialRelay">
+                <p>Point relai: {{this.relayAdress}}</p>
+                <i *ngIf="relayAdress !== 'non sélectionné'" class="fa-solid fa-check"></i>
+            </div>
+            <div id="shipping-recap" *ngIf="!isShippingMondialRelay">
+                <p>L'adresse de livraison vous sera demandée lors du paiement</p>
+            </div>
+        </div>
+
+        <div class="line"></div>
+
         <div id="cart-footer">
             <div id="total-price">
                 <p>Total: {{totalPrice}}€</p>
@@ -37,6 +60,17 @@
                     <img src="../../../../assets/secured-transaction.webp">
                 </div>
             </div>
+        </div>
+    </div>
+    <div id="mondial-relay-container" *ngIf="selectMondialRelay">
+        <div id="close-button-mondial-relay" (click)="closeMondialRelay()">
+            <i class="fa-solid fa-xmark fa-5x"></i>
+        </div>
+        <div id="mondial-relay-content">
+            <div id="Zone_Widget"></div>
+            <p 
+                [ngClass]="{'not-available': relayAdress == 'non sélectionné'}"
+                (click)="closeMondialRelay()">Confirmer le point relai</p>
         </div>
     </div>
 </div>

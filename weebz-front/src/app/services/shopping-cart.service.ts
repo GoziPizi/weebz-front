@@ -76,8 +76,8 @@ export class ShoppingCartService {
     this.updateCart$.next();
   }
 
-  onBuy(): Observable<any> {
-    let observable = this.apiHandlerService.getMultipleProductsSession(this.shoppingCart);
+  onBuy(shippingMethod: string, relayInfo: any): Observable<any> {
+    let observable = this.apiHandlerService.getMultipleProductsSession(this.shoppingCart, shippingMethod, relayInfo);
     observable.subscribe({
       next: (res: any) => {
         window.location.href = res.url;
