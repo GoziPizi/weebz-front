@@ -24,9 +24,9 @@
         <!-- Catégories -->
         <div class="col-md-3">
             <ul class="list-unstyled">
-                <li><a class="footer-text" routerLink="">Manga</a></li>
-                <li><a class="footer-text" routerLink="">Webtoon</a></li>
-                <li><a class="footer-text" routerLink="">Light Novels</a></li>
+                <li><a class="footer-text" (click)="onNavigate('manga')">Manga</a></li>
+                <li><a class="footer-text" (click)="onNavigate('webtoon')">Webtoon</a></li>
+                <li><a class="footer-text" (click)="onNavigate('lightnovel')">Light Novels</a></li>
             </ul>
         </div>
         <!-- Adresse et mail -->
