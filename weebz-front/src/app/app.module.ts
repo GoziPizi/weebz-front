@@ -71,6 +71,7 @@ import { AuthorThumbnailComponent } from './utils/thumbnails/author-thumbnail/au
 import { MyShoppingCartComponent } from './utils/shop/my-shopping-cart/my-shopping-cart.component';
 import { ShoppingCartItemComponent } from './utils/shop/my-shopping-cart/shopping-cart-item/shopping-cart-item.component';
 import { ThankYouComponent } from './pages/boutique/thank-you/thank-you.component';
+import { UnavailableOnMobileComponent } from './utils/unavailable-on-mobile/unavailable-on-mobile.component';
 
 @NgModule({
   declarations: [
@@ -139,7 +140,8 @@ import { ThankYouComponent } from './pages/boutique/thank-you/thank-you.componen
     AuthorThumbnailComponent,
     MyShoppingCartComponent,
     ShoppingCartItemComponent,
-    ThankYouComponent
+    ThankYouComponent,
+    UnavailableOnMobileComponent
   ],
   imports: [
     BrowserModule,
