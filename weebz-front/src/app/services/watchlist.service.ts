@@ -32,6 +32,10 @@ export class WatchlistService {
   }
 
   addArtwork(artworkId: number) {
+    if(!this.apiHandlerService.getIsLoggedIn()) {
+      this.toastText$.next("Vous devez être connecté pour ajouter à la watchlist");
+      this.visibleTimer$.next(1000);
+    }
     this.apiHandlerService.addToWatchlist(artworkId).subscribe({
       next: res => {
         this.toastText$.next("Ajouté à la watchlist");

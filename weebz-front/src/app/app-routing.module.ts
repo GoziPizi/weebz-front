@@ -21,6 +21,7 @@ import { SearchPageComponent } from './pages/search/search-page/search-page.comp
 import { HowToUploadPageComponent } from './pages/utils/how-to-upload-page/how-to-upload-page.component';
 import { ThankYouComponent } from './pages/boutique/thank-you/thank-you.component';
 import { AllBoutiqueComponent } from './pages/boutique/all-boutique/all-boutique.component';
+import { ReglementComponent } from './pages/mentions-legales/reglement/reglement.component';
 
 let routes: Routes = [
   { path: 'accueil', component: AccueilComponent },
@@ -51,6 +52,7 @@ let routes: Routes = [
   //utils
   { path: 'tuto-upload', component: HowToUploadPageComponent},
   { path: 'cgu', component: CguComponent},
+  { path: 'reglement', component: ReglementComponent},
   { path: 'not-found', component: PageNotFoundComponent},
   { path: '', redirectTo: '/accueil', pathMatch: 'full' },
   { path: '**', redirectTo: '/not-found'},

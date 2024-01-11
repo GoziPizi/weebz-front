@@ -1,11 +1,24 @@
-<div [ngClass]="getDynamicStyles()" class="catalogue-header row">
-    <div class="button-container col-2 offset-3 d-flex justify-content-center align-items-center">
-        <button class="categorie-button" (click)="updateCategorie('manga')">Manga</button>
+<div [ngClass]="getDynamicStyles()" id="catalogue-header">
+    <div class="row" id="type-selector">
+        <div class="button-container col-2 offset-3 d-flex justify-content-center align-items-center"
+            [ngClass]="{selected: categorie === 'manga'}">
+            <button class="categorie-button" (click)="updateCategorie('manga')">Manga</button>
+        </div>
+        <div class="button-container col-2 d-flex justify-content-center align-items-center"
+            [ngClass]="{selected: categorie === 'webtoon'}">
+            <button class="categorie-button" (click)="updateCategorie('webtoon')">Webtoon</button>
+        </div>
+        <div class="button-container col-2 d-flex justify-content-center align-items-center"
+            [ngClass]="{selected: categorie === 'lightnovel'}">
+            <button class="categorie-button" (click)="updateCategorie('lightnovel')">Light-novel</button>
+        </div>
     </div>
-    <div class="button-container col-2 d-flex justify-content-center align-items-center">
-        <button class="categorie-button" (click)="updateCategorie('webtoon')">Webtoon</button>
-    </div>
-    <div class="button-container col-2 d-flex justify-content-center align-items-center">
-        <button class="categorie-button" (click)="updateCategorie('lightnovel')">Light-novel</button>
+    <div id="tag-selector">
+        <div class="tag-button" (click)="updateTag('all')">Tous</div>
+        <div class="tag-button" (click)="updateTag('action')">Action</div>
+        <div class="tag-button" (click)="updateTag('fiction')">Fiction</div>
+        <div class="tag-button" (click)="updateTag('romance')">Romance</div>
+        <div class="tag-button" (click)="updateTag('drame')">Drame</div>
+        <div class="tag-button" (click)="updateTag('action')">Comédie</div>
     </div>
 </div>

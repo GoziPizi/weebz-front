@@ -12,6 +12,8 @@ import { Chapter } from 'src/app/models/chapter';
 import { Author } from 'src/app/models/author';
 import { Shop } from 'src/app/models/shop';
 import { FourProductsShopThumbnailComponent } from 'src/app/utils/thumbnails/shop-thumbnails/four-products-shop-thumbnail/four-products-shop-thumbnail.component';
+import { WatchlistService } from 'src/app/services/watchlist.service';
+import { CommentsDisplayerComponent } from 'src/app/utils/comments/comments-displayer/comments-displayer.component';
 
 @Component({
   selector: 'app-manga-view',
@@ -23,6 +25,7 @@ export class MangaViewComponent implements OnInit {
   private globalKeyListener: Function;
 
   @ViewChild('liseuseContainer') liseuseContainer!: ElementRef;
+  @ViewChild('comments') comments!: CommentsDisplayerComponent;
 
   artworkId : number = 0;
   artwork : Artwork = new Artwork();
@@ -48,7 +51,6 @@ export class MangaViewComponent implements OnInit {
 
   isFullScreen: boolean = false;
 
-  isLiked: boolean = false; //TODO init
   isFollowed: boolean = false; //TODO init
 
   shopData: Shop|null = null;
@@ -64,7 +66,8 @@ export class MangaViewComponent implements OnInit {
     private apiHandlerService: ApiHandlerService,
     private renderer: Renderer2,
     private router: Router,
-    private loadingService: LoadingServiceService
+    private loadingService: LoadingServiceService,
+    private watchlistService: WatchlistService
     ) { 
       let favoriteView = this.cookieService.get('favoriteView');
       if(favoriteView == 'doublePage') this.doublePage = true;
@@ -93,6 +96,8 @@ export class MangaViewComponent implements OnInit {
       this.paramSubscription = this.route.params.subscribe(params => {
         this.reInit();
       });
+
+      this.isFollowed = this.watchlistService.isArtworkInWatchlist(this.artworkId);
     }
 
   ngOnInit(): void {
@@ -169,7 +174,9 @@ export class MangaViewComponent implements OnInit {
   fetchData(){
     return this.apiHandlerService.getArtwork(this.artworkId!).subscribe((res: any) => {
       this.artwork = res;
+      if(this.artwork.type == 'NOVEL') this.leftToRight = true;
       this.fetchAuthor();
+      this.comments.fetchComments();
     });
   }
 
@@ -292,18 +299,25 @@ export class MangaViewComponent implements OnInit {
     else this.onPreviousPage();
   }
 
-  //pages events
-  onLike() {
-    this.isLiked = !this.isLiked;
+  onFollow() {
+    this.watchlistService.addArtwork(this.artworkId);
+    if(this.apiHandlerService.getIsLoggedIn()) {
+      this.isFollowed = true;
+    }
   }
 
-  onFollow() {
-    this.isFollowed = !this.isFollowed;
+  onUnfollow() {
+    this.watchlistService.removeArtwork(this.artworkId);
+    this.isFollowed = false;
   }
 
   onScrollComments() {
     const comments = document.getElementById("comments");
     comments?.scrollIntoView({behavior: "smooth"});
+  }
+
+  navigateToShop() {
+    this.router.navigate(['/shop', this.shopData?.id]);
   }
 
   navigateAuthor() {

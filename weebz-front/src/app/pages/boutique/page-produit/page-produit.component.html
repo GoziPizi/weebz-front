@@ -25,7 +25,7 @@
             <div id="text-presentation">
                 <div id="main-information">
                     <h1>{{productName}}</h1>
-                    <p>Category</p>
+                    <p>{{productCategory}}</p>
                     <div id="star-comm">
                         <div id="star-container">
                             <i class="fa-regular fa-star"></i>
@@ -62,9 +62,10 @@
             </div>
         </div>
         <div id="similar-products">
-            <app-page-produit-similar-product [product$]="product$">
-
-            </app-page-produit-similar-product>
+            <app-page-produit-similar-product [product$]="product$"></app-page-produit-similar-product>
+        </div>
+        <div id="comments">
+            <app-comments-displayer #comments [commentableId]="productId" [commentableType]="'product'"></app-comments-displayer>
         </div>
     </div>
 </div>

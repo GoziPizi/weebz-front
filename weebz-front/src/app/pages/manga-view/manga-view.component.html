@@ -40,15 +40,14 @@
 
     <div id="social-icons">
         <i class="fa-regular fa-comment-dots fa-xl" (click)="onScrollComments()"></i>
-        <i *ngIf="!isLiked" class="fa-regular fa-heart fa-xl" (click)="onLike()"></i>
-        <i *ngIf="isLiked" class="fa-solid fa-heart fa-xl" (click)="onLike()"></i>
-        <i class="fa-solid fa-shop fa-xl"></i>
-        <i *ngIf="!isFollowed" class="fa-solid fa-user-plus fa-xl" (click)="onFollow()"></i>
+        <i class="fa-regular fa-bookmark fa-xl" *ngIf="!isFollowed" (click)="onFollow()"></i>
+        <i class="fa-solid fa-bookmark fa-xl" *ngIf="isFollowed" (click)="onUnfollow()"></i>
+        <i class="fa-solid fa-shop fa-xl" *ngIf="shopData" (click)="navigateToShop()"></i>
     </div>
 </div>
 <div id="sub-content">
-    <div id="comments" #comments>
-        <app-comments-displayer></app-comments-displayer>
+    <div id="comments">
+        <app-comments-displayer #comments [commentableId]="chapter.id" [commentableType]="'chapter'" ></app-comments-displayer>
     </div>
     <div id="next-chapters">
         <app-next-chapters-for-view [artworkId]="artworkId" [chapterIndex]="chapter.index" [reloadObservable]="reloadObservable" [authorId]="artwork.authorId"></app-next-chapters-for-view>

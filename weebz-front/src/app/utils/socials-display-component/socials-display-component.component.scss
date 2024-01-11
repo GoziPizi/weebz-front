@@ -1,0 +1,14 @@
+#container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.fontawesome-container {
+    cursor: pointer;
+
+    &:hover {
+        color: darken(white, 10%);
+    }
+}

@@ -307,6 +307,9 @@ export class ApiHandlerService {
     else if(commentableType == "chapter") {
       return this.http.get(this.url + "api/v1/chapters/" + commentableId + "/comments");
     }
+    else if(commentableType == "product") {
+      return this.http.get(this.url + "api/v1/products/" + commentableId + "/comments");
+    }
     else {
       return new Observable();
     }
@@ -325,6 +328,9 @@ export class ApiHandlerService {
     }
     else if(commentableType == "chapter") {
       return this.http.post(this.url + "api/v1/chapters/" + commentableId + "/comments", data, {headers: headers});
+    }
+    else if(commentableType == "product") {
+      return this.http.post(this.url + "api/v1/products/" + commentableId + "/comments", data, {headers: headers});
     }
     else {
       return new Observable();

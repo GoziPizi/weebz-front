@@ -14,6 +14,7 @@ export class SearchPageComponent implements OnInit {
 
   artworks: Artwork[] = [];
   categorie: string = 'manga';
+  tag: string = 'all';
   params: any;
 
   constructor(
@@ -25,6 +26,7 @@ export class SearchPageComponent implements OnInit {
     this.route.queryParams.subscribe({
       next: params => {
         this.categorie = params['categorie'] ? params['categorie'] : 'manga';
+        this.tag = params['tag'] ? params['tag'] : 'all';
         this.params = params;
         this.searchArtworks();
       }
@@ -61,29 +63,29 @@ export class SearchPageComponent implements OnInit {
    * 
    */
   createParams() {
-    let params = {};
+    let finalParams = {};
     if(this.params['title']) {
-      params = {...params, title: this.params['title']};
+      finalParams = {...finalParams, title: this.params['title']};
     }
     if(this.params['author']) {
-      params = {...params, author: this.params['author']};
+      finalParams = {...finalParams, author: this.params['author']};
     }
-    if(this.params['tags']) {
-      params = {...params, tags: this.params['tags']};
+    if(this.tag!='all') {
+      finalParams = {...finalParams, tags: [this.tag]};
     }
     if(this.params['type']=='manga' || !this.params['type']) {
-      params = {...params, type: 'MANGA'};
+      finalParams = {...finalParams, type: 'MANGA'};
     }
     if(this.params['type']=='webtoon') {
-      params = {...params, type: 'COMIC'};
+      finalParams = {...finalParams, type: 'COMIC'};
     }
     if(this.params['type']=='lightnovel') {
-      params = {...params, type: 'NOVEL'};
+      finalParams = {...finalParams, type: 'NOVEL'};
     }
     if(this.params['page']) {
-      params = {...params, page: this.params['page']};
+      finalParams = {...finalParams, page: this.params['page']};
     }
-    return params;
+    return finalParams;
   }
 
 }

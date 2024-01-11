@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 import { Author } from 'src/app/models/author';
 import { ApiHandlerService } from 'src/app/services/api-handler.service';
+import { SocialsDisplayComponentComponent } from 'src/app/utils/socials-display-component/socials-display-component.component';
 
 @Component({
   selector: 'app-auteur',
@@ -11,7 +12,8 @@ import { ApiHandlerService } from 'src/app/services/api-handler.service';
 })
 export class AuteurComponent implements OnInit {
 
-  //Components
+  //Components child
+  @ViewChild('socialsDisplay') socialsDisplay!: SocialsDisplayComponentComponent;
 
   authorId: number = 0;
   author: Author = new Author();
@@ -36,6 +38,7 @@ export class AuteurComponent implements OnInit {
     this.apiHandler.getAuthorData(this.authorId).subscribe({
       next: (data: any) => {
         this.author = data;
+        this.socialsDisplay.updateSocials(this.author.socialNetworks);
         this.author$.next(data);
       }
     }

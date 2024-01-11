@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 export class CatalogueHeaderComponent implements OnInit {
 
   @Input() categorie: string = 'manga';
+  tag: string = 'all';
 
   constructor(
     private router: Router
@@ -23,6 +24,14 @@ export class CatalogueHeaderComponent implements OnInit {
       queryParamsHandling: 'merge'
     });
     this.categorie = categorie;
+  }
+
+  updateTag(tag: string) {
+    this.router.navigate([], {
+      queryParams: { tag: tag },
+      queryParamsHandling: 'merge'
+    });
+    this.tag = tag;
   }
 
   getDynamicStyles() {

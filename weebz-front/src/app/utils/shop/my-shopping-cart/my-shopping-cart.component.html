@@ -28,15 +28,15 @@
             <div id="shipping-selection" >
                 <div class="shipping-method" (click)="onDomicileSelect()"[ngClass]="{'selected-shipping': !isShippingMondialRelay}">
                     <p>A domicile:</p>
-                    <p>6.99€</p>
+                    <p>11.99€</p>
                 </div>
                 <div class="shipping-method" (click)="onMondialRelaySelect()" [ngClass]="{'selected-shipping': isShippingMondialRelay}">
-                    <p>Point Relay:</p>
+                    <p>Point Relais:</p>
                     <p>5.99€</p>
                 </div>
             </div>
             <div id="mondial-relay-recap" *ngIf="isShippingMondialRelay">
-                <p>Point relai: {{this.relayAdress}}</p>
+                <p>Point relais: {{this.relayAdress}}</p>
                 <i *ngIf="relayAdress !== 'non sélectionné'" class="fa-solid fa-check"></i>
             </div>
             <div id="shipping-recap" *ngIf="!isShippingMondialRelay">

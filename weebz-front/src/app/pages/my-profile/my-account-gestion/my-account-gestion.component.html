@@ -11,13 +11,46 @@
     <div id="author-profile" *ngIf="isAuthor">
         <h2>Mon profil d'auteur</h2>
         <div id="author-infos" class="infos" >
-            <p>Biographie</p>
+            <p>Biographie:</p>
             <textarea 
                 class="text-input" 
                 [(ngModel)]="newPresentation" 
                 (ngModelChange)="onEdit()"
                 [ngClass]="{'edit': isEditing}">
             </textarea>
+            <p>Réseaux:</p>
+            <div class="socials-input">
+                <i class="fa-brands fa-instagram fa-xl"></i>
+                <input 
+                    class="text-input"
+                    [(ngModel)]="instaUrl"
+                    (ngModelChange)="onEdit()"
+                    [ngClass]="{'edit': isEditing}">
+            </div>
+            <div class="socials-input">
+                <i class="fa-brands fa-tiktok fa-xl"></i>
+                <input 
+                    class="text-input" 
+                    [(ngModel)]="tiktokUrl"
+                    (ngModelChange)="onEdit()"
+                    [ngClass]="{'edit': isEditing}">
+            </div>
+            <div class="socials-input">
+                <i class="fa-brands fa-x-twitter fa-xl"></i>
+                <input 
+                    class="text-input"
+                    [(ngModel)]="xUrl"
+                    (ngModelChange)="onEdit()"
+                    [ngClass]="{'edit': isEditing}">
+            </div>
+            <div class="socials-input">
+                <i class="fa-brands fa-threads fa-xl"></i>
+                <input 
+                    class="text-input" 
+                    [(ngModel)]="threadsUrl"
+                    (ngModelChange)="onEdit()"
+                    [ngClass]="{'edit': isEditing}">
+            </div>
             <p class="button" *ngIf="isEditing" (click)="onSubmit()">Valider</p>
         </div>
     </div>

@@ -17,25 +17,20 @@
     background-color: rgba(0,0,0,0.8);
 }
 
-.author-name-container i {
-    margin: 0;
-    color: $orange;
-}
-
 .author-name-container h2 {
     margin: 0em 0.5em;
     font-size: 3vh;
     cursor: pointer;
 }
 
-.follow-icon {
-    margin-left: 1em;
-    margin-right: 1em;
-    cursor: pointer;
+#views p {
+    margin-right: 0.5em;
+    margin-bottom: 0em;
+}
 
-    &:hover {
-        transform: scale(1.2);
-    }
+#views {
+    display: flex;
+    flex-direction: row;
 }
 
 .cover-container {

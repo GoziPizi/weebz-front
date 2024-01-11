@@ -5,7 +5,7 @@
     <div id="artworks-displayer">
         <div *ngFor="let artwork of artworks">
             <div class="single-artwork-display">
-                <div class="image-display">
+                <div class="image-display" (click)="navigateToArtwork(artwork.id)">
                     <img src="{{artwork.coverUrl}}" alt="artwork">
                 </div>
                 <div class="content-display">

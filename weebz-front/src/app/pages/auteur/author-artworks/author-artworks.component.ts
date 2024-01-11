@@ -3,6 +3,7 @@ import { BehaviorSubject } from 'rxjs';
 import { Artwork } from 'src/app/models/artwork';
 import { Author } from 'src/app/models/author';
 import { ApiHandlerService } from 'src/app/services/api-handler.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -18,7 +19,8 @@ export class AuthorArtworksComponent implements OnInit {
   artworks: Artwork[] = [];
 
   constructor(
-    private apiHandler: ApiHandlerService
+    private apiHandler: ApiHandlerService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -38,6 +40,10 @@ export class AuthorArtworksComponent implements OnInit {
         this.artworks = data;
       }
     })
+  }
+
+  navigateToArtwork(id: number) {
+    this.router.navigate(['artwork', id]);
   }
 
 }

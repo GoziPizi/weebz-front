@@ -6,6 +6,7 @@ import { BehaviorSubject } from 'rxjs';
 import { LoadingServiceService } from 'src/app/services/loading-service.service';
 import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
 import { MyShoppingCartComponent } from 'src/app/utils/shop/my-shopping-cart/my-shopping-cart.component';
+import { CommentsDisplayerComponent } from 'src/app/utils/comments/comments-displayer/comments-displayer.component';
 
 @Component({
   selector: 'app-page-produit',
@@ -27,6 +28,7 @@ export class PageProduitComponent implements OnInit {
   mainImageIndex: number = 0;
 
   @ViewChild('cartComponent') cartComponent!: MyShoppingCartComponent;
+  @ViewChild('comments') comments!: CommentsDisplayerComponent;
 
   constructor(
     private apiHandler: ApiHandlerService,
@@ -117,5 +119,10 @@ export class PageProduitComponent implements OnInit {
 
   get productPrice() {
     return this.product.price.toFixed(2);
+  }
+
+  get productCategory() {
+    if(this.product.category[0] === 'BOOK') return 'Livre';
+    else return 'Goodie';
   }
 }

@@ -11,6 +11,9 @@
             <p (click)="scrollToView('artworks')">Oeuvres</p>
             <p (click)="scrollToView('shops')">Boutiques</p>
         </div>
+        <div id="socials">
+            <app-socials-display-component #socialsDisplay [socials]="author.socialNetworks"></app-socials-display-component>
+        </div>
     </div>
     <div id="main-content">
         <div class="line"></div>

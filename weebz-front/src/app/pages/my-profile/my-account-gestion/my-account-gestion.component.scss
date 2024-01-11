@@ -20,6 +20,20 @@
     border: none;
     color: white;
     background-color: transparent;
+    border: 1px solid $gray;
+    padding: .5em;
+    border-radius: 0.5em;
+}
+
+
+
+.socials-input {
+    margin-top: 1vh;
+}
+
+.socials-input .text-input {
+    margin-left: 2vh;
+    width: 20%;
 }
 
 .edit {

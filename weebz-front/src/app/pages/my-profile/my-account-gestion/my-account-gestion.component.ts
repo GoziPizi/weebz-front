@@ -26,6 +26,11 @@ export class MyAccountGestionComponent implements OnInit {
   newPresentation = "";
   isEditing = false;
 
+  instaUrl: string = '';
+  xUrl: string = '';
+  tiktokUrl: string = '';
+  threadsUrl: string = '';
+
   ngOnInit(): void {
     this.user$.subscribe({
       next: (res: any) => {
@@ -52,10 +57,28 @@ export class MyAccountGestionComponent implements OnInit {
     this.isEditing = true;
   }
 
+  createSocialNetworks() {
+    let networks = [];
+    if (this.instaUrl != '') {
+      networks.push(this.instaUrl);
+    }
+    if (this.xUrl != '') {
+      networks.push(this.xUrl);
+    }
+    if (this.tiktokUrl != '') {
+      networks.push(this.tiktokUrl);
+    }
+    if (this.threadsUrl != '') {
+      networks.push(this.threadsUrl);
+    }
+    return networks;
+  }
+
   onSubmit() {
     this.loading_service.setLoadingState(true);
     const data = {
-      presentation: this.newPresentation
+      presentation: this.newPresentation,
+      socialNetworks: this.createSocialNetworks()
     }
     return this.api_handler.updateAuthorData(this.author.id, data).subscribe({
       next: (res: any) => {
