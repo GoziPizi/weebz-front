@@ -25,9 +25,6 @@ export class CommentsDisplayerComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    console.log("commentableId: ", this.commentableId);
-    console.log("commentableType: ", this.commentableType);
-    console.log("fetching comments")
     this.fetchComments();
     this.reInitSubject.subscribe({
       next: () => {

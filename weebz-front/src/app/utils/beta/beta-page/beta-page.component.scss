@@ -1,0 +1,47 @@
+@import '../../../../variables';
+
+#container {
+    margin: 2em 10%;
+    padding: 2em;
+    border-radius: 2em;
+    background-color: $background-gray;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+img {
+    margin-top: 1em;
+    width: 30%;
+}
+
+#join-button {
+    padding: 1em;
+    border-radius: 1em;
+    background-color: $orange;
+    width: max-content;
+    cursor: pointer;
+
+    &:hover {
+        background-color: darken($orange, 10%);
+    }
+}
+
+#programme-beta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#join-info {
+    margin-top: 1em;
+    margin-bottom: 1em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.inbeta {
+    background-color: $green !important;
+}

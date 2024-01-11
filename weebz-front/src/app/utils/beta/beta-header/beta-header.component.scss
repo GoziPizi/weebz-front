@@ -1,0 +1,20 @@
+@import '../../../../variables';
+
+#container {
+    margin: 0;
+    width: 100%;
+    background-color: #eb9b34
+}
+
+#container p {
+    margin: 0;
+    text-align: center;
+    color: #7a3520;
+    font-weight: bold;
+}
+
+.weebz-link {
+    cursor: pointer;
+    color: #7a3520;
+    text-decoration: underline;
+}

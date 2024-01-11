@@ -73,6 +73,8 @@ import { ShoppingCartItemComponent } from './utils/shop/my-shopping-cart/shoppin
 import { ThankYouComponent } from './pages/boutique/thank-you/thank-you.component';
 import { UnavailableOnMobileComponent } from './utils/unavailable-on-mobile/unavailable-on-mobile.component';
 import { SocialsDisplayComponentComponent } from './utils/socials-display-component/socials-display-component.component';
+import { BetaHeaderComponent } from './utils/beta/beta-header/beta-header.component';
+import { BetaPageComponent } from './utils/beta/beta-page/beta-page.component';
 
 @NgModule({
   declarations: [
@@ -143,7 +145,9 @@ import { SocialsDisplayComponentComponent } from './utils/socials-display-compon
     ShoppingCartItemComponent,
     ThankYouComponent,
     UnavailableOnMobileComponent,
-    SocialsDisplayComponentComponent
+    SocialsDisplayComponentComponent,
+    BetaHeaderComponent,
+    BetaPageComponent
   ],
   imports: [
     BrowserModule,

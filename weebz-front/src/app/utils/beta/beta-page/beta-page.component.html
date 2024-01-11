@@ -1,0 +1,24 @@
+<div id="container">
+    <h1>Programme Beta de Weebz</h1>
+    <img src="../../../../assets/logo_text.png">
+    <div id="intro">
+        <p>
+            Weebz est un site de publication de mangas, de webtoons et de light novels. Il permet aux auteurs de publier leurs oeuvres et aux lecteurs de les lire gratuitement.
+            En plus de cela, Weebz permet aux auteurs de tisser des liens avec leur communités, grâce à un système de boutique dans laquelle les lecteurs peuvent acheter des produits dérivés de leurs oeuvres, tout en soutenant leurs auteurs favoris.
+        </p>
+    </div>
+    <div id="programme-beta">
+        <h3>Programme beta</h3>
+        <p>
+            Weebz est actuellement en phase de développement. Nous avons besoin de votre aide pour nous aider à améliorer le site. Si vous souhaitez participer au programme beta, vous pouvez vous inscrire en cliquant sur le bouton ci-dessous.
+        </p>
+        <div id="join-info">
+            <p id="join-button" [ngClass]="{'inbeta' : isInBeta}" (click)="onButtonEnroll()" >Rejoindre le programme</p>
+            <p *ngIf="isInBeta">Tu es dans le programme beta</p>
+            <p *ngIf="!isInBeta">Tu n'es pas dans le programme beta</p>
+        </div>
+        <p>Lors du programme beta, tu recevras par mail des questionnaires et des enquêtes dans lesquels nous te demandront des retours sur le site !
+        Tous les utilisateurs du programme beta se verront remettre un badge attestant de leur participation.
+        Tu peux te desinscrire à tout moment du programme depuis cette page.</p>
+    </div>
+</div>

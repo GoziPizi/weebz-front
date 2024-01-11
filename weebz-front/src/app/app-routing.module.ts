@@ -22,6 +22,7 @@ import { HowToUploadPageComponent } from './pages/utils/how-to-upload-page/how-t
 import { ThankYouComponent } from './pages/boutique/thank-you/thank-you.component';
 import { AllBoutiqueComponent } from './pages/boutique/all-boutique/all-boutique.component';
 import { ReglementComponent } from './pages/mentions-legales/reglement/reglement.component';
+import { BetaPageComponent } from './utils/beta/beta-page/beta-page.component';
 
 let routes: Routes = [
   { path: 'accueil', component: AccueilComponent },
@@ -50,6 +51,7 @@ let routes: Routes = [
   { path: 'search', component: SearchPageComponent},
 
   //utils
+  { path: 'beta-enroll', component: BetaPageComponent},
   { path: 'tuto-upload', component: HowToUploadPageComponent},
   { path: 'cgu', component: CguComponent},
   { path: 'reglement', component: ReglementComponent},
