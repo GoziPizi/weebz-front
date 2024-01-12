@@ -27,6 +27,10 @@ export class MainHeaderComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  ngOnDestroy() {
+    this.isLoggedInSubscription.unsubscribe();
+  }
+
   onLogout() {
     this.api_handler.logout();
     this.loggedIn = false;

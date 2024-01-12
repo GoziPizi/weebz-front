@@ -8,11 +8,11 @@ import { Component, OnInit } from '@angular/core';
 export class CarouselAccueilNewsComponent implements OnInit {
 
   carouselItems = [
-    { image: '../../../assets/fixtures/accueil/news/1.png', text: 'Pain sur la Planche x Weebz', route: 'tuto-upload' },
-    { image: '../../../assets/fixtures/accueil/news/2.png', text: 'Kagen x Weebz', route: 'tuto-upload' },
-    { image: '../../../assets/fixtures/accueil/news/3.png', text: 'Ink House x Weebz', route: 'tuto-upload' },
-    { image: '../../../assets/fixtures/accueil/news/4.png', text: 'Weebz arrive', route: 'tuto-upload' },
-    { image: '../../../assets/fixtures/accueil/news/1.png', text: 'Pain sur la Planche x Weebz', route: 'tuto-upload' },
+    { image: '../../../assets/fixtures/accueil/news/pslp.png', text: 'Pain sur la Planche x Weebz', route: 'tuto-upload' },
+    { image: '../../../assets/fixtures/accueil/news/burn-paper.png', text: 'Crise du papier', route: 'tuto-upload' },
+    { image: '../../../assets/fixtures/accueil/news/publie.png', text: 'Publie sur Weebz', route: 'tuto-upload' },
+    { image: '../../../assets/fixtures/accueil/news/weebz.png', text: 'Weebz arrive', route: 'tuto-upload' },
+    { image: '../../../assets/fixtures/accueil/news/pslp.png', text: 'Pain sur la Planche x Weebz', route: 'tuto-upload' },
   ];
 
   constructor() { }

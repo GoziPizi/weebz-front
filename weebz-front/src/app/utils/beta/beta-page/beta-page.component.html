@@ -1,24 +1,22 @@
 <div id="container">
-    <h1>Programme Beta de Weebz</h1>
+    <h1>Programme Bêta de Weebz</h1>
     <img src="../../../../assets/logo_text.png">
     <div id="intro">
         <p>
-            Weebz est un site de publication de mangas, de webtoons et de light novels. Il permet aux auteurs de publier leurs oeuvres et aux lecteurs de les lire gratuitement.
-            En plus de cela, Weebz permet aux auteurs de tisser des liens avec leur communités, grâce à un système de boutique dans laquelle les lecteurs peuvent acheter des produits dérivés de leurs oeuvres, tout en soutenant leurs auteurs favoris.
+            Weebz, le carrefour créatif pour mangas, webtoons, et light novels. Notre plateforme est dédiée à la publication et à la lecture gratuite d'œuvres fascinantes. Ici, les auteurs peuvent non seulement partager leurs créations, mais aussi établir un lien fort avec leurs fans. Grâce à notre boutique intégrée, les lecteurs peuvent acquérir des produits dérivés uniques, soutenant ainsi leurs auteurs préférés.
         </p>
     </div>
     <div id="programme-beta">
-        <h3>Programme beta</h3>
+        <h3>Rejoignez Notre Programme Bêta</h3>
         <p>
-            Weebz est actuellement en phase de développement. Nous avons besoin de votre aide pour nous aider à améliorer le site. Si vous souhaitez participer au programme beta, vous pouvez vous inscrire en cliquant sur le bouton ci-dessous.
+            Weebz est en pleine évolution, et votre contribution peut faire toute la différence ! Participez à notre programme bêta pour nous aider à peaufiner et enrichir l'expérience utilisateur. Inscrivez-vous dès maintenant en cliquant sur le bouton ci-dessous.
         </p>
         <div id="join-info">
-            <p id="join-button" [ngClass]="{'inbeta' : isInBeta}" (click)="onButtonEnroll()" >Rejoindre le programme</p>
-            <p *ngIf="isInBeta">Tu es dans le programme beta</p>
-            <p *ngIf="!isInBeta">Tu n'es pas dans le programme beta</p>
+            <button id="join-button" [ngClass]="{'inbeta' : isInBeta}" (click)="onButtonEnroll()">Rejoindre le programme</button>
+            <p *ngIf="isInBeta">Félicitations, vous faites partie de notre programme bêta !</p>
+            <p *ngIf="!isInBeta">Vous n'êtes pas encore inscrit(e) au programme bêta.</p>
         </div>
-        <p>Lors du programme beta, tu recevras par mail des questionnaires et des enquêtes dans lesquels nous te demandront des retours sur le site !
-        Tous les utilisateurs du programme beta se verront remettre un badge attestant de leur participation.
-        Tu peux te desinscrire à tout moment du programme depuis cette page.</p>
+        <p>En tant que membre bêta, vous recevrez des enquêtes et questionnaires par e-mail pour nous donner votre avis sur le site. Tous les participants recevront un badge exclusif en reconnaissance de leur contribution. Vous pouvez vous désinscrire du programme à tout moment depuis cette page.</p>
     </div>
 </div>
+
