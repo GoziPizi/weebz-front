@@ -380,7 +380,6 @@ export class ApiHandlerService {
     const header = {
       Authorization : this.cookieService.get('apiToken')
     }
-    console.log('isInBeta')
     return this.http.get(this.url + "api/v1/beta-enroll", {headers: header});
   }
 
@@ -388,7 +387,6 @@ export class ApiHandlerService {
     const header = {
       Authorization : this.cookieService.get('apiToken')
     }
-    console.log('enrollToBeta')
     return this.http.post(this.url + "api/v1/beta-enroll", data, {headers: header});
   }
 
@@ -396,7 +394,6 @@ export class ApiHandlerService {
     const header = {
       Authorization : this.cookieService.get('apiToken')
     }
-    console.log('leaveBeta')
     return this.http.delete(this.url + "api/v1/beta-enroll", {headers: header});
   }
 }
