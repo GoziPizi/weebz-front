@@ -1,0 +1,14 @@
+<div id="container">
+    <div id="header">
+        <h2>Boutiques</h2>
+    </div>
+    
+    <div *ngIf="shops.length == 0">
+        <p>Cet auteur n'a pas encore de boutique</p>
+    </div>
+    <div *ngIf="shops.length > 0">
+        <div id="shops-container">
+            <app-four-products-shop-thumbnail *ngFor="let shop of shops" [shop]="shop"></app-four-products-shop-thumbnail>
+        </div>
+    </div>    
+</div>

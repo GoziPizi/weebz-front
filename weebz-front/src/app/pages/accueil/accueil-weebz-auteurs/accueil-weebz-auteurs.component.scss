@@ -1,0 +1,44 @@
+.carousel-title {
+    margin-top: 5em;
+    margin-left: 3em;
+  }
+
+.carousel-title h2 {
+    font-weight: bold;
+}
+
+.texte-souligne {
+    position: relative;
+    font-size: 24px; /* ajustez la taille de votre texte ici */
+  
+    /* Pour empêcher le soulignement par défaut */
+    text-decoration: none;
+  }
+  
+  .texte-souligne::after {
+    content: "";
+    position: absolute;
+    bottom: -0.5em; /* vous pouvez ajuster cette valeur pour déplacer le soulignement vers le haut ou vers le bas */
+    height: 3px; /* épaisseur du soulignement */
+    background-color: #ff6400; /* couleur du soulignement */
+  
+    width: 50%;
+    left: 50%;
+    transform: translateX(-100%);
+  }
+
+.author-container {
+  width: 20%;
+  padding: 2em;
+  transition: 0.5s;
+
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+  }
+}
+
+#authors-container {
+  display: flex;
+  flex-direction: row;
+}

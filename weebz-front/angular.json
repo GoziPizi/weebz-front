@@ -69,10 +69,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "weebz-front:build:production"
+              "buildTarget": "weebz-front:build:production"
             },
             "development": {
-              "browserTarget": "weebz-front:build:development"
+              "buildTarget": "weebz-front:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -80,7 +80,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "weebz-front:build"
+            "buildTarget": "weebz-front:build"
           }
         },
         "test": {

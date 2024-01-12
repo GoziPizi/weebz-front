@@ -1,0 +1,54 @@
+@import '../../../../variables';
+@import '../comments';
+
+#comment-input-container {
+    background-color: $background-commennt;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    padding: 1vh;
+    margin: 1vh;
+}
+
+#comment-input {
+    resize: none;
+    border: none;
+    border-radius: 1vh;
+    padding: 1vh;
+    background-color: $text-area;
+    color: white;
+    margin-left: 3vw;
+}
+
+#comment-input:focus {
+    outline: none;
+}
+
+#comment-submit {
+    margin-top: 1vh;
+    margin-right: 1vw;
+    margin-left: auto;    
+    width: max-content;
+
+    border: none; 
+    border-radius: 1vh;
+    background-color: $orange;
+    color: white;
+
+    cursor: pointer;
+}
+
+#must-login{
+    color: $gray;
+    margin-top: auto;
+    margin-bottom: 0em;
+    margin-left: auto;
+    margin-right: 0.5em;
+}
+
+#footer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: auto;
+}

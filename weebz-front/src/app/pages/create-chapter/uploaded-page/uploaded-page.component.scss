@@ -1,0 +1,57 @@
+
+
+#container {
+    position: relative;
+    cursor:default;
+}
+
+#container i {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0.5em;
+    color: white;
+    visibility: hidden;
+    cursor: pointer;
+
+    &:hover {
+        color: #333
+    }
+}
+
+#container:hover i {
+    visibility: visible;
+}
+
+#container img {
+    width: 100%;
+}
+
+#container:hover img {
+    filter: brightness(0.2);
+}
+
+#container p {
+    text-align: center;
+    font-size: 2em;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+}
+
+#navigation-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0.2em;  
+}
+
+#navigation-container i {
+    margin-top: 0.7em;
+    position: inherit;
+    cursor: pointer;
+
+    &:hover {
+        color: #333
+    }
+}

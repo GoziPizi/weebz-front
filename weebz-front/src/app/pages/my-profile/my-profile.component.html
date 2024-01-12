@@ -1,19 +1,39 @@
-<div class="container-fluid">
-    <div class="row">
-        <div class="side-bar col-2">
-            <div class="side-bar-header">
-                <img id="profile-picture"src="../../../assets/icon.png">
-                <h3>Username</h3>
+<div id="container">
+    <div id="header" [ngStyle]="{'background-image': 'url(' + showedBackground + ')'}" >
+        <div id="new-background-input">
+            <input #newBackgroundInput type="file" style="display:none;" (change)="onFileSelectedBackground($event)">
+            <p (click)="triggerFileInputBackground()">Modifier ma banière</p>
+            <button *ngIf="backgroundEdition" class="btn btn-primary" (click)="updateProfileBackground()" [disabled]="!isBackgroundValid" >Valider</button>
+        </div>
+        <div id="profil-info">
+            <div class="image-container">
+                <img id="profile-picture" src="{{showedPicture}}" (click)="triggerFileInput()">
+                <i class="fa-solid fa-plus fa-2x modif-profile-icon" (click)="triggerFileInput()"></i>
+                <input #newPictureInput type="file" style="display:none;" (change)="onFileSelected($event)"> 
+            </div>
+            <h3 class="surname">{{user.surname}}</h3>
+            <div id="modify-picture-info">
+                <div *ngIf="!isPictureValid">
+                    <p class="error-message">Le format de l'image doit être 1:1</p>
+                </div>
+                <div *ngIf="pictureEdition">
+                    <button class="btn btn-primary" (click)="updateProfilePicture()" [disabled]="!isPictureValid" >Valider</button>
+                </div>
             </div>
         </div>
-        <div class="main-content col-10">
-            <div class="title-container"><h2>Mon Profil :</h2></div>
-            <div class="personal-data">
-                <p>Nom : {{name}}</p>
-                <p>Surnom : {{surname}}</p>
-                <p>Mail : {{email}}</p>
-                <p>Date de naissance : </p>
-            </div>
+    </div>
+    <div id="content-container">
+        <div id="sidebar">
+            <p (click)="navigateTo('compte')">Mon compte</p>
+            <p (click)="navigateTo('oeuvres')">Mes oeuvres</p>
+            <p (click)="navigateTo('boutiques')">Mes boutiques</p>
+            <p (click)="navigateTo('favoris')">Mes préférences</p>
+            <p (click)="navigateTo('commandes')">Mes commandes</p>
+        </div>
+        <div id="content">
+            <app-my-account-gestion *ngIf="navigation=='compte'" [user$]="user$" class="content-component" ></app-my-account-gestion>
+            <app-my-artworks-gestion *ngIf="navigation=='oeuvres'" [user$]="user$" class="content-component"></app-my-artworks-gestion>
+            <app-my-shops-gestion *ngIf="navigation=='boutiques'" [user$]="user$" class="content-component"></app-my-shops-gestion>
         </div>
     </div>
 </div>

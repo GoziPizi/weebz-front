@@ -54,4 +54,23 @@ input {
         border-radius: 10px;
         opacity: 0.5;
     }
+
+    &:hover {
+        background-color: #DFC643;
+        color: black;
+
+        &:disabled {
+            background-color: gray;
+            color: white;
+            border: 0px;
+            margin-top: 1em;
+            margin-bottom: 1em;
+            border-radius: 10px;
+            opacity: 0.5;
+        }
+    }
+}
+
+.container {
+    margin-bottom: 2em;
 }

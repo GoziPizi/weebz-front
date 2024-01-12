@@ -1,0 +1,65 @@
+@import '../../../../variables';
+
+#container {
+    width: 100%;
+    background-color: $black;
+}
+
+.upload-header {
+    text-align: center;
+    padding-top: 2em;
+    padding-bottom: 2em;
+    //degradé pour le background
+    background: linear-gradient(90deg, #FF6F00 0%, #119DA4 25%, #D9D9D9 85%, #000000 95%);
+}
+
+img {
+    //centre les images 
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+    border: 2px solid gray;
+    border-radius: 10px;
+
+    margin-top: 2em;
+    margin-bottom: 2em;
+
+    max-width: 80vw;
+}
+
+ul {
+    margin-left: 25%;
+    margin-right: 25%;
+}
+
+p {
+    margin-left: 25%;
+    margin-right: 25%;
+}
+
+h2 {
+    text-align: center;
+    margin-top: 2em;
+    margin-bottom: 2em;
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
+span {
+    font-weight: bold;
+}
+
+#create-artwork {
+    margin: 2em 4em 4em 4em;
+    padding: 1em;
+    border-radius: 20px;
+    background-color: $background-gray;
+}
+
+#create-chapter {
+    margin: 2em 4em 4em 4em;
+    padding: 1em;
+    border-radius: 20px;
+    background-color: $background-gray;
+}

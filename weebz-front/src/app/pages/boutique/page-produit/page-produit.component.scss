@@ -1,0 +1,175 @@
+@import '../../../../variables.scss';
+
+.container-fluid {
+    background-color: white;
+    color: black;
+}
+
+img {
+    border-radius: 10%;
+}
+
+#back-to-shop {
+    cursor: pointer;
+    padding: 1em 2em;
+    color: black;
+    display: flex;
+    width: fit-content;
+
+    &:hover {
+        color: $orange;
+        text-decoration: underline;
+    }
+}
+
+#back-to-shop i {
+    padding: 0 1em;
+}
+
+#product-presentation {
+    padding: 0em 5em;
+    display:flex;
+    flex-direction: row;
+    height:max-content;
+}
+
+#images-container {
+    max-width: 30%;
+}
+
+#images-container img {
+    width: 100%;
+}
+
+#carousel {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#image-carousel-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+#image-carousel-container img {
+    width: 33%;
+    margin: 0.5em;
+    cursor: pointer;
+    &:hover {
+        transform: scale(1.1);
+        filter: brightness(90%);
+    }
+}
+
+.carousel-arrow {
+    color: black;
+    cursor: pointer;
+    &:hover {
+        color: $orange;
+    }
+}
+
+#text-presentation {
+    display: flex;
+    flex-direction: column;
+    padding: 3em;
+    min-height: min-content;
+}
+
+#main-information h1 {
+    font-weight: bold;
+}
+
+#main-information a {
+    text-decoration: none;
+}
+
+#star-comm {
+    display: flex;
+    flex-direction: row;
+}
+
+#star-container {
+    color: $orange;
+}
+
+#commentaires {
+    margin-left: 1em;
+    color: $cyan;
+    cursor: pointer;
+
+    &:hover {
+        color: darken($cyan, 10%);
+        text-decoration: underline;
+    }
+}
+
+#buy-button {
+    margin-top: 1em;
+    width: fit-content;
+
+    padding: 1em 2em;
+    text-align: center;
+    justify-content: center;
+
+    background-color: $orange;
+    color: white;
+
+    border-radius: 10px;
+    cursor: pointer;
+
+
+    &:hover {
+        background-color: darken($orange, 10%);
+    }
+}
+
+#buy-button h4 {
+    margin: 0;
+}
+
+#line {
+    margin: 1em 0;
+    width: 100%;
+    height: 1px;
+    background-color: black;
+}
+
+#description {
+    margin-top: 1em;
+}
+
+#certifications {
+    margin-top: auto;
+}
+
+#stripe img {
+    height: 1.5em;
+    cursor: pointer;
+}
+
+#secured-transaction img {
+    height: 5em;
+}
+
+#certifications a {
+    font-weight: bold;
+    cursor: pointer;
+
+    &:hover {
+        text-decoration: underline;
+        color: $orange;
+    }
+}
+
+#similar-products {
+    margin-top: 2em;
+}
+
+#comments {
+    margin-top: 2em;
+    width: 50%;
+}

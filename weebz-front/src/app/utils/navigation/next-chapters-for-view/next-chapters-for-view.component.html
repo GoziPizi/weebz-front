@@ -1,0 +1,15 @@
+<div id="next-chapters-container">
+    <div id="header">
+        <h2>Chapitres suivants :</h2>
+    </div>
+    <div id="line" class="shady">
+
+    </div>
+    <div id="chapters-thumbnails" class="shady">
+        <div *ngIf="chapters.length==0">
+            <h4>Tu as regardé tous les épisodes !</h4>
+            <p>Consulte la <a routerLink="/author/{{authorId}}">page de l'auteur</a> pour voir ses autres oeuvres !</p>
+        </div>
+        <app-chapter-thumbnail class="chapter-thumbnail" *ngFor="let chapter of chapters" [chapter]="chapter"></app-chapter-thumbnail>
+    </div>
+</div>

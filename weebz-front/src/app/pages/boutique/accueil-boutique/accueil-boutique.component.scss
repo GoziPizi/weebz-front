@@ -1,0 +1,88 @@
+@import '../../../../variables.scss';
+
+.main-container {
+    background-color: white;
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    background-position: top, top;
+    padding: 0;
+    color: black;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+
+#presentation {
+    padding: 0 6em;
+    width: fit-content;
+    margin-top: 2em;
+    background-color: white;
+    border-radius: 2em;
+    border: 1px solid grey;
+    display: flex;
+    flex-direction: row;
+}
+
+#presentation img {
+    height: 8em;
+    border-radius: 50%;
+}
+
+#side-presentation {
+    position: relative;
+}
+
+#follow-button {
+    position: absolute;
+    bottom: 1em;
+    left: 1em;
+}
+
+#side-presentation h3 {
+    font-weight: bold;
+    color: $dark-gray;
+    margin-top: 0.5em;
+    margin-left: 0.5em;
+}
+
+#author h3 {
+    margin-top: 0.5em;
+}
+
+#follow-button {
+    cursor: pointer;
+    background-color: $orange;
+    padding: 0 0.5em;
+    border: 2px solid grey 
+}
+
+#navigation-menu {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    margin-top: 2em;
+    margin-bottom: 1em;
+}
+
+.navigation-text {
+    cursor: pointer;
+    font-size: larger;
+    margin: 0 1em;
+    bottom: 1em;
+}
+
+.articles-display {
+    margin-top: 10em;
+    background-size: 100% auto;
+    background-repeat: repeat-y;
+}
+
+#articles-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.product-vignette {
+    width: 25%;
+}

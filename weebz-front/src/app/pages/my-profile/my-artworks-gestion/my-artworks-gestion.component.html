@@ -1,0 +1,24 @@
+<div class="container">
+    <h2>Mes Oeuvres</h2>
+    <div id="if-author">
+        <div class="artwork-container" *ngFor="let artwork of artworks">
+            <div class="cover-container">
+                <img class="artwork-cover" src="{{artwork.coverUrl}}" alt="">
+                <div class="cover-button-container">
+                    <p (click)="onAddChapter(artwork.id)" class="cover-button">
+                        Ajouter un chapitre
+                    </p>
+                    <p (click)="onEditArtwork(artwork.id)" class="cover-button">
+                        Modifier l'oeuvre
+                    </p>
+                </div>
+            </div>
+            <div class="artwork-description">
+                <h1>{{artwork.title}}</h1>
+            </div>
+        </div>
+    </div>
+    <div id="if-not-author">
+        <p>Vous n'avez pas encore publié d'oeuvre</p>
+    </div>
+</div>

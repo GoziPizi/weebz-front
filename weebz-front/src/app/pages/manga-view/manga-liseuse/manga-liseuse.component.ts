@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, ElementRef, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, max } from 'rxjs';
 
 @Component({
   selector: 'app-manga-liseuse',
@@ -12,6 +12,7 @@ export class MangaLiseuseComponent implements OnInit {
   @ViewChild('mangaContainer') mangaContainer!: ElementRef;
   @Input() pages: string[] = [];
   @Input() currentPage: BehaviorSubject<number> = new BehaviorSubject<number>(1);
+  @Input() leftToRight: boolean = false;
 
   currentPageIndex: number = 1;
 
@@ -22,6 +23,9 @@ export class MangaLiseuseComponent implements OnInit {
 
   ngOnInit(): void {
     this.currentPage.subscribe((page) => {
+      if(page == 0 ) {
+        this.currentPageIndex = 1;
+      }
       this.currentPageIndex = page;
     });
   }
@@ -30,24 +34,30 @@ export class MangaLiseuseComponent implements OnInit {
     this.mangaContainer.nativeElement.focus();
   }
 
-  onBlur() {
-    setTimeout(() => {  // Utiliser setTimeout pour éviter les conflits d'événements
-      this.mangaContainer.nativeElement.focus();
-    });
+  leftArrowInput() {
+    if(this.leftToRight) this.previousPage();
+    else this.nextPage();
+  }
+
+  rightArrowInput() {
+    if(this.leftToRight) this.nextPage();
+    else this.previousPage();
   }
 
   nextPage() {
-    if (this.currentPageIndex < this.pages.length - 1) {
-      this.currentPageIndex++;
-      this.currentPage.next(this.currentPageIndex);
+    this.currentPageIndex++;
+    if(this.currentPageIndex > this.pages.length) {
+      this.currentPageIndex = this.pages.length;
     }
+    this.currentPage.next(this.currentPageIndex);
   }
 
   previousPage() {
-    if (this.currentPageIndex > 1) {
-      this.currentPageIndex--;
-      this.currentPage.next(this.currentPageIndex);
+    this.currentPageIndex--;
+    if(this.currentPageIndex < 1) {
+      this.currentPageIndex = 1;
     }
+    this.currentPage.next(this.currentPageIndex);
   }
 
   get currentPageImg() {

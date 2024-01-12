@@ -1,6 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ApiHandlerService } from 'src/app/services/api-handler.service';
+import { WatchlistService } from 'src/app/services/watchlist.service';
+import { Router } from '@angular/router';
+import { Artwork } from 'src/app/models/artwork';
+import { Chapter } from 'src/app/models/chapter';
+import { Shop } from 'src/app/models/shop';
+import { FourProductsShopThumbnailComponent } from 'src/app/utils/thumbnails/shop-thumbnails/four-products-shop-thumbnail/four-products-shop-thumbnail.component';
 
 @Component({
   selector: 'app-artwork',
@@ -9,58 +15,38 @@ import { ApiHandlerService } from 'src/app/services/api-handler.service';
 })
 export class ArtworkComponent implements OnInit {
 
-  /**
-   * A component that displays the presentation of an artwork. 
-   * It is made of : 
-   *  - The title of the artwork
-   *  - The author of the artwork
-   *  - The synopsis of the artwork
-   *  - The cover of the artwork
-   *  - The tags of the artwork
-   *  - The rating of the artwork TODO
-   *  - The list of chapters of the artwork, each "chapter" is a chapter thumbnail.
-   */
-
   artWorkId: number = 0;
-  title: string = "Title";
-  synopsis: string = "Synopsis";
-  cover: string = "Cover"; //url of the cover
-  background: string = "../assets/test-news.png"; //url of the background
-  tags: string[] = ["tag"];
-  rating: number = 0;
-  numberOfChapters: number = 0;
+  artwork: Artwork = new Artwork();
 
-  authorId: number|null = null;
-  author: string = "Author";
-  authorRoute: string = "/author/1";
+  authorId: number = 0;
+  author: any = {};
 
-  chaptersRoutes: string[] = [];
-  chaptersCovers: string[] = [];
+  chapters: Chapter[] = [];
 
-  isDragging: boolean = false;
-  startX: number = 0;
-  currentTranslateX: number = 0;
+  shop: Shop|null = null;
+  @ViewChild('shopComponent') shopComponent: FourProductsShopThumbnailComponent|null = null;
 
-  chaptersNumerotation: number[] = [];
+  isFollowing: boolean = false;
+
 
   constructor(
     private route: ActivatedRoute,
-    private api: ApiHandlerService
+    private api: ApiHandlerService,
+    private router: Router,
+    private watchlistService: WatchlistService
   ) { }
 
   ngOnInit(): void {
     let id = this.route.snapshot.paramMap.get('artworkId');
     if(id != null) {
       this.artWorkId = parseInt(id);
-    } else {
-      this.noIdGiven();
     }
     this.fetchArtworkData();
-    this.fetchAuthorData();
+    this.fetchShopData();
+    this.isFollowing = this.watchlistService.isArtworkInWatchlist(this.artWorkId);
   }
 
   noIdGiven() {
-    console.log("No artwork id given");
   }
 
   /**
@@ -68,84 +54,70 @@ export class ArtworkComponent implements OnInit {
    */
   fetchArtworkData() {
     this.api.getArtwork(this.artWorkId).subscribe((res: any) => {
-      console.log(res);
-      this.title = res.title;
-      this.synopsis = res.description;
-      this.cover = res.coverUrl;
-      this.background = res.backgroundImageUrl;
-      this.tags = res.tags;
-      this.rating = res.rating;
+      this.artwork = res;
+      this.authorId = res.authorId;
+      this.fetchAuthorData();
     },
-    (err: any) => {
-      this.noIdGiven();
-    }
+    (err: any) => this.noIdGiven()
     );
     this.api.getAllChapters(this.artWorkId).subscribe((res: any) => {
-      this.numberOfChapters = res.length;
-      this.updateCovers(res);
-      this.updateRoutes(res);
-      for(let i = 0; i < this.numberOfChapters; i++) {
-        this.chaptersNumerotation.push(i);
-      }
+      this.onChaptersReceived(res);
     });
   }
 
+  onChaptersReceived(res: any) {
+    this.chapters = res;
+    this.chapters.sort((a, b) => a.index - b.index);
+  }
+
   fetchAuthorData() {
-
+    return this.api.getAuthorData(this.authorId).subscribe((res: any) => {
+      this.author = res;
+    });
   }
 
+  fetchShopData() {
+    return this.api.getShopDataFromArtworkId(this.artWorkId).subscribe((res: any) => {
+      this.shop = res;
+      this.shopComponent?.fetchData();
+    });
+  }
 
-  updateCovers(res: any) {
-    for (let i = 0; i < res.length; i++) {
-      this.chaptersCovers.push(res[i].coverUrl);
+  //tempmlate actions 
+
+  onFollow(){
+    if(this.isFollowing) {
+      this.watchlistService.removeArtwork(this.artWorkId);
+    } else {
+      this.watchlistService.addArtwork(this.artWorkId);
     }
+    this.isFollowing = !this.isFollowing;
   }
 
-  updateRoutes(res: any) {
-    for (let i = 0; i < res.length; i++) {
-      this.chaptersRoutes.push("/mangaview/" + this.artWorkId + "/" + (i+1));
+  navigateToAuthor() {
+    this.router.navigate(['/author', this.authorId]);
+  }
+
+  //getter for the template
+  get authorName() {
+    if(Object.keys(this.author).length === 0) {
+      return "Author";
     }
+    return this.author.user.surname;
   }
 
-  onMouseDown(event: MouseEvent): void {
-    this.isDragging = true;
-    this.startX = event.clientX;
-    //event.preventDefault();
-  }
-
-  //TODO ne pas le laisser aller trop loin
-
-  onMouseUp(event: MouseEvent): void {
-    this.isDragging = false;
-    if(this.currentTranslateX > 0) {
-      this.currentTranslateX = 0;
+  get artworkCover() {
+    if(Object.keys(this.artwork).length === 0) {
+      return "";
     }
+    return this.artwork.coverUrl;
   }
 
-  onMouseMove(event: MouseEvent): void {
-    if (!this.isDragging) return;
-    const x = event.clientX;
-    const delta = x - this.startX;
-    this.currentTranslateX += delta;
-    this.startX = x;
-  }
-
-  onWheel(event: WheelEvent): void {
-    const sensitivity = 2;
-    
-    this.currentTranslateX -= event.deltaY * sensitivity;
-
-    if(this.currentTranslateX > 0) {
-      this.currentTranslateX = 0;
+  get artworkType() {
+    if(Object.keys(this.artwork).length === 0) {
+      return "MANGA";
     }
-
-    //Si il n'y a plus de contenu dans la page, alors on ne peut pas aller plus loin
-
-    event.preventDefault();
-}
-
-  getTranslateX(): string {
-    return `translateX(${this.currentTranslateX}px)`;
+    return this.artwork.type;
   }
 
 }

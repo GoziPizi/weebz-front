@@ -1,28 +1,28 @@
-<div class="container-fluid header-container">
+<div class="header-container">
     <div class="row header-content">
   
       <!-- Logo -->
       <div class="header-logo-container">
         <a routerLink="accueil" >
-          <img src="../../assets/logo.png" alt="Weebz-Logo" class="img-fluid" id="weebz-header-logo">
+          <img src="../../assets/logo_text.png" alt="Weebz-Logo" class="img-fluid" id="weebz-header-logo">
         </a>
       </div>
   
       <!-- Liens principaux -->
-      <div class="col-md-3 d-flex justify-content-center align-items-center fs-5 fs-md-3 fs-lg-1">
+      <div class=" d-flex justify-content-center main-links align-items-center fs-5 fs-md-3 fs-lg-1">
           <!-- Dropdown pour "Catalogue" -->
-          <div class="dropdown col-4 justify-content-center header-button">
+          <div class="dropdown justify-content-center header-button">
             <div class="dropdown-container">
-              <span routerLink="catalogue" class="text-button">Catalogue</span>
+              <span routerLink="search" class="text-button">Catalogue</span>
               <div class="dropdown-content">
                 <div class="dropdown-item">
-                  <a class="dropdown-element"routerLink="manga">Manga</a>
+                  <a (click)="onNavigate('manga')">Manga</a>
                 </div>
                 <div class="dropdown-item">
-                  <a routerLink="webtoon">Webtoon</a>
+                  <a (click)="onNavigate('webtoon')">Webtoon</a>
                 </div>
                 <div class="dropdown-item">
-                  <a routerLink="lightnovel">Light Novel</a>
+                  <a (click)="onNavigate('lightnovel')">Light Novel</a>
                 </div>
                 
               </div>
@@ -30,30 +30,30 @@
           </div>
   
           <!-- Lien "Blog" -->
-          <div class="col-4 justify-content-center header-button">
-          <span routerLink="blog" class="ml-3 text-button">Blog</span>
+          <div class="justify-content-center header-button">
+          <span routerLink="shop" class="ml-3 text-button">Boutique</span>
           </div>
   
           <!-- Lien "Publier" -->
-          <div class="col-4 justify-content-center header-button">
-          <span href="#" class="ml-3 text-button">FAQ</span>
+          <div class="justify-content-center header-button">
+          <span routerLink="beta-enroll" class="ml-3 text-button">Beta</span>
           </div>
       </div>
   
       <div class="row ml-auto right-side-container align-items-center">
         <div class="col-3 publish-container">
-          <button class="publish-button">Publier</button>
+          <button routerLink="/create-artwork" class="publish-button">Publier</button>
         </div>
         <div class="icons-container d-flex align-items-center">
           <div class="col-3 search-container">
-            <a routerLink=""><i class="header-icon fa-solid fa-xl fa-magnifying-glass"></i></a>
+            <a routerLink="/search"><i class="header-icon fa-solid fa-xl fa-magnifying-glass"></i></a>
           </div>
           <div class="col-3 favorite-container " >
-            <a routerLink="/watchlist"><i class="header-icon fa-regular fa-xl fa-star"></i></a>
+            <a routerLink="/watchlist"><i class="header-icon fa-regular fa-bookmark fa-xl"></i></a>
           </div>
           <div class="col-3 login-container ">
-              <a routerLink="/my-profile"><i *ngIf="loggedIn" class="header-icon fa-solid fa-xl fa-user-check"></i></a>
-              <a routerLink="/connexion"><i *ngIf="!loggedIn" class="header-icon fa-solid fa-xl fa-share-from-square"></i></a>
+              <a routerLink="/connexion"><i *ngIf="!loggedIn" class="header-icon fa-regular fa-xl fa-user"></i></a>
+              <app-connected-dropdown *ngIf="loggedIn" class="connected-dropdown" #connectedDropdown></app-connected-dropdown>
           </div>
         </div>
       </div>

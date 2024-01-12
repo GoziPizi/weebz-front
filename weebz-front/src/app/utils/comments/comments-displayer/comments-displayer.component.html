@@ -1,0 +1,10 @@
+<div id="comments-container">
+    <h2>Commentaires</h2>
+    <app-comment-input [commentableId]="commentableId" [commentableType]="commentableType" [reInitSubject]="reInitSubject" ></app-comment-input>
+    <div *ngIf="comments.length == 0">
+        <p>Aucun commentaire pour le moment</p>
+    </div>
+    <div *ngFor="let comment of comments">
+        <app-single-comment [comment]="comment"></app-single-comment>
+    </div>
+</div>

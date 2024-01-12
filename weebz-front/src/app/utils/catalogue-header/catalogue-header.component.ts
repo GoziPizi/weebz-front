@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-catalogue-header',
@@ -7,15 +8,30 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class CatalogueHeaderComponent implements OnInit {
 
-  @Input() categorie: string = 'defaut';
+  @Input() categorie: string = 'manga';
+  tag: string = 'all';
 
-  constructor() { }
+  constructor(
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
   }
 
   updateCategorie(categorie: string) {
+    this.router.navigate([], {
+      queryParams: { type: categorie },
+      queryParamsHandling: 'merge'
+    });
     this.categorie = categorie;
+  }
+
+  updateTag(tag: string) {
+    this.router.navigate([], {
+      queryParams: { tag: tag },
+      queryParamsHandling: 'merge'
+    });
+    this.tag = tag;
   }
 
   getDynamicStyles() {

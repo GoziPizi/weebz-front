@@ -1,0 +1,57 @@
+@import '../../../../variables';
+
+#container {
+    margin: 0;
+    width: 100%;
+    background-color: $dark-gray;
+    border: 1px solid rgb(68, 68, 68);
+    border-radius: 10px;
+    padding: 2em;
+}
+
+.infos {
+    margin-left: 2vh;
+}
+
+.text-input {
+    width: 30%;
+    overflow-y: none;
+    resize: none;
+    border: none;
+    color: white;
+    background-color: transparent;
+    border: 1px solid $gray;
+    padding: .5em;
+    border-radius: 0.5em;
+}
+
+
+
+.socials-input {
+    margin-top: 1vh;
+}
+
+.socials-input .text-input {
+    margin-left: 2vh;
+    width: 20%;
+}
+
+.edit {
+    background-color: rgba($color: #000000, $alpha: 0.5)
+}
+
+.button {
+    margin-top: 2vh;
+    margin-left: 2vh;
+    width: max-content;
+    background-color: $orange;
+    border: none;
+    border-radius: 5px;
+    padding: .5em 1em;
+    color: white;
+    cursor: pointer;
+
+    &:hover {
+        background-color: darken($orange, 10%);
+    }
+}

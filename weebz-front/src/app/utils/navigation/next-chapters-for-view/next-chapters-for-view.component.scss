@@ -1,0 +1,32 @@
+@import '../../../../variables';
+
+#header h2 {
+    font-size: 3vh;
+}
+
+#chapters-thumbnails {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+#line {
+    width: 100%;
+    height: 2px;
+    background-color: $dark-gray;
+    margin: 10px 0;
+}
+
+.chapter-thumbnail {
+    width: 25%;
+}
+
+.shady {
+    z-index: 2;
+    background-image: linear-gradient(to right, 
+                                      rgba(0, 0, 0, 1) 0%, 
+                                      rgba(0, 0, 0, 0.5) 10%, 
+                                      rgba(0, 0, 0, 0) 20%, 
+                                      rgba(0, 0, 0, 0) 100%);
+  }

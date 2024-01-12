@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ApiHandlerService } from '../services/api-handler.service';
 import { Subscription } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-main-header',
@@ -9,10 +10,15 @@ import { Subscription } from 'rxjs';
 })
 export class MainHeaderComponent implements OnInit {
 
+  @ViewChild('connectedDropdown') dropdown!: Element;
   loggedIn = false;
   private isLoggedInSubscription: Subscription;
+  public renderDropdown = false;
 
-  constructor(private api_handler: ApiHandlerService) {
+  constructor(
+    private api_handler: ApiHandlerService,
+    private router: Router
+  ) {
     this.isLoggedInSubscription = this.api_handler.isLoggedIn$.subscribe(valeur => {
       this.loggedIn = valeur;
     });
@@ -21,9 +27,17 @@ export class MainHeaderComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  ngOnDestroy() {
+    this.isLoggedInSubscription.unsubscribe();
+  }
+
   onLogout() {
     this.api_handler.logout();
     this.loggedIn = false;
+  }
+
+  onNavigate(category: string) {
+    this.router.navigate(['/search'], { queryParams: { type: category } });
   }
 
 }

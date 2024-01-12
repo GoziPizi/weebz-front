@@ -1,0 +1,8 @@
+<div class="main-container">
+    <div id="header">
+        <h3>Plus de la même boutique :</h3>
+    </div>
+    <div id="products">
+        <app-product-vignette class="vignette" *ngFor="let product of shop.products" [product]="product"></app-product-vignette>
+    </div>
+</div>

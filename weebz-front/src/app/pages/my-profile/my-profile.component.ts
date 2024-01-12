@@ -1,5 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ApiHandlerService } from '../../services/api-handler.service';
+import { LoadingServiceService } from 'src/app/services/loading-service.service';
+import { Router } from '@angular/router';
+import { User } from 'src/app/models/user';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-my-profile',
@@ -8,34 +12,148 @@ import { ApiHandlerService } from '../../services/api-handler.service';
 })
 export class MyProfileComponent implements OnInit {
 
+  @ViewChild('newPictureInput') fileInput!: ElementRef;
+  @ViewChild('newBackgroundInput') fileInputBackground!: ElementRef;
+
   logedIn = true;
 
-  id:number = 0;
-  name = "";
-  surname = "";
-  email = "";
+  user$ = new BehaviorSubject<User>(new User());
+  user: User = new User();
+
+  showedPicture = "";
+  newPicture: File = new File([""], "");
+  newPictureSrc: string | ArrayBuffer | null = null;
+
+  showedBackground = "";
+  newBackground: File = new File([""], "");
+  newBackgroundSrc: string | ArrayBuffer | null = null;
+
+  isPictureValid = true;
+  pictureEdition = false;
+
+  isBackgroundValid = true;
+  backgroundEdition = false;
+
+  navigation = "compte";
 
   constructor(
-    private api_handler: ApiHandlerService
+    private api_handler: ApiHandlerService,
+    private loadingService: LoadingServiceService,
+    private router: Router
   )
   {
-    this.api_handler.getUserData().subscribe((res: any) => {
-      this.id = res.id;
-      this.name = res.name;
-      this.surname = res.surname;
-      this.email = res.email;
-    },
-    (err: any) => {
-      this.logedIn = false;
-      this.showErrorMessage();
+    this.api_handler.fetchUserData().subscribe({
+      next: (res: any) => {
+        this.user = res;
+        this.user$.next(this.user);
+        this.showedPicture = this.user.pictureUrl;
+        this.showedBackground = this.user.bannerUrl;
+      },
+      error: (err: any) => {
+        this.logedIn = false;
+        this.router.navigate(['/connexion']);
+      },
+      complete: () => {
+        this.loadingService.setLoadingState(false);
+    }
     });
   }
 
   ngOnInit(): void {
   }
 
-  showErrorMessage() {
-
+  triggerFileInput() {
+    this.fileInput.nativeElement.click();
   }
 
+  triggerFileInputBackground() {
+    this.fileInputBackground.nativeElement.click();
+  }
+
+  onFileSelected(event : any) {
+
+    this.pictureEdition = true;
+
+    const file = event.target.files[0];
+
+    if(file) {
+      this.newPicture = file;
+      const img = new Image();
+      img.onload = () => {
+        const width = img.width;
+        const height = img.height;
+        if(width == height) {
+          this.isPictureValid = true;
+        } else {
+          this.isPictureValid = false;
+        }
+      }
+      let reader = new FileReader();
+      reader.readAsDataURL(this.newPicture);
+      reader.onload = (e:any) => {
+        img.src = reader.result as string;
+        this.newPictureSrc = reader.result;
+        this.showedPicture = this.newPictureSrc as string;
+      }
+    }
+  }
+
+  onFileSelectedBackground(event : any) {
+
+    this.backgroundEdition = true;
+
+    const file = event.target.files[0];
+
+    if(file) {
+      this.newBackground = file;
+      const img = new Image();
+      img.onload = () => {
+        const width = img.width;
+        const height = img.height;
+      }
+      let reader = new FileReader();
+      reader.readAsDataURL(this.newBackground);
+      reader.onload = (e:any) => {
+        img.src = reader.result as string;
+        this.newBackgroundSrc = reader.result;
+        this.showedBackground = this.newBackgroundSrc as string;
+      }
+    }
+  }
+
+  updateProfilePicture() {
+    this.loadingService.setLoadingState(true);
+    this.api_handler.updateProfilePicture(this.newPicture).subscribe({
+      next: (res: any) => {
+        this.pictureEdition = false;
+        this.showedPicture = this.user.pictureUrl;
+        window.location.reload();
+      },
+      error: (err: any) => {
+      },
+      complete: () => {
+        this.loadingService.setLoadingState(false);
+      }
+    })
+  }
+
+  updateProfileBackground() {
+    this.loadingService.setLoadingState(true);
+    this.api_handler.updateProfileBackground(this.newBackground).subscribe({
+      next: (res: any) => {
+        this.pictureEdition = false;
+        this.showedBackground = this.user.bannerUrl;
+        window.location.reload();
+      },
+      error: (err: any) => {
+      },
+      complete: () => {
+        this.loadingService.setLoadingState(false);
+      }
+    })
+  }
+
+  navigateTo(navigation: string) {
+    this.navigation = navigation;
+  }
 }

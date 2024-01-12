@@ -1,0 +1,35 @@
+<div class="dropdown-container">
+    <a routerLink="/my-profile"><i class="header-icon fa-solid fa-xl fa-user-check"></i></a>
+    <div class="dropdown-content">
+        <div class="dropdown-header">
+            <div class="row align-items-center">
+                <img class="profile-picture col-3" src="{{profilePicture}}">
+                <h3 class="col-6 pseudo" >{{surname}}</h3>
+            </div>
+            
+        </div>
+        <div routerLink="/watchlist" class="dropdown-item">
+            <i class="fa-regular fa-bookmark dropdown-icon fa-xl"></i><p class="col-9">Favoris</p>
+        </div>
+        <div routerLink="/my-profile" class="dropdown-item">
+            <i class="fa-regular fa-user dropdown-icon fa-xl"></i><p>Mon Compte</p>
+        </div>
+        <div routerLink="/history" class="dropdown-item">
+            <i class="fa-solid fa-clock-rotate-left dropdown-icon fa-xl"></i><p>Historique</p>
+        </div>
+        <div routerLink="/awards" class="dropdown-item">
+            <i class="fa-solid fa-award dropdown-icon fa-xl"></i><p>Récompenses</p>
+        </div>
+        <div routerLink="/notifications" class="dropdown-item">
+            <i class="fa-regular fa-bell dropdown-icon fa-xl"></i><p>Notifications</p>
+        </div>
+        <a class="dropdown-link" href="https://linktr.ee/weebz_fr?fbclid=PAAaYPad65JqWiFvwkEeS6Ss1mQTAW84yti9UsPlw6nhp0ONv5IZt1tPeVxJs">
+        <div  class="dropdown-item">
+            <i class="fa-regular fa-handshake dropdown-icon fa-xl"></i><p>Nous rejoindre</p>
+        </div>
+        </a>
+        <div (click)="onDisconnect()" class="dropdown-item">
+            <i class="fa-solid fa-right-from-bracket dropdown-icon fa-xl"></i><p>Déconnexion</p>
+        </div>  
+    </div>
+</div>

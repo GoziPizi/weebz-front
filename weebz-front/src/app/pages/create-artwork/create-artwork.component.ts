@@ -1,5 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { ApiHandlerService } from 'src/app/services/api-handler.service';
+import { LoadingServiceService } from 'src/app/services/loading-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-artwork',
@@ -24,9 +26,19 @@ export class CreateArtworkComponent implements OnInit {
   title: string = "";
   description: string = "";
 
+  isConnected: boolean = false;
+
   constructor(
-    private apiHandler: ApiHandlerService
+    private apiHandler: ApiHandlerService,
+    private loadingService: LoadingServiceService,
+    private router: Router
   ) { }
+
+  ngOnInit(): void {
+    this.apiHandler.isLoggedIn$.subscribe((res: any) => {
+      this.isConnected = res;
+    });
+  }
 
   onDragOver(event : any) {
     event.preventDefault();
@@ -52,7 +64,6 @@ export class CreateArtworkComponent implements OnInit {
     reader.readAsDataURL(this.cover);
     reader.onload = () => {
       this.coverPreviewSrc = reader.result;
-      console.log(this.coverPreviewSrc);
     }
   }
 
@@ -97,16 +108,14 @@ export class CreateArtworkComponent implements OnInit {
     this.isLightNovelSelected = true;
   }
 
-  ngOnInit(): void {
-  }
-
   onValidate() {
+    this.loadingService.setLoadingState(true);
     let type = "";
     if(this.isLightNovelSelected){
-      type = "LIGHTNOVEL";
+      type = "NOVEL";
     }
     else if(this.isWebtoonSelected){
-      type = "WEBTOON";
+      type = "COMIC";
     }
     else if(this.isMangaSelected){
       type = "MANGA";
@@ -118,7 +127,9 @@ export class CreateArtworkComponent implements OnInit {
       background: this.background
     }
     this.apiHandler.postArtwork(data).subscribe((res:any) => {
-      console.log(res);
+      this.loadingService.setLoadingState(false);
+      const id = res.id;
+      this.router.navigate(['/create-chapter/' + id]);
     });
   }
   }

@@ -1,0 +1,57 @@
+<div id="container">
+    <h2>Mon Profil</h2>
+    <div id="personal-infos" class="infos">
+        <p>Nom : {{user.name}}</p>
+        <p>Prénom : {{user.firstName}}</p>
+        <p>Pseudo : {{user.surname}}</p>
+        <p>Mail : {{user.email}}</p>
+        <p>Date de naissance : {{user.birthDate}}</p>
+        <p>Téléphone : {{user.telephone}}</p>
+    </div>
+    <div id="author-profile" *ngIf="isAuthor">
+        <h2>Mon profil d'auteur</h2>
+        <div id="author-infos" class="infos" >
+            <p>Biographie:</p>
+            <textarea 
+                class="text-input" 
+                [(ngModel)]="newPresentation" 
+                (ngModelChange)="onEdit()"
+                [ngClass]="{'edit': isEditing}">
+            </textarea>
+            <p>Réseaux:</p>
+            <div class="socials-input">
+                <i class="fa-brands fa-instagram fa-xl"></i>
+                <input 
+                    class="text-input"
+                    [(ngModel)]="instaUrl"
+                    (ngModelChange)="onEdit()"
+                    [ngClass]="{'edit': isEditing}">
+            </div>
+            <div class="socials-input">
+                <i class="fa-brands fa-tiktok fa-xl"></i>
+                <input 
+                    class="text-input" 
+                    [(ngModel)]="tiktokUrl"
+                    (ngModelChange)="onEdit()"
+                    [ngClass]="{'edit': isEditing}">
+            </div>
+            <div class="socials-input">
+                <i class="fa-brands fa-x-twitter fa-xl"></i>
+                <input 
+                    class="text-input"
+                    [(ngModel)]="xUrl"
+                    (ngModelChange)="onEdit()"
+                    [ngClass]="{'edit': isEditing}">
+            </div>
+            <div class="socials-input">
+                <i class="fa-brands fa-threads fa-xl"></i>
+                <input 
+                    class="text-input" 
+                    [(ngModel)]="threadsUrl"
+                    (ngModelChange)="onEdit()"
+                    [ngClass]="{'edit': isEditing}">
+            </div>
+            <p class="button" *ngIf="isEditing" (click)="onSubmit()">Valider</p>
+        </div>
+    </div>
+</div>

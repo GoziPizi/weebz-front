@@ -1,3 +1,10 @@
-<div class="container">
+<div id="container">
     <img [src]="page.imageSrc">
+    <i (click)="onDelete($event)" class="fa-solid fa-xmark fa-5x"></i>
+    <div id="navigation-container">
+        <i class="fa-solid fa-chevron-left fa-xl" (click)="onLeftClick($event)"></i>
+        <p *ngIf="!pageSelectMode" (click)="onPageSelectMode($event)">{{page.index}}</p>
+        <input *ngIf="pageSelectMode" #inputPageIndex (blur)="onInputBlur()" (keypress)="handleKeyPress($event)" type="text">
+        <i class="fa-solid fa-chevron-right fa-xl" (click)="onRightClick($event)"></i>
+    </div>
 </div>

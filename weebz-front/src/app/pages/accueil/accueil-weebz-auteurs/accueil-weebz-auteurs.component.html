@@ -1,0 +1,11 @@
+<div class="container-fluid">
+    <div class="carousel-title texte-souligne">
+        <h2>Nos Auteurs</h2>
+    </div>
+    <div id="authors-container">
+        <app-author-thumbnail
+            *ngFor="let author of authors"
+            [author]="author"
+            class="author-container"></app-author-thumbnail>
+    </div>
+</div>

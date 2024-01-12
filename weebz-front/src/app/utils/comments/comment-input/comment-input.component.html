@@ -1,0 +1,8 @@
+<div id="comment-input-container">
+    <h3>Ajouter un commentaire</h3>
+    <textarea id="comment-input" placeholder="Votre commentaire..." [(ngModel)]="commentContent"></textarea>
+    <div id="footer">
+        <p id="must-login" *ngIf="!isConnected">Tu dois être connecté pour poster un message</p>
+        <button id="comment-submit" (click)="submitComment()">Envoyer</button>
+    </div>
+</div>

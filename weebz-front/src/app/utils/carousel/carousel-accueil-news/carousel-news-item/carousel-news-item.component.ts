@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-carousel-news-item',
@@ -9,18 +10,20 @@ export class CarouselNewsItemComponent implements OnInit {
 
   @Input() image: string;
   @Input() text: string;
-  @Input() link: string;
+  @Input() route: string;
 
-  constructor() { 
+  constructor(
+    private router: Router
+  ) { 
     this.image = '';
     this.text = '';
-    this.link = '';
+    this.route = '';
   }
 
   ngOnInit(): void {
   }
 
   navigate(){
-    window.location.href = this.link;
+    this.router.navigate([this.route]);
   }
 }

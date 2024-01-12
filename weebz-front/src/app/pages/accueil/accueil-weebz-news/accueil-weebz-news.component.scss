@@ -1,0 +1,49 @@
+.main-container {
+    margin-top: 3em;
+    background-image: linear-gradient(to right, #FF913C, #DFC643 50%, #FF913C);
+    padding:2em;
+}
+
+.header {
+    padding-bottom: 1em;
+}
+
+.title {
+    margin-left: 2em;
+    margin-right: 1em;
+    font-weight: bold;
+    font-size: 2.5em;
+}
+
+.title-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.main-content {
+    padding: 2em;
+    background-color: black;
+}
+
+h3 {
+    margin-top: 1em;
+    margin-left: 2em;
+}
+
+.image-container {
+    padding:1em;
+}
+
+.image-container img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16/9;
+    transition: transform 0.3s;
+
+    &:hover {
+        cursor: pointer;
+        transform: scale(1.1);
+    }
+}

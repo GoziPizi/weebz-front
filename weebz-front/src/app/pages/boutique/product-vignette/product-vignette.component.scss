@@ -1,0 +1,54 @@
+@import "../../../../variables.scss";
+
+#container {
+    height: 100%;
+    color: black;
+    padding: 5%;
+    transition: all 0.2s ease-in-out;
+    background-color: white;
+
+    &:hover {
+        background-color: rgba(256, 256, 256, 0.2);
+        transform: scale(1.1);
+    }
+}
+
+#container img {
+    cursor: pointer;
+    width: 100%;
+    height: auto;
+    border-radius: 10%;
+}
+
+#info-container h3 {
+    margin-top: 0.5em;
+    font-weight: bold;
+}
+
+#category {
+    margin-top: 0.5em;
+    margin-bottom: 0;
+    color: $cyan;
+}
+
+.star {
+    color: $orange;
+
+}
+
+#product-price {
+    font-size: larger;
+}
+
+#button {
+    cursor: pointer;
+    padding: 0.5em 0;
+    text-align: center;
+    background-color: $orange;
+    border-radius: 10px;
+}
+
+#button h3 {
+    margin: 0;
+    padding: 0;
+}

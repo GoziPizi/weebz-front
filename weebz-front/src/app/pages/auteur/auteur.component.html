@@ -1,28 +1,34 @@
-<div class="container-fluid">
-    <div [style.backgroundImage]="'url(' + bannerPicRoute + ')'" class="row header">
-        <div class="col-2 left-side-bar">
-            <div class="picture-container d-flex justify-content-center">
-                <img class="profile-picture" src="../../../assets/icon.png">
-            </div>
-            <div class="author-name-container d-flex justify-content-center">
-                <h3 class="author-name">@{{auteur}}</h3>
+<div class="">
+    <div id="header" [ngStyle]="{'background-image': 'url(' + banner + ')'}">
+        <div id="profile-picture-container">
+            <img id="profile-picture" [src]="authorPicture" alt="profile picture">
+            <div id="profile-picture-text">
+                <h3>{{author.user.surname}}</h3>
             </div>
         </div>
-        <div class="col-8 main-content">
+        <div id="navigation-container">
+            <p (click)="scrollToView('presentation')">Présentation</p>
+            <p (click)="scrollToView('artworks')">Oeuvres</p>
+            <p (click)="scrollToView('shops')">Boutiques</p>
         </div>
-        <div class="col-2 right-side-bar">
+        <div id="socials">
+            <app-socials-display-component #socialsDisplay [socials]="author.socialNetworks"></app-socials-display-component>
         </div>
     </div>
-    <div class="row main-content">
-        <div class="col-2 left-side-bar">
-            <p class="author-description">{{description}}</p>
+    <div id="main-content">
+        <div class="line"></div>
+        <div id="presentation">
+            <app-author-presentation [author$]="author$"></app-author-presentation>
         </div>
-        <div class="col-8">
-
+        <div class="line"></div>
+        <div id="artworks">
+            <app-author-artworks [author$]="author$"></app-author-artworks>
         </div>
-        <div class="col-2 right-side-bar">
-            <app-auteur-icon *ngFor="let name of related_authors;" [auteur]="name"></app-auteur-icon>
+        <div class="line"></div>
+        <div id="shops">
+            <app-author-shops [author$]="author$"></app-author-shops>
         </div>
+        <div class="line"></div>
     </div>
 </div>
   

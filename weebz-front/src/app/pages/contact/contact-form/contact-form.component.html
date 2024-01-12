@@ -1,24 +1,29 @@
-<form class="form" [formGroup]="contactForm" (ngSubmit)="onSubmit()">
-    <div>
-        <label>Nom:</label>
-        <input type="text" formControlName="name">
+<div id="container">
+    <div id="header">
+        <h3>Formulaire de contact</h3>
     </div>
-    
-    <div>
-        <label>Sujet:</label>
-        <input type="text" formControlName="subject">
+    <div id="line">
+
     </div>
-  
-    <div>
-        <label>Mail:</label>
-        <input type="email" formControlName="mail">
-    </div>
-  
-    <div>
-        <label>Message:</label>
-        <textarea formControlName="message"></textarea>
-    </div>
-  
+    <form id="form" [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+        <div id="left-side-container">
+            <div class="champ">
+                <p>Sujet:</p>
+                <input type="text" class="input" formControlName="subject">
+            </div>
+        
+            <div class="champ">
+                <p>Mail:</p>
+                <input type="email" class="input" formControlName="mail">
+            </div>
+        </div>
+      
+        <div id="message">
+            <p>Message:</p>
+            <textarea id="message-input" class="input" formControlName="message"></textarea>
+        </div>
+      
+    </form>
     <button type="submit">Envoyer</button>
-</form>
+</div>
   

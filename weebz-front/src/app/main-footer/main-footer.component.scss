@@ -1,5 +1,7 @@
+@import 'src/_variables.scss';
+
 .footer {
-    background-color: black;
+    background-color: $dark-gray;
     width: 100%;
     box-sizing: border-box;
 }
@@ -10,7 +12,12 @@
 }
 
 .logos {
-    margin-top: 2em;
+    padding: 1em;
+}
+
+.logos i {
+    padding: 0.5em;
+    color: $orange;
 }
 
 .bottom-footer {

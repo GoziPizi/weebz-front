@@ -1,3 +1,5 @@
+@import '../../../variables';
+
 .main-presentation {
     padding-top: 2em;
     background-size: cover;
@@ -11,6 +13,24 @@
     justify-content: center;
     align-items: center;
     margin-top: 1em;
+    padding: 1em;
+    background-color: rgba(0,0,0,0.8);
+}
+
+.author-name-container h2 {
+    margin: 0em 0.5em;
+    font-size: 3vh;
+    cursor: pointer;
+}
+
+#views p {
+    margin-right: 0.5em;
+    margin-bottom: 0em;
+}
+
+#views {
+    display: flex;
+    flex-direction: row;
 }
 
 .cover-container {
@@ -21,21 +41,28 @@
 .cover {
     //size the image to fit the container
     width: 100%;
-    margin-left: 1em;
-    margin-right: 1em;
+}
+
+.left-presentation {
+    padding: 5em;
 }
 
 .right-presentation {
     padding: 2em;
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0,0,0,0.8);
     margin-bottom: 2em;
     border-radius: 1em;
+}
+
+.right-presentation h2 {
+    font-weight: bold;
 }
 
 .slider-container {
     margin-top: 1em;
     overflow: hidden;
     white-space: nowrap;
+    overflow-x: auto;
 }
 
 .slider-content {
@@ -49,4 +76,23 @@
 
 .author-name {
     color: #FF7530;
+}
+
+.shop-preview {
+    padding: 5em;
+    width: 100%;
+}
+
+.chapters-title {
+    margin-left: 2em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.synopsis {
+    font-size: large
+}
+
+#comments {
+    width: 50%;
 }

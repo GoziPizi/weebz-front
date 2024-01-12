@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Artwork } from 'src/app/models/artwork';
 import { ApiHandlerService } from 'src/app/services/api-handler.service';
+import { WatchlistService } from 'src/app/services/watchlist.service';
 
 @Component({
   selector: 'app-watchlist',
@@ -9,15 +11,28 @@ import { ApiHandlerService } from 'src/app/services/api-handler.service';
 export class WatchlistComponent implements OnInit {
 
   logged: boolean = false;
+  watchlist: Artwork[] = [];
 
   constructor(
-    private apiHandler: ApiHandlerService
+    private apiHandler: ApiHandlerService,
+    private watchlistService: WatchlistService
   ) {
-    this.logged = this.apiHandler.getIsLoggedIn()
+    this.apiHandler.checkLogin().subscribe({
+      next: res => {
+        this.logged = true;
+      },
+      error: err => {
+        this.logged = false;
+      }
+    })
   }
 
   ngOnInit(): void {
-    
+    this.watchlistService.getUpdateWatchlistObservable().subscribe({
+      next: () => {
+        this.watchlist = this.watchlistService.getWatchlist();
+      }
+    })
   }
 
 }

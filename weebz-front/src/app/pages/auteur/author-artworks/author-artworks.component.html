@@ -1,0 +1,19 @@
+<div id="main-container">
+    <div id="header">
+        <h3>Oeuvres</h3>
+    </div>
+    <div id="artworks-displayer">
+        <div *ngFor="let artwork of artworks">
+            <div class="single-artwork-display">
+                <div class="image-display" (click)="navigateToArtwork(artwork.id)">
+                    <img src="{{artwork.coverUrl}}" alt="artwork">
+                </div>
+                <div class="content-display">
+                    <h4>{{artwork.title}}</h4>
+                    <p>{{artwork.views}} vues</p>
+                    <p>{{artwork.description}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
