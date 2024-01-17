@@ -1,0 +1,22 @@
+<div id="container">
+    <img id="logo" src="../../../assets/logo.png" routerLink="accueil">
+    <div id="utils">
+        <i class="fa-regular fa-user fa-xl" routerLink="connexion" *ngIf="!isLoggedIn"></i>
+        <i class="fa-solid fa-user-check fa-xl" routerLink="my-profile" *ngIf="isLoggedIn"></i>
+        <i class="fa-solid fa-bars fa-xl" (click)="toggleMenu()"></i>
+    </div>
+</div>
+<div id="side-menu-background" *ngIf="isMenuOpen">
+    <div id="side-menu">
+        <i class="fa-solid fa-times fa-2x" (click)="toggleMenu()"></i>
+        <div id="nav-links">
+            <a routerLink="accueil" (click)="toggleMenu()">Accueil</a>
+            <a [routerLink]="['search']" [queryParams]="{ type : 'manga'}" (click)="toggleMenu()">Mangas</a>
+            <a [routerLink]="['search']" [queryParams]="{ type : 'webtoon'}" (click)="toggleMenu()">Webtoon</a>
+            <a [routerLink]="['search']" [queryParams]="{ type : 'lightnovel'}" (click)="toggleMenu()">LightNovel</a>
+            <a routerLink="shop" (click)="toggleMenu()">Boutique</a>
+            <a routerLink="beta-enroll" (click)="toggleMenu()">Beta</a>
+            <a *ngIf="isLoggedIn" (click)="logout()">Se déconnecter</a>
+        </div>
+    </div>
+</div>

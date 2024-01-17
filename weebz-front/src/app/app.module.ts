@@ -75,6 +75,7 @@ import { UnavailableOnMobileComponent } from './utils/unavailable-on-mobile/unav
 import { SocialsDisplayComponentComponent } from './utils/socials-display-component/socials-display-component.component';
 import { BetaHeaderComponent } from './utils/beta/beta-header/beta-header.component';
 import { BetaPageComponent } from './utils/beta/beta-page/beta-page.component';
+import { MobileHeaderComponent } from './mobile/header/header.component';
 
 @NgModule({
   declarations: [
@@ -147,7 +148,8 @@ import { BetaPageComponent } from './utils/beta/beta-page/beta-page.component';
     UnavailableOnMobileComponent,
     SocialsDisplayComponentComponent,
     BetaHeaderComponent,
-    BetaPageComponent
+    BetaPageComponent,
+    MobileHeaderComponent
   ],
   imports: [
     BrowserModule,

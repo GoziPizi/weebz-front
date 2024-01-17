@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { delay, tap } from 'rxjs/operators';
+import { tap } from 'rxjs/operators';
 import { CookieService } from 'ngx-cookie-service';
 import { BehaviorSubject } from 'rxjs';
 import { LoadingServiceService } from './loading-service.service';
@@ -13,7 +13,7 @@ import { ProductWithQty } from '../models/productWithQty';
 })
 export class ApiHandlerService {
 
-  url = "https://back.weebz.fr/"
+  url = "https://back-dev.weebz.fr/"
   user: any = {};
   public user$: BehaviorSubject<any> = new BehaviorSubject<any>({});
 
