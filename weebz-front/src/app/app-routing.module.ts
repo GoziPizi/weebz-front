@@ -23,6 +23,10 @@ import { ThankYouComponent } from './pages/boutique/thank-you/thank-you.componen
 import { AllBoutiqueComponent } from './pages/boutique/all-boutique/all-boutique.component';
 import { ReglementComponent } from './pages/mentions-legales/reglement/reglement.component';
 import { BetaPageComponent } from './utils/beta/beta-page/beta-page.component';
+import { WeebzArrivePageComponent } from './utils/carousel/weebz-arrive-page/weebz-arrive-page.component';
+import { InkCollabPageComponent } from './utils/carousel/ink-collab-page/ink-collab-page.component';
+import { CrisePapierPageComponent } from './utils/carousel/crise-papier-page/crise-papier-page.component';
+import { PslpPageComponent } from './utils/carousel/pslp-page/pslp-page.component';
 
 let routes: Routes = [
   { path: 'accueil', component: AccueilComponent },
@@ -36,6 +40,12 @@ let routes: Routes = [
   { path: 'inscription', component: InscriptionComponent},
   { path: 'my-profile', component: MyProfileComponent},
   { path: 'watchlist', component: WatchlistComponent},
+
+  //news
+  { path: 'weebz-arrive', component: WeebzArrivePageComponent},
+  { path: 'ink-house', component: InkCollabPageComponent},
+  { path: 'crise-du-papier', component: CrisePapierPageComponent},
+  { path: 'pslp', component: PslpPageComponent},
 
   //upload
   { path: 'create-artwork', component: CreateArtworkComponent},

@@ -13,7 +13,7 @@ import { ProductWithQty } from '../models/productWithQty';
 })
 export class ApiHandlerService {
 
-  url = "https://back-dev.weebz.fr/"
+  url = "https://back.weebz.fr/"
   user: any = {};
   public user$: BehaviorSubject<any> = new BehaviorSubject<any>({});
 
