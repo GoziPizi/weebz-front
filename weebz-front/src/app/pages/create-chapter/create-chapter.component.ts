@@ -117,7 +117,7 @@ export class CreateChapterComponent implements OnInit {
         this.pagesRemaining--;
         if(this.pagesRemaining == 0){
           this.loadingService.setLoadingState(false);
-          this.router.navigate(['/accueil']);
+          this.router.navigate(['/artwork', this.artworkId]);
         }
       })
     }
