@@ -10,7 +10,7 @@
             <p class="input-information">Mot de passe:</p>
             <input [(ngModel)]="password" type="password" class="input" name="password" placeholder="Mot de passe">
             <div class="forgot-container">
-                <a class="forgot-password">Mot de passe oublié ?</a>    
+                <a routerLink="/forgot-password" class="forgot-password">Mot de passe oublié ?</a>    
             </div>
             <div class="button-container row d-flex justify-content-center">
                 <button (click)="onSubmit()"class="connexion-button">Connexion</button>

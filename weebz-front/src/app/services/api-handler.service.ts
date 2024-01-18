@@ -136,6 +136,16 @@ export class ApiHandlerService {
     return this.http.post(this.url + "api/v1/users/", data);
   }
 
+  //Password
+
+  forgotPassword(data: any): Observable<any> {
+    return this.http.post(this.url + "api/v1/password/forgot", data);
+  }
+
+  resetPassword(data: any): Observable<any> {
+    return this.http.post(this.url + "api/v1/password/reset", data);
+  }
+
   //Author
 
   getAuthorData(id: number): Observable<any> {
