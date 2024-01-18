@@ -13,7 +13,7 @@ import { ProductWithQty } from '../models/productWithQty';
 })
 export class ApiHandlerService {
 
-  url = "https://back.weebz.fr/"
+  url = "https://back-dev.weebz.fr/"
   user: any = {};
   public user$: BehaviorSubject<any> = new BehaviorSubject<any>({});
 
@@ -134,6 +134,16 @@ export class ApiHandlerService {
 
   createUser(data: any): Observable<any> {
     return this.http.post(this.url + "api/v1/users/", data);
+  }
+
+  //Password
+
+  forgotPassword(data: any): Observable<any> {
+    return this.http.post(this.url + "api/v1/password/forgot", data);
+  }
+
+  resetPassword(data: any): Observable<any> {
+    return this.http.post(this.url + "api/v1/password/reset", data);
   }
 
   //Author

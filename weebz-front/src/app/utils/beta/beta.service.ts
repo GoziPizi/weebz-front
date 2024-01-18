@@ -29,7 +29,6 @@ export class BetaService {
         this.isInBeta$.next(res);
       },
       error: (err) => {
-        console.log(err);
       }
     })
   }
@@ -49,7 +48,6 @@ export class BetaService {
         this.loadingService.setLoadingState(false);
       },
       error: (err) => {
-        console.log(err);
         this.loadingService.setLoadingState(false);
       }
     })
@@ -66,7 +64,6 @@ export class BetaService {
         this.loadingService.setLoadingState(false);
       },
       error: (err) => {
-        console.log(err);
         this.loadingService.setLoadingState(false);
       }
     })
