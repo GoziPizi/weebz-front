@@ -70,6 +70,15 @@ export class ShoppingCartService {
     this.updateCart$.next();
   }
 
+  checkOnlyDigitals(){
+    for(let i = 0; i < this.shoppingCart.length; i++){
+      if(this.shoppingCart[i].product.category != 'DIGITAL'){
+        return false;
+      }
+    }
+    return true;
+  }
+
   clearCart() {
     this.shoppingCart = [];
     this.saveCartToCookies();

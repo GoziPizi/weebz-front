@@ -21,7 +21,6 @@ import { CatalogueHeaderComponent } from './utils/catalogue-header/catalogue-hea
 import { CatalogueContentComponent } from './pages/catalogue/catalogue-content/catalogue-content.component';
 import { CatalogueRowComponent } from './pages/catalogue/catalogue-content/catalogue-row/catalogue-row.component';
 import { CatalogueItemComponent } from './pages/catalogue/catalogue-content/catalogue-item/catalogue-item.component';
-import { AuteurIconComponent } from './pages/auteur/auteur-icon/auteur-icon.component';
 import { MangaDoubleLiseuseComponent } from './pages/manga-view/manga-double-liseuse/manga-double-liseuse.component';
 import { ConnexionComponent } from './pages/connexion/connexion.component';
 import { InscriptionComponent } from './pages/inscription/inscription.component';
@@ -97,7 +96,6 @@ import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password
     CatalogueContentComponent,
     CatalogueRowComponent,
     CatalogueItemComponent,
-    AuteurIconComponent,
     MangaDoubleLiseuseComponent,
     ConnexionComponent,
     InscriptionComponent,

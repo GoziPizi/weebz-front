@@ -43,14 +43,36 @@ export class MyAccountGestionComponent implements OnInit {
   fetchAuthor() {
     return this.api_handler.getAuthorDataFromToken().subscribe({
       next: (res: any) => {
+        if(res == null) {
+          this.isAuthor = false;
+          return;
+        }
         this.isAuthor = true;
         this.author = res;
         this.newPresentation = this.author.presentation;
+        this.populateSocialNetworks();
       },
       error: (err: any) => {
         this.isAuthor = false;
       }
     })
+  }
+
+  populateSocialNetworks() {
+    this.author.socialNetworks.forEach((network: string) => {
+      if (network.includes('instagram')) {
+        this.instaUrl = network;
+      }
+      if (network.includes('xvideos')) {
+        this.xUrl = network;
+      }
+      if (network.includes('tiktok')) {
+        this.tiktokUrl = network;
+      }
+      if (network.includes('twitter')) {
+        this.threadsUrl = network;
+      }
+    });
   }
 
   onEdit() {
