@@ -19,9 +19,7 @@ export class CreateArtworkComponent implements OnInit {
   background: File = new File([""], "");
   backgroundPreviewSrc: string | ArrayBuffer | null = null;
 
-  isMangaSelected: boolean = true;
-  isWebtoonSelected: boolean = false;
-  isLightNovelSelected: boolean = false;
+  type="MANGA";
 
   title: string = "";
   description: string = "";
@@ -90,39 +88,16 @@ export class CreateArtworkComponent implements OnInit {
     }
   }
 
-  onMangaClick() {
-    this.isMangaSelected = true;
-    this.isWebtoonSelected = false;
-    this.isLightNovelSelected = false;
-  }
-
-  onWebtoonClick() {
-    this.isMangaSelected = false;
-    this.isWebtoonSelected = true;
-    this.isLightNovelSelected = false;
-  }
-
-  onLightNovelClick() {
-    this.isMangaSelected = false;
-    this.isWebtoonSelected = false;
-    this.isLightNovelSelected = true;
+  setType(type: string) {
+    this.type = type;
   }
 
   onValidate() {
     this.loadingService.setLoadingState(true);
-    let type = "";
-    if(this.isLightNovelSelected){
-      type = "NOVEL";
-    }
-    else if(this.isWebtoonSelected){
-      type = "COMIC";
-    }
-    else if(this.isMangaSelected){
-      type = "MANGA";
     let data = {
       title: this.title,
       description: this.description,
-      type: type,
+      type: this.type,
       cover: this.cover,
       background: this.background
     }
@@ -131,6 +106,5 @@ export class CreateArtworkComponent implements OnInit {
       const id = res.id;
       this.router.navigate(['/create-chapter/' + id]);
     });
-  }
   }
 }
