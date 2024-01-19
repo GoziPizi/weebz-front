@@ -33,7 +33,7 @@ export class CreateArtworkComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.apiHandler.isLoggedIn$.subscribe((res: any) => {
+    this.apiHandler.isLoggedIn.subscribe((res: any) => {
       this.isConnected = res;
     });
   }
