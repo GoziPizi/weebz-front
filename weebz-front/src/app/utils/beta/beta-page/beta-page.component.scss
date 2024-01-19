@@ -55,3 +55,11 @@ img {
         background-color: darken($green, 10%) !important;
     }
 }
+
+.disabled {
+    background-color: red !important;
+
+    &:hover {
+        background-color: darken(red, 10%) !important;
+    }
+}
