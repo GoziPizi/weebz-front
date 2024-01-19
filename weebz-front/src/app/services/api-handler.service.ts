@@ -7,13 +7,14 @@ import { BehaviorSubject } from 'rxjs';
 import { LoadingServiceService } from './loading-service.service';
 import { Router } from '@angular/router';
 import { ProductWithQty } from '../models/productWithQty';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiHandlerService {
 
-  url = "https://back.weebz.fr/"
+  url = environment.api_url;
   user: any = {};
   public user$: BehaviorSubject<any> = new BehaviorSubject<any>({});
 

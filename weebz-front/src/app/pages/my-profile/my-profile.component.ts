@@ -46,8 +46,8 @@ export class MyProfileComponent implements OnInit {
       next: (res: any) => {
         this.user = res;
         this.user$.next(this.user);
-        this.showedPicture = this.user.pictureUrl;
-        this.showedBackground = this.user.bannerUrl;
+        this.showedPicture = this.user.pictureUrl || "../../../assets/default_images/default_profile_picture.png";
+        this.showedBackground = this.user.bannerUrl || "../../../assets/default_images/default_profil_banner.png";
       },
       error: (err: any) => {
         this.logedIn = false;
