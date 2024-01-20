@@ -23,7 +23,7 @@
 
         <div class="line"></div>
 
-        <div id="shipping-container">
+        <div id="shipping-container" *ngIf="isProductPhysical">
             <h3>Expédition: </h3>
             <div id="shipping-selection" >
                 <div class="shipping-method" (click)="onDomicileSelect()"[ngClass]="{'selected-shipping': !isShippingMondialRelay}">
@@ -54,7 +54,7 @@
                 <p>Payer</p>
             </div>
             <div id="informations">
-                <p>En savoir plus sur nos conditions de vente <a>ici</a></p>
+                <p>En savoir plus sur nos conditions de vente <a routerLink="/cgv">ici</a></p>
                 <p>Paiement assuré par : Stripe <img src="../../../../assets/stripe_logo.png"></p>
                 <div id="secured-transaction">
                     <img src="../../../../assets/secured-transaction.webp">

@@ -21,7 +21,6 @@ import { CatalogueHeaderComponent } from './utils/catalogue-header/catalogue-hea
 import { CatalogueContentComponent } from './pages/catalogue/catalogue-content/catalogue-content.component';
 import { CatalogueRowComponent } from './pages/catalogue/catalogue-content/catalogue-row/catalogue-row.component';
 import { CatalogueItemComponent } from './pages/catalogue/catalogue-content/catalogue-item/catalogue-item.component';
-import { AuteurIconComponent } from './pages/auteur/auteur-icon/auteur-icon.component';
 import { MangaDoubleLiseuseComponent } from './pages/manga-view/manga-double-liseuse/manga-double-liseuse.component';
 import { ConnexionComponent } from './pages/connexion/connexion.component';
 import { InscriptionComponent } from './pages/inscription/inscription.component';
@@ -78,6 +77,8 @@ import { BetaPageComponent } from './utils/beta/beta-page/beta-page.component';
 import { ReinitPasswordComponent } from './pages/reinit-password/reinit-password.component';
 import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password.component';
 import { ModifyArtworkComponent } from './pages/modify-pages/modify-artwork/modify-artwork.component';
+import { MyPreferencesGestionComponent } from './pages/my-profile/my-preferences-gestion/my-preferences-gestion.component';
+import { MyOrdersGestionComponent } from './pages/my-profile/my-orders-gestion/my-orders-gestion.component';
 
 @NgModule({
   declarations: [
@@ -98,7 +99,6 @@ import { ModifyArtworkComponent } from './pages/modify-pages/modify-artwork/modi
     CatalogueContentComponent,
     CatalogueRowComponent,
     CatalogueItemComponent,
-    AuteurIconComponent,
     MangaDoubleLiseuseComponent,
     ConnexionComponent,
     InscriptionComponent,
@@ -153,7 +153,9 @@ import { ModifyArtworkComponent } from './pages/modify-pages/modify-artwork/modi
     BetaPageComponent,
     ReinitPasswordComponent,
     ForgotPasswordComponent,
-    ModifyArtworkComponent
+    ModifyArtworkComponent,
+    MyPreferencesGestionComponent,
+    MyOrdersGestionComponent
   ],
   imports: [
     BrowserModule,

@@ -16,7 +16,7 @@ export class BetaService {
     private loadingService: LoadingServiceService
   ) {
     this.checkBeta();
-    this.isLoggedInSubscription = this.api.isLoggedIn$.subscribe({
+    this.isLoggedInSubscription = this.api.isLoggedIn.subscribe({
       next: (res: boolean) => {
         this.checkBeta();
       }

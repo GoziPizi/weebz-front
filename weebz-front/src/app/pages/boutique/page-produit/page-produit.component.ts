@@ -94,6 +94,13 @@ export class PageProduitComponent implements OnInit {
     })
   }
 
+  scrollToComments() {
+    const element = document.querySelector('#comments');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+
   //getters for template 
 
   get shopId() {
