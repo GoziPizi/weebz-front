@@ -52,9 +52,9 @@
         <div id="artwork-infos">
             <h2>Type de l'oeuvre</h2>
             <div id="type-container">
-                <span [ngClass]="{'selected': isMangaSelected}" class="artwork-type-selector" (click)="onMangaClick()">Manga</span>
-                <span [ngClass]="{'selected': isWebtoonSelected}" class="artwork-type-selector" (click)="onWebtoonClick()">Webtoon</span>
-                <span [ngClass]="{'selected': isLightNovelSelected}" class="artwork-type-selector" (click)="onLightNovelClick()">Light-Novel</span>
+                <span [ngClass]="{'selected': type==='MANGA'}" class="artwork-type-selector" (click)="setType('MANGA')">Manga</span>
+                <span [ngClass]="{'selected': type==='COMIC'}" class="artwork-type-selector" (click)="setType('COMIC')">Webtoon</span>
+                <span [ngClass]="{'selected': type==='NOVEL'}" class="artwork-type-selector" (click)="setType('NOVEL')">Light-Novel</span>
             </div>
             <h3>Titre de l'oeuvre</h3>
             <input [(ngModel)]="title" type="text" class="text-input">
