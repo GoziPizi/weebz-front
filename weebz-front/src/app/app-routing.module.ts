@@ -29,6 +29,7 @@ import { CrisePapierPageComponent } from './utils/carousel/crise-papier-page/cri
 import { PslpPageComponent } from './utils/carousel/pslp-page/pslp-page.component';
 import { ReinitPasswordComponent } from './pages/reinit-password/reinit-password.component';
 import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password.component';
+import { ModifyArtworkComponent } from './pages/modify-pages/modify-artwork/modify-artwork.component';
 
 let routes: Routes = [
   { path: 'accueil', component: AccueilComponent },
@@ -54,6 +55,7 @@ let routes: Routes = [
   //upload
   { path: 'create-artwork', component: CreateArtworkComponent},
   { path: 'create-chapter/:artworkId', component: CreateChapterComponent},
+  { path: 'modify-artwork/:artworkId', component: ModifyArtworkComponent},
 
   //boutique
   { path: 'shop', component: AllBoutiqueComponent},

@@ -77,6 +77,7 @@ import { BetaHeaderComponent } from './utils/beta/beta-header/beta-header.compon
 import { BetaPageComponent } from './utils/beta/beta-page/beta-page.component';
 import { ReinitPasswordComponent } from './pages/reinit-password/reinit-password.component';
 import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password.component';
+import { ModifyArtworkComponent } from './pages/modify-pages/modify-artwork/modify-artwork.component';
 
 @NgModule({
   declarations: [
@@ -152,6 +153,7 @@ import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password
     BetaPageComponent,
     ReinitPasswordComponent,
     ForgotPasswordComponent,
+    ModifyArtworkComponent
   ],
   imports: [
     BrowserModule,
