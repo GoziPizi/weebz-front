@@ -1,7 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ApiHandlerService } from '../../services/api-handler.service';
 import { LoadingServiceService } from 'src/app/services/loading-service.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { User } from 'src/app/models/user';
 import { BehaviorSubject } from 'rxjs';
 
@@ -39,7 +39,8 @@ export class MyProfileComponent implements OnInit {
   constructor(
     private api_handler: ApiHandlerService,
     private loadingService: LoadingServiceService,
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute
   )
   {
     this.api_handler.fetchUserData().subscribe({
@@ -56,6 +57,11 @@ export class MyProfileComponent implements OnInit {
       complete: () => {
         this.loadingService.setLoadingState(false);
     }
+    });
+    this.route.queryParams.subscribe(params => {
+      if(params['nav']) {
+        this.navigation = params['nav'];
+      }
     });
   }
 
@@ -155,5 +161,6 @@ export class MyProfileComponent implements OnInit {
 
   navigateTo(navigation: string) {
     this.navigation = navigation;
+    this.router.navigate(['/my-profile'], { queryParams: { nav: navigation } });
   }
 }
