@@ -1,6 +1,6 @@
 <div class="container-fluid main-container">
     <div class="upload-header">
-        <h1>Publier une série</h1>
+        <h1>Modifier une série</h1>
     </div>
     <div id="main-content">
         <div class="side-bar">
@@ -50,23 +50,12 @@
 
         </div>
         <div id="artwork-infos">
-            <h2>Type de l'oeuvre</h2>
-            <div id="type-container">
-                <span [ngClass]="{'selected': isMangaSelected}" class="artwork-type-selector" (click)="onMangaClick()">Manga</span>
-                <span [ngClass]="{'selected': isWebtoonSelected}" class="artwork-type-selector" (click)="onWebtoonClick()">Webtoon</span>
-                <span [ngClass]="{'selected': isLightNovelSelected}" class="artwork-type-selector" (click)="onLightNovelClick()">Light-Novel</span>
-            </div>
             <h3>Titre de l'oeuvre</h3>
             <input [(ngModel)]="title" type="text" class="text-input">
             <h3>Résumé</h3>
             <textarea name="" [(ngModel)]="description" cols="100" rows="10" class="text-input" id="description-input"></textarea>
             <div >
-                <p (click)="onValidate()" id="validate-button" >
-                    Créer L'oeuvre
-                </p>
-            </div>
-            <div id="publish-informations">
-                <p>Si tu as besoin d'informations, consulte notre page: <a routerLink="/tuto-upload" class="weebz-link">Comment créer une oeuvre ?</a></p>
+                <p (click)="onValidate()" id="validate-button" >Modifier L'oeuvre</p>
             </div>
         </div>
     </div>

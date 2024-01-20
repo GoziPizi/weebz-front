@@ -48,6 +48,10 @@ export class ModifyArtworkComponent {
   ngOnInit(): void {
     this.apiHandler.getArtwork(this.artworkId).subscribe((res: any) => {
       this.artwork = res;
+      this.title = this.artwork.title;
+      this.description = this.artwork.description;
+      this.coverPreviewSrc = this.artwork.coverUrl;
+      this.backgroundPreviewSrc = this.artwork.backgroundImageUrl;
     });
   }
 
@@ -137,9 +141,8 @@ export class ModifyArtworkComponent {
       cover: this.cover,
       background: this.background
     }
-    this.apiHandler.patchArtwork(data, this.artworkId).subscribe((res:any) => {
+    this.apiHandler.putArtwork(data, this.artworkId).subscribe((res:any) => {
       this.loadingService.setLoadingState(false);
-      const id = res.id;
       this.router.navigate(['/my-profile']);
     });
   }
