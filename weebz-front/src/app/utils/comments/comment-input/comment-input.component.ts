@@ -22,7 +22,11 @@ export class CommentInputComponent implements OnInit {
     private apiHandler: ApiHandlerService,
     private loadingService: LoadingServiceService
   ) {
-    this.isConnected = this.apiHandler.getIsLoggedIn();
+    this.apiHandler.isLoggedIn.subscribe({
+      next: res => {
+        this.isConnected = res;
+      }
+    })
   }
 
   ngOnInit(): void {

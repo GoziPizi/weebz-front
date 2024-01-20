@@ -19,8 +19,7 @@ export class ApiHandlerService {
   public user$: BehaviorSubject<any> = new BehaviorSubject<any>({});
 
   //Login status observable
-  private isLoggedIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
-  public isLoggedIn$ = this.isLoggedIn.asObservable();
+  public isLoggedIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
   //User id observable
   private id: BehaviorSubject<number> = new BehaviorSubject<number>(0);

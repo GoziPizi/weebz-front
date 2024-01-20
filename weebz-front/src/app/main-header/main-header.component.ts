@@ -19,7 +19,7 @@ export class MainHeaderComponent implements OnInit {
     private api_handler: ApiHandlerService,
     private router: Router
   ) {
-    this.isLoggedInSubscription = this.api_handler.isLoggedIn$.subscribe(valeur => {
+    this.isLoggedInSubscription = this.api_handler.isLoggedIn.subscribe(valeur => {
       this.loggedIn = valeur;
     });
   }
