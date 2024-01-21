@@ -29,8 +29,8 @@ import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.com
 import { MyProfileComponent } from './pages/my-profile/my-profile.component';
 import { LoadingComponentComponent } from './utils/loading-component/loading-component.component';
 import { ArtworkComponent } from './pages/artwork/artwork.component';
-import { ChapterThumbnailComponent } from './utils/thumbnails/chapter-thumbnail/chapter-thumbnail.component';
 import { ArtworkThumbnailComponent } from './utils/thumbnails/artwork-thumbnail/artwork-thumbnail.component';
+import { ChapterThumbnailComponent } from './utils/thumbnails/chapter-thumbnail/chapter-thumbnail.component';
 import { WatchlistComponent } from './pages/watchlist/watchlist.component';
 import { CreateArtworkComponent } from './pages/create-artwork/create-artwork.component';
 import { CreateChapterComponent } from './pages/create-chapter/create-chapter.component';
@@ -46,7 +46,6 @@ import { AllBoutiqueComponent } from './pages/boutique/all-boutique/all-boutique
 import { RechercheBoutiqueComponent } from './pages/boutique/recherche-boutique/recherche-boutique.component';
 import { ConnectedDropdownComponent } from './main-header/connected-dropdown/connected-dropdown.component';
 import { CarouselArtworkComponent } from './pages/accueil/artwork-carousel/artwork-carousel.component';
-import { ArtworkCarouselItemComponent } from './pages/accueil/artwork-carousel/artwork-carousel-item/artwork-carousel-item.component';
 import { ProductVignetteComponent } from './pages/boutique/product-vignette/product-vignette.component';
 import { AuthorArtworksComponent } from './pages/auteur/author-artworks/author-artworks.component';
 import { ArtworkPreviewComponent } from './pages/auteur/author-artworks/artwork-preview/artwork-preview.component';
@@ -106,8 +105,8 @@ import { MyOrdersGestionComponent } from './pages/my-profile/my-orders-gestion/m
     MyProfileComponent,
     LoadingComponentComponent,
     ArtworkComponent,
-    ChapterThumbnailComponent,
     ArtworkThumbnailComponent,
+    ChapterThumbnailComponent,
     WatchlistComponent,
     CreateArtworkComponent,
     CreateChapterComponent,
@@ -123,7 +122,6 @@ import { MyOrdersGestionComponent } from './pages/my-profile/my-orders-gestion/m
     RechercheBoutiqueComponent,
     ConnectedDropdownComponent,
     CarouselArtworkComponent,
-    ArtworkCarouselItemComponent,
     ProductVignetteComponent,
     AuthorArtworksComponent,
     ArtworkPreviewComponent,
@@ -155,7 +153,7 @@ import { MyOrdersGestionComponent } from './pages/my-profile/my-orders-gestion/m
     ReinitPasswordComponent,
     ForgotPasswordComponent,
     MyPreferencesGestionComponent,
-    MyOrdersGestionComponent
+    MyOrdersGestionComponent,
   ],
   imports: [
     BrowserModule,

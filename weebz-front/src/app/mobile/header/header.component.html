@@ -9,6 +9,8 @@
 <div id="side-menu-background" *ngIf="isMenuOpen">
     <div id="side-menu">
         <i class="fa-solid fa-times fa-2x" (click)="toggleMenu()"></i>
+        <h2>Menu</h2>
+        <div class="line"></div>
         <div id="nav-links">
             <a routerLink="accueil" (click)="toggleMenu()">Accueil</a>
             <a [routerLink]="['search']" [queryParams]="{ type : 'manga'}" (click)="toggleMenu()">Mangas</a>
@@ -18,5 +20,12 @@
             <a routerLink="beta-enroll" (click)="toggleMenu()">Beta</a>
             <a *ngIf="isLoggedIn" (click)="logout()">Se déconnecter</a>
         </div>
+        <div class="line"></div>
+        <div id="menu-footer">
+            <a routerLink="cgu" (click)="toggleMenu()">Conditions générales d'utilisation</a>
+            <a routerLink="cgv" (click)="toggleMenu()">Conditions générales de vente</a>
+        </div>
+        <div class="line"></div>
+        <p>Weebz vous souhaite une bonne lecture :)</p>
     </div>
 </div>

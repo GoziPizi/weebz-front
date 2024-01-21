@@ -1,4 +1,6 @@
 import { Component, OnInit, Input, ElementRef, Renderer2 } from '@angular/core';
+import { DeviceDetectorService } from 'ngx-device-detector';
+
 import { Artwork } from 'src/app/models/artwork';
 import { ApiHandlerService } from 'src/app/services/api-handler.service';
 
@@ -15,10 +17,13 @@ export class CarouselArtworkComponent implements OnInit {
 
   carouselItems:Artwork[] = [];
 
+  isMobile: boolean = this.deviceService.isMobile();
+
   constructor(
     private apiHandler: ApiHandlerService,
     private elRef: ElementRef,
-    private renderer: Renderer2
+    private renderer: Renderer2,
+    private deviceService: DeviceDetectorService
   ) { }
 
   ngOnInit(): void {

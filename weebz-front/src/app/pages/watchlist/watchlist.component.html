@@ -8,7 +8,7 @@
     </div>
     <div *ngIf="logged" class="logged">
         <div id="watchlist-container">
-            <app-artwork-carousel-item *ngFor="let artwork of watchlist" class="item" [artwork]="artwork"></app-artwork-carousel-item>
+            <app-artwork-thumbnail *ngFor="let artwork of watchlist" class="item" [artwork]="artwork"></app-artwork-thumbnail>
         </div>
     </div>
 </div>

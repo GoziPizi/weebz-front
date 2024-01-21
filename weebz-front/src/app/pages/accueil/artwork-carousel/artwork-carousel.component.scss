@@ -34,3 +34,13 @@
     left: 50%;
     transform: translateX(-100%);
 }
+
+#mobile-carousel-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.mobile-artwork-thumbnail {
+    width: 50%;
+}

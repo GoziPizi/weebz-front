@@ -11,7 +11,7 @@ export class MobileHeaderComponent {
   @ViewChild('sideMenu') sideMenu: any;
 
   isLoggedIn: boolean = false;
-  loggedInSubscription = this.apiHandler.isLoggedIn$.subscribe({
+  loggedInSubscription = this.apiHandler.isLoggedIn.subscribe({
     next: (value) => {
       this.isLoggedIn = value;
     }
