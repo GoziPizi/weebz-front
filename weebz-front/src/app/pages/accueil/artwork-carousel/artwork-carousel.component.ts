@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, ElementRef, Renderer2 } from '@angular/core';
 import { DeviceDetectorService } from 'ngx-device-detector';
+import { Router } from '@angular/router';
 
 import { Artwork } from 'src/app/models/artwork';
 import { ApiHandlerService } from 'src/app/services/api-handler.service';
@@ -23,7 +24,8 @@ export class CarouselArtworkComponent implements OnInit {
     private apiHandler: ApiHandlerService,
     private elRef: ElementRef,
     private renderer: Renderer2,
-    private deviceService: DeviceDetectorService
+    private deviceService: DeviceDetectorService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -43,6 +45,20 @@ export class CarouselArtworkComponent implements OnInit {
         }
       });
     });
+  }
+
+  navigateToMoreContent() {
+    let finalCategory = this.category;
+    if(this.category === 'MANGA'){
+      finalCategory = 'manga';
+    }
+    if(this.category === 'COMIC'){
+      finalCategory = 'webtoon';
+    }
+    if(this.category === 'NOVEL'){
+      finalCategory = 'lightnovel';
+    }
+    this.router.navigate(['/search'], { queryParams: { type: finalCategory } });
   }
 
 }

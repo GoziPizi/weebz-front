@@ -1,4 +1,4 @@
-<div class="carousel-title texte-souligne" [ngStyle]="{'--couleur-fond-after': color}">
+<div class="carousel-title texte-souligne" [ngStyle]="{'--couleur-fond-after': color}" *ngIf="!isMobile">
     <h3>{{title}}</h3>
 </div>
 <div class="carousel-container row" *ngIf="!isMobile"> 
@@ -13,9 +13,22 @@
         </div>
     </div>
 </div>
-<div id="mobile-carousel-container" *ngIf="isMobile">
-    <app-artwork-thumbnail
-        *ngFor="let item of carouselItems; let i = index"
-        [artwork]="item"
-        class="mobile-artwork-thumbnail"></app-artwork-thumbnail>
+<div id="mobile-container" *ngIf="isMobile">
+    <div id="mobile-carousel-title">
+        <h3>{{title}}</h3>
+    </div>
+    <div class="mobile-line" [ngStyle]="{'background-color': color}" ></div>
+    <div id="mobile-carousel-container">
+        <app-artwork-thumbnail
+            *ngFor="let item of carouselItems; let i = index"
+            [artwork]="item"
+            class="mobile-artwork-thumbnail"></app-artwork-thumbnail>
+        <div id="see-more">
+            <div id="see-more-content" (click)="navigateToMoreContent()">
+                <i class="fa-solid fa-chevron-right fa-2x"></i>
+                <p>Voir plus</p>
+            </div>
+        </div>
+    </div>
 </div>
+

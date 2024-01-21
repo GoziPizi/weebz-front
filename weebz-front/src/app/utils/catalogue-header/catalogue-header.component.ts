@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
+import { DeviceDetectorService } from 'ngx-device-detector';
 
 @Component({
   selector: 'app-catalogue-header',
@@ -10,9 +11,11 @@ export class CatalogueHeaderComponent implements OnInit {
 
   @Input() categorie: string = 'manga';
   tag: string = 'all';
-
+  isMobile: boolean = this.deviceService.isMobile();
+  isMobileMenuOpen: boolean = false;
   constructor(
-    private router: Router
+    private router: Router,
+    private deviceService: DeviceDetectorService
   ) { }
 
   ngOnInit(): void {
@@ -32,6 +35,10 @@ export class CatalogueHeaderComponent implements OnInit {
       queryParamsHandling: 'merge'
     });
     this.tag = tag;
+  }
+
+  toggleMobileMenu() {
+    this.isMobileMenuOpen = !this.isMobileMenuOpen;
   }
 
   getDynamicStyles() {

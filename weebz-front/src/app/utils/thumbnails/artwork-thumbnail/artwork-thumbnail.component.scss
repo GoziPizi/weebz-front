@@ -130,3 +130,19 @@ img {
 .carousel-item:hover .name{
     visibility: hidden;
 }
+
+#mobile-artwork-infos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#mobile-artwork-infos p {
+    margin: 0;
+    padding: 0;
+}
+
+#mobile-artwork-infos h4 {
+    text-align: center;
+    font-size: 20px;
+}
