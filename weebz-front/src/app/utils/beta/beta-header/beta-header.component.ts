@@ -25,4 +25,8 @@ export class BetaHeaderComponent {
     this.isInBetaSubject.unsubscribe();
   }
 
+  onClose() {
+    this.isDisplayed = false;
+  }
+
 }

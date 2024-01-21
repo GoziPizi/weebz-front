@@ -25,10 +25,16 @@ export class AuthorThumbnailComponent implements OnInit {
 
   //getters for the template
   get name(): string {
+    if(this.author == null) {
+      return "";
+    }
     return this.author.user.surname;
   }
 
   get image(): string {
+    if(this.author == null) {
+      return "../../../assets/profile_picture.png";
+    }
     if(this.author.user.pictureUrl == null || this.author.user.pictureUrl == "") {
       return "../../../assets/profile_picture.png";
     }

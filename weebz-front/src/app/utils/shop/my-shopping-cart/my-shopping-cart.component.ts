@@ -20,6 +20,7 @@ export class MyShoppingCartComponent implements OnInit {
 
   shoppingServiceSubscription: any;
 
+  isProductPhysical: boolean = false;
   isShippingMondialRelay: boolean = false;
   selectMondialRelay: boolean = false;
   relayId: string = '';
@@ -44,6 +45,7 @@ export class MyShoppingCartComponent implements OnInit {
 
   getProductsWithQty() {
     this.productsWithQty = this.shoppingCartService.getCart();
+    this.isProductPhysical = !this.shoppingCartService.checkOnlyDigitals();
   }
 
   //actions of the template
@@ -101,7 +103,10 @@ export class MyShoppingCartComponent implements OnInit {
 
   onBuy() {
     this.loadingService.setLoadingState(true);
-    const shippingMethod = this.isShippingMondialRelay ? 'relay' : 'standard';
+    let shippingMethod = this.isShippingMondialRelay ? 'relay' : 'standard';
+    if (!this.isProductPhysical) {
+      shippingMethod = 'digital';
+    }
     const relayInfo = {
       relayId: this.relayId,
       relayAdress: this.relayAdress
@@ -113,10 +118,16 @@ export class MyShoppingCartComponent implements OnInit {
   }
 
   getShippingPrice(): number {
+    if (!this.isProductPhysical) {
+      return 0;
+    }
+    if (this.productsWithQty.length == 0) {
+      return 0;
+    }
     if (this.isShippingMondialRelay) {
       return 5.99;
     }
-    return 6.99;
+    return 11.99;
   }
 
   //getters 

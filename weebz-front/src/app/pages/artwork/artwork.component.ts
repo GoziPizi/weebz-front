@@ -7,6 +7,7 @@ import { Artwork } from 'src/app/models/artwork';
 import { Chapter } from 'src/app/models/chapter';
 import { Shop } from 'src/app/models/shop';
 import { FourProductsShopThumbnailComponent } from 'src/app/utils/thumbnails/shop-thumbnails/four-products-shop-thumbnail/four-products-shop-thumbnail.component';
+import { Author } from 'src/app/models/author';
 
 @Component({
   selector: 'app-artwork',
@@ -19,7 +20,7 @@ export class ArtworkComponent implements OnInit {
   artwork: Artwork = new Artwork();
 
   authorId: number = 0;
-  author: any = {};
+  author: Author = new Author();
 
   chapters: Chapter[] = [];
 

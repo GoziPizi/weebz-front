@@ -34,6 +34,8 @@
             <app-my-account-gestion *ngIf="navigation=='compte'" [user$]="user$" class="content-component" ></app-my-account-gestion>
             <app-my-artworks-gestion *ngIf="navigation=='oeuvres'" [user$]="user$" class="content-component"></app-my-artworks-gestion>
             <app-my-shops-gestion *ngIf="navigation=='boutiques'" [user$]="user$" class="content-component"></app-my-shops-gestion>
+            <app-my-preferences-gestion *ngIf="navigation=='favoris'" [user$]="user$" class="content-component"></app-my-preferences-gestion>
+            <app-my-orders-gestion *ngIf="navigation=='commandes'" [user$]="user$" class="content-component"></app-my-orders-gestion>
         </div>
     </div>
 </div>

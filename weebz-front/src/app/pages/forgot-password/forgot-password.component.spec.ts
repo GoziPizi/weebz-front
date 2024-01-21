@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AuteurIconComponent } from './auteur-icon.component';
+import { ForgotPasswordComponent } from './forgot-password.component';
 
-describe('AuteurIconComponent', () => {
-  let component: AuteurIconComponent;
-  let fixture: ComponentFixture<AuteurIconComponent>;
+describe('ForgotPasswordComponent', () => {
+  let component: ForgotPasswordComponent;
+  let fixture: ComponentFixture<ForgotPasswordComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AuteurIconComponent ]
+      imports: [ForgotPasswordComponent]
     })
     .compileComponents();
-
-    fixture = TestBed.createComponent(AuteurIconComponent);
+    
+    fixture = TestBed.createComponent(ForgotPasswordComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

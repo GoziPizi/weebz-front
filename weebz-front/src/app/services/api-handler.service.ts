@@ -7,19 +7,19 @@ import { BehaviorSubject } from 'rxjs';
 import { LoadingServiceService } from './loading-service.service';
 import { Router } from '@angular/router';
 import { ProductWithQty } from '../models/productWithQty';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiHandlerService {
 
-  url = "https://back-dev.weebz.fr/"
+  url = environment.api_url;
   user: any = {};
   public user$: BehaviorSubject<any> = new BehaviorSubject<any>({});
 
   //Login status observable
-  private isLoggedIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
-  public isLoggedIn$ = this.isLoggedIn.asObservable();
+  public isLoggedIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
   //User id observable
   private id: BehaviorSubject<number> = new BehaviorSubject<number>(0);
@@ -134,6 +134,16 @@ export class ApiHandlerService {
 
   createUser(data: any): Observable<any> {
     return this.http.post(this.url + "api/v1/users/", data);
+  }
+
+  //Password
+
+  forgotPassword(data: any): Observable<any> {
+    return this.http.post(this.url + "api/v1/password/forgot", data);
+  }
+
+  resetPassword(data: any): Observable<any> {
+    return this.http.post(this.url + "api/v1/password/reset", data);
   }
 
   //Author

@@ -27,6 +27,9 @@ import { WeebzArrivePageComponent } from './utils/carousel/weebz-arrive-page/wee
 import { InkCollabPageComponent } from './utils/carousel/ink-collab-page/ink-collab-page.component';
 import { CrisePapierPageComponent } from './utils/carousel/crise-papier-page/crise-papier-page.component';
 import { PslpPageComponent } from './utils/carousel/pslp-page/pslp-page.component';
+import { ReinitPasswordComponent } from './pages/reinit-password/reinit-password.component';
+import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password.component';
+import { CgvComponent } from './pages/mentions-legales/cgv/cgv.component';
 
 let routes: Routes = [
   { path: 'accueil', component: AccueilComponent },
@@ -38,6 +41,8 @@ let routes: Routes = [
   { path: 'mangaview/:artworkId/:chapterId', component: MangaViewComponent},
   { path: 'connexion', component: ConnexionComponent},
   { path: 'inscription', component: InscriptionComponent},
+  { path: 'forgot-password', component: ForgotPasswordComponent},
+  { path: 'reinit-password', component: ReinitPasswordComponent},
   { path: 'my-profile', component: MyProfileComponent},
   { path: 'watchlist', component: WatchlistComponent},
 
@@ -64,6 +69,7 @@ let routes: Routes = [
   { path: 'beta-enroll', component: BetaPageComponent},
   { path: 'tuto-upload', component: HowToUploadPageComponent},
   { path: 'cgu', component: CguComponent},
+  { path: 'cgv', component: CgvComponent},
   { path: 'reglement', component: ReglementComponent},
   { path: 'not-found', component: PageNotFoundComponent},
   { path: '', redirectTo: '/accueil', pathMatch: 'full' },
