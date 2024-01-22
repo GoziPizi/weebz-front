@@ -3,6 +3,7 @@
     <div id="utils">
         <i class="fa-regular fa-user fa-xl" routerLink="connexion" *ngIf="!isLoggedIn"></i>
         <i class="fa-solid fa-user-check fa-xl" routerLink="my-profile" *ngIf="isLoggedIn"></i>
+        <i class="fa-regular fa-bookmark fa-xl" routerLink="/watchlist" *ngIf="isLoggedIn" ></i>
         <i class="fa-solid fa-bars fa-xl" (click)="toggleMenu()"></i>
     </div>
 </div>

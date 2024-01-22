@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BehaviorSubject, Subscription } from 'rxjs';
 
@@ -8,6 +8,9 @@ import { Chapter } from 'src/app/models/chapter';
 import { Shop } from 'src/app/models/shop';
 
 import { ApiHandlerService } from 'src/app/services/api-handler.service';
+import { CommentsDisplayerComponent } from 'src/app/utils/comments/comments-displayer/comments-displayer.component';
+import { NextChaptersForViewComponent } from 'src/app/utils/navigation/next-chapters-for-view/next-chapters-for-view.component';
+import { FourProductsShopThumbnailComponent } from 'src/app/utils/thumbnails/shop-thumbnails/four-products-shop-thumbnail/four-products-shop-thumbnail.component';
 
 @Component({
   selector: 'app-liseuse-mobile',
@@ -15,6 +18,11 @@ import { ApiHandlerService } from 'src/app/services/api-handler.service';
   styleUrl: './liseuse-mobile.component.scss'
 })
 export class LiseuseMobileComponent {
+
+  @ViewChild('liseuseContainer') liseuseContainer!: ElementRef;
+  @ViewChild('shopComponent') shopComponent: FourProductsShopThumbnailComponent | undefined;
+  @ViewChild('nextChapters') nextChaptersComponent!: NextChaptersForViewComponent;
+  @ViewChild('comments') comments!: CommentsDisplayerComponent;
 
   artworkId : number = 0;
   chapterId : number = 0;
@@ -26,6 +34,9 @@ export class LiseuseMobileComponent {
 
   pages : any[] = [];
   currentPage$: BehaviorSubject<number> = new BehaviorSubject<number>(1);
+
+  verticalScroll: boolean = true; //horizontal scroll by default
+  fullScreen: boolean = false;
 
   private paramSubscription: Subscription;
   private preloadSubscription: Subscription;
@@ -41,6 +52,8 @@ export class LiseuseMobileComponent {
     this.paramSubscription = this.route.params.subscribe(params => {
       this.artworkId = params['artworkId'];
       this.chapterId = params['chapterId'];
+      this.reInit();
+      this.nextChaptersComponent?.fetchChapters();
     });
 
     this.preloadSubscription = this.currentPage$.subscribe((pageIndex) => {
@@ -91,7 +104,6 @@ export class LiseuseMobileComponent {
 
   fetchPages() {
     this.api.getPages(this.artworkId, this.chapterId).subscribe((pages) => {
-      console.log(pages)
       this.pages = pages;
       this.sortPages();
     });
@@ -106,6 +118,7 @@ export class LiseuseMobileComponent {
   fetchShopData() {
     this.api.getShopDataFromArtworkId(this.artworkId).subscribe((shop) => {
       this.shop = shop;
+      this.shopComponent?.fetchData();
     });
   }
 
@@ -114,6 +127,30 @@ export class LiseuseMobileComponent {
   }
 
   //actions for the template
+
+  enterFullScreen() {
+    this.fullScreen = true;
+    const element = this.liseuseContainer.nativeElement;
+    if (element.requestFullscreen) {
+      element.requestFullscreen();
+      return;
+    } else if (element.mozRequestFullScreen) { /* Firefox */
+      element.mozRequestFullScreen();
+      return;
+    } else if (element.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+      element.webkitRequestFullscreen();
+      return;
+    } else if (element.msRequestFullscreen) { /* IE/Edge */
+      element.msRequestFullscreen();
+      return;
+    }
+    this.fullScreen = false;
+  }
+
+  exitFullScreen() {
+    this.fullScreen = false;
+    document.exitFullscreen();
+  }
 
   navigateToAuthor() {
     this.router.navigate(['/author', this.author.id]);
@@ -127,5 +164,9 @@ export class LiseuseMobileComponent {
 
   get authorName(): string {
     return this.author.user.surname || 'Auteur';
+  }
+
+  get shopId(): number {
+    return this.shop?.id || 0;
   }
 }

@@ -1,0 +1,20 @@
+#container {
+    box-sizing: border-box;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#products-container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    overflow: scroll;
+}
+
+.product-vignette {
+    flex-shrink: 0;
+    width: 50%;
+}

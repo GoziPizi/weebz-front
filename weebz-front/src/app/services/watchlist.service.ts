@@ -20,9 +20,6 @@ export class WatchlistService {
   }
 
   updateWatchlist() {
-    if(!this.apiHandlerService.getIsLoggedIn()) {
-      return
-    }
     this.apiHandlerService.getWatchlist().subscribe({
       next: res => {
         this.Artworks = res.watchlist;

@@ -21,6 +21,8 @@
 
 <div class="mobile-carousel-item" (click)="navigate()" *ngIf="isMobile" >
     <div id="mobile-image-container">
+        <i *ngIf="!faved" (click)="onFav($event)" class="fa-regular fa-bookmark fa-xl"></i>
+        <i *ngIf="faved" (click)="onFav($event)" class="fa-solid fa-bookmark fa-xl orange"></i>
         <img [src]="artwork.coverUrl" alt="Image de carrousel" class="img-fluid">
     </div>
     <div id="mobile-artwork-infos">

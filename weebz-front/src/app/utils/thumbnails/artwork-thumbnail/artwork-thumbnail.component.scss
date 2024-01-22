@@ -131,6 +131,17 @@ img {
     visibility: hidden;
 }
 
+#mobile-image-container {
+    position: relative;
+}
+
+#mobile-image-container i {
+    position: absolute;
+    color: $gray;
+    top: 10px;
+    right: 0;
+}
+
 #mobile-artwork-infos {
     display: flex;
     flex-direction: column;

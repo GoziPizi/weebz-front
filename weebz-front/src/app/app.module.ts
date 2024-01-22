@@ -80,6 +80,10 @@ import { MyPreferencesGestionComponent } from './pages/my-profile/my-preferences
 import { MyOrdersGestionComponent } from './pages/my-profile/my-orders-gestion/my-orders-gestion.component';
 import { LiseuseMobileComponent } from './mobile/liseuse-mobile/liseuse-mobile.component';
 import { VerticalLiseuseComponent } from './mobile/liseuse-mobile/vertical-liseuse/vertical-liseuse.component';
+import { HorizontalLiseuseComponent } from './mobile/liseuse-mobile/horizontal-liseuse/horizontal-liseuse.component';
+import { MobileShopThumbnailComponent } from './mobile/thumbnails/mobile-shop-thumbnail/mobile-shop-thumbnail.component';
+import { MobileProductVignetteComponent } from './mobile/thumbnails/mobile-product-vignette/mobile-product-vignette.component';
+
 
 @NgModule({
   declarations: [
@@ -157,16 +161,19 @@ import { VerticalLiseuseComponent } from './mobile/liseuse-mobile/vertical-liseu
     MyPreferencesGestionComponent,
     MyOrdersGestionComponent,
     LiseuseMobileComponent,
-    VerticalLiseuseComponent
+    VerticalLiseuseComponent,
+    HorizontalLiseuseComponent,
+    MobileShopThumbnailComponent,
+    MobileProductVignetteComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [CookieService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

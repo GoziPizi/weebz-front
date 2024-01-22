@@ -1,12 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-horizontal-liseuse',
-  standalone: true,
-  imports: [],
   templateUrl: './horizontal-liseuse.component.html',
   styleUrl: './horizontal-liseuse.component.scss'
 })
 export class HorizontalLiseuseComponent {
+
+  @Input() pages: any[] = [];
+  currentPage: number = 0;
+
+  constructor() { }
 
 }
