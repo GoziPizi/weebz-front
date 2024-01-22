@@ -71,6 +71,6 @@ export class MyArtworksGestionComponent implements OnInit {
   }
 
   onEditArtwork(artworkId: number) {
-    this.router.navigate(['edit-artwork/' + artworkId]);
+    this.router.navigate(['modify-artwork/' + artworkId]);
   }
 }

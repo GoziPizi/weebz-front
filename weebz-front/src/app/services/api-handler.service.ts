@@ -227,6 +227,19 @@ export class ApiHandlerService {
     return this.http.post(this.url + "api/v1/artworks", formData, {headers: headers});
   }
 
+  putArtwork(data: any, artworkId: number): Observable<any> {
+    let headers = {
+      Authorization : this.cookieService.get('apiToken')
+    }
+    let formData = new FormData();
+    formData.append('title', data.title);
+    formData.append('description', data.description);
+    formData.append('type', data.type);
+    formData.append('cover', data.cover);
+    formData.append('background', data.background);
+    return this.http.put(this.url + "api/v1/artworks/" + artworkId, formData, {headers: headers});
+  }
+
   postChapter(data: any, artworkId: number): Observable<any> {
     let headers = {
       Authorization : this.cookieService.get('apiToken')

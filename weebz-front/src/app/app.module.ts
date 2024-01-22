@@ -76,6 +76,7 @@ import { BetaHeaderComponent } from './utils/beta/beta-header/beta-header.compon
 import { BetaPageComponent } from './utils/beta/beta-page/beta-page.component';
 import { ReinitPasswordComponent } from './pages/reinit-password/reinit-password.component';
 import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password.component';
+import { ModifyArtworkComponent } from './pages/modify-pages/modify-artwork/modify-artwork.component';
 import { MyPreferencesGestionComponent } from './pages/my-profile/my-preferences-gestion/my-preferences-gestion.component';
 import { MyOrdersGestionComponent } from './pages/my-profile/my-orders-gestion/my-orders-gestion.component';
 
@@ -152,6 +153,7 @@ import { MyOrdersGestionComponent } from './pages/my-profile/my-orders-gestion/m
     BetaPageComponent,
     ReinitPasswordComponent,
     ForgotPasswordComponent,
+    ModifyArtworkComponent,
     MyPreferencesGestionComponent,
     MyOrdersGestionComponent
   ],

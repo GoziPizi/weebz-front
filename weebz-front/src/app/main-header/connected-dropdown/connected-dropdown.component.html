@@ -14,16 +14,16 @@
         <div routerLink="/my-profile" class="dropdown-item">
             <i class="fa-regular fa-user dropdown-icon fa-xl"></i><p>Mon Compte</p>
         </div>
-        <div routerLink="/history" class="dropdown-item">
-            <i class="fa-solid fa-clock-rotate-left dropdown-icon fa-xl"></i><p>Historique</p>
+        <div [routerLink]="['/my-profile']" [queryParams]="{ nav: 'oeuvres' }" class="dropdown-item">
+            <i class="fa-solid fa-pen-nib dropdown-icon fa-xl"></i><p>Mes Oeuvres</p>
         </div>
         <div routerLink="/awards" class="dropdown-item">
             <i class="fa-solid fa-award dropdown-icon fa-xl"></i><p>Récompenses</p>
         </div>
-        <div routerLink="/notifications" class="dropdown-item">
+        <div [routerLink]="['/my-profile']" [queryParams]="{ nav: 'favoris' }" class="dropdown-item">
             <i class="fa-regular fa-bell dropdown-icon fa-xl"></i><p>Notifications</p>
         </div>
-        <a class="dropdown-link" href="https://linktr.ee/weebz_fr?fbclid=PAAaYPad65JqWiFvwkEeS6Ss1mQTAW84yti9UsPlw6nhp0ONv5IZt1tPeVxJs">
+        <a class="dropdown-link" href="https://linktr.ee/weebz_fr?fbclid=PAAaYPad65JqWiFvwkEeS6Ss1mQTAW84yti9UsPlw6nhp0ONv5IZt1tPeVxJs" target="_blank" >
         <div  class="dropdown-item">
             <i class="fa-regular fa-handshake dropdown-icon fa-xl"></i><p>Nous rejoindre</p>
         </div>

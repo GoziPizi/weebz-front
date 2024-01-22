@@ -1,0 +1,62 @@
+<div class="container-fluid main-container">
+    <div class="upload-header">
+        <h1>Modifier une série</h1>
+    </div>
+    <div id="main-content">
+        <div class="side-bar">
+            <div id="cover-input-container">
+                <h4 class="drop-title">Couverture de l'oeuvre</h4>
+                <div 
+                    id="cover-drop-zone"
+                    class="drop-zone"
+                    (dragover)="onDragOver($event)"
+                    (drop)="onDropCover($event)"
+                    (click)="triggerFileInputCover()">
+                        <p *ngIf="!coverPreviewSrc">Cover</p>
+                        <img 
+                            *ngIf="coverPreviewSrc"
+                            [src]="coverPreviewSrc"
+                            alt="Cover Preview"
+                            class="cover-preview"
+                        >
+                </div>
+                <input 
+                    #fileCoverInput
+                    type="file"
+                    style="display: none;"
+                    (change)="onFileSelectedCover($event)"
+                >
+            </div>
+            <h2 class="drop-title">Background de l'oeuvre</h2>
+            <div 
+                class="drop-zone"
+                (dragover)="onDragOver($event)"
+                (drop)="onDropBackground($event)"
+                (click)="triggerFileInputBackground()">
+                    <p *ngIf="!backgroundPreviewSrc">Background</p>
+                    <img 
+                        *ngIf="backgroundPreviewSrc"
+                        [src]="backgroundPreviewSrc"
+                        alt="Background Preview"
+                        class="background-preview"
+                    >
+            </div>
+            <input 
+                #fileBackgroundInput
+                type="file"
+                style="display: none;"
+                (change)="onFileSelectedBackground($event)"
+            >
+
+        </div>
+        <div id="artwork-infos">
+            <h3>Titre de l'oeuvre</h3>
+            <input [(ngModel)]="title" type="text" class="text-input">
+            <h3>Résumé</h3>
+            <textarea name="" [(ngModel)]="description" cols="100" rows="10" class="text-input" id="description-input"></textarea>
+            <div >
+                <p (click)="onValidate()" id="validate-button" >Modifier L'oeuvre</p>
+            </div>
+        </div>
+    </div>
+</div>
