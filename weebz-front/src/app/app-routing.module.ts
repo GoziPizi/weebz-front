@@ -30,6 +30,7 @@ import { PslpPageComponent } from './utils/carousel/pslp-page/pslp-page.componen
 import { ReinitPasswordComponent } from './pages/reinit-password/reinit-password.component';
 import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password.component';
 import { CgvComponent } from './pages/mentions-legales/cgv/cgv.component';
+import { LiseuseMobileComponent } from './mobile/liseuse-mobile/liseuse-mobile.component';
 
 let routes: Routes = [
   { path: 'accueil', component: AccueilComponent },
@@ -39,6 +40,7 @@ let routes: Routes = [
   { path: 'contact', component: ContactComponent},
   { path: 'artwork/:artworkId', component: ArtworkComponent},
   { path: 'mangaview/:artworkId/:chapterId', component: MangaViewComponent},
+  { path: 'mobileview/:artworkId/:chapterId', component: LiseuseMobileComponent},
   { path: 'connexion', component: ConnexionComponent},
   { path: 'inscription', component: InscriptionComponent},
   { path: 'forgot-password', component: ForgotPasswordComponent},

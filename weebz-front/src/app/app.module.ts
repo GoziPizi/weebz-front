@@ -78,6 +78,8 @@ import { ReinitPasswordComponent } from './pages/reinit-password/reinit-password
 import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password.component';
 import { MyPreferencesGestionComponent } from './pages/my-profile/my-preferences-gestion/my-preferences-gestion.component';
 import { MyOrdersGestionComponent } from './pages/my-profile/my-orders-gestion/my-orders-gestion.component';
+import { LiseuseMobileComponent } from './mobile/liseuse-mobile/liseuse-mobile.component';
+import { VerticalLiseuseComponent } from './mobile/liseuse-mobile/vertical-liseuse/vertical-liseuse.component';
 
 @NgModule({
   declarations: [
@@ -154,6 +156,8 @@ import { MyOrdersGestionComponent } from './pages/my-profile/my-orders-gestion/m
     ForgotPasswordComponent,
     MyPreferencesGestionComponent,
     MyOrdersGestionComponent,
+    LiseuseMobileComponent,
+    VerticalLiseuseComponent
   ],
   imports: [
     BrowserModule,
