@@ -8,3 +8,14 @@
     padding: 1vh;
     width: 20%;
 }
+
+#mobile-result-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.mobile-artwork-cover {
+    padding: 1vh;
+    width: 50%;
+}

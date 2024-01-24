@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { Author } from 'src/app/models/author';
 import { Shop } from 'src/app/models/shop';
+import { DeviceDetectorService } from 'ngx-device-detector';
 
 import { ApiHandlerService } from 'src/app/services/api-handler.service';
 
@@ -17,8 +18,11 @@ export class AuthorShopsComponent implements OnInit {
 
   shops: Shop[] = [];
 
+  isMobile: boolean = this.deviceService.isMobile();
+
   constructor(
-    private apiHandler: ApiHandlerService
+    private apiHandler: ApiHandlerService,
+    private deviceService: DeviceDetectorService
   ) { }
 
   ngOnInit(): void {

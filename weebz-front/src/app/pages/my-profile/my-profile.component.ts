@@ -4,6 +4,7 @@ import { LoadingServiceService } from 'src/app/services/loading-service.service'
 import { Router, ActivatedRoute } from '@angular/router';
 import { User } from 'src/app/models/user';
 import { BehaviorSubject } from 'rxjs';
+import { DeviceDetectorService } from 'ngx-device-detector';
 
 @Component({
   selector: 'app-my-profile',
@@ -36,11 +37,17 @@ export class MyProfileComponent implements OnInit {
 
   navigation = "compte";
 
+  isMobile = this.deviceService.isMobile();
+
   constructor(
     private api_handler: ApiHandlerService,
     private loadingService: LoadingServiceService,
     private router: Router,
+<<<<<<< HEAD
     private route: ActivatedRoute
+=======
+    private deviceService: DeviceDetectorService
+>>>>>>> d5602bab977bc8f1faca2d5ba03ca10f7881a62e
   )
   {
     this.api_handler.fetchUserData().subscribe({

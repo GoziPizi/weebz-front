@@ -4,6 +4,8 @@ import { Shop } from 'src/app/models/shop';
 import { ApiHandlerService } from 'src/app/services/api-handler.service';
 import { LoadingServiceService } from 'src/app/services/loading-service.service';
 import { ActivatedRoute } from '@angular/router';
+import { DeviceDetectorService } from 'ngx-device-detector';
+
 
 @Component({
   selector: 'app-accueil-boutique',
@@ -18,10 +20,13 @@ export class AccueilBoutiqueComponent implements OnInit {
 
   filters: string = "";
 
+  isMobile: boolean = this.deviceService.isMobile();
+
   constructor(
     private apiHandler: ApiHandlerService,
     private loadingService: LoadingServiceService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    public deviceService: DeviceDetectorService
   ) { }
 
   ngOnInit(): void {

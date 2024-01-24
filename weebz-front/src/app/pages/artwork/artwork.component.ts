@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { DeviceDetectorService } from 'ngx-device-detector';
 import { ApiHandlerService } from 'src/app/services/api-handler.service';
 import { WatchlistService } from 'src/app/services/watchlist.service';
 import { Router } from '@angular/router';
@@ -29,12 +30,14 @@ export class ArtworkComponent implements OnInit {
 
   isFollowing: boolean = false;
 
+  isMobile: boolean = this.deviceService.isMobile();
 
   constructor(
     private route: ActivatedRoute,
     private api: ApiHandlerService,
     private router: Router,
-    private watchlistService: WatchlistService
+    private watchlistService: WatchlistService,
+    public deviceService: DeviceDetectorService
   ) { }
 
   ngOnInit(): void {

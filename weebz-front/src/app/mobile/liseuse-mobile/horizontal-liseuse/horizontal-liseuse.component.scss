@@ -1,0 +1,12 @@
+#container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    overflow: scroll;
+}
+
+.page {
+    flex: none; 
+    width: 100%;
+    transition: transform 0.5s ease;
+}

@@ -2,6 +2,8 @@
 <div id="search-tools-container">
 
 </div>
-<div id="result-container">
-    <app-artwork-carousel-item *ngFor="let artwork of artworks" [artwork]="artwork" class="artwork-cover"></app-artwork-carousel-item>
+<div id="result-container" *ngIf="!isMobile">
+    <app-artwork-thumbnail *ngFor="let artwork of artworks" [artwork]="artwork" class="artwork-cover"></app-artwork-thumbnail>
 </div>
+<div id="mobile-result-container" *ngIf="isMobile">
+    <app-artwork-thumbnail *ngFor="let artwork of artworks" [artwork]="artwork" class="mobile-artwork-cover"></app-artwork-thumbnail>
