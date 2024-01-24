@@ -1,5 +1,5 @@
 <div id="container" [ngStyle]="{'backgroundImage': 'url(' + backgroundUrl + ')' }" >
-    <h2>{{shop.name}}</h2>
+    <h2 (click)="navigateToShop()" >{{shop.name}}</h2>
     <div id="products-container">
         <app-mobile-product-vignette
             class="product-vignette"

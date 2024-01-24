@@ -50,6 +50,6 @@
                 [type]="artworkType"></app-chapter-thumbnail>
         </div>
         <p>{{artwork.description}}</p>
-        <app-four-products-shop-thumbnail *ngIf="shop" [shop]="shop" #shopComponent></app-four-products-shop-thumbnail>
+        <app-mobile-shop-thumbnail *ngIf="shop" [shopId]="shop.id"></app-mobile-shop-thumbnail>
     </div>
 </div>

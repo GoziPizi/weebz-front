@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Shop } from 'src/app/models/shop';
 import { ApiHandlerService } from 'src/app/services/api-handler.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-mobile-shop-thumbnail',
@@ -14,6 +15,7 @@ export class MobileShopThumbnailComponent {
 
   constructor(
     private apiHandler: ApiHandlerService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -27,6 +29,10 @@ export class MobileShopThumbnailComponent {
         this.shop = data;
       }
     });
+  }
+
+  navigateToShop() {
+    this.router.navigate([`/shop/${this.shopId}`]);
   }
 
   get shopName() {
