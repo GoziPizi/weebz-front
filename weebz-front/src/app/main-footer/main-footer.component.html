@@ -1,4 +1,7 @@
-<div class="container-fluid footer">
+<div *ngIf="isMobile">
+
+</div>
+<div class="container-fluid footer" *ngIf="!isMobile">
     <div class="row justify-content-end">
         <!-- Logos réseaux sociaux -->
         <div class="col-auto text-center mb-3 logos">

@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, HostListener, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BehaviorSubject, Subscription } from 'rxjs';
 
@@ -22,7 +22,11 @@ export class LiseuseMobileComponent {
   @ViewChild('liseuseContainer') liseuseContainer!: ElementRef;
   @ViewChild('shopComponent') shopComponent: FourProductsShopThumbnailComponent | undefined;
   @ViewChild('nextChapters') nextChaptersComponent!: NextChaptersForViewComponent;
+  nextChaptersShown: boolean = false;
   @ViewChild('comments') comments!: CommentsDisplayerComponent;
+  commentsShown: boolean = false;
+
+  @ViewChild('bottomPage') bottomPage!: ElementRef;
 
   artworkId : number = 0;
   chapterId : number = 0;
@@ -31,12 +35,22 @@ export class LiseuseMobileComponent {
   chapter : Chapter = new Chapter();
   author : Author = new Author();
   shop : Shop | null = null;
+  nextChapters : Chapter[] = [];
 
   pages : any[] = [];
   currentPage$: BehaviorSubject<number> = new BehaviorSubject<number>(1);
 
   verticalScroll: boolean = true; //horizontal scroll by default
   fullScreen: boolean = false;
+
+  isFingerOnScreen: boolean = false;
+  canScroll: boolean = false;
+
+  bottomIntersectRatio: number = 0;
+  threshold: number = 0.1; //opacity before loading next page
+  isThresholdReached: boolean = false;
+  timerThreshold: any;
+  hasToNavigate: boolean = false;
 
   private paramSubscription: Subscription;
   private preloadSubscription: Subscription;
@@ -54,6 +68,7 @@ export class LiseuseMobileComponent {
       this.chapterId = params['chapterId'];
       this.reInit();
       this.nextChaptersComponent?.fetchChapters();
+      this.scrollToTop();
     });
 
     this.preloadSubscription = this.currentPage$.subscribe((pageIndex) => {
@@ -76,12 +91,66 @@ export class LiseuseMobileComponent {
     this.fetchChapter();
     this.fetchPages();
     this.fetchShopData();
+    this.scrollToTop();
+  }
+
+  scrollToTop() {
+    window.scrollTo(0, 0);
   }
 
   reInit(): void {
     this.fetchChapter();
     this.fetchPages();
     this.currentPage$.next(1);
+  }
+
+  ngAfterViewInit() {
+    const options = {
+      threshold: Array.from({ length: 100 }, (_, i) => i / 100) // Crée un tableau de seuils de 0 à 1
+    };
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        this.bottomIntersectRatio = entry.intersectionRatio;
+        this.setThresholdReached( this.bottomIntersectRatio >= this.threshold );
+        if(this.bottomIntersectRatio > 0 && !this.isFingerOnScreen){
+          this.scrollToHideBottom();
+        }
+      });
+    }, options);
+
+    observer.observe(this.bottomPage.nativeElement);
+
+    //set scroll to true after 1sec 
+    setTimeout(() => {
+      this.canScroll = true;
+    }, 1000);
+  }
+
+  vibrate() {
+    if (navigator.vibrate) {
+      navigator.vibrate(10);
+    }
+  }
+
+  setThresholdReached(value: boolean) {
+    // Si la valeur est vraie et que le seuil n'est pas encore atteint
+    if(value && !this.isThresholdReached){
+      // Réinitialiser le timer précédent, si présent
+      clearTimeout(this.timerThreshold);
+  
+      // Démarrer un nouveau timer
+      this.timerThreshold = setTimeout(() => {
+        this.vibrate();
+        this.isThresholdReached = true;
+        this.hasToNavigate = true;
+      }, 150);
+    } 
+    // Si la valeur est fausse
+    else if (!value) {
+      clearTimeout(this.timerThreshold);
+      this.isThresholdReached = false;
+    }
   }
 
   ngOnDestroy(): void {
@@ -99,6 +168,7 @@ export class LiseuseMobileComponent {
   fetchChapter() {
     this.api.getChapterById(this.chapterId).subscribe((chapter) => {
       this.chapter = chapter;
+      this.fetchNextChapters();
     });
   }
 
@@ -113,6 +183,22 @@ export class LiseuseMobileComponent {
     this.api.getAuthorData(this.artwork.authorId).subscribe((author) => {
       this.author = author;
     });
+  }
+
+  fetchNextChapters() {
+    this.api.getAllChaptersByArtworkId(this.artworkId).subscribe((chapters) => {
+      this.nextChapters = chapters;
+      this.trimChapters();
+      this.sortChapters();
+    });
+  }
+
+  trimChapters() {
+    this.nextChapters = this.nextChapters.filter(chapter => chapter.index > this.chapter.index);
+  }
+
+  sortChapters() {
+    this.nextChapters.sort((a, b) => a.index - b.index);
   }
 
   fetchShopData() {
@@ -156,6 +242,42 @@ export class LiseuseMobileComponent {
     this.router.navigate(['/author', this.author.id]);
   }
 
+  navigateToNextChapter() {
+    if(this.nextChapters.length == 0){
+      this.navigateToAuthor();
+    }
+    this.router.navigate(['/mobileview', this.artworkId, this.nextChapters[0].id]);
+  }
+
+  touchStart(event: any) {
+    this.isFingerOnScreen = true;
+  }
+
+  touchEnd(event: any) {
+    this.isFingerOnScreen = false;
+    if(this.hasToNavigate){
+      this.hasToNavigate = false;
+      this.navigateToNextChapter();
+    }
+    if(this.bottomIntersectRatio > 0){
+      this.scrollToHideBottom();
+    }
+  }
+
+  scrollToHideBottom() {
+    if(!this.canScroll){
+      return;
+    }
+    const totalHeight = document.body.scrollHeight;
+    const windowHeight = window.innerHeight;
+    const positionFromTop = totalHeight - 2 * windowHeight;
+
+    window.scrollTo({
+      top: positionFromTop,
+      behavior: 'smooth'
+    });
+  }
+
   //getters for the template
 
   get title(): string {
@@ -169,4 +291,12 @@ export class LiseuseMobileComponent {
   get shopId(): number {
     return this.shop?.id || 0;
   }
+
+  get spinnerVisibility(): number {
+    if(this.bottomIntersectRatio > 0.3){
+      return 1;
+    }
+    return this.bottomIntersectRatio*3;
+  }
+
 }

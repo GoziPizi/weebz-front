@@ -1,4 +1,7 @@
-<div id="container">
+<div id="container"
+    (touchstart)="touchStart($event)"
+    (touchend)="touchEnd($event)"
+    >
     <h2>{{title}}</h2>
     <p (click)="navigateToAuthor()" >{{authorName}}</p>
     <div id="liseuse-container" #liseuseContainer>
@@ -7,6 +10,27 @@
     </div>
     <h2>Chapitre terminé</h2>
     <app-mobile-shop-thumbnail #shopComponent [shopId]="shopId" *ngIf="shop" id="mobile-shop-thumbnail" ></app-mobile-shop-thumbnail>
-    <app-next-chapters-for-view #nextChapters [artworkId]="artworkId" [chapterIndex]="chapter.index" [authorId]="author.id"></app-next-chapters-for-view>
-    <app-comments-displayer #comments [commentableId]="chapter.id" [commentableType]="'chapter'" ></app-comments-displayer>
+    <app-next-chapters-for-view 
+        #nextChapters 
+        [artworkId]="artworkId" 
+        [chapterIndex]="chapter.index" 
+        [authorId]="author.id"
+        *ngIf="nextChaptersShown"></app-next-chapters-for-view>
+    <app-comments-displayer 
+        #comments 
+        [commentableId]="chapter.id" 
+        [commentableType]="'chapter'"
+        *ngIf="commentsShown"></app-comments-displayer>
+</div>
+<div 
+    id="bottom-page" 
+    #bottomPage 
+    (touchstart)="touchStart($event)"
+    (touchend)="touchEnd($event)">
+    <i class="fa-solid fa-chevron-down fa-2x" *ngIf="!hasToNavigate"></i>
+    <i class="fa-solid fa-chevron-down fa-3x" *ngIf="hasToNavigate"></i>
+    <div id="spinner-container">
+        <div class="spinner-next-chapter" [ngStyle]="{'opacity':spinnerVisibility}" ></div>
+    </div>
+    <p *ngIf="nextChapters.length == 0">Tu as arrivé au bout de cette oeuvre ! Swipe pour voir la page de l'auteur</p>
 </div>
