@@ -50,6 +50,14 @@
 
         </div>
         <div id="artwork-infos">
+            <h2>Tags</h2>
+            <div id="type-container">
+                <span [ngClass]="{'selected': tags.includes('action')}" class="artwork-type-selector" (click)="toggleTag('action')">action</span>
+                <span [ngClass]="{'selected': tags.includes('fiction')}" class="artwork-type-selector" (click)="toggleTag('fiction')">fiction</span>
+                <span [ngClass]="{'selected': tags.includes('romance')}" class="artwork-type-selector" (click)="toggleTag('romance')">romance</span>
+                <span [ngClass]="{'selected': tags.includes('drame')}" class="artwork-type-selector" (click)="toggleTag('drame')">drame</span>
+                <span [ngClass]="{'selected': tags.includes('comedie')}" class="artwork-type-selector" (click)="toggleTag('comedie')">comedie</span>
+            </div>
             <h3>Titre de l'oeuvre</h3>
             <input [(ngModel)]="title" type="text" class="text-input">
             <h3>Résumé</h3>

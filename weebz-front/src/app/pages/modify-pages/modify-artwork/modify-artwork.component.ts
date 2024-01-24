@@ -33,6 +33,8 @@ export class ModifyArtworkComponent {
   title: string = "";
   description: string = "";
 
+  tags: string[] = [];
+
   constructor(
     private route: ActivatedRoute,
     private apiHandler: ApiHandlerService,
@@ -52,6 +54,7 @@ export class ModifyArtworkComponent {
       this.description = this.artwork.description;
       this.coverPreviewSrc = this.artwork.coverUrl;
       this.backgroundPreviewSrc = this.artwork.backgroundImageUrl;
+      this.tags = this.artwork.tags;
     });
   }
 
@@ -105,22 +108,12 @@ export class ModifyArtworkComponent {
     }
   }
 
-  onMangaClick() {
-    this.isMangaSelected = true;
-    this.isWebtoonSelected = false;
-    this.isLightNovelSelected = false;
-  }
-
-  onWebtoonClick() {
-    this.isMangaSelected = false;
-    this.isWebtoonSelected = true;
-    this.isLightNovelSelected = false;
-  }
-
-  onLightNovelClick() {
-    this.isMangaSelected = false;
-    this.isWebtoonSelected = false;
-    this.isLightNovelSelected = true;
+  toggleTag(tag: string) {
+    if (this.tags.includes(tag)) {
+      this.tags.splice(this.tags.indexOf(tag), 1);
+    } else {
+      this.tags.push(tag);
+    }
   }
 
   onValidate() {
@@ -139,7 +132,8 @@ export class ModifyArtworkComponent {
       description: this.description,
       type: type,
       cover: this.cover,
-      background: this.background
+      background: this.background,
+      tags: this.tags
     }
     this.apiHandler.putArtwork(data, this.artworkId).subscribe((res:any) => {
       this.loadingService.setLoadingState(false);

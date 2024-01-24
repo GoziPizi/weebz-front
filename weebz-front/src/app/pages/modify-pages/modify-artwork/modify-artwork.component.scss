@@ -100,3 +100,32 @@ h3 {
         background-color: #333;
     }
 }
+
+#artwork-infos h2 {
+    padding: 0vh;
+    margin: 2vh 0;
+}
+
+#type-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.artwork-type-selector {
+    margin: 0;
+    font-weight: bold;
+    font-size: 2em;
+    padding: 1vh 2vh 0.5vh 2vh;
+    border-radius: 15px;
+    background-color: #333;
+
+    &:hover {
+        cursor: pointer;
+        background-color: #777;
+    }
+
+    &.selected {
+        background-color: #777;
+    }
+}

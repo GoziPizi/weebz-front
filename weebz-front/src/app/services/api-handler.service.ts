@@ -224,6 +224,7 @@ export class ApiHandlerService {
     formData.append('type', data.type);
     formData.append('cover', data.cover);
     formData.append('background', data.background);
+    formData.append('tags', JSON.stringify(data.tags));
     return this.http.post(this.url + "api/v1/artworks", formData, {headers: headers});
   }
 
@@ -237,6 +238,7 @@ export class ApiHandlerService {
     formData.append('type', data.type);
     formData.append('cover', data.cover);
     formData.append('background', data.background);
+    formData.append('tags', JSON.stringify(data.tags));
     return this.http.put(this.url + "api/v1/artworks/" + artworkId, formData, {headers: headers});
   }
 
