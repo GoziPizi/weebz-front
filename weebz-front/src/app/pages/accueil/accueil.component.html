@@ -1,4 +1,4 @@
-<app-carousel-accueil-news></app-carousel-accueil-news>
+<app-carousel-accueil-news *ngIf="!isMobile"></app-carousel-accueil-news>
 <app-artwork-carousel
     [title]="'Mangas'"
     [category]="'MANGA'"
@@ -14,4 +14,4 @@
     [category]="'NOVEL'"
     [color]="'#7C7C7C'"
 ></app-artwork-carousel>
-<app-accueil-weebz-auteurs></app-accueil-weebz-auteurs>
+<app-accueil-weebz-auteurs *ngIf="!isMobile" ></app-accueil-weebz-auteurs>

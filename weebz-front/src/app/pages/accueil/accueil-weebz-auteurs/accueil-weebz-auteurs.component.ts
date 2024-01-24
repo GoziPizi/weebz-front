@@ -29,4 +29,8 @@ export class AccueilWeebzAuteursComponent implements OnInit {
     );
   }
 
+  get authorsList(): Author[] {
+    return this.authors;
+  }
+
 }

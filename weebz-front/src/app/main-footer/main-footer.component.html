@@ -1,4 +1,7 @@
-<div class="container-fluid footer">
+<div *ngIf="isMobile">
+
+</div>
+<div class="container-fluid footer" *ngIf="!isMobile">
     <div class="row justify-content-end">
         <!-- Logos réseaux sociaux -->
         <div class="col-auto text-center mb-3 logos">
@@ -33,7 +36,7 @@
         <div class="col-md-3">
             <p>
                 9 Rue Charles Fourier, 91000 Évry-Courcouronnes<br>
-                <a href="mailto:support@weebz.fr">support&#64;weebz.fr</a>
+                <a href="mailto:contact@weebz.fr">contact&#64;weebz.fr</a>
             </p>
         </div>
     </div>

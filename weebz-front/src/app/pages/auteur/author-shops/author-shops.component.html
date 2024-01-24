@@ -7,8 +7,11 @@
         <p>Cet auteur n'a pas encore de boutique</p>
     </div>
     <div *ngIf="shops.length > 0">
-        <div id="shops-container">
+        <div id="shops-container" *ngIf="!isMobile">
             <app-four-products-shop-thumbnail *ngFor="let shop of shops" [shop]="shop"></app-four-products-shop-thumbnail>
         </div>
-    </div>    
+        <div id="mobile-shop-container" *ngIf="isMobile">
+            <app-mobile-shop-thumbnail *ngFor="let shop of shops" [shopId]="shop.id"></app-mobile-shop-thumbnail>
+        </div>
+    </div> 
 </div>

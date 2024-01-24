@@ -12,7 +12,8 @@
             Weebz est en pleine évolution, et votre contribution peut faire toute la différence ! Participez à notre programme bêta pour nous aider à peaufiner et enrichir l'expérience utilisateur. Inscrivez-vous dès maintenant en cliquant sur le bouton ci-dessous.
         </p>
         <div id="join-info">
-            <button id="join-button" [ngClass]="{'inbeta' : isInBeta}" (click)="onButtonEnroll()">Rejoindre le programme</button>
+            <button id="join-button" [ngClass]="{'inbeta' : isInBeta, 'disabled' : !isLogged}" (click)="onButtonEnroll()">Rejoindre le programme</button>
+            <p *ngIf="!isLogged">Vous devez être connecté(e) pour rejoindre le programme bêta.</p>
             <p *ngIf="isInBeta">Félicitations, vous faites partie de notre programme bêta !</p>
             <p *ngIf="!isInBeta">Vous n'êtes pas encore inscrit(e) au programme bêta.</p>
         </div>

@@ -16,7 +16,7 @@ export class BetaService {
     private loadingService: LoadingServiceService
   ) {
     this.checkBeta();
-    this.isLoggedInSubscription = this.api.isLoggedIn$.subscribe({
+    this.isLoggedInSubscription = this.api.isLoggedIn.subscribe({
       next: (res: boolean) => {
         this.checkBeta();
       }
@@ -29,7 +29,6 @@ export class BetaService {
         this.isInBeta$.next(res);
       },
       error: (err) => {
-        console.log(err);
       }
     })
   }
@@ -49,7 +48,6 @@ export class BetaService {
         this.loadingService.setLoadingState(false);
       },
       error: (err) => {
-        console.log(err);
         this.loadingService.setLoadingState(false);
       }
     })
@@ -66,7 +64,6 @@ export class BetaService {
         this.loadingService.setLoadingState(false);
       },
       error: (err) => {
-        console.log(err);
         this.loadingService.setLoadingState(false);
       }
     })

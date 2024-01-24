@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef, Renderer2 } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 import { Subscription } from 'rxjs';
 import { FullscreenService } from 'src/app/services/fullscreen.service';
 import { ApiHandlerService } from 'src/app/services/api-handler.service';
@@ -14,6 +14,8 @@ import { Shop } from 'src/app/models/shop';
 import { FourProductsShopThumbnailComponent } from 'src/app/utils/thumbnails/shop-thumbnails/four-products-shop-thumbnail/four-products-shop-thumbnail.component';
 import { WatchlistService } from 'src/app/services/watchlist.service';
 import { CommentsDisplayerComponent } from 'src/app/utils/comments/comments-displayer/comments-displayer.component';
+
+import { DeviceDetectorService } from 'ngx-device-detector';
 
 @Component({
   selector: 'app-manga-view',
@@ -67,7 +69,8 @@ export class MangaViewComponent implements OnInit {
     private renderer: Renderer2,
     private router: Router,
     private loadingService: LoadingServiceService,
-    private watchlistService: WatchlistService
+    private watchlistService: WatchlistService,
+    private deviceService: DeviceDetectorService
     ) { 
       let favoriteView = this.cookieService.get('favoriteView');
       if(favoriteView == 'doublePage') this.doublePage = true;
@@ -103,6 +106,10 @@ export class MangaViewComponent implements OnInit {
   ngOnInit(): void {
     this.artworkId = Number(this.route.snapshot.paramMap.get('artworkId'));
     this.chapterId = Number(this.route.snapshot.paramMap.get('chapterId'));
+
+    if(this.deviceService.isMobile()) {
+      this.router.navigate(['/mobileview', this.artworkId!, this.chapterId!]);
+    }
 
     this.fetchPages();
     this.fetchChapter();

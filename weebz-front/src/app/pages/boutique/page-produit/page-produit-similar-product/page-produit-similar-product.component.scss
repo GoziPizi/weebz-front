@@ -6,6 +6,18 @@
     width: 100%;
 }
 
+#mobile-products {
+    display: flex; 
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    width: 100%;
+}
+
 .vignette {
-    min-width: 20%;
+    width: 20%;
+}
+
+.mobile-vignette {
+    width: 40%;
 }

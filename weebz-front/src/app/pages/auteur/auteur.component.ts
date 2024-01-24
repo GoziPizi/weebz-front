@@ -4,6 +4,7 @@ import { BehaviorSubject } from 'rxjs';
 import { Author } from 'src/app/models/author';
 import { ApiHandlerService } from 'src/app/services/api-handler.service';
 import { SocialsDisplayComponentComponent } from 'src/app/utils/socials-display-component/socials-display-component.component';
+import { DeviceDetectorService } from 'ngx-device-detector';
 
 @Component({
   selector: 'app-auteur',
@@ -23,9 +24,12 @@ export class AuteurComponent implements OnInit {
 
   followed: boolean = false;
 
+  isMobile: boolean = this.deviceService.isMobile();
+
   constructor(
     private route: ActivatedRoute,
-    private apiHandler: ApiHandlerService
+    private apiHandler: ApiHandlerService,
+    private deviceService: DeviceDetectorService
   ) { }
 
   ngOnInit(): void {

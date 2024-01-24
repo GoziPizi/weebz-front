@@ -1,5 +1,5 @@
 <div class="">
-    <div id="header" [ngStyle]="{'background-image': 'url(' + banner + ')'}">
+    <div id="header" [ngStyle]="{'background-image': 'url(' + banner + ')'}" *ngIf="!isMobile">
         <div id="profile-picture-container">
             <img id="profile-picture" [src]="authorPicture" alt="profile picture">
             <div id="profile-picture-text">
@@ -15,9 +15,22 @@
             <app-socials-display-component #socialsDisplay [socials]="author.socialNetworks"></app-socials-display-component>
         </div>
     </div>
+    <div id="mobile-header" *ngIf="isMobile">
+        <div id="mobile-picture-and-socials">
+            <img id="mobile-picture" [src]="authorPicture" alt="profile picture">
+            <p>{{author.user.surname}}</p>
+            <app-socials-display-component #socialsDisplay [socials]="author.socialNetworks" class="mobile-socials"></app-socials-display-component>
+        </div>
+        <div id="mobile-banner" [ngStyle]="{'background-image': 'url(' + banner + ')'}">
+            
+        </div>
+        <div id="mobile-bio">
+            <p>{{author.presentation}}</p>
+        </div>
+    </div>
     <div id="main-content">
-        <div class="line"></div>
-        <div id="presentation">
+        <div class="line" *ngIf="!isMobile" ></div>
+        <div id="presentation" *ngIf="!isMobile" >
             <app-author-presentation [author$]="author$"></app-author-presentation>
         </div>
         <div class="line"></div>

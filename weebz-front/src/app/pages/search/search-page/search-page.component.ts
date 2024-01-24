@@ -3,7 +3,7 @@ import { Artwork } from 'src/app/models/artwork';
 import { ApiHandlerService } from 'src/app/services/api-handler.service';
 import { LoadingServiceService } from 'src/app/services/loading-service.service';
 import { ActivatedRoute } from '@angular/router';
-import { BehaviorSubject } from 'rxjs';
+import { DeviceDetectorService } from 'ngx-device-detector';
 
 @Component({
   selector: 'app-search-page',
@@ -17,10 +17,13 @@ export class SearchPageComponent implements OnInit {
   tag: string = 'all';
   params: any;
 
+  isMobile: boolean = this.deviceService.isMobile();
+
   constructor(
     private apiHandler: ApiHandlerService,
     private loadingService: LoadingServiceService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private deviceService: DeviceDetectorService
   ) {
     //Param Subscription
     this.route.queryParams.subscribe({

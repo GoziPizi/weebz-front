@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { DeviceDetectorService } from 'ngx-device-detector';
 import { ApiHandlerService } from 'src/app/services/api-handler.service';
 import { WatchlistService } from 'src/app/services/watchlist.service';
 import { Router } from '@angular/router';
@@ -7,6 +8,7 @@ import { Artwork } from 'src/app/models/artwork';
 import { Chapter } from 'src/app/models/chapter';
 import { Shop } from 'src/app/models/shop';
 import { FourProductsShopThumbnailComponent } from 'src/app/utils/thumbnails/shop-thumbnails/four-products-shop-thumbnail/four-products-shop-thumbnail.component';
+import { Author } from 'src/app/models/author';
 
 @Component({
   selector: 'app-artwork',
@@ -19,7 +21,7 @@ export class ArtworkComponent implements OnInit {
   artwork: Artwork = new Artwork();
 
   authorId: number = 0;
-  author: any = {};
+  author: Author = new Author();
 
   chapters: Chapter[] = [];
 
@@ -28,12 +30,14 @@ export class ArtworkComponent implements OnInit {
 
   isFollowing: boolean = false;
 
+  isMobile: boolean = this.deviceService.isMobile();
 
   constructor(
     private route: ActivatedRoute,
     private api: ApiHandlerService,
     private router: Router,
-    private watchlistService: WatchlistService
+    private watchlistService: WatchlistService,
+    public deviceService: DeviceDetectorService
   ) { }
 
   ngOnInit(): void {

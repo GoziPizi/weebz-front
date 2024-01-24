@@ -1,4 +1,4 @@
-<div id="container">
+<div id="container" *ngIf="!isMobile">
     <div id="header" [ngStyle]="{'background-image': 'url(' + showedBackground + ')'}" >
         <div id="new-background-input">
             <input #newBackgroundInput type="file" style="display:none;" (change)="onFileSelectedBackground($event)">
@@ -34,6 +34,30 @@
             <app-my-account-gestion *ngIf="navigation=='compte'" [user$]="user$" class="content-component" ></app-my-account-gestion>
             <app-my-artworks-gestion *ngIf="navigation=='oeuvres'" [user$]="user$" class="content-component"></app-my-artworks-gestion>
             <app-my-shops-gestion *ngIf="navigation=='boutiques'" [user$]="user$" class="content-component"></app-my-shops-gestion>
+            <app-my-preferences-gestion *ngIf="navigation=='favoris'" [user$]="user$" class="content-component"></app-my-preferences-gestion>
+            <app-my-orders-gestion *ngIf="navigation=='commandes'" [user$]="user$" class="content-component"></app-my-orders-gestion>
         </div>
+    </div>
+</div>
+
+<div id="mobile-container" *ngIf="isMobile">
+    <div id="mobile-profile-picture-container">
+        <img id="mobile-profile-picture" src="{{showedPicture}}" (click)="triggerFileInput()">
+        <i class="fa-solid fa-plus fa-2x" (click)="triggerFileInput()"></i>
+        <input #newPictureInput type="file" style="display:none;" (change)="onFileSelected($event)">
+    </div>
+    <p>{{user.surname}}</p>
+    <div id="mobile-banner-container">
+        <img id="mobile-banner" src="{{showedBackground}}" (click)="triggerFileInputBackground()">
+        <input #newBackgroundInput type="file" style="display:none;" (change)="onFileSelectedBackground($event)">
+    </div>
+    <div id="personal-infos">
+        <h4>Informations: </h4>
+        <p>Nom : {{user.name}}</p>
+        <p>Prénom : {{user.firstName}}</p>
+        <p>Pseudo : {{user.surname}}</p>
+        <p>Mail : {{user.email}}</p>
+        <p>Date de naissance : {{user.birthDate}}</p>
+        <p>Téléphone : {{user.telephone}}</p>
     </div>
 </div>

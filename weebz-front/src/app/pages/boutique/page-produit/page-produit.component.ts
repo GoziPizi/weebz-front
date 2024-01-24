@@ -7,6 +7,7 @@ import { LoadingServiceService } from 'src/app/services/loading-service.service'
 import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
 import { MyShoppingCartComponent } from 'src/app/utils/shop/my-shopping-cart/my-shopping-cart.component';
 import { CommentsDisplayerComponent } from 'src/app/utils/comments/comments-displayer/comments-displayer.component';
+import { DeviceDetectorService } from 'ngx-device-detector';
 
 @Component({
   selector: 'app-page-produit',
@@ -27,6 +28,8 @@ export class PageProduitComponent implements OnInit {
   //main image index.
   mainImageIndex: number = 0;
 
+  isMobile: boolean = this.deviceService.isMobile();
+
   @ViewChild('cartComponent') cartComponent!: MyShoppingCartComponent;
   @ViewChild('comments') comments!: CommentsDisplayerComponent;
 
@@ -34,7 +37,8 @@ export class PageProduitComponent implements OnInit {
     private apiHandler: ApiHandlerService,
     private route: ActivatedRoute,
     public loadingService: LoadingServiceService,
-    public shoppingCartService: ShoppingCartService
+    public shoppingCartService: ShoppingCartService,
+    public deviceService: DeviceDetectorService
   ) { }
 
   ngOnInit(): void {
@@ -92,6 +96,13 @@ export class PageProduitComponent implements OnInit {
         this.loadingService.setLoadingState(false);
       }
     })
+  }
+
+  scrollToComments() {
+    const element = document.querySelector('#comments');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
   }
 
   //getters for template 
