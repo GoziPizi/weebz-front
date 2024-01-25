@@ -43,11 +43,8 @@ export class MyProfileComponent implements OnInit {
     private api_handler: ApiHandlerService,
     private loadingService: LoadingServiceService,
     private router: Router,
-<<<<<<< HEAD
-    private route: ActivatedRoute
-=======
+    private route: ActivatedRoute,
     private deviceService: DeviceDetectorService
->>>>>>> d5602bab977bc8f1faca2d5ba03ca10f7881a62e
   )
   {
     this.api_handler.fetchUserData().subscribe({
