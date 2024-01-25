@@ -32,6 +32,7 @@ import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password
 import { ModifyArtworkComponent } from './pages/modify-pages/modify-artwork/modify-artwork.component';
 import { CgvComponent } from './pages/mentions-legales/cgv/cgv.component';
 import { LiseuseMobileComponent } from './mobile/liseuse-mobile/liseuse-mobile.component';
+import { ModifyChapterComponent } from './pages/modify-pages/modify-chapter/modify-chapter.component';
 
 let routes: Routes = [
   { path: 'accueil', component: AccueilComponent },
@@ -59,6 +60,7 @@ let routes: Routes = [
   { path: 'create-artwork', component: CreateArtworkComponent},
   { path: 'create-chapter/:artworkId', component: CreateChapterComponent},
   { path: 'modify-artwork/:artworkId', component: ModifyArtworkComponent},
+  { path: 'modify-chapter/:chapterId', component: ModifyChapterComponent},
 
   //boutique
   { path: 'shop', component: AllBoutiqueComponent},

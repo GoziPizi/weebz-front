@@ -26,10 +26,10 @@
         <img src="{{authorImage}}">
         <h3>{{shopName}}</h3>
         <div id="mobile-navigation">
-            <h3 class="mobile-navigation-text" (click)="filtersValue('')">Tout</h3>
-            <h3 class="mobile-navigation-text" (click)="filtersValue('BOOK')">Livres</h3>
-            <h3 class="mobile-navigation-text" (click)="filtersValue('GOODIE')">Articles</h3>
-            <h3 class="mobile-navigation-text" (click)="filtersValue('DIGITAL')">Oeuvres Digitales</h3>
+            <h4 class="mobile-navigation-text"  [ngClass]="{'selected' : filters===''}" (click)="filtersValue('')">Tout</h4>
+            <h4 class="mobile-navigation-text" [ngClass]="{'selected' : filters==='BOOK'}" (click)="filtersValue('BOOK')">Livres</h4>
+            <h4 class="mobile-navigation-text" [ngClass]="{'selected' : filters==='GOODIE'}" (click)="filtersValue('GOODIE')">Articles</h4>
+            <h4 class="mobile-navigation-text" [ngClass]="{'selected' : filters==='DIGITAL'}" (click)="filtersValue('DIGITAL')">Oeuvres Digitales</h4>
         </div>
     </div>
     <div id="mobile-articles-display">

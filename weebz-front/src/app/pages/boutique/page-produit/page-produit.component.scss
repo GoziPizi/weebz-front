@@ -176,6 +176,7 @@ img {
 }
 
 #mobile-container {
+    padding-top: 30px;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -209,6 +210,7 @@ img {
 
 .buy-conteneur {
     margin-top: 1em;
+    margin-bottom: 1em;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -218,7 +220,7 @@ img {
 }
 
 .buy-conteneur p {
-    margin: 0;
+    margin: 0 5px;
     font-weight: bold;
     font-size: larger;
 }

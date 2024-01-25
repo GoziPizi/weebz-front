@@ -84,6 +84,7 @@ import { VerticalLiseuseComponent } from './mobile/liseuse-mobile/vertical-liseu
 import { HorizontalLiseuseComponent } from './mobile/liseuse-mobile/horizontal-liseuse/horizontal-liseuse.component';
 import { MobileShopThumbnailComponent } from './mobile/thumbnails/mobile-shop-thumbnail/mobile-shop-thumbnail.component';
 import { MobileProductVignetteComponent } from './mobile/thumbnails/mobile-product-vignette/mobile-product-vignette.component';
+import { ModifyChapterComponent } from './pages/modify-pages/modify-chapter/modify-chapter.component';
 
 
 @NgModule({
@@ -166,7 +167,8 @@ import { MobileProductVignetteComponent } from './mobile/thumbnails/mobile-produ
     VerticalLiseuseComponent,
     HorizontalLiseuseComponent,
     MobileShopThumbnailComponent,
-    MobileProductVignetteComponent
+    MobileProductVignetteComponent,
+    ModifyChapterComponent
   ],
   imports: [
     BrowserModule,

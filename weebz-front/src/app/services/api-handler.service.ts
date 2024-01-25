@@ -253,6 +253,25 @@ export class ApiHandlerService {
     return this.http.post(this.url + "api/v1/artworks/" + artworkId + "/chapters", formData, {headers: headers});
   }
 
+  patchChapter(data: any, chapterId: number): Observable<any> {
+    //FIXME
+    let headers = {
+      Authorization : this.cookieService.get('apiToken')
+    }
+    let formData = new FormData();
+    formData.append('title', data.title);
+    return this.http.patch(this.url + "api/v1/chapters/" + chapterId, formData, {headers: headers});
+  }
+
+  patchChapterCover(data: any, chapterId: number): Observable<any> {
+    let headers = {
+      Authorization : this.cookieService.get('apiToken')
+    }
+    let formData = new FormData();
+    formData.append('cover', data.cover);
+    return this.http.patch(this.url + "api/v1/chapters/" + chapterId, formData, {headers: headers});
+  }
+
   postPage(data: any, artworkId: number, chapterId: number): Observable<any> {
     let headers = {
       Authorization : this.cookieService.get('apiToken')
@@ -283,6 +302,13 @@ export class ApiHandlerService {
     formData.append('background-picture', picture);
 
     return this.http.patch(this.url + "api/v1/users/profile/background-picture", formData, {headers: headers});
+  }
+
+  deleteChapter(chapterId: number): Observable<any> {
+    let headers = {
+      Authorization : this.cookieService.get('apiToken')
+    }
+    return this.http.delete(this.url + "api/v1/chapters/" + chapterId, {headers: headers});
   }
 
   //shop
