@@ -5,7 +5,7 @@ import { ApiHandlerService } from 'src/app/services/api-handler.service';
 import { LoadingServiceService } from 'src/app/services/loading-service.service';
 
 import { Artwork } from 'src/app/models/artwork';
-
+import { Chapter } from 'src/app/models/chapter';
 
 @Component({
   selector: 'app-modify-artwork',
@@ -16,6 +16,8 @@ export class ModifyArtworkComponent {
 
   artworkId: number = 0;
   artwork: Artwork = new Artwork();
+
+  chapters: Chapter[] = [];
 
   @ViewChild('fileCoverInput') fileCoverInput!: ElementRef;
   @ViewChild('fileBackgroundInput') fileBackgroundInput!: ElementRef;
@@ -55,6 +57,10 @@ export class ModifyArtworkComponent {
       this.coverPreviewSrc = this.artwork.coverUrl;
       this.backgroundPreviewSrc = this.artwork.backgroundImageUrl;
       this.tags = this.artwork.tags;
+    });
+    this.apiHandler.getAllChaptersByArtworkId(this.artworkId).subscribe((res: any) => {
+      this.chapters = res;
+      console.log(this.chapters);
     });
   }
 
@@ -114,6 +120,10 @@ export class ModifyArtworkComponent {
     } else {
       this.tags.push(tag);
     }
+  }
+
+  modifyChapter(chapterId: number) {
+    this.router.navigate(['/modify-chapter', chapterId]);
   }
 
   onValidate() {

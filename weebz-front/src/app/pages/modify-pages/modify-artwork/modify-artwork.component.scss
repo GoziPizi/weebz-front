@@ -129,3 +129,48 @@ h3 {
         background-color: #777;
     }
 }
+
+#chapters {
+    width: 100%;
+    display: flex; 
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow: scroll;
+}
+
+.chapter-cover {
+    position: relative;
+    padding: 1em;
+    width: 20%;
+}
+
+.chapter-cover img {
+    width: 100%;
+}
+
+.cover-button-container {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    transform: translate(-50%, 50%);
+}
+
+.cover-button {
+    cursor: pointer;
+    text-align: center;
+
+    background-color: $orange;
+    padding: 0.5em;
+
+    visibility: hidden;
+
+    &:hover {
+        background-color: #b44e00;
+    }
+}
+
+.chapter-cover:hover .cover-button {
+    visibility: visible;
+}

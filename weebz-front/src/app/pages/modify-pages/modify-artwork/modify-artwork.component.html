@@ -67,4 +67,14 @@
             </div>
         </div>
     </div>
+    <div id="chapters">
+        <div class="chapter-cover" *ngFor="let chapter of chapters">
+            <img [src]="chapter.coverUrl" alt="">
+            <div class="cover-button-container">
+                <p class="cover-button" (click)="modifyChapter(chapter.id)">
+                    Modifier le chapitre
+                </p>
+            </div>
+        </div>
+    </div>
 </div>
