@@ -20,7 +20,7 @@
                 </div>
                 <div id="title-selection">
                     <p>Titre du chapitre :</p>
-                    <input type="text" class="text-input" [(ngModel)]="chapter.title" >
+                    <input type="text" class="text-input" [(ngModel)]="chapter.title" (change)="onEditTitle()" >
                 </div>
             </div>
             <h3>Couverture du chapitre :</h3>

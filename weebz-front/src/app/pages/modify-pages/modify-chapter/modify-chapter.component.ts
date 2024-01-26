@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 
 import { ApiHandlerService } from 'src/app/services/api-handler.service';
 import { Chapter } from 'src/app/models/chapter';
+import { forkJoin } from 'rxjs';
 
 @Component({
   selector: 'app-modify-chapter',
@@ -18,6 +19,7 @@ export class ModifyChapterComponent {
   chapterId: number = 0;
 
   chapter: Chapter = new Chapter();
+  isTitleEdited: boolean = false;
 
   newChapterCoverUrl: string = '';
   newChapterCover: File = new File([""], "");
@@ -63,20 +65,35 @@ export class ModifyChapterComponent {
   }
 
   onSubmit() {
-    this.submitChapter();
-    if(this.isEditingCover){
-      this.submitChapterCover();
+    let observables = [];
+    if(this.isTitleEdited) {
+      observables.push(this.apiHandler.patchChapter({title: this.chapter.title}, this.chapterId));
     }
+    if(this.isEditingCover) {
+      observables.push(this.apiHandler.patchChapterCover({cover: this.newChapterCover}, this.chapterId));
+    }
+    if(observables.length === 0) return;
+    this.loadingService.setLoadingState(true);
+    forkJoin(observables).subscribe({
+      next: (result: any) => {
+        this.loadingService.setLoadingState(false);
+        this.router.navigate(['/modify-artwork', this.chapter.artworkId]);
+      },
+      error: (error) => {
+        this.loadingService.setLoadingState(false);
+      }
+    })
   }
 
   submitChapter() {
     let data = {
       title: this.chapter.title,
     }
+    console.log(data);
     this.apiHandler.patchChapter(data, this.chapterId).subscribe({
       next: (result: any) => {
-        this.fetchChapter();
-        this.isEditingCover = false;
+        console.log(result);
+        this.chapter = result;
       },
       error: (error) => {
         console.log(error);
@@ -90,8 +107,7 @@ export class ModifyChapterComponent {
     }
     this.apiHandler.patchChapterCover(data, this.chapterId).subscribe({
       next: (result: any) => {
-        this.fetchChapter();
-        this.isEditingCover = false;
+        this.chapter = result;
       },
       error: (error) => {
         console.log(error);
@@ -133,8 +149,11 @@ export class ModifyChapterComponent {
     this.updateChapterCover();
   }
 
+  onEditTitle() {
+    this.isTitleEdited = true;
+  }
+
   get chapterCoverToShow() : string {
-    console.log(this.chapter.coverUrl)
     if(this.newChapterCoverUrl === '') {
       return this.chapter.coverUrl
     }

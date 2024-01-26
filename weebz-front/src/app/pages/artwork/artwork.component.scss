@@ -96,11 +96,38 @@
     width: 50%;
 }
 
+#mobile-title-cover {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#mobile-text-presentation {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0,0,0,0.8);
+    margin: 5px 10px;
+    padding: 10px;
+    border-radius: 10px;
+}
+
 #mobile-main-presentation {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+#mobile-main-presentation p {
+    width: 90%;
+    text-align: justify;
+    margin-top: 5px;
 }
 
 #mobile-main-presentation h4 {

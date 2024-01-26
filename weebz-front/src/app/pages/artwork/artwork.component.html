@@ -34,14 +34,19 @@
     </div>
 
     <div id="mobile-main-presentation" *ngIf="isMobile">
-        <h4>{{artwork.title}}</h4>
-        <p>{{authorName}}</p>
-        <div id="mobile-cover-container">
-            <img src="{{artworkCover}}" >
+        <div id="mobile-title-cover" [ngStyle]="{ 'background-image': 'url(' + artwork.backgroundImageUrl + ')'}">
+            <div id="mobile-cover-container">
+                <img src="{{artworkCover}}" >
+            </div>
+            <div id="mobile-text-presentation">
+                <h4>{{artwork.title}}</h4>
+                <p>{{authorName}}</p>
+                <p>{{artwork.description}}</p>
+            </div>
+            <div id="mobile-chapters-title">
+            </div>
         </div>
-        <div id="mobile-chapters-title">
-            <p>Les chapitres:</p>
-        </div>
+        <p>Les chapitres:</p>
         <div id="mobile-chapters">
             <app-chapter-thumbnail
                 class="mobile-chapter-thumbnail"
@@ -49,7 +54,6 @@
                 [chapter]="c"
                 [type]="artworkType"></app-chapter-thumbnail>
         </div>
-        <p>{{artwork.description}}</p>
         <app-mobile-shop-thumbnail *ngIf="shop" [shopId]="shop.id"></app-mobile-shop-thumbnail>
     </div>
 </div>

@@ -90,15 +90,6 @@
         <h2>Description</h2>
         <p>{{product.description}}</p>
     </div>
-    <div class="buy-conteneur">
-        <p>{{productPrice}}€</p>
-        <a (click)="onAddToCart()">
-            <div class="mobile-buy-button">
-                <h4>Acheter</h4>
-                <i class="fa-solid fa-cart-shopping fa-xl"></i>
-            </div>
-        </a>
-    </div>
     <div id="certifications">
         <h2>Garanties et Sécurité</h2>
         <div id="stripe">
@@ -109,9 +100,7 @@
         </div>
         Voir nos conditions de vente <a>ici</a>.
     </div>
-    <div id="mobile-similar-products">
-        <app-page-produit-similar-product [product$]="product$"></app-page-produit-similar-product>
-    </div>
+    <app-page-produit-similar-product id="mobile-similar-products" [product$]="product$"></app-page-produit-similar-product>
 </div>
 
 <app-my-shopping-cart #cartComponent></app-my-shopping-cart>

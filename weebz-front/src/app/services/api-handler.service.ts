@@ -254,13 +254,10 @@ export class ApiHandlerService {
   }
 
   patchChapter(data: any, chapterId: number): Observable<any> {
-    //FIXME
     let headers = {
       Authorization : this.cookieService.get('apiToken')
     }
-    let formData = new FormData();
-    formData.append('title', data.title);
-    return this.http.patch(this.url + "api/v1/chapters/" + chapterId, formData, {headers: headers});
+    return this.http.patch(this.url + "api/v1/chapters/" + chapterId + '/infos', data, {headers: headers});
   }
 
   patchChapterCover(data: any, chapterId: number): Observable<any> {
@@ -269,7 +266,7 @@ export class ApiHandlerService {
     }
     let formData = new FormData();
     formData.append('cover', data.cover);
-    return this.http.patch(this.url + "api/v1/chapters/" + chapterId, formData, {headers: headers});
+    return this.http.patch(this.url + "api/v1/chapters/" + chapterId + "/cover", formData, {headers: headers});
   }
 
   postPage(data: any, artworkId: number, chapterId: number): Observable<any> {
