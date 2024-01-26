@@ -1,7 +1,7 @@
 <app-watchlist-toast></app-watchlist-toast>
 <app-beta-header></app-beta-header>
-<app-main-header></app-main-header>
+<app-main-header *ngIf="!isMobile"></app-main-header>
+<app-mobile-header *ngIf="isMobile"></app-mobile-header>
 <router-outlet></router-outlet>
 <app-main-footer></app-main-footer>
 <app-loading-component></app-loading-component>
-<app-unavailable-on-mobile></app-unavailable-on-mobile>

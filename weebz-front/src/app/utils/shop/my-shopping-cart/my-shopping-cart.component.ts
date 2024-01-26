@@ -4,6 +4,7 @@ import { ProductWithQty } from 'src/app/models/productWithQty';
 import { LoadingServiceService } from 'src/app/services/loading-service.service';
 import { MondialRelayScriptLoadingService } from './mondial-relay-script-loading.service';
 import { NgZone } from '@angular/core';
+import { DeviceDetectorService } from 'ngx-device-detector';
 
 declare var $: any;
 
@@ -26,11 +27,14 @@ export class MyShoppingCartComponent implements OnInit {
   relayId: string = '';
   relayAdress: string = 'non sélectionné';
 
+  isMobile: boolean = this.deviceService.isMobile();
+
   constructor(
     public shoppingCartService: ShoppingCartService,
     public loadingService: LoadingServiceService,
     public scriptLoader: MondialRelayScriptLoadingService,
-    private zone: NgZone
+    private zone: NgZone,
+    public deviceService: DeviceDetectorService
   ) { }
 
   ngOnInit(): void {
@@ -85,7 +89,6 @@ export class MyShoppingCartComponent implements OnInit {
       });
     })
     .catch(error => {
-      console.error('Script loading failed', error);
       this.loadingService.setLoadingState(false);
     });
   }

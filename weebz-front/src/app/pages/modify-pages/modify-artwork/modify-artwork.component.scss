@@ -100,3 +100,81 @@ h3 {
         background-color: #333;
     }
 }
+
+#artwork-infos h2 {
+    padding: 0vh;
+    margin: 2vh 0;
+}
+
+#type-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.artwork-type-selector {
+    margin: 0;
+    font-weight: bold;
+    font-size: 2em;
+    padding: 1vh 2vh 0.5vh 2vh;
+    border-radius: 15px;
+    background-color: #333;
+
+    &:hover {
+        cursor: pointer;
+        background-color: #777;
+    }
+
+    &.selected {
+        background-color: #777;
+    }
+}
+
+#chapters {
+    width: 100%;
+    display: flex; 
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow: scroll;
+}
+
+.chapter-cover {
+    position: relative;
+    padding: 1em;
+    width: 20%;
+}
+
+.chapter-cover p {
+    text-align: center;
+}
+
+.chapter-cover img {
+    width: 100%;
+}
+
+.cover-button-container {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    transform: translate(-50%, 50%);
+}
+
+.cover-button {
+    cursor: pointer;
+    text-align: center;
+
+    background-color: $orange;
+    padding: 0.5em;
+
+    visibility: hidden;
+
+    &:hover {
+        background-color: #b44e00;
+    }
+}
+
+.chapter-cover:hover .cover-button {
+    visibility: visible;
+}

@@ -20,6 +20,7 @@ export class CreateArtworkComponent implements OnInit {
   backgroundPreviewSrc: string | ArrayBuffer | null = null;
 
   type="MANGA";
+  tags: string[] = [];
 
   title: string = "";
   description: string = "";
@@ -92,6 +93,14 @@ export class CreateArtworkComponent implements OnInit {
     this.type = type;
   }
 
+  toggleTag(tag: string) {
+    if (this.tags.includes(tag)) {
+      this.tags.splice(this.tags.indexOf(tag), 1);
+    } else {
+      this.tags.push(tag);
+    }
+  }
+
   onValidate() {
     this.loadingService.setLoadingState(true);
     let data = {
@@ -99,7 +108,8 @@ export class CreateArtworkComponent implements OnInit {
       description: this.description,
       type: this.type,
       cover: this.cover,
-      background: this.background
+      background: this.background,
+      tags: this.tags
     }
     this.apiHandler.postArtwork(data).subscribe((res:any) => {
       this.loadingService.setLoadingState(false);

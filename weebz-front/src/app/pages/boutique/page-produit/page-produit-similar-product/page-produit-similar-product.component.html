@@ -1,8 +1,15 @@
-<div class="main-container">
+<div class="main-container" *ngIf="!isMobile">
     <div id="header">
         <h3>Plus de la même boutique :</h3>
     </div>
-    <div id="products">
+    <div id="products" *ngIf="!isMobile">
         <app-product-vignette class="vignette" *ngFor="let product of shop.products" [product]="product"></app-product-vignette>
+    </div>
+</div>
+
+<div id="mobile-container" *ngIf="isMobile">
+    <h2>Plus de la même boutique: </h2>
+    <div id="mobile-products" *ngIf="isMobile">
+        <app-mobile-product-vignette class="mobile-vignette" *ngFor="let product of shop.products" [product]="product"></app-mobile-product-vignette>
     </div>
 </div>

@@ -7,5 +7,6 @@ export class Artwork {
     views: number = 0;
     authorId: number = 0 ;
     type= "MANGA";
+    tags: string[] = [];
     shopId: number|null = null;
 }

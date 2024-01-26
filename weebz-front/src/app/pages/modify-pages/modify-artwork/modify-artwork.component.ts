@@ -5,7 +5,7 @@ import { ApiHandlerService } from 'src/app/services/api-handler.service';
 import { LoadingServiceService } from 'src/app/services/loading-service.service';
 
 import { Artwork } from 'src/app/models/artwork';
-
+import { Chapter } from 'src/app/models/chapter';
 
 @Component({
   selector: 'app-modify-artwork',
@@ -16,6 +16,8 @@ export class ModifyArtworkComponent {
 
   artworkId: number = 0;
   artwork: Artwork = new Artwork();
+
+  chapters: Chapter[] = [];
 
   @ViewChild('fileCoverInput') fileCoverInput!: ElementRef;
   @ViewChild('fileBackgroundInput') fileBackgroundInput!: ElementRef;
@@ -32,6 +34,8 @@ export class ModifyArtworkComponent {
 
   title: string = "";
   description: string = "";
+
+  tags: string[] = [];
 
   constructor(
     private route: ActivatedRoute,
@@ -52,6 +56,11 @@ export class ModifyArtworkComponent {
       this.description = this.artwork.description;
       this.coverPreviewSrc = this.artwork.coverUrl;
       this.backgroundPreviewSrc = this.artwork.backgroundImageUrl;
+      this.tags = this.artwork.tags;
+    });
+    this.apiHandler.getAllChaptersByArtworkId(this.artworkId).subscribe((res: any) => {
+      this.chapters = res;
+      this.sortChapters();
     });
   }
 
@@ -105,22 +114,22 @@ export class ModifyArtworkComponent {
     }
   }
 
-  onMangaClick() {
-    this.isMangaSelected = true;
-    this.isWebtoonSelected = false;
-    this.isLightNovelSelected = false;
+  toggleTag(tag: string) {
+    if (this.tags.includes(tag)) {
+      this.tags.splice(this.tags.indexOf(tag), 1);
+    } else {
+      this.tags.push(tag);
+    }
   }
 
-  onWebtoonClick() {
-    this.isMangaSelected = false;
-    this.isWebtoonSelected = true;
-    this.isLightNovelSelected = false;
+  modifyChapter(chapterId: number) {
+    this.router.navigate(['/modify-chapter', chapterId]);
   }
 
-  onLightNovelClick() {
-    this.isMangaSelected = false;
-    this.isWebtoonSelected = false;
-    this.isLightNovelSelected = true;
+  sortChapters() {
+    this.chapters = this.chapters.sort((a, b) => {
+      return a.index - b.index;
+    });
   }
 
   onValidate() {
@@ -139,7 +148,8 @@ export class ModifyArtworkComponent {
       description: this.description,
       type: type,
       cover: this.cover,
-      background: this.background
+      background: this.background,
+      tags: this.tags
     }
     this.apiHandler.putArtwork(data, this.artworkId).subscribe((res:any) => {
       this.loadingService.setLoadingState(false);

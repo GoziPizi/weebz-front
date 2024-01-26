@@ -3,6 +3,7 @@ import { BehaviorSubject } from 'rxjs';
 import { Product } from 'src/app/models/product';
 import { Shop } from 'src/app/models/shop';
 import { ApiHandlerService } from 'src/app/services/api-handler.service';
+import { DeviceDetectorService } from 'ngx-device-detector';
 
 @Component({
   selector: 'app-page-produit-similar-product',
@@ -13,9 +14,11 @@ export class PageProduitSimilarProductComponent implements OnInit {
 
   @Input() product$: BehaviorSubject<Product> = new BehaviorSubject<Product>(new Product());
   shop: Shop = new Shop();
+  isMobile: boolean = this.deviceService.isMobile();
 
   constructor(
-    private apiHandler: ApiHandlerService
+    private apiHandler: ApiHandlerService,
+    public deviceService: DeviceDetectorService
   ) { }
 
   ngOnInit(): void {

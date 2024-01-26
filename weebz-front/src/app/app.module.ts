@@ -29,8 +29,8 @@ import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.com
 import { MyProfileComponent } from './pages/my-profile/my-profile.component';
 import { LoadingComponentComponent } from './utils/loading-component/loading-component.component';
 import { ArtworkComponent } from './pages/artwork/artwork.component';
-import { ChapterThumbnailComponent } from './utils/thumbnails/chapter-thumbnail/chapter-thumbnail.component';
 import { ArtworkThumbnailComponent } from './utils/thumbnails/artwork-thumbnail/artwork-thumbnail.component';
+import { ChapterThumbnailComponent } from './utils/thumbnails/chapter-thumbnail/chapter-thumbnail.component';
 import { WatchlistComponent } from './pages/watchlist/watchlist.component';
 import { CreateArtworkComponent } from './pages/create-artwork/create-artwork.component';
 import { CreateChapterComponent } from './pages/create-chapter/create-chapter.component';
@@ -46,7 +46,6 @@ import { AllBoutiqueComponent } from './pages/boutique/all-boutique/all-boutique
 import { RechercheBoutiqueComponent } from './pages/boutique/recherche-boutique/recherche-boutique.component';
 import { ConnectedDropdownComponent } from './main-header/connected-dropdown/connected-dropdown.component';
 import { CarouselArtworkComponent } from './pages/accueil/artwork-carousel/artwork-carousel.component';
-import { ArtworkCarouselItemComponent } from './pages/accueil/artwork-carousel/artwork-carousel-item/artwork-carousel-item.component';
 import { ProductVignetteComponent } from './pages/boutique/product-vignette/product-vignette.component';
 import { AuthorArtworksComponent } from './pages/auteur/author-artworks/author-artworks.component';
 import { ArtworkPreviewComponent } from './pages/auteur/author-artworks/artwork-preview/artwork-preview.component';
@@ -74,11 +73,19 @@ import { UnavailableOnMobileComponent } from './utils/unavailable-on-mobile/unav
 import { SocialsDisplayComponentComponent } from './utils/socials-display-component/socials-display-component.component';
 import { BetaHeaderComponent } from './utils/beta/beta-header/beta-header.component';
 import { BetaPageComponent } from './utils/beta/beta-page/beta-page.component';
+import { MobileHeaderComponent } from './mobile/header/header.component';
 import { ReinitPasswordComponent } from './pages/reinit-password/reinit-password.component';
 import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password.component';
 import { ModifyArtworkComponent } from './pages/modify-pages/modify-artwork/modify-artwork.component';
 import { MyPreferencesGestionComponent } from './pages/my-profile/my-preferences-gestion/my-preferences-gestion.component';
 import { MyOrdersGestionComponent } from './pages/my-profile/my-orders-gestion/my-orders-gestion.component';
+import { LiseuseMobileComponent } from './mobile/liseuse-mobile/liseuse-mobile.component';
+import { VerticalLiseuseComponent } from './mobile/liseuse-mobile/vertical-liseuse/vertical-liseuse.component';
+import { HorizontalLiseuseComponent } from './mobile/liseuse-mobile/horizontal-liseuse/horizontal-liseuse.component';
+import { MobileShopThumbnailComponent } from './mobile/thumbnails/mobile-shop-thumbnail/mobile-shop-thumbnail.component';
+import { MobileProductVignetteComponent } from './mobile/thumbnails/mobile-product-vignette/mobile-product-vignette.component';
+import { ModifyChapterComponent } from './pages/modify-pages/modify-chapter/modify-chapter.component';
+
 
 @NgModule({
   declarations: [
@@ -106,8 +113,8 @@ import { MyOrdersGestionComponent } from './pages/my-profile/my-orders-gestion/m
     MyProfileComponent,
     LoadingComponentComponent,
     ArtworkComponent,
-    ChapterThumbnailComponent,
     ArtworkThumbnailComponent,
+    ChapterThumbnailComponent,
     WatchlistComponent,
     CreateArtworkComponent,
     CreateChapterComponent,
@@ -123,7 +130,6 @@ import { MyOrdersGestionComponent } from './pages/my-profile/my-orders-gestion/m
     RechercheBoutiqueComponent,
     ConnectedDropdownComponent,
     CarouselArtworkComponent,
-    ArtworkCarouselItemComponent,
     ProductVignetteComponent,
     AuthorArtworksComponent,
     ArtworkPreviewComponent,
@@ -151,20 +157,27 @@ import { MyOrdersGestionComponent } from './pages/my-profile/my-orders-gestion/m
     SocialsDisplayComponentComponent,
     BetaHeaderComponent,
     BetaPageComponent,
+    MobileHeaderComponent,
     ReinitPasswordComponent,
     ForgotPasswordComponent,
     ModifyArtworkComponent,
     MyPreferencesGestionComponent,
-    MyOrdersGestionComponent
+    MyOrdersGestionComponent,
+    LiseuseMobileComponent,
+    VerticalLiseuseComponent,
+    HorizontalLiseuseComponent,
+    MobileShopThumbnailComponent,
+    MobileProductVignetteComponent,
+    ModifyChapterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [CookieService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

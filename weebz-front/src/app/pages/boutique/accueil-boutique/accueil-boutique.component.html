@@ -1,4 +1,4 @@
-<div class="container-fluid main-container" [style.background-image]="'url(' + shop.backgroundUrl + ')'">
+<div *ngIf="!isMobile" class="container-fluid main-container" [style.background-image]="'url(' + shop.backgroundUrl + ')'">
     <div id="presentation">
         <img src="{{authorImage}}">
         <div class="" id="side-presentation" >
@@ -21,4 +21,23 @@
         </div>
     </div>
 </div>
+<div *ngIf="isMobile" id="mobile-container">
+    <div id="mobile-header">
+        <img src="{{authorImage}}">
+        <h3>{{shopName}}</h3>
+        <div id="mobile-navigation">
+            <h4 class="mobile-navigation-text"  [ngClass]="{'selected' : filters===''}" (click)="filtersValue('')">Tout</h4>
+            <h4 class="mobile-navigation-text" [ngClass]="{'selected' : filters==='BOOK'}" (click)="filtersValue('BOOK')">Livres</h4>
+            <h4 class="mobile-navigation-text" [ngClass]="{'selected' : filters==='GOODIE'}" (click)="filtersValue('GOODIE')">Articles</h4>
+            <h4 class="mobile-navigation-text" [ngClass]="{'selected' : filters==='DIGITAL'}" (click)="filtersValue('DIGITAL')">Oeuvres Digitales</h4>
+        </div>
+    </div>
+    <div id="mobile-articles-display">
+        <app-mobile-product-vignette
+            *ngFor="let product of productsToDisplay"
+            [product]="product"
+            class="product-vignette"></app-mobile-product-vignette>
+    </div>
+</div>
+
 <app-my-shopping-cart></app-my-shopping-cart>

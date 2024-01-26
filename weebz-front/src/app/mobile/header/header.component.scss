@@ -1,0 +1,100 @@
+@import '../../../variables';
+
+#container {
+    background-color: $background-gray;
+    display: flex;
+}
+
+#logo {
+    padding: 3px 0;
+    margin-left: 10px;
+    height: 50px;
+}
+
+#container #utils {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-right: 10px;
+    margin-left: auto;
+}
+
+#utils i {
+    margin-right: 5px;
+    margin-left: 5px;
+    color: $orange;
+}
+
+#side-menu-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba($background-gray, 0.5);
+    z-index: 11;
+}
+
+#side-menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 60%;
+    height: 100%;
+    background-color: $background-gray;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+
+}
+
+#side-menu h2 {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+#side-menu i {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+}
+
+#nav-links {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+#nav-links a {
+    margin-top: 10px;
+    color: $gray;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+#menu-footer {
+    margin-top: auto;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+#menu-footer a {
+    margin-top: 10px;
+    color: $gray;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+#side-menu p {
+    margin-top: 10px;
+    color: $gray;
+    font-size: 1rem;
+}
+
+.line {
+    width: 100%;
+    height: 1px;
+    background-color: $orange;
+    margin-top: 20px;
+}

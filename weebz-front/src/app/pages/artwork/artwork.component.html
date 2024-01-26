@@ -1,5 +1,5 @@
 <div class="main-container">
-    <div class="main-presentation" [ngStyle]="{ 'background-image': 'url(' + artwork.backgroundImageUrl + ')'}" >
+    <div class="main-presentation" [ngStyle]="{ 'background-image': 'url(' + artwork.backgroundImageUrl + ')'}" *ngIf="!isMobile" >
         <div class="row">
             <div class="left-presentation col-4">
                 <div class="cover-container">
@@ -21,9 +21,9 @@
         </div>
     </div>
 
-    <h2 class="chapters-title">Les chapitres:</h2>
+    <h2 class="chapters-title" *ngIf="!isMobile">Les chapitres:</h2>
 
-    <div class="slider-container">
+    <div class="slider-container" *ngIf="!isMobile">
         <div class="slider-content">
             <app-chapter-thumbnail
                 *ngFor="let c of chapters"
@@ -31,5 +31,29 @@
                 [type]="artworkType"
             ></app-chapter-thumbnail>
         </div>
+    </div>
+
+    <div id="mobile-main-presentation" *ngIf="isMobile">
+        <div id="mobile-title-cover" [ngStyle]="{ 'background-image': 'url(' + artwork.backgroundImageUrl + ')'}">
+            <div id="mobile-cover-container">
+                <img src="{{artworkCover}}" >
+            </div>
+            <div id="mobile-text-presentation">
+                <h4>{{artwork.title}}</h4>
+                <p>{{authorName}}</p>
+                <p>{{artwork.description}}</p>
+            </div>
+            <div id="mobile-chapters-title">
+            </div>
+        </div>
+        <p>Les chapitres:</p>
+        <div id="mobile-chapters">
+            <app-chapter-thumbnail
+                class="mobile-chapter-thumbnail"
+                *ngFor="let c of chapters"
+                [chapter]="c"
+                [type]="artworkType"></app-chapter-thumbnail>
+        </div>
+        <app-mobile-shop-thumbnail *ngIf="shop" [shopId]="shop.id"></app-mobile-shop-thumbnail>
     </div>
 </div>
