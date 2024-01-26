@@ -85,6 +85,7 @@ export class MyShoppingCartComponent implements OnInit {
         Brand: "CC230R43",
         Country: "FR", 
         Theme: "mondialrelay",
+        Responsive: this.isMobile,
         OnParcelShopSelected: this.onParcelShopSelected.bind(this),
       });
     })

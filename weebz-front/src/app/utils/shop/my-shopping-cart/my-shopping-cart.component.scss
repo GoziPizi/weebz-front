@@ -301,11 +301,11 @@
     margin: 0;
     width: max-content;
     color: white;
-    background-color: $gray;
+    background-color: $orange;
     border-radius: 1em;
     cursor: pointer;
 
     &:hover {
-        background-color: darken($gray, 10%);
+        background-color: darken($orange, 10%);
     }
 }
