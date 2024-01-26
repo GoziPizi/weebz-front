@@ -85,6 +85,7 @@ import { HorizontalLiseuseComponent } from './mobile/liseuse-mobile/horizontal-l
 import { MobileShopThumbnailComponent } from './mobile/thumbnails/mobile-shop-thumbnail/mobile-shop-thumbnail.component';
 import { MobileProductVignetteComponent } from './mobile/thumbnails/mobile-product-vignette/mobile-product-vignette.component';
 import { ModifyChapterComponent } from './pages/modify-pages/modify-chapter/modify-chapter.component';
+import { SearchHeaderComponent } from './utils/search/search-header/search-header.component';
 
 
 @NgModule({
@@ -168,7 +169,8 @@ import { ModifyChapterComponent } from './pages/modify-pages/modify-chapter/modi
     HorizontalLiseuseComponent,
     MobileShopThumbnailComponent,
     MobileProductVignetteComponent,
-    ModifyChapterComponent
+    ModifyChapterComponent,
+    SearchHeaderComponent
   ],
   imports: [
     BrowserModule,

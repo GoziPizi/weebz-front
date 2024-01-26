@@ -422,6 +422,13 @@ export class ApiHandlerService {
     return this.http.get(this.url + "api/v1/search", {params: params});
   }
 
+  similaritySearch(searchTerm: string): Observable<any> {
+    let params = {
+      searchTerm: searchTerm
+    }
+    return this.http.get(this.url + "api/v1/search/similarity", {params: params});
+  }
+
   //beta
 
   isInBeta(): Observable<any> {

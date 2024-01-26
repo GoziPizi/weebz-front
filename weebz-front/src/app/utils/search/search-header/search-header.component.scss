@@ -1,0 +1,120 @@
+@import '../../../../variables';
+
+#container {
+    position: relative;
+}
+
+#container i {
+    color: $orange;
+    cursor: pointer;
+    position: relative;
+}
+
+#hidden-content {
+    z-index: 1000;
+    position: absolute;
+    display: none;
+    top: 95%;
+    transform: translateX(-90%);
+    width: 30em;
+    background-color: $background-gray;
+}
+
+#container:hover #hidden-content {
+    display: block;
+}
+
+#hidden-content input {
+    width: 100%;
+}
+
+#empty-search {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#empty-search p {
+    margin: 10px;
+}
+
+#waiting-search {
+    width: 100%;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.spinner {
+    border: 8px solid rgba(255, 255, 255, 0.3);   /* Couleur grise claire du cercle */
+    border-radius: 50%;                           /* Cercle parfait */
+    border-top: 8px solid #000;                   /* Couleur du secteur supérieur du cercle */
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;           /* Animation pour faire tourner le spinner */
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+#search-result {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+#search-result p {
+    margin: 10px;
+    text-align: center;    
+}
+
+.result-title {
+    padding: 10px;
+    width: 100%;
+    background-color: $background-gray;
+    border-bottom: 1px solid gray;
+}
+
+#artwork-result {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#author-result {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.result-item {
+    padding: 10px;
+    width: 100%; 
+    display: flex;
+    flex-direction: row;
+    cursor: pointer;
+}
+
+.result-item img {
+    border-radius: 20%;
+    height: 150px;
+}
+
+.result-item p {
+    margin-left: 10px;
+}
+
+.right-side-presentation {
+    padding: 5px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    overflow-y: scroll;
+    background-color: darken($background-gray, 5%);
+}
