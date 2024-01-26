@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container-fluid" *ngIf="!isMobile">
     <div class="header">
 
     </div>
@@ -69,4 +69,38 @@
         </div>
     </div>
 </div>
+
+<div id="mobile-container" *ngIf="isMobile">
+    <i class="fa-solid fa-arrow-left fa-2x" id="return-arrow" routerLink="/shop/{{shopId}}"></i>
+    <h2>{{productName}}</h2>
+    <p id="product-category">{{productCategory}}</p>
+    <div id="mobile-carousel">
+        <img [src]='product.images[0]' >
+    </div>
+    <div class="buy-conteneur">
+        <p>{{productPrice}}€</p>
+        <a (click)="onAddToCart()">
+            <div class="mobile-buy-button">
+                <h4>Acheter</h4>
+                <i class="fa-solid fa-cart-shopping fa-xl"></i>
+            </div>
+        </a>
+    </div>
+    <div id="mobile-description">
+        <h2>Description</h2>
+        <p>{{product.description}}</p>
+    </div>
+    <div id="certifications">
+        <h2>Garanties et Sécurité</h2>
+        <div id="stripe">
+            <p>Paiement assuré par : Stripe <img src="../../../../assets/stripe_logo.png"></p>
+        </div>
+        <div id="secured-transaction">
+            <img src="../../../../assets/secured-transaction.webp">
+        </div>
+        Voir nos conditions de vente <a>ici</a>.
+    </div>
+    <app-page-produit-similar-product id="mobile-similar-products" [product$]="product$"></app-page-produit-similar-product>
+</div>
+
 <app-my-shopping-cart #cartComponent></app-my-shopping-cart>

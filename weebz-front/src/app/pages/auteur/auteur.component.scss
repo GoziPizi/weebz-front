@@ -104,3 +104,49 @@
     height: 1px;
     background-color: grey;
 }
+
+#mobile-header {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+#mobile-picture-and-socials {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#mobile-picture-and-socials p {
+    margin: 0;
+    margin-left: 10px;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: white;
+    text-shadow: 2px 2px 4px #000000;
+}
+
+.mobile-socials {
+    position: absolute;
+    bottom: 1em;
+    right: 1em;
+}
+
+#mobile-picture-and-socials img {
+    border-radius: 50%;
+    width: 25%;
+}
+
+#mobile-banner {
+    width: 100%;
+    height: calc(100vw / 12);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#mobile-bio {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

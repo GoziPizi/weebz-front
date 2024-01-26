@@ -77,6 +77,7 @@ img {
     flex-direction: column;
     padding: 3em;
     min-height: min-content;
+    max-width: 70%;
 }
 
 #main-information h1 {
@@ -172,4 +173,75 @@ img {
 #comments {
     margin-top: 2em;
     width: 50%;
+}
+
+#mobile-container {
+    padding-top: 30px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    color: black;
+}
+
+#return-arrow {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+}
+
+#mobile-container h2 {
+    font-weight: bold;
+    text-align: center;
+    margin: 0;
+}
+
+#product-category {
+    text-align: center;
+    margin: 0;
+}
+
+#mobile-carousel img {
+    margin-left: 5%;
+    width: 90%;
+}
+
+.buy-conteneur {
+    margin-top: 1em;
+    margin-bottom: 1em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.buy-conteneur p {
+    margin: 0 5px;
+    font-weight: bold;
+    font-size: larger;
+}
+
+.mobile-buy-button {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 10px;
+    background-color: $orange;
+    color: white;
+    border-radius: 10px;
+}
+
+.mobile-buy-button h4 {
+    margin: 0;
+    color: white;
+}
+
+#mobile-similar-products {
+    margin-top: 2em;
+    width: 100%;
 }

@@ -116,3 +116,57 @@
     }
     
 }
+
+#mobile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#mobile-profile-picture-container {
+    width: 50%;
+    position: relative;
+}
+
+#mobile-profile-picture-container i {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+#mobile-profile-picture {
+    border-radius: 50%;
+    width: 100%;
+    margin-top: 1em;
+}
+
+#mobile-container p {
+    margin-top: 1em;
+    font-size: 1.5em;
+    text-align: center;
+    font-weight: bold;
+}
+
+#mobile-banner-container {
+    width: 100%;
+    height: calc(100vw / 12);
+    overflow: hidden;
+}
+
+#mobile-banner {
+    width: 100%;
+}
+
+#personal-infos {
+    margin: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: $background-gray;
+    width: 90%;
+}
+
+#personal-infos p {
+    text-align: left; 
+    font-size: small;
+    font-weight: 100;
+}

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Shop } from 'src/app/models/shop';
 import { ApiHandlerService } from 'src/app/services/api-handler.service';
+import { DeviceDetectorService } from 'ngx-device-detector';
 
 @Component({
   selector: 'app-all-boutique',
@@ -11,8 +12,11 @@ export class AllBoutiqueComponent implements OnInit {
 
   shops: Shop[] = [];
 
+  isMobile: boolean = this.deviceService.isMobile();
+
   constructor(
-    private apiHandler: ApiHandlerService
+    private apiHandler: ApiHandlerService,
+    public deviceService: DeviceDetectorService
   ) { }
 
   ngOnInit(): void {

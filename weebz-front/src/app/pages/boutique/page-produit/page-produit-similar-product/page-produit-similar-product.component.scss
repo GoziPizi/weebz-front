@@ -1,3 +1,16 @@
+.main-container {
+    width: 100%;
+}
+
+.vignette {
+    width: 20%;
+}
+
+#mobile-container {
+    width: 100%;
+    box-sizing: border-box;
+}
+
 #products {
     display: flex;
     flex-wrap: nowrap;
@@ -6,7 +19,15 @@
     width: 100%;
 }
 
-.vignette {
-    width: 20%;
+#mobile-products {
+    display: flex; 
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    width: 100%;
+}
 
+.mobile-vignette {
+    flex-shrink: 0;
+    width: 40%;
 }

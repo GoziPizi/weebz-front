@@ -48,6 +48,10 @@ img {
     align-items: center;
 }
 
+#join-info p {
+    margin-top: 10px;
+}
+
 .inbeta {
     background-color: $green !important;
 
@@ -61,5 +65,35 @@ img {
 
     &:hover {
         background-color: darken(red, 10%) !important;
+    }
+}
+
+//for phones 
+
+@media only screen and (max-width: 600px) {
+    #container {
+        margin: 10px 5%;
+        padding: 10px;
+        padding-top: 20px;
+    }
+
+    #container h1 {
+        font-size: 1.5em;
+    }
+
+    #intro p {
+        margin: 10px;
+    }
+
+    #programme-beta {
+        padding: 10px;
+    }
+
+    img {
+        width: 50%;
+    }
+
+    #join-info p {
+        margin-top: 10px;
     }
 }

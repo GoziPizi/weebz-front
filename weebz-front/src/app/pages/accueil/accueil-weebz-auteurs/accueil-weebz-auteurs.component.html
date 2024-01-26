@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container-fluid" *ngIf="!isMobile">
     <div class="carousel-title texte-souligne">
         <h2>Nos Auteurs</h2>
     </div>
@@ -7,5 +7,16 @@
             *ngFor="let author of authorsList"
             [author]="author"
             class="author-container"></app-author-thumbnail>
+    </div>
+</div>
+<div id="mobile-container" *ngIf="isMobile">
+    <div id="mobile-title">
+        <h2>Nos Auteurs</h2>
+    </div>
+    <div id="mobile-authors-container">
+        <app-author-thumbnail
+            *ngFor="let author of authorsList"
+            [author]="author"
+            class="mobile-author-container"></app-author-thumbnail>
     </div>
 </div>

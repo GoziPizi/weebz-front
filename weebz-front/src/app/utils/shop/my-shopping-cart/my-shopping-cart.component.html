@@ -1,5 +1,5 @@
 <div id="cart-open-button" *ngIf="!isCartOpen" (click)="openCart()">
-    <p>Mon panier</p>
+    <p *ngIf="!isMobile" >Mon panier</p>
     <i class="fa-solid fa-cart-shopping fa-xl"></i>
 </div>
 

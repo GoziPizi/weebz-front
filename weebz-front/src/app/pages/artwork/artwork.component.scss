@@ -8,7 +8,6 @@
 }
 
 .author-name-container {
-    // center the author name
     display: flex;
     justify-content: center;
     align-items: center;
@@ -96,3 +95,71 @@
 #comments {
     width: 50%;
 }
+
+#mobile-title-cover {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#mobile-text-presentation {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0,0,0,0.8);
+    margin: 5px 10px;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+#mobile-main-presentation {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#mobile-main-presentation p {
+    width: 90%;
+    text-align: justify;
+    margin-top: 5px;
+}
+
+#mobile-main-presentation h4 {
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+#mobile-cover-container {
+    padding: 10px;
+    width: 60%;
+}
+
+#mobile-cover-container img {
+    border-radius: 10px;
+    width: 100%;
+}
+
+#mobile-chapters-title {
+    width: 80%;
+    text-align: left;
+}
+
+#mobile-chapters {
+    width:100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+}
+
+.mobile-chapter-thumbnail {
+    flex-shrink: 0;
+    width: 50%;
+}
+

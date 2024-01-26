@@ -1,4 +1,4 @@
-<div id="container">
+<div id="container" *ngIf="!isMobile">
     <div id="header">
         <h1>Boutique</h1>
         <p>Retrouvez ici les boutiques de nos auteurs !</p>
@@ -10,5 +10,18 @@
         *ngFor="let shop of shops" 
         [shop]="shop"
         class="shop-thumbnail"></app-four-products-shop-thumbnail>
+</div>
+<div id="mobile-container" *ngIf="isMobile">
+    <div id="mobile-header">
+        <h1>Boutique</h1>
+        <p>Retrouvez ici les boutiques de nos auteurs !</p>
+        <div id="mobile-navigation">
+            <app-mobile-shop-thumbnail 
+                *ngFor="let shop of shops" 
+                [shopId]="shop.id"
+                class="shop-thumbnail"></app-mobile-shop-thumbnail>
+        </div>
+    </div>
+    
 </div>
 <app-my-shopping-cart></app-my-shopping-cart>

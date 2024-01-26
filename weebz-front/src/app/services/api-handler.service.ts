@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { delay, tap } from 'rxjs/operators';
+import { tap } from 'rxjs/operators';
 import { CookieService } from 'ngx-cookie-service';
 import { BehaviorSubject } from 'rxjs';
 import { LoadingServiceService } from './loading-service.service';
@@ -224,6 +224,7 @@ export class ApiHandlerService {
     formData.append('type', data.type);
     formData.append('cover', data.cover);
     formData.append('background', data.background);
+    formData.append('tags', JSON.stringify(data.tags));
     return this.http.post(this.url + "api/v1/artworks", formData, {headers: headers});
   }
 
@@ -237,6 +238,7 @@ export class ApiHandlerService {
     formData.append('type', data.type);
     formData.append('cover', data.cover);
     formData.append('background', data.background);
+    formData.append('tags', JSON.stringify(data.tags));
     return this.http.put(this.url + "api/v1/artworks/" + artworkId, formData, {headers: headers});
   }
 
@@ -249,6 +251,22 @@ export class ApiHandlerService {
     formData.append('cover', data.cover);
     formData.append('index', data.index);
     return this.http.post(this.url + "api/v1/artworks/" + artworkId + "/chapters", formData, {headers: headers});
+  }
+
+  patchChapter(data: any, chapterId: number): Observable<any> {
+    let headers = {
+      Authorization : this.cookieService.get('apiToken')
+    }
+    return this.http.patch(this.url + "api/v1/chapters/" + chapterId + '/title', data, {headers: headers});
+  }
+
+  patchChapterCover(data: any, chapterId: number): Observable<any> {
+    let headers = {
+      Authorization : this.cookieService.get('apiToken')
+    }
+    let formData = new FormData();
+    formData.append('cover', data.cover);
+    return this.http.patch(this.url + "api/v1/chapters/" + chapterId + "/cover", formData, {headers: headers});
   }
 
   postPage(data: any, artworkId: number, chapterId: number): Observable<any> {
@@ -281,6 +299,13 @@ export class ApiHandlerService {
     formData.append('background-picture', picture);
 
     return this.http.patch(this.url + "api/v1/users/profile/background-picture", formData, {headers: headers});
+  }
+
+  deleteChapter(chapterId: number): Observable<any> {
+    let headers = {
+      Authorization : this.cookieService.get('apiToken')
+    }
+    return this.http.delete(this.url + "api/v1/chapters/" + chapterId, {headers: headers});
   }
 
   //shop

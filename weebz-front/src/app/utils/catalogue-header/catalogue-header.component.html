@@ -1,4 +1,4 @@
-<div [ngClass]="getDynamicStyles()" id="catalogue-header">
+<div [ngClass]="getDynamicStyles()" class="catalogue-header" *ngIf="!isMobile">
     <div class="row" id="type-selector">
         <div class="button-container col-2 offset-3 d-flex justify-content-center align-items-center"
             [ngClass]="{selected: categorie === 'manga'}">
@@ -20,5 +20,24 @@
         <div class="tag-button" (click)="updateTag('romance')">Romance</div>
         <div class="tag-button" (click)="updateTag('drame')">Drame</div>
         <div class="tag-button" (click)="updateTag('action')">Comédie</div>
+    </div>
+</div>
+<div class="catalogue-header mobile-catalogue-header" [ngClass]="getDynamicStyles()" *ngIf="isMobile">
+    <p>Type</p>
+    <div id="mobile-type-selector">
+        <button (click)="updateCategorie('manga')">Manga</button>
+        <button (click)="updateCategorie('webtoon')">Webtoon</button>
+        <button (click)="updateCategorie('lightnovel')">Light-novel</button>
+        <i class="fas fa-chevron-down" (click)="toggleMobileMenu()" *ngIf="!isMobileMenuOpen"></i>
+        <i class="fas fa-chevron-up" (click)="toggleMobileMenu()" *ngIf="isMobileMenuOpen"></i>
+    </div>
+    <p *ngIf="isMobileMenuOpen">Tags</p>
+    <div *ngIf="isMobileMenuOpen" id="mobile-tag-selector">
+        <button (click)="updateTag('all')">Tous</button>
+        <button (click)="updateTag('action')">Action</button>
+        <button (click)="updateTag('fiction')">Fiction</button>
+        <button (click)="updateTag('romance')">Romance</button>
+        <button (click)="updateTag('drame')">Drame</button>
+        <button (click)="updateTag('action')">Comédie</button>
     </div>
 </div>
