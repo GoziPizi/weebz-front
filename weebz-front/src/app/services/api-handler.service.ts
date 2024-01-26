@@ -257,7 +257,7 @@ export class ApiHandlerService {
     let headers = {
       Authorization : this.cookieService.get('apiToken')
     }
-    return this.http.patch(this.url + "api/v1/chapters/" + chapterId + '/infos', data, {headers: headers});
+    return this.http.patch(this.url + "api/v1/chapters/" + chapterId + '/title', data, {headers: headers});
   }
 
   patchChapterCover(data: any, chapterId: number): Observable<any> {

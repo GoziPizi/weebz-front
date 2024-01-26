@@ -46,7 +46,6 @@ export class ModifyChapterComponent {
         this.chapter = result;
       },
       error: (error) => {
-        console.log(error);
       }
     })
   }
@@ -59,7 +58,6 @@ export class ModifyChapterComponent {
         this.router.navigate(['/artwork', this.chapter.artworkId]);
       },
       error: (error) => {
-        console.log(error);
       }
     })
   }
@@ -89,14 +87,11 @@ export class ModifyChapterComponent {
     let data = {
       title: this.chapter.title,
     }
-    console.log(data);
     this.apiHandler.patchChapter(data, this.chapterId).subscribe({
       next: (result: any) => {
-        console.log(result);
         this.chapter = result;
       },
       error: (error) => {
-        console.log(error);
       }
     })
   }
@@ -110,7 +105,6 @@ export class ModifyChapterComponent {
         this.chapter = result;
       },
       error: (error) => {
-        console.log(error);
       }
     })
   }

@@ -89,7 +89,6 @@ export class MyShoppingCartComponent implements OnInit {
       });
     })
     .catch(error => {
-      console.error('Script loading failed', error);
       this.loadingService.setLoadingState(false);
     });
   }

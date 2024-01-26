@@ -278,6 +278,11 @@ export class LiseuseMobileComponent {
     });
   }
 
+  toggleComments() {
+    this.commentsShown = !this.commentsShown;
+    this.comments.fetchComments();
+  }
+
   //getters for the template
 
   get title(): string {

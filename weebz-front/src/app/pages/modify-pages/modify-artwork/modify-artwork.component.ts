@@ -60,7 +60,7 @@ export class ModifyArtworkComponent {
     });
     this.apiHandler.getAllChaptersByArtworkId(this.artworkId).subscribe((res: any) => {
       this.chapters = res;
-      console.log(this.chapters);
+      this.sortChapters();
     });
   }
 
@@ -124,6 +124,12 @@ export class ModifyArtworkComponent {
 
   modifyChapter(chapterId: number) {
     this.router.navigate(['/modify-chapter', chapterId]);
+  }
+
+  sortChapters() {
+    this.chapters = this.chapters.sort((a, b) => {
+      return a.index - b.index;
+    });
   }
 
   onValidate() {

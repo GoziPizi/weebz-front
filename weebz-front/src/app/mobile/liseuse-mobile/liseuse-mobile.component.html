@@ -10,25 +10,26 @@
     </div>
     <h2>Chapitre terminé</h2>
     <app-mobile-shop-thumbnail #shopComponent [shopId]="shopId" *ngIf="shop" id="mobile-shop-thumbnail" ></app-mobile-shop-thumbnail>
-    <app-next-chapters-for-view 
-        #nextChapters 
-        [artworkId]="artworkId" 
-        [chapterIndex]="chapter.index" 
-        [authorId]="author.id"
-        *ngIf="nextChaptersShown"></app-next-chapters-for-view>
+</div>
+<div id="comments">
+    <p (click)="toggleComments()" *ngIf="!commentsShown">Voir les commentaires</p>
+    <p (click)="toggleComments()" *ngIf="commentsShown">Cacher les commentaires</p>
     <app-comments-displayer 
         #comments 
         [commentableId]="chapter.id" 
         [commentableType]="'chapter'"
         *ngIf="commentsShown"></app-comments-displayer>
 </div>
+<div id="next-chapter">
+    <p>Prochain chapitre</p>
+    <i class="fa-solid fa-chevron-down fa-2x" *ngIf="!hasToNavigate"></i>
+    <i class="fa-solid fa-chevron-down fa-3x" *ngIf="hasToNavigate"></i>
+</div>
 <div 
     id="bottom-page" 
     #bottomPage 
     (touchstart)="touchStart($event)"
     (touchend)="touchEnd($event)">
-    <i class="fa-solid fa-chevron-down fa-2x" *ngIf="!hasToNavigate"></i>
-    <i class="fa-solid fa-chevron-down fa-3x" *ngIf="hasToNavigate"></i>
     <div id="spinner-container">
         <div class="spinner-next-chapter" [ngStyle]="{'opacity':spinnerVisibility}" ></div>
     </div>
