@@ -34,7 +34,6 @@ import { ChapterThumbnailComponent } from './utils/thumbnails/chapter-thumbnail/
 import { WatchlistComponent } from './pages/watchlist/watchlist.component';
 import { AccueilWeebzNewsComponent } from './pages/accueil/accueil-weebz-news/accueil-weebz-news.component';
 import { AccueilWeebzAuteursComponent } from './pages/accueil/accueil-weebz-auteurs/accueil-weebz-auteurs.component';
-import { CguComponent } from './pages/mentions-legales/cgu/cgu.component';
 import { AccueilBoutiqueComponent } from './pages/boutique/accueil-boutique/accueil-boutique.component';
 import { PageProduitComponent } from './pages/boutique/page-produit/page-produit.component';
 import { MonPanierComponent } from './pages/boutique/mon-panier/mon-panier.component';
@@ -112,7 +111,6 @@ import { MobileProductVignetteComponent } from './mobile/thumbnails/mobile-produ
     WatchlistComponent,
     AccueilWeebzNewsComponent,
     AccueilWeebzAuteursComponent,
-    CguComponent,
     AccueilBoutiqueComponent,
     PageProduitComponent,
     MonPanierComponent,
