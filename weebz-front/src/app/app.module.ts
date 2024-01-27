@@ -8,8 +8,6 @@ import { AppComponent } from './app.component';
 import { MainHeaderComponent } from './main-header/main-header.component';
 import { MainFooterComponent } from './main-footer/main-footer.component';
 import { AccueilComponent } from './pages/accueil/accueil.component';
-import { BlogComponent } from './pages/blog/blog.component';
-import { CatalogueComponent } from './pages/catalogue/catalogue.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { ContactFormComponent } from './pages/contact/contact-form/contact-form.component';
 import { MangaViewComponent } from './pages/manga-view/manga-view.component';
@@ -18,9 +16,6 @@ import { CarouselAccueilNewsComponent } from './utils/carousel/carousel-accueil-
 import { CarouselNewsItemComponent } from './utils/carousel/carousel-accueil-news/carousel-news-item/carousel-news-item.component';
 import { AuteurComponent } from './pages/auteur/auteur.component';
 import { CatalogueHeaderComponent } from './utils/catalogue-header/catalogue-header.component';
-import { CatalogueContentComponent } from './pages/catalogue/catalogue-content/catalogue-content.component';
-import { CatalogueRowComponent } from './pages/catalogue/catalogue-content/catalogue-row/catalogue-row.component';
-import { CatalogueItemComponent } from './pages/catalogue/catalogue-content/catalogue-item/catalogue-item.component';
 import { MangaDoubleLiseuseComponent } from './pages/manga-view/manga-double-liseuse/manga-double-liseuse.component';
 import { ConnexionComponent } from './pages/connexion/connexion.component';
 import { InscriptionComponent } from './pages/inscription/inscription.component';
@@ -86,8 +81,6 @@ import { MobileProductVignetteComponent } from './mobile/thumbnails/mobile-produ
     MainHeaderComponent,
     MainFooterComponent,
     AccueilComponent,
-    BlogComponent,
-    CatalogueComponent,
     ContactComponent,
     ContactFormComponent,
     MangaViewComponent,
@@ -96,9 +89,6 @@ import { MobileProductVignetteComponent } from './mobile/thumbnails/mobile-produ
     CarouselNewsItemComponent,
     AuteurComponent,
     CatalogueHeaderComponent,
-    CatalogueContentComponent,
-    CatalogueRowComponent,
-    CatalogueItemComponent,
     MangaDoubleLiseuseComponent,
     ConnexionComponent,
     InscriptionComponent,
