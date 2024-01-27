@@ -43,18 +43,9 @@ export class SearchHeaderComponent {
   }
 
   handleSearchResult(res: any) {
-    console.log(res);
     this.waitingForSearchResult = false;
     this.searchResultArtworks = res.artworks.slice(0, 2);
     this.searchResultAuthors = res.authors.slice(0, 2);
-  }
-
-  navigateToAuthor(authorId: number) {
-    this.router.navigate(['/author', authorId]);
-  }
-
-  navigateToArtwork(artworkId: number) {
-    this.router.navigate(['/artwork', artworkId]);
   }
 
 }
