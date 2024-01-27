@@ -40,8 +40,4 @@ export class MainHeaderComponent implements OnInit {
     this.loggedIn = false;
   }
 
-  onNavigate(category: string) {
-    this.router.navigate(['/search'], { queryParams: { type: category } });
-  }
-
 }

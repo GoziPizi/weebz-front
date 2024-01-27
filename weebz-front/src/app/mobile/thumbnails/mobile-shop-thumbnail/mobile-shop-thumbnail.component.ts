@@ -31,10 +31,6 @@ export class MobileShopThumbnailComponent {
     });
   }
 
-  navigateToShop() {
-    this.router.navigate([`/shop/${this.shopId}`]);
-  }
-
   get shopName() {
     return this.shop.name ? this.shop.name : 'Nom du shop';
   }

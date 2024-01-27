@@ -18,10 +18,6 @@ export class AuthorThumbnailComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  navigateToAuthor() {
-    this.router.navigate(['/author', this.author.id]);
-  }
-
 
   //getters for the template
   get name(): string {

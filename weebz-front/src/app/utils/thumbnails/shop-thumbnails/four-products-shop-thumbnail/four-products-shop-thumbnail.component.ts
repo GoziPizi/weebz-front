@@ -30,10 +30,6 @@ export class FourProductsShopThumbnailComponent implements OnInit {
     })
   }
 
-  navigateToShop() {
-    this.router.navigate([`/shop/${this.shop.id}`]);
-  }
-
   //template getters
   get backgroundUrl() {
     if(this.shop.backgroundUrl){

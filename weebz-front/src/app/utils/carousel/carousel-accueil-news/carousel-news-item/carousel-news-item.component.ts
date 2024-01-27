@@ -22,8 +22,4 @@ export class CarouselNewsItemComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
-  navigate(){
-    this.router.navigate([this.route]);
-  }
 }

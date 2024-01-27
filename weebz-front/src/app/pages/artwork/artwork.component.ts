@@ -108,10 +108,6 @@ export class ArtworkComponent implements OnInit {
     this.isFollowing = !this.isFollowing;
   }
 
-  navigateToAuthor() {
-    this.router.navigate(['/author', this.authorId]);
-  }
-
   //getter for the template
   get authorName() {
     if(Object.keys(this.author).length === 0) {
