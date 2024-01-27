@@ -47,18 +47,13 @@ export class CarouselArtworkComponent implements OnInit {
     });
   }
 
-  navigateToMoreContent() {
-    let finalCategory = this.category;
-    if(this.category === 'MANGA'){
-      finalCategory = 'manga';
-    }
+  get categoryTitle() {
     if(this.category === 'COMIC'){
-      finalCategory = 'webtoon';
+      return 'webtoon';
     }
     if(this.category === 'NOVEL'){
-      finalCategory = 'lightnovel';
+      return 'lightnovel';
     }
-    this.router.navigate(['/search'], { queryParams: { type: finalCategory } });
+    return 'manga';
   }
-
 }
