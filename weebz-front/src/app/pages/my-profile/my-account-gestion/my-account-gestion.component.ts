@@ -63,13 +63,13 @@ export class MyAccountGestionComponent implements OnInit {
       if (network.includes('instagram')) {
         this.instaUrl = network;
       }
-      if (network.includes('xvideos')) {
+      if (network.includes('x.com')) {
         this.xUrl = network;
       }
       if (network.includes('tiktok')) {
         this.tiktokUrl = network;
       }
-      if (network.includes('twitter')) {
+      if (network.includes('threads')) {
         this.threadsUrl = network;
       }
     });
