@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { Title, Meta } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 import { Author } from 'src/app/models/author';
@@ -29,12 +30,16 @@ export class AuteurComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private apiHandler: ApiHandlerService,
-    private deviceService: DeviceDetectorService
+    private deviceService: DeviceDetectorService,
+    private titleService: Title,
+    private metaService: Meta
   ) { }
 
   ngOnInit(): void {
     this.authorId = Number(this.route.snapshot.paramMap.get('authorId'));
     this.fetchAuthorData();
+
+    this.metaService.updateTag({name: "description", content: "Retrouve tes auteurs indépendants préférés sur WeebZ !"});
   }
 
   fetchAuthorData() {
@@ -44,6 +49,8 @@ export class AuteurComponent implements OnInit {
         this.author = data;
         this.socialsDisplay.updateSocials(this.author.socialNetworks);
         this.author$.next(data);
+        this.titleService.setTitle("WeebZ - " + this.author.user.surname);
+        this.metaService.updateTag({name: "keywords", content: this.author.user.surname + "manga, webtoon, lightnovel, lecture, gratuit, papier, boutique, goodies, achat, vente, partage, communauté, fan, "});
       }
     }
     )

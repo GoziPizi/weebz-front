@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title, Meta } from '@angular/platform-browser';
 import { Product } from 'src/app/models/product';
 import { Shop } from 'src/app/models/shop';
 import { ApiHandlerService } from 'src/app/services/api-handler.service';
@@ -26,7 +27,9 @@ export class AccueilBoutiqueComponent implements OnInit {
     private apiHandler: ApiHandlerService,
     private loadingService: LoadingServiceService,
     private route: ActivatedRoute,
-    public deviceService: DeviceDetectorService
+    public deviceService: DeviceDetectorService,
+    private titleService: Title,
+    private metaService: Meta
   ) { }
 
   ngOnInit(): void {
@@ -42,6 +45,7 @@ export class AccueilBoutiqueComponent implements OnInit {
       next: (res: Shop) => {
         this.shop = res;
         this.fetchAuthorData();
+        this.setMetaData();
       },
       complete: () => {
         this.loadingService.setLoadingState(false);
@@ -58,6 +62,12 @@ export class AccueilBoutiqueComponent implements OnInit {
         this.loadingService.setLoadingState(false);
       }
     })
+  }
+
+  setMetaData() {
+    this.titleService.setTitle("WeebZ - " + this.shop.name);
+    this.metaService.updateTag({name: "description", content: this.shop.description});
+    this.metaService.updateTag({name: "keywords", content: "manga, webtoon, lightnovel, lecture, gratuit, papier, boutique, goodies, achat, vente, partage, communauté, fan, "});
   }
 
   //template getters

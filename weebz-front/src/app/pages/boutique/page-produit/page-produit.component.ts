@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { Title, Meta } from '@angular/platform-browser';
 import { Product } from 'src/app/models/product';
 import { ApiHandlerService } from 'src/app/services/api-handler.service';
 import { ActivatedRoute } from '@angular/router';
@@ -38,7 +39,9 @@ export class PageProduitComponent implements OnInit {
     private route: ActivatedRoute,
     public loadingService: LoadingServiceService,
     public shoppingCartService: ShoppingCartService,
-    public deviceService: DeviceDetectorService
+    public deviceService: DeviceDetectorService,
+    private titleService: Title,
+    private metaService: Meta
   ) { }
 
   ngOnInit(): void {
@@ -59,8 +62,15 @@ export class PageProduitComponent implements OnInit {
         if(this.product.images.length <= 1) this.isCarouselDisplayed = false;
         else this.isCarouselDisplayed = true;
         this.product$.next(res);
+        this.setMetaData();
       }
     )
+  }
+
+  setMetaData() {
+    this.titleService.setTitle("WeebZ - " + this.product.name);
+    this.metaService.updateTag({name: "description", content: this.product.description});
+    this.metaService.updateTag({name: "keywords", content: "manga, webtoon, lightnovel, lecture, gratuit, papier, boutique, goodies, achat, vente, partage, communauté, fan, "});
   }
 
   //functions of the template
