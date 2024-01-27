@@ -14,7 +14,7 @@
     </div>
 </div>
 
-<div id="mobile-container">
+<div id="mobile-container" *ngIf="isMobile" >
     <h2>Watchlist</h2>
     <div *ngIf="!logged" class="not-logged">
         <h2>Tu n'es pas connecté !</h2>
