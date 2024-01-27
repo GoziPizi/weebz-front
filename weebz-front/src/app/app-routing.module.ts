@@ -12,8 +12,6 @@ import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.com
 import { MyProfileComponent } from './pages/my-profile/my-profile.component';
 import { ArtworkComponent } from './pages/artwork/artwork.component';
 import { WatchlistComponent } from './pages/watchlist/watchlist.component';
-import { CreateArtworkComponent } from './pages/create-artwork/create-artwork.component';
-import { CreateChapterComponent } from './pages/create-chapter/create-chapter.component';
 import { CguComponent } from './pages/mentions-legales/cgu/cgu.component';
 import { PageProduitComponent } from './pages/boutique/page-produit/page-produit.component';
 import { AccueilBoutiqueComponent } from './pages/boutique/accueil-boutique/accueil-boutique.component';
@@ -29,10 +27,8 @@ import { CrisePapierPageComponent } from './utils/carousel/crise-papier-page/cri
 import { PslpPageComponent } from './utils/carousel/pslp-page/pslp-page.component';
 import { ReinitPasswordComponent } from './pages/reinit-password/reinit-password.component';
 import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password.component';
-import { ModifyArtworkComponent } from './pages/modify-pages/modify-artwork/modify-artwork.component';
 import { CgvComponent } from './pages/mentions-legales/cgv/cgv.component';
 import { LiseuseMobileComponent } from './mobile/liseuse-mobile/liseuse-mobile.component';
-import { ModifyChapterComponent } from './pages/modify-pages/modify-chapter/modify-chapter.component';
 
 let routes: Routes = [
   { path: 'accueil', component: AccueilComponent },
@@ -57,10 +53,11 @@ let routes: Routes = [
   { path: 'pslp', component: PslpPageComponent},
 
   //upload
-  { path: 'create-artwork', component: CreateArtworkComponent},
-  { path: 'create-chapter/:artworkId', component: CreateChapterComponent},
-  { path: 'modify-artwork/:artworkId', component: ModifyArtworkComponent},
-  { path: 'modify-chapter/:chapterId', component: ModifyChapterComponent},
+  //{ path: 'create-artwork', component: CreateArtworkComponent},
+  { path: 'upload', loadChildren: () => import('./modules/upload/upload.module').then(m => m.UploadModule)},
+  // { path: 'create-chapter/:artworkId', component: CreateChapterComponent},
+  // { path: 'modify-artwork/:artworkId', component: ModifyArtworkComponent},
+  // { path: 'modify-chapter/:chapterId', component: ModifyChapterComponent},
 
   //boutique
   { path: 'shop', component: AllBoutiqueComponent},

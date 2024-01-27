@@ -114,7 +114,7 @@ export class CreateArtworkComponent implements OnInit {
     this.apiHandler.postArtwork(data).subscribe((res:any) => {
       this.loadingService.setLoadingState(false);
       const id = res.id;
-      this.router.navigate(['/create-chapter/' + id]);
+      this.router.navigate(['upload/create-chapter/' + id]);
     });
   }
 }

@@ -75,7 +75,7 @@ export class ModifyChapterComponent {
     forkJoin(observables).subscribe({
       next: (result: any) => {
         this.loadingService.setLoadingState(false);
-        this.router.navigate(['/modify-artwork', this.chapter.artworkId]);
+        this.router.navigate(['upload/modify-artwork', this.chapter.artworkId]);
       },
       error: (error) => {
         this.loadingService.setLoadingState(false);

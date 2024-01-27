@@ -123,7 +123,7 @@ export class ModifyArtworkComponent {
   }
 
   modifyChapter(chapterId: number) {
-    this.router.navigate(['/modify-chapter', chapterId]);
+    this.router.navigate(['upload/modify-chapter', chapterId]);
   }
 
   sortChapters() {

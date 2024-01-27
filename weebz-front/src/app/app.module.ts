@@ -32,10 +32,6 @@ import { ArtworkComponent } from './pages/artwork/artwork.component';
 import { ArtworkThumbnailComponent } from './utils/thumbnails/artwork-thumbnail/artwork-thumbnail.component';
 import { ChapterThumbnailComponent } from './utils/thumbnails/chapter-thumbnail/chapter-thumbnail.component';
 import { WatchlistComponent } from './pages/watchlist/watchlist.component';
-import { CreateArtworkComponent } from './pages/create-artwork/create-artwork.component';
-import { CreateChapterComponent } from './pages/create-chapter/create-chapter.component';
-import { UploadPagesComponent } from './pages/create-chapter/upload-pages/upload-pages.component';
-import { UploadedPageComponent } from './pages/create-chapter/uploaded-page/uploaded-page.component';
 import { AccueilWeebzNewsComponent } from './pages/accueil/accueil-weebz-news/accueil-weebz-news.component';
 import { AccueilWeebzAuteursComponent } from './pages/accueil/accueil-weebz-auteurs/accueil-weebz-auteurs.component';
 import { CguComponent } from './pages/mentions-legales/cgu/cgu.component';
@@ -76,7 +72,6 @@ import { BetaPageComponent } from './utils/beta/beta-page/beta-page.component';
 import { MobileHeaderComponent } from './mobile/header/header.component';
 import { ReinitPasswordComponent } from './pages/reinit-password/reinit-password.component';
 import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password.component';
-import { ModifyArtworkComponent } from './pages/modify-pages/modify-artwork/modify-artwork.component';
 import { MyPreferencesGestionComponent } from './pages/my-profile/my-preferences-gestion/my-preferences-gestion.component';
 import { MyOrdersGestionComponent } from './pages/my-profile/my-orders-gestion/my-orders-gestion.component';
 import { LiseuseMobileComponent } from './mobile/liseuse-mobile/liseuse-mobile.component';
@@ -84,7 +79,6 @@ import { VerticalLiseuseComponent } from './mobile/liseuse-mobile/vertical-liseu
 import { HorizontalLiseuseComponent } from './mobile/liseuse-mobile/horizontal-liseuse/horizontal-liseuse.component';
 import { MobileShopThumbnailComponent } from './mobile/thumbnails/mobile-shop-thumbnail/mobile-shop-thumbnail.component';
 import { MobileProductVignetteComponent } from './mobile/thumbnails/mobile-product-vignette/mobile-product-vignette.component';
-import { ModifyChapterComponent } from './pages/modify-pages/modify-chapter/modify-chapter.component';
 
 
 @NgModule({
@@ -116,10 +110,6 @@ import { ModifyChapterComponent } from './pages/modify-pages/modify-chapter/modi
     ArtworkThumbnailComponent,
     ChapterThumbnailComponent,
     WatchlistComponent,
-    CreateArtworkComponent,
-    CreateChapterComponent,
-    UploadPagesComponent,
-    UploadedPageComponent,
     AccueilWeebzNewsComponent,
     AccueilWeebzAuteursComponent,
     CguComponent,
@@ -160,7 +150,6 @@ import { ModifyChapterComponent } from './pages/modify-pages/modify-chapter/modi
     MobileHeaderComponent,
     ReinitPasswordComponent,
     ForgotPasswordComponent,
-    ModifyArtworkComponent,
     MyPreferencesGestionComponent,
     MyOrdersGestionComponent,
     LiseuseMobileComponent,
@@ -168,7 +157,6 @@ import { ModifyChapterComponent } from './pages/modify-pages/modify-chapter/modi
     HorizontalLiseuseComponent,
     MobileShopThumbnailComponent,
     MobileProductVignetteComponent,
-    ModifyChapterComponent
   ],
   imports: [
     BrowserModule,
