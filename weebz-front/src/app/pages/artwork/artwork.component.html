@@ -6,7 +6,7 @@
                     <img class="cover" src="{{artworkCover}}">
                 </div>
                 <div class="author-name-container">
-                    <h2>Par <a class="author-name" (click)="navigateToAuthor()">{{authorName}}</a></h2>
+                    <h2>Par <a class="author-name" [routerLink]="['/author', author.id]">{{authorName}}</a></h2>
                 </div>
             </div>
             <div class="right-presentation col-7">
@@ -40,7 +40,7 @@
             </div>
             <div id="mobile-text-presentation">
                 <h4>{{artwork.title}}</h4>
-                <p>{{authorName}}</p>
+                <a [routerLink]="['/author', author.id]" >{{authorName}}</a>
                 <p>{{artwork.description}}</p>
             </div>
             <div id="mobile-chapters-title">

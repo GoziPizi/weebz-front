@@ -323,14 +323,6 @@ export class MangaViewComponent implements OnInit {
     comments?.scrollIntoView({behavior: "smooth"});
   }
 
-  navigateToShop() {
-    this.router.navigate(['/shop', this.shopData?.id]);
-  }
-
-  navigateAuthor() {
-    this.router.navigate(['/author', this.author.id]);
-  }
-
   //template getters
   get chapterIndex() {
     return this.chapter.index;

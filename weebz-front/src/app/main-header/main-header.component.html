@@ -16,13 +16,13 @@
               <span routerLink="search" class="text-button">Catalogue</span>
               <div class="dropdown-content">
                 <div class="dropdown-item">
-                  <a (click)="onNavigate('manga')">Manga</a>
+                  <a [routerLink]="['/search']" [queryParams]="{type: 'manga'}">Manga</a>
                 </div>
                 <div class="dropdown-item">
-                  <a (click)="onNavigate('webtoon')">Webtoon</a>
+                  <a [routerLink]="['/search']" [queryParams]="{type: 'webtoon'}">Webtoon</a>
                 </div>
                 <div class="dropdown-item">
-                  <a (click)="onNavigate('lightnovel')">Light Novel</a>
+                  <a [routerLink]="['/search']" [queryParams]="{type: 'lightnovel'}">Light Novel</a>
                 </div>
                 
               </div>
@@ -42,7 +42,7 @@
   
       <div class="row ml-auto right-side-container align-items-center">
         <div class="col-3 publish-container">
-          <button routerLink="/create-artwork" class="publish-button">Publier</button>
+          <button routerLink="/upload/create-artwork" class="publish-button">Publier</button>
         </div>
         <div class="icons-container d-flex align-items-center">
           <div class="col-3 search-container">

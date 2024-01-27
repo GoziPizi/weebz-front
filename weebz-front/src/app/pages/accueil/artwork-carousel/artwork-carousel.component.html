@@ -24,7 +24,7 @@
             [artwork]="item"
             class="mobile-artwork-thumbnail"></app-artwork-thumbnail>
         <div id="see-more">
-            <div id="see-more-content" (click)="navigateToMoreContent()">
+            <div id="see-more-content" [routerLink]="['/search']" [queryParams]="{type: categoryTitle}">
                 <i class="fa-solid fa-chevron-right fa-2x"></i>
                 <p>Voir plus</p>
             </div>

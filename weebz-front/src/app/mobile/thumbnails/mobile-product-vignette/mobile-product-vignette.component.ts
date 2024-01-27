@@ -15,10 +15,6 @@ export class MobileProductVignetteComponent {
 
   @Input() product: Product = new Product();
 
-  navigateToProduct() {
-    this.router.navigate([`/product/${this.product.id}`]);
-  }
-
   get name() {
     return this.product.name ? this.product.name : 'Nom du produit';
   }

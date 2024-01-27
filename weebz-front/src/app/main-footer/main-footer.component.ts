@@ -19,8 +19,4 @@ export class MainFooterComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onNavigate(category: string) {
-    this.router.navigate(['/search'], { queryParams: { type: category } });
-  }
-
 }

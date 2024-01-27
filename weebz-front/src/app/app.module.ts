@@ -8,8 +8,6 @@ import { AppComponent } from './app.component';
 import { MainHeaderComponent } from './main-header/main-header.component';
 import { MainFooterComponent } from './main-footer/main-footer.component';
 import { AccueilComponent } from './pages/accueil/accueil.component';
-import { BlogComponent } from './pages/blog/blog.component';
-import { CatalogueComponent } from './pages/catalogue/catalogue.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { ContactFormComponent } from './pages/contact/contact-form/contact-form.component';
 import { MangaViewComponent } from './pages/manga-view/manga-view.component';
@@ -18,9 +16,6 @@ import { CarouselAccueilNewsComponent } from './utils/carousel/carousel-accueil-
 import { CarouselNewsItemComponent } from './utils/carousel/carousel-accueil-news/carousel-news-item/carousel-news-item.component';
 import { AuteurComponent } from './pages/auteur/auteur.component';
 import { CatalogueHeaderComponent } from './utils/catalogue-header/catalogue-header.component';
-import { CatalogueContentComponent } from './pages/catalogue/catalogue-content/catalogue-content.component';
-import { CatalogueRowComponent } from './pages/catalogue/catalogue-content/catalogue-row/catalogue-row.component';
-import { CatalogueItemComponent } from './pages/catalogue/catalogue-content/catalogue-item/catalogue-item.component';
 import { MangaDoubleLiseuseComponent } from './pages/manga-view/manga-double-liseuse/manga-double-liseuse.component';
 import { ConnexionComponent } from './pages/connexion/connexion.component';
 import { InscriptionComponent } from './pages/inscription/inscription.component';
@@ -32,13 +27,8 @@ import { ArtworkComponent } from './pages/artwork/artwork.component';
 import { ArtworkThumbnailComponent } from './utils/thumbnails/artwork-thumbnail/artwork-thumbnail.component';
 import { ChapterThumbnailComponent } from './utils/thumbnails/chapter-thumbnail/chapter-thumbnail.component';
 import { WatchlistComponent } from './pages/watchlist/watchlist.component';
-import { CreateArtworkComponent } from './pages/create-artwork/create-artwork.component';
-import { CreateChapterComponent } from './pages/create-chapter/create-chapter.component';
-import { UploadPagesComponent } from './pages/create-chapter/upload-pages/upload-pages.component';
-import { UploadedPageComponent } from './pages/create-chapter/uploaded-page/uploaded-page.component';
 import { AccueilWeebzNewsComponent } from './pages/accueil/accueil-weebz-news/accueil-weebz-news.component';
 import { AccueilWeebzAuteursComponent } from './pages/accueil/accueil-weebz-auteurs/accueil-weebz-auteurs.component';
-import { CguComponent } from './pages/mentions-legales/cgu/cgu.component';
 import { AccueilBoutiqueComponent } from './pages/boutique/accueil-boutique/accueil-boutique.component';
 import { PageProduitComponent } from './pages/boutique/page-produit/page-produit.component';
 import { MonPanierComponent } from './pages/boutique/mon-panier/mon-panier.component';
@@ -76,7 +66,6 @@ import { BetaPageComponent } from './utils/beta/beta-page/beta-page.component';
 import { MobileHeaderComponent } from './mobile/header/header.component';
 import { ReinitPasswordComponent } from './pages/reinit-password/reinit-password.component';
 import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password.component';
-import { ModifyArtworkComponent } from './pages/modify-pages/modify-artwork/modify-artwork.component';
 import { MyPreferencesGestionComponent } from './pages/my-profile/my-preferences-gestion/my-preferences-gestion.component';
 import { MyOrdersGestionComponent } from './pages/my-profile/my-orders-gestion/my-orders-gestion.component';
 import { LiseuseMobileComponent } from './mobile/liseuse-mobile/liseuse-mobile.component';
@@ -84,7 +73,6 @@ import { VerticalLiseuseComponent } from './mobile/liseuse-mobile/vertical-liseu
 import { HorizontalLiseuseComponent } from './mobile/liseuse-mobile/horizontal-liseuse/horizontal-liseuse.component';
 import { MobileShopThumbnailComponent } from './mobile/thumbnails/mobile-shop-thumbnail/mobile-shop-thumbnail.component';
 import { MobileProductVignetteComponent } from './mobile/thumbnails/mobile-product-vignette/mobile-product-vignette.component';
-import { ModifyChapterComponent } from './pages/modify-pages/modify-chapter/modify-chapter.component';
 
 
 @NgModule({
@@ -93,8 +81,6 @@ import { ModifyChapterComponent } from './pages/modify-pages/modify-chapter/modi
     MainHeaderComponent,
     MainFooterComponent,
     AccueilComponent,
-    BlogComponent,
-    CatalogueComponent,
     ContactComponent,
     ContactFormComponent,
     MangaViewComponent,
@@ -103,9 +89,6 @@ import { ModifyChapterComponent } from './pages/modify-pages/modify-chapter/modi
     CarouselNewsItemComponent,
     AuteurComponent,
     CatalogueHeaderComponent,
-    CatalogueContentComponent,
-    CatalogueRowComponent,
-    CatalogueItemComponent,
     MangaDoubleLiseuseComponent,
     ConnexionComponent,
     InscriptionComponent,
@@ -116,13 +99,8 @@ import { ModifyChapterComponent } from './pages/modify-pages/modify-chapter/modi
     ArtworkThumbnailComponent,
     ChapterThumbnailComponent,
     WatchlistComponent,
-    CreateArtworkComponent,
-    CreateChapterComponent,
-    UploadPagesComponent,
-    UploadedPageComponent,
     AccueilWeebzNewsComponent,
     AccueilWeebzAuteursComponent,
-    CguComponent,
     AccueilBoutiqueComponent,
     PageProduitComponent,
     MonPanierComponent,
@@ -160,7 +138,6 @@ import { ModifyChapterComponent } from './pages/modify-pages/modify-chapter/modi
     MobileHeaderComponent,
     ReinitPasswordComponent,
     ForgotPasswordComponent,
-    ModifyArtworkComponent,
     MyPreferencesGestionComponent,
     MyOrdersGestionComponent,
     LiseuseMobileComponent,
@@ -168,7 +145,6 @@ import { ModifyChapterComponent } from './pages/modify-pages/modify-chapter/modi
     HorizontalLiseuseComponent,
     MobileShopThumbnailComponent,
     MobileProductVignetteComponent,
-    ModifyChapterComponent
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { Title, Meta } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { DeviceDetectorService } from 'ngx-device-detector';
 import { ApiHandlerService } from 'src/app/services/api-handler.service';
@@ -37,7 +38,9 @@ export class ArtworkComponent implements OnInit {
     private api: ApiHandlerService,
     private router: Router,
     private watchlistService: WatchlistService,
-    public deviceService: DeviceDetectorService
+    public deviceService: DeviceDetectorService,
+    private titleService: Title,
+    private metaService: Meta
   ) { }
 
   ngOnInit(): void {
@@ -61,12 +64,19 @@ export class ArtworkComponent implements OnInit {
       this.artwork = res;
       this.authorId = res.authorId;
       this.fetchAuthorData();
+      this.setMetaData();
     },
     (err: any) => this.noIdGiven()
     );
     this.api.getAllChapters(this.artWorkId).subscribe((res: any) => {
       this.onChaptersReceived(res);
     });
+  }
+
+  setMetaData() {
+    this.titleService.setTitle("WeebZ - " + this.artwork.title);
+    this.metaService.updateTag({name: "description", content: this.artwork.description});
+    this.metaService.updateTag({name: "keywords", content: this.artwork.tags.join(", ") + ", " + this.artwork.type + ", " + this.artwork.title + "manga, webtoon, lightnovel, lecture, gratuit, papier, boutique, goodies, achat, vente, partage, communauté, fan, "});
   }
 
   onChaptersReceived(res: any) {
@@ -96,10 +106,6 @@ export class ArtworkComponent implements OnInit {
       this.watchlistService.addArtwork(this.artWorkId);
     }
     this.isFollowing = !this.isFollowing;
-  }
-
-  navigateToAuthor() {
-    this.router.navigate(['/author', this.authorId]);
   }
 
   //getter for the template

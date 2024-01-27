@@ -42,8 +42,4 @@ export class AuthorArtworksComponent implements OnInit {
     })
   }
 
-  navigateToArtwork(id: number) {
-    this.router.navigate(['artwork', id]);
-  }
-
 }
