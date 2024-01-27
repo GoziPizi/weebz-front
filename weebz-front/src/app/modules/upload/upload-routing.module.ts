@@ -1,9 +1,9 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
-import { CreateArtworkComponent } from "src/app/pages/create-artwork/create-artwork.component";
-import { CreateChapterComponent } from "src/app/pages/create-chapter/create-chapter.component";
-import { ModifyArtworkComponent } from "src/app/pages/modify-pages/modify-artwork/modify-artwork.component";
-import { ModifyChapterComponent } from "src/app/pages/modify-pages/modify-chapter/modify-chapter.component";
+import { CreateArtworkComponent } from "src/app/modules/upload/create-artwork/create-artwork.component";
+import { CreateChapterComponent } from "src/app/modules/upload/create-chapter/create-chapter.component";
+import { ModifyArtworkComponent } from "src/app/modules/upload/modify-pages/modify-artwork/modify-artwork.component";
+import { ModifyChapterComponent } from "src/app/modules/upload/modify-pages/modify-chapter/modify-chapter.component";
 
 let routes: Routes = [
   { path: 'create-artwork', component: CreateArtworkComponent},

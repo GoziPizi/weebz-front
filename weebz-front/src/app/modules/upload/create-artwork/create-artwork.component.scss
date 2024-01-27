@@ -44,6 +44,15 @@
     padding-bottom: 2em;
 }
 
+// #cover-input-container {
+//     height: calc(100% * 9 / 16);
+// }
+
+// #cover-drop-zone {
+//     height: calc(100% * 9 / 16);
+
+// }
+
 .cover-preview {
     width: 100%;
     height: 100%;
@@ -71,37 +80,12 @@ h3 {
     padding: 2vh;
 }
 
-#artwork-infos h3 {
+#artwork-infos h2 {
     padding: 0vh;
     margin: 2vh 0;
 }
 
-.text-input {
-    color: white;
-    background-color: transparent;
-    border: 1px solid #ccc;
-    border-radius: 28px;
-    width: 100%;
-    padding: 1vh;
-}
-
-#validate-button {
-    background-color: #444;
-    border: 2px solid #ccc;
-    border-radius: 15px;
-    padding: 1vh 2vh 0.5vh 2vh;
-    width: max-content;
-    margin-top: 2vh;
-    margin-left: auto;
-
-    &:hover {
-        cursor: pointer;
-        border: 2px solid #aaa;
-        background-color: #333;
-    }
-}
-
-#artwork-infos h2 {
+#artwork-infos h3 {
     padding: 0vh;
     margin: 2vh 0;
 }
@@ -130,51 +114,57 @@ h3 {
     }
 }
 
-#chapters {
+.text-input {
+    color: white;
+    background-color: transparent;
+    border: 1px solid #ccc;
+    border-radius: 28px;
     width: 100%;
-    display: flex; 
-    flex-direction: row;
-    flex-wrap: nowrap;
-    overflow: scroll;
+    padding: 1vh;
 }
 
-.chapter-cover {
-    position: relative;
-    padding: 1em;
-    width: 20%;
-}
-
-.chapter-cover p {
-    text-align: center;
-}
-
-.chapter-cover img {
-    width: 100%;
-}
-
-.cover-button-container {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    bottom: 50%;
-    left: 50%;
-    transform: translate(-50%, 50%);
-}
-
-.cover-button {
-    cursor: pointer;
-    text-align: center;
-
-    background-color: $orange;
-    padding: 0.5em;
-
-    visibility: hidden;
+#validate-button {
+    background-color: #444;
+    border: 2px solid #ccc;
+    border-radius: 15px;
+    padding: 1vh 2vh 0.5vh 2vh;
+    width: max-content;
+    margin-top: 2vh;
+    margin-left: auto;
 
     &:hover {
-        background-color: #b44e00;
+        cursor: pointer;
+        border: 2px solid #aaa;
+        background-color: #333;
     }
 }
 
-.chapter-cover:hover .cover-button {
-    visibility: visible;
+.weebz-link {
+    color: $orange;
+    text-decoration: none;
+    cursor: pointer;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+#not-connected {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+}
+
+#not-connected-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #333;
+    border-radius: 15px;
+    padding: 2vh;
+    text-align: center;
 }
