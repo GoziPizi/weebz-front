@@ -1,5 +1,9 @@
 @import '../../../../variables';
 
+a {
+    color: white;
+}
+
 .carousel-item {
     display: block;
     background-color: transparent;
@@ -26,6 +30,7 @@ img {
 }
 
 .fav-icon {
+    z-index: 2;
     position: absolute;
     top: 0;
     right: 0;
@@ -94,6 +99,9 @@ img {
     margin:0;
     padding:0;
 }
+.mobile-carousel-item {
+    color: white;
+}
 
 #views i {
     margin:0;
@@ -131,11 +139,12 @@ img {
     visibility: hidden;
 }
 
-#mobile-image-container {
+.mobile-carousel-item {
     position: relative;
 }
 
-#mobile-image-container i {
+.mobile-carousel-item i {
+    z-index: 2;
     position: absolute;
     color: $gray;
     top: 10px;

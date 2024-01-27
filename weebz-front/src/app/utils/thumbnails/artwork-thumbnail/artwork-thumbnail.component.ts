@@ -46,10 +46,6 @@ export class ArtworkThumbnailComponent implements OnInit {
     })
   }
 
-  navigate(){
-    this.router.navigate(['/artwork/'+this.artwork.id])
-  }
-
   onFav(event: any){
     if(!this.faved){
       this.watchlistService.addArtwork(this.artwork.id);
