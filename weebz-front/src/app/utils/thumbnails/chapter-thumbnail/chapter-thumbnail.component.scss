@@ -13,8 +13,14 @@
     }
 }
 
-.chapter-number {
+a {
+    text-decoration: none;
+}
+
+a p {
+    margin: 0em; 
     text-align: center;
+    color: white;
 }
 
 :host {
