@@ -1,0 +1,25 @@
+#carousel {
+    width: 100%;
+    overflow: hidden; /* pour éviter le débordement horizontal */
+}
+
+#carousel h2 {
+    text-align: center;
+}
+
+.swiper-container {
+    padding-left: 10%; /* ajustez en fonction de la taille de l'aperçu souhaitée */
+    padding-right: 10%; /* ajustez en fonction de la taille de l'aperçu souhaitée */
+}
+
+.swiper-slide {
+    width: 80%; /* ajustez en fonction de la taille de l'aperçu souhaitée */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.swiper-slide img {
+    width: 100%;
+    display: block; /* pour éliminer tout espace blanc sous l'image */
+}
