@@ -73,6 +73,7 @@ import { VerticalLiseuseComponent } from './mobile/liseuse-mobile/vertical-liseu
 import { HorizontalLiseuseComponent } from './mobile/liseuse-mobile/horizontal-liseuse/horizontal-liseuse.component';
 import { MobileShopThumbnailComponent } from './mobile/thumbnails/mobile-shop-thumbnail/mobile-shop-thumbnail.component';
 import { MobileProductVignetteComponent } from './mobile/thumbnails/mobile-product-vignette/mobile-product-vignette.component';
+import { CarouselAccueilComponent } from './mobile/carousel-accueil/carousel-accueil.component';
 
 
 @NgModule({
@@ -152,6 +153,7 @@ import { MobileProductVignetteComponent } from './mobile/thumbnails/mobile-produ
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    CarouselAccueilComponent
   ],
   providers: [CookieService],
   bootstrap: [AppComponent],
