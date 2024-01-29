@@ -134,15 +134,7 @@ export class ModifyArtworkComponent {
 
   onValidate() {
     this.loadingService.setLoadingState(true);
-    let type = "";
-    if(this.isLightNovelSelected){
-      type = "NOVEL";
-    }
-    else if(this.isWebtoonSelected){
-      type = "COMIC";
-    }
-    else if(this.isMangaSelected){
-      type = "MANGA";
+    const type = this.artwork.type;
     let data = {
       title: this.title,
       description: this.description,
@@ -156,6 +148,5 @@ export class ModifyArtworkComponent {
       this.router.navigate(['/my-profile']);
     });
   }
-  }
-
 }
+

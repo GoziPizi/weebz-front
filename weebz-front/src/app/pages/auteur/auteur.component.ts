@@ -73,8 +73,8 @@ export class AuteurComponent implements OnInit {
   }
 
   get authorPicture() {
-    if (this.author.user.id == 0) {
-      return "";
+    if (this.author.user.id == 0 || this.author.user.pictureUrl == "" || this.author.user.pictureUrl == null) {
+      return '../../assets/default_images/default_profile_picture.png';
     }
     return this.author.user.pictureUrl;
   }
