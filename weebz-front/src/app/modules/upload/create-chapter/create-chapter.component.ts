@@ -15,6 +15,7 @@ export class CreateChapterComponent implements OnInit {
 
   @ViewChild('pagesUploadComponent') pagesUploadComponent!: UploadPagesComponent;
   @ViewChild('chapterCoverInput') chapterCoverInput!: any;
+  @ViewChild('chapterTitleInput') chapterTitleInput!: any;
   //Artwork data
   artworkId: number = 0;
   title: string = "";
@@ -91,8 +92,12 @@ export class CreateChapterComponent implements OnInit {
 
   onSubmit() {
     this.loadingService.setLoadingState(true);
+    let chapterTitle = this.chapterTitleInput.nativeElement.value;
+    if(chapterTitle == "") {
+      chapterTitle = "Chapter " + (this.chaptersNumber+1);
+    }
     let chapter = {
-      title: this.title,
+      title: chapterTitle,
       cover: this.chapterCover,
       index: this.chaptersNumber+1
     }

@@ -1,12 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { CommonModule } from "@angular/common";
+import { Component, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
 
 @Component({
-  selector: 'app-carousel-accueil-news',
-  templateUrl: './carousel-accueil-news.component.html',
-  styleUrls: ['./carousel-accueil-news.component.scss']
+  selector: 'app-mobile-carousel-accueil',
+  standalone: true,
+  templateUrl: './carousel-accueil.component.html',
+  styleUrls: ['./carousel-accueil.component.scss'],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  imports: [CommonModule]
 })
-export class CarouselAccueilNewsComponent implements OnInit {
-
+export class CarouselAccueilComponent {
   carouselItems = [
     { image: '../../../assets/fixtures/accueil/news/ephjos-game.png', text: 'Pain sur la Planche x Weebz', route: '/ephjos-game' },
     { image: '../../../assets/fixtures/accueil/news/burn-paper.png', text: 'Crise du papier', route: '/crise-du-papier' },
@@ -14,20 +17,4 @@ export class CarouselAccueilNewsComponent implements OnInit {
     { image: '../../../assets/fixtures/accueil/news/weebz.png', text: 'Weebz arrive', route: '/weebz-arrive' },
     { image: '../../../assets/fixtures/accueil/news/ink.png', text: 'Ink House x Weebz', route: '/ink-house' },
   ];
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
-  onLeftArrowClick() {
-    let old_left = this.carouselItems.shift();
-      if(old_left != undefined) this.carouselItems.push(old_left);
-  }
-
-  onRightArrowClick() {
-    let old_right = this.carouselItems.pop();
-      if(old_right != undefined) this.carouselItems.unshift(old_right);
-  }
-
 }

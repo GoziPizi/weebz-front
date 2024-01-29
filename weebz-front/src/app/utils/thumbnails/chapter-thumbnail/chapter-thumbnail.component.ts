@@ -18,8 +18,4 @@ export class ChapterThumbnailComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
-  navigate() {
-      this.router.navigate(["/mangaview", this.chapter.artworkId, this.chapter.id]);
-    }
 }

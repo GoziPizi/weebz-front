@@ -45,7 +45,7 @@ export class UploadPagesComponent implements OnInit {
 
   onDrop(event : any) {
     event.preventDefault();
-    const files: FileList = event.dataTransfer.files;
+    const files: File[] = event.dataTransfer.files;
     for (let i = 0; i < files.length; i++) {
       this.imageSubscription(files, i);
     }
@@ -53,25 +53,39 @@ export class UploadPagesComponent implements OnInit {
 
   onFileSelected(event: any) {
     const files: FileList = event.target.files;
-    for (let i = 0; i < files.length; i++) {
-      this.imageSubscription(files, i);
+    const orderedFiles = this.orderInputFiles(files);
+    for (let i = 0; i < orderedFiles.length; i++) {
+      this.imageSubscription(orderedFiles, i);
     }
+    this.sortPages();
+  }
+
+  orderInputFiles(files: FileList) {
+    // Convert FileList to array
+    const fileArray = Array.from(files);
+    // Sort the array based on the name property
+    return fileArray.sort((a: File, b: File) => { 
+      if (a.name < b.name) return -1;
+      if (a.name > b.name) return 1;
+      return 0; 
+    });
   }
 
   triggerFileInput() {
     this.fileInput.nativeElement.click();
   }
 
-  imageSubscription(files: FileList, i: number) {
+  imageSubscription(files: File[], i: number) {
     let reader = new FileReader();
     reader.readAsDataURL(files[i]);
     reader.onload = () => {
       const page:Page = {
         image: files[i],
         imageSrc: reader.result as string,
-        index: this.pages.length + 1 //Index en comptage naturel
+        index: this.extractLastNumber(files[i].name)
       }
       this.pages.push(page)
+      this.sortPages();
     }
   }
 
@@ -87,6 +101,17 @@ export class UploadPagesComponent implements OnInit {
   getPageList() {
     this.pages.sort((a: Page, b: Page) => a.index - b.index);
     return this.pages;
+  }
+
+  extractLastNumber(str: string): number {
+    const regex = /\d+/g;  // Le "g" à la fin permet de chercher globalement dans toute la chaîne
+    const found = str.match(regex);
+  
+    if (found && found.length > 0) {
+      // Prendre le dernier élément trouvé
+      return parseInt(found[found.length - 1]);
+    }
+    return 0;
   }
 
 }

@@ -24,6 +24,7 @@ import { PslpPageComponent } from './utils/carousel/pslp-page/pslp-page.componen
 import { ReinitPasswordComponent } from './pages/reinit-password/reinit-password.component';
 import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password.component';
 import { LiseuseMobileComponent } from './mobile/liseuse-mobile/liseuse-mobile.component';
+import { EphjosGameComponent } from './utils/carousel/ephjos-game/ephjos-game.component';
 
 let routes: Routes = [
   { path: 'accueil', component: AccueilComponent },
@@ -44,6 +45,7 @@ let routes: Routes = [
   { path: 'ink-house', component: InkCollabPageComponent},
   { path: 'crise-du-papier', component: CrisePapierPageComponent},
   { path: 'pslp', component: PslpPageComponent},
+  { path: 'ephjos-game', component: EphjosGameComponent},
 
   //upload
   { path: 'upload', loadChildren: () => import('./modules/upload/upload.module').then(m => m.UploadModule)},

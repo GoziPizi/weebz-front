@@ -24,6 +24,7 @@
     "ngx-cookie-service": "^17.0.1",
     "ngx-device-detector": "^7.0.0",
     "rxjs": "~7.5.0",
+    "swiper": "^11.0.5",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.2"
   },
