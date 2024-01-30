@@ -37,7 +37,7 @@ let routes: Routes = [
   //utils
   { path: 'beta-enroll', loadComponent: () => import('./utils/beta/beta-page/beta-page.component').then(m => m.BetaPageComponent)},
   { path: 'tuto-upload', loadComponent: () => import('./pages/utils/how-to-upload-page/how-to-upload-page.component').then(m => m.HowToUploadPageComponent)},
-  { path: 'mentions-legales', loadComponent: () => import('./modules/mentions-legales/mentions-legales.module').then(m => m.MentionsLegalesModule)},
+  { path: 'mentions-legales', loadChildren: () => import('./modules/mentions-legales/mentions-legales.module').then(m => m.MentionsLegalesModule)},
   { path: 'not-found', component: PageNotFoundComponent},
   { path: '', redirectTo: '/accueil', pathMatch: 'full' },
   { path: '**', redirectTo: '/not-found'},
