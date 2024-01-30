@@ -5,11 +5,15 @@ import { LoadingServiceService } from 'src/app/services/loading-service.service'
 import { MondialRelayScriptLoadingService } from './mondial-relay-script-loading.service';
 import { NgZone } from '@angular/core';
 import { DeviceDetectorService } from 'ngx-device-detector';
+import { CommonModule } from '@angular/common';
+import { ShoppingCartItemComponent } from './shopping-cart-item/shopping-cart-item.component';
 
 declare var $: any;
 
 @Component({
   selector: 'app-my-shopping-cart',
+  standalone: true,
+  imports: [CommonModule, ShoppingCartItemComponent],
   templateUrl: './my-shopping-cart.component.html',
   styleUrls: ['./my-shopping-cart.component.scss']
 })
@@ -85,6 +89,7 @@ export class MyShoppingCartComponent implements OnInit {
         Brand: "CC230R43",
         Country: "FR", 
         Theme: "mondialrelay",
+        Responsive: this.isMobile,
         OnParcelShopSelected: this.onParcelShopSelected.bind(this),
       });
     })

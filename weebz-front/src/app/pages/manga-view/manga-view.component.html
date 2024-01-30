@@ -2,7 +2,7 @@
 
     <div id="header">
         <h2># {{chapterIndex}} - {{artwork.title}}</h2>
-        <h5 (click)="navigateAuthor()" >{{authorName}}</h5>
+        <a [routerLink]="['/author', author.id]"><h5>{{authorName}}</h5></a>
     </div>
 
     <div id="command-and-view-manga" *ngIf="artwork.type != 'COMIC'">
@@ -42,7 +42,7 @@
         <i class="fa-regular fa-comment-dots fa-xl" (click)="onScrollComments()"></i>
         <i class="fa-regular fa-bookmark fa-xl" *ngIf="!isFollowed" (click)="onFollow()"></i>
         <i class="fa-solid fa-bookmark fa-xl" *ngIf="isFollowed" (click)="onUnfollow()"></i>
-        <i class="fa-solid fa-shop fa-xl" *ngIf="shopData" (click)="navigateToShop()"></i>
+        <a [routerLink]="['/shop', shopData?.id]"><i class="fa-solid fa-shop fa-xl" *ngIf="shopData"></i></a>
     </div>
 </div>
 <div id="sub-content">

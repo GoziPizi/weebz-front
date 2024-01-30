@@ -1,9 +1,12 @@
+import { CommonModule } from '@angular/common';
 import { Component, OnInit, Input, ElementRef, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { BehaviorSubject, max } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-manga-liseuse',
+  standalone: true,
+  imports: [CommonModule],
   templateUrl: './manga-liseuse.component.html',
   styleUrls: ['./manga-liseuse.component.scss']
 })

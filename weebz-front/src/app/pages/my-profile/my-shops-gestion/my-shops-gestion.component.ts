@@ -4,6 +4,7 @@ import { User } from 'src/app/models/user';
 
 @Component({
   selector: 'app-my-shops-gestion',
+  standalone: true,
   templateUrl: './my-shops-gestion.component.html',
   styleUrls: ['./my-shops-gestion.component.scss']
 })

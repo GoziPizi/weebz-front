@@ -1,12 +1,16 @@
 import { Component, OnInit, Input, ElementRef, Renderer2 } from '@angular/core';
 import { DeviceDetectorService } from 'ngx-device-detector';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 
 import { Artwork } from 'src/app/models/artwork';
 import { ApiHandlerService } from 'src/app/services/api-handler.service';
+import { ArtworkThumbnailComponent } from 'src/app/utils/thumbnails/artwork-thumbnail/artwork-thumbnail.component';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-artwork-carousel',
+  standalone: true,
+  imports: [CommonModule, RouterModule, ArtworkThumbnailComponent],
   templateUrl: './artwork-carousel.component.html',
   styleUrls: ['./artwork-carousel.component.scss']
 })
@@ -47,18 +51,13 @@ export class CarouselArtworkComponent implements OnInit {
     });
   }
 
-  navigateToMoreContent() {
-    let finalCategory = this.category;
-    if(this.category === 'MANGA'){
-      finalCategory = 'manga';
-    }
+  get categoryTitle() {
     if(this.category === 'COMIC'){
-      finalCategory = 'webtoon';
+      return 'webtoon';
     }
     if(this.category === 'NOVEL'){
-      finalCategory = 'lightnovel';
+      return 'lightnovel';
     }
-    this.router.navigate(['/search'], { queryParams: { type: finalCategory } });
+    return 'manga';
   }
-
 }

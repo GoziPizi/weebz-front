@@ -1,9 +1,11 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Author } from 'src/app/models/author';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-author-thumbnail',
+  standalone: true,
+  imports: [RouterModule],
   templateUrl: './author-thumbnail.component.html',
   styleUrls: ['./author-thumbnail.component.scss']
 })
@@ -16,10 +18,6 @@ export class AuthorThumbnailComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-  }
-
-  navigateToAuthor() {
-    this.router.navigate(['/author', this.author.id]);
   }
 
 

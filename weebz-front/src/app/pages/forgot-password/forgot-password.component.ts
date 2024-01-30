@@ -1,11 +1,14 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 import { LoadingServiceService } from 'src/app/services/loading-service.service';
 import { ApiHandlerService } from 'src/app/services/api-handler.service';
 
 @Component({
   selector: 'app-forgot-password',
+  standalone: true,
+  imports : [CommonModule, ReactiveFormsModule],
   templateUrl: './forgot-password.component.html',
   styleUrl: './forgot-password.component.scss'
 })

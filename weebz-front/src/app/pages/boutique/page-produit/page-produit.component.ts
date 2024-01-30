@@ -1,16 +1,21 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { Title, Meta } from '@angular/platform-browser';
 import { Product } from 'src/app/models/product';
 import { ApiHandlerService } from 'src/app/services/api-handler.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterModule } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 import { LoadingServiceService } from 'src/app/services/loading-service.service';
 import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
 import { MyShoppingCartComponent } from 'src/app/utils/shop/my-shopping-cart/my-shopping-cart.component';
 import { CommentsDisplayerComponent } from 'src/app/utils/comments/comments-displayer/comments-displayer.component';
 import { DeviceDetectorService } from 'ngx-device-detector';
+import { PageProduitSimilarProductComponent } from './page-produit-similar-product/page-produit-similar-product.component';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-page-produit',
+  standalone: true,
+  imports: [CommonModule, RouterModule, CommentsDisplayerComponent, PageProduitSimilarProductComponent, MyShoppingCartComponent],
   templateUrl: './page-produit.component.html',
   styleUrls: ['./page-produit.component.scss']
 })
@@ -38,7 +43,9 @@ export class PageProduitComponent implements OnInit {
     private route: ActivatedRoute,
     public loadingService: LoadingServiceService,
     public shoppingCartService: ShoppingCartService,
-    public deviceService: DeviceDetectorService
+    public deviceService: DeviceDetectorService,
+    private titleService: Title,
+    private metaService: Meta
   ) { }
 
   ngOnInit(): void {
@@ -59,8 +66,15 @@ export class PageProduitComponent implements OnInit {
         if(this.product.images.length <= 1) this.isCarouselDisplayed = false;
         else this.isCarouselDisplayed = true;
         this.product$.next(res);
+        this.setMetaData();
       }
     )
+  }
+
+  setMetaData() {
+    this.titleService.setTitle("WeebZ - " + this.product.name);
+    this.metaService.updateTag({name: "description", content: this.product.description});
+    this.metaService.updateTag({name: "keywords", content: "manga, webtoon, lightnovel, lecture, gratuit, papier, boutique, goodies, achat, vente, partage, communauté, fan, "});
   }
 
   //functions of the template

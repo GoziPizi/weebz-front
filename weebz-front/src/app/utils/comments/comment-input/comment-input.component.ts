@@ -1,10 +1,15 @@
+import { CommonModule } from '@angular/common';
 import { Component, OnInit, Input } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { Subject } from 'rxjs';
 import { ApiHandlerService } from 'src/app/services/api-handler.service';
 import { LoadingServiceService } from 'src/app/services/loading-service.service';
 
 @Component({
   selector: 'app-comment-input',
+  standalone: true,
+  //for the [(ngModel)] of the textarea
+  imports: [CommonModule, FormsModule],
   templateUrl: './comment-input.component.html',
   styleUrls: ['./comment-input.component.scss']
 })

@@ -1,5 +1,6 @@
+import { CommonModule } from '@angular/common';
 import { Component, OnInit, Input } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { DeviceDetectorService } from 'ngx-device-detector';
 
 import { Artwork } from 'src/app/models/artwork';
@@ -10,6 +11,8 @@ import { WatchlistService } from 'src/app/services/watchlist.service';
 
 @Component({
   selector: 'app-artwork-thumbnail',
+  standalone: true,
+  imports: [CommonModule, RouterModule],
   templateUrl: './artwork-thumbnail.component.html',
   styleUrls: ['./artwork-thumbnail.component.scss']
 })
@@ -44,10 +47,6 @@ export class ArtworkThumbnailComponent implements OnInit {
         this.author = res;
       }
     })
-  }
-
-  navigate(){
-    this.router.navigate(['/artwork/'+this.artwork.id])
   }
 
   onFav(event: any){

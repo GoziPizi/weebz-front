@@ -1,9 +1,12 @@
 import { Component } from '@angular/core';
 import { BetaService } from '../beta.service';
 import { ApiHandlerService } from 'src/app/services/api-handler.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-beta-page',
+  standalone: true,
+  imports: [CommonModule],
   templateUrl: './beta-page.component.html',
   styleUrl: './beta-page.component.scss'
 })

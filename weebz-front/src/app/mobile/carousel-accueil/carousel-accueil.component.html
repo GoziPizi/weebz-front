@@ -1,0 +1,14 @@
+<div id="carousel">
+    <h2>Accueil</h2>
+    <swiper-container 
+        loop="true" 
+        class="mySwiper"
+        slides-per-view="auto"
+        centered-slides="true"
+        space-between="30"
+        autoplay-delay="2500">
+        <swiper-slide *ngFor="let news of carouselItems" class="swiper-slide">
+            <img [src]="news.image" >
+        </swiper-slide>
+    </swiper-container>
+</div>

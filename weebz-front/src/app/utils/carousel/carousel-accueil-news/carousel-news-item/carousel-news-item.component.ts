@@ -1,8 +1,10 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-carousel-news-item',
+  standalone: true,
+  imports: [RouterModule],
   templateUrl: './carousel-news-item.component.html',
   styleUrls: ['./carousel-news-item.component.scss']
 })
@@ -21,9 +23,5 @@ export class CarouselNewsItemComponent implements OnInit {
   }
 
   ngOnInit(): void {
-  }
-
-  navigate(){
-    this.router.navigate([this.route]);
   }
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild, ElementRef, Renderer2 } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterModule } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { BehaviorSubject } from 'rxjs';
 import { Subscription } from 'rxjs';
@@ -16,9 +16,15 @@ import { WatchlistService } from 'src/app/services/watchlist.service';
 import { CommentsDisplayerComponent } from 'src/app/utils/comments/comments-displayer/comments-displayer.component';
 
 import { DeviceDetectorService } from 'ngx-device-detector';
+import { CommonModule } from '@angular/common';
+import { MangaDoubleLiseuseComponent } from './manga-double-liseuse/manga-double-liseuse.component';
+import { MangaLiseuseComponent } from './manga-liseuse/manga-liseuse.component';
+import { NextChaptersForViewComponent } from 'src/app/utils/navigation/next-chapters-for-view/next-chapters-for-view.component';
 
 @Component({
   selector: 'app-manga-view',
+  standalone: true,
+  imports: [CommonModule, MangaDoubleLiseuseComponent, MangaLiseuseComponent, CommentsDisplayerComponent, RouterModule, NextChaptersForViewComponent, FourProductsShopThumbnailComponent],
   templateUrl: './manga-view.component.html',
   styleUrls: ['./manga-view.component.scss']
 })
@@ -321,14 +327,6 @@ export class MangaViewComponent implements OnInit {
   onScrollComments() {
     const comments = document.getElementById("comments");
     comments?.scrollIntoView({behavior: "smooth"});
-  }
-
-  navigateToShop() {
-    this.router.navigate(['/shop', this.shopData?.id]);
-  }
-
-  navigateAuthor() {
-    this.router.navigate(['/author', this.author.id]);
   }
 
   //template getters

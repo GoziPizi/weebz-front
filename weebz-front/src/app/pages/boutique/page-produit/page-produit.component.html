@@ -101,6 +101,7 @@
         Voir nos conditions de vente <a>ici</a>.
     </div>
     <app-page-produit-similar-product id="mobile-similar-products" [product$]="product$"></app-page-produit-similar-product>
+    <app-comments-displayer #comments [commentableId]="productId" [commentableType]="'product'"></app-comments-displayer>
 </div>
 
 <app-my-shopping-cart #cartComponent></app-my-shopping-cart>

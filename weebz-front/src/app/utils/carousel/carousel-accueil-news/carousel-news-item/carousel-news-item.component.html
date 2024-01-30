@@ -1,4 +1,6 @@
-<div class="carousel-news-item" (click)="navigate()">
-    <img [src]="image" alt="Image de carrousel" class="img-fluid">
-    <h3>{{ text }}</h3>
+<div class="carousel-news-item">
+    <a [routerLink]="[route]">
+        <img [src]="image" alt="Image de carrousel" class="img-fluid">
+        <h3>{{ text }}</h3>
+    </a>
 </div>
