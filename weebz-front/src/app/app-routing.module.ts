@@ -23,7 +23,7 @@ let routes: Routes = [
   { path: 'ephjos-game', loadComponent: () => import('./utils/carousel/ephjos-game/ephjos-game.component').then(m => m.EphjosGameComponent)},
 
   //upload
-  { path: 'upload', loadComponent: () => import('./modules/upload/upload.module').then(m => m.UploadModule)},
+  { path: 'upload', loadChildren: () => import('./modules/upload/upload.module').then(m => m.UploadModule)},
 
   //boutique
   { path: 'shop', loadComponent: () => import('./pages/boutique/all-boutique/all-boutique.component').then(m => m.AllBoutiqueComponent)},

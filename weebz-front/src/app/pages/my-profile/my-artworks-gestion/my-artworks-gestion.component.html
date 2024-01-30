@@ -5,10 +5,10 @@
             <div class="cover-container">
                 <img class="artwork-cover" src="{{artwork.coverUrl}}" alt="">
                 <div class="cover-button-container">
-                    <p (click)="onAddChapter(artwork.id)" class="cover-button">
+                    <p [routerLink]="['/upload/create-chapter', artwork.id]" class="cover-button">
                         Ajouter un chapitre
                     </p>
-                    <p (click)="onEditArtwork(artwork.id)" class="cover-button">
+                    <p [routerLink]="['/upload/modify-artwork', artwork.id]" class="cover-button">
                         Modifier l'oeuvre
                     </p>
                 </div>

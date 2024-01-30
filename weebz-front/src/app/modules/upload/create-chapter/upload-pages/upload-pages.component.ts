@@ -98,6 +98,11 @@ export class UploadPagesComponent implements OnInit {
     this.pages = this.pages.sort((a: Page, b: Page) => a.index - b.index);
   }
 
+  reversePages() {
+    this.pages = this.pages.reverse();
+    this.pages.forEach((page, index) => page.index = index + 1);
+  }
+
   getPageList() {
     this.pages.sort((a: Page, b: Page) => a.index - b.index);
     return this.pages;

@@ -39,6 +39,10 @@
                 >
             </div>
             <h3>Pages du chapitre</h3>
+            <div id="reverse">
+                <p>Changer l'ordre des pages</p>
+                <i class="fas fa-exchange-alt" (click)="reversePages()"></i>
+            </div>
             <app-upload-pages #pagesUploadComponent class="upload-pages"></app-upload-pages>
             <div id="publish-informations">
                 <p>Si tu as besoin d'informations, consulte notre page: <a routerLink="/tuto-upload" class="weebz-link">Comment créer une oeuvre ?</a></p>
