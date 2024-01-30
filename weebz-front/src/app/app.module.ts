@@ -4,7 +4,6 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { MainHeaderComponent } from './main-header/main-header.component';
 import { MainFooterComponent } from './main-footer/main-footer.component';
 import { CookieService } from 'ngx-cookie-service';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
@@ -19,19 +18,18 @@ import { WatchlistToastComponent } from './utils/toast/watchlist-toast/watchlist
 import { ThankYouComponent } from './pages/boutique/thank-you/thank-you.component';
 import { BetaHeaderComponent } from './utils/beta/beta-header/beta-header.component';
 import { MobileHeaderComponent } from './mobile/header/header.component';
+import { MainHeaderComponent } from './main-header/main-header.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    MainHeaderComponent,
     MainFooterComponent,
     PageNotFoundComponent,
     LoadingComponentComponent,
     AccueilWeebzNewsComponent,
     MonPanierComponent,
     RechercheBoutiqueComponent,
-    ConnectedDropdownComponent,
     ArtworkPreviewComponent,
     ShopVignetteComponent,
     WatchlistToastComponent,
@@ -43,6 +41,7 @@ import { MobileHeaderComponent } from './mobile/header/header.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    MainHeaderComponent
   ],
   providers: [CookieService],
   bootstrap: [AppComponent],

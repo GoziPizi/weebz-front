@@ -1,5 +1,7 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { Router, RouterModule } from '@angular/router';
 import { BehaviorSubject, Subject } from 'rxjs';
 import { Artwork } from 'src/app/models/artwork';
 import { Author } from 'src/app/models/author';
@@ -7,6 +9,8 @@ import { SearchService } from 'src/app/services/search.service';
 
 @Component({
   selector: 'app-search-header',
+  standalone: true,
+  imports: [CommonModule, RouterModule, FormsModule],
   templateUrl: './search-header.component.html',
   styleUrl: './search-header.component.scss'
 })
