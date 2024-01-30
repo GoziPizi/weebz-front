@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { RouterModule } from '@angular/router';
 import { ApiHandlerService } from 'src/app/services/api-handler.service';
 
 @Component({
   selector: 'app-connected-dropdown',
+  standalone: true,
+  imports: [RouterModule],
   templateUrl: './connected-dropdown.component.html',
   styleUrls: ['./connected-dropdown.component.scss']
 })

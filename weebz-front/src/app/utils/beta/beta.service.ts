@@ -24,6 +24,7 @@ export class BetaService {
   }
 
   checkBeta() {
+    if(!this.api.getIsLoggedIn()) return;
     this.api.isInBeta().subscribe({
       next: (res) => {
         this.isInBeta$.next(res);

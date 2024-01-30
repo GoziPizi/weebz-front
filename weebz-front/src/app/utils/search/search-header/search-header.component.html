@@ -1,0 +1,41 @@
+<div id="container">
+    <i class="fa-solid fa-magnifying-glass fa-xl" [routerLink]="'search'" ></i>
+    <div id="hidden-content">
+        <input type="text" [(ngModel)]="searchTerm" (ngModelChange)="onSearchTermChange()" (keypress)="onKeyDown($event)" >
+        <div id="empty-search" *ngIf="searchTerm===''">
+            <p>Saisis tes mots clés</p>
+        </div>
+        <div id="waiting-search" *ngIf="waitingForSearchResult">
+            <div class="spinner"></div>
+        </div>
+        <div id="search-result" *ngIf="searchTerm!=='' && !waitingForSearchResult">
+            <p class="result-title" *ngIf="searchResultArtworks.length > 0">Oeuvres</p>
+            <div id="artworks-result">
+                <div *ngFor="let artwork of searchResultArtworks" class="result-item" [routerLink]="['/artwork',artwork.id]">
+                    <img [src]="artwork.coverUrl" alt="artwork.name">
+                    <div class="right-side-presentation">
+                        <p>{{artwork.title}}</p>
+                        <p>{{artwork.description}}</p>
+                    </div>
+                </div>
+            </div>
+            <p class="result-title" *ngIf="searchResultAuthors.length > 0">Auteurs</p>
+            <div id="author-result">
+                <div *ngFor="let author of searchResultAuthors" class="result-item" [routerLink]="['/author', author.id]">
+                    <img [src]="author.user.pictureUrl || '../../../../assets/default_images/default_profile_picture.png'" alt="author.name">
+                    <div class="right-side-presentation">
+                        <p>{{author.user.surname}}</p>
+                        <p>{{author.presentation}}</p>
+                    </div>
+                </div>
+            </div>
+            <div id=all-results *ngIf="searchResultAuthors.length > 0 || searchResultArtworks.length > 0">
+                <a [routerLink]="'search'" [queryParams]="{searchTerm:searchTerm}">
+                    <p>Voir tous les résultats</p>
+                    <i class="fa-solid fa-arrow-right fa-lg"></i>
+                </a>
+            </div>
+            <p *ngIf="searchResultAuthors.length == 0 && searchResultArtworks.length == 0">Aucun résultat</p>
+        </div>
+    </div>
+</div>

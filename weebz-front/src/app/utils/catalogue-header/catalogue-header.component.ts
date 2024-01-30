@@ -14,6 +14,7 @@ export class CatalogueHeaderComponent implements OnInit {
 
   @Input() categorie: string = 'manga';
   tag: string = 'all';
+  searchTag: string = '';
   isMobile: boolean = this.deviceService.isMobile();
   isMobileMenuOpen: boolean = false;
   constructor(

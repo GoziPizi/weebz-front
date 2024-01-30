@@ -1,11 +1,16 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ApiHandlerService } from '../services/api-handler.service';
 import { Subscription } from 'rxjs';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { DeviceDetectorService } from 'ngx-device-detector';
+import { SearchHeaderComponent } from '../utils/search/search-header/search-header.component';
+import { ConnectedDropdownComponent } from './connected-dropdown/connected-dropdown.component';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-main-header',
+  standalone: true,
+  imports: [CommonModule, RouterModule, SearchHeaderComponent, ConnectedDropdownComponent],
   templateUrl: './main-header.component.html',
   styleUrls: ['./main-header.component.scss']
 })
