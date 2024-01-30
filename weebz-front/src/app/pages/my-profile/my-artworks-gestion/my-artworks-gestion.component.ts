@@ -5,13 +5,13 @@ import { Artwork } from 'src/app/models/artwork';
 import { ApiHandlerService } from 'src/app/services/api-handler.service';
 import { Author } from 'src/app/models/author';
 import { LoadingServiceService } from 'src/app/services/loading-service.service';
-import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-my-artworks-gestion',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './my-artworks-gestion.component.html',
   styleUrls: ['./my-artworks-gestion.component.scss']
 })
@@ -27,7 +27,6 @@ export class MyArtworksGestionComponent implements OnInit {
   constructor(
     private api_handler: ApiHandlerService,
     private loadingService: LoadingServiceService,
-    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -67,13 +66,5 @@ export class MyArtworksGestionComponent implements OnInit {
 
   onNotAuthor() {
     this.isAuthor = false;
-  }
-
-  onAddChapter(artworkId: number) {
-    this.router.navigate(['upload/create-chapter/' + artworkId]);
-  }
-
-  onEditArtwork(artworkId: number) {
-    this.router.navigate(['upload/modify-artwork/' + artworkId]);
   }
 }
