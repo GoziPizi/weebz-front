@@ -2,16 +2,20 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Title, Meta } from '@angular/platform-browser';
 import { Product } from 'src/app/models/product';
 import { ApiHandlerService } from 'src/app/services/api-handler.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterModule } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 import { LoadingServiceService } from 'src/app/services/loading-service.service';
 import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
 import { MyShoppingCartComponent } from 'src/app/utils/shop/my-shopping-cart/my-shopping-cart.component';
 import { CommentsDisplayerComponent } from 'src/app/utils/comments/comments-displayer/comments-displayer.component';
 import { DeviceDetectorService } from 'ngx-device-detector';
+import { PageProduitSimilarProductComponent } from './page-produit-similar-product/page-produit-similar-product.component';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-page-produit',
+  standalone: true,
+  imports: [CommonModule, RouterModule, CommentsDisplayerComponent, PageProduitSimilarProductComponent, MyShoppingCartComponent],
   templateUrl: './page-produit.component.html',
   styleUrls: ['./page-produit.component.scss']
 })

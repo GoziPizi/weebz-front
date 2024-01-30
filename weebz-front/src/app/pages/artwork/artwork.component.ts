@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Title, Meta } from '@angular/platform-browser';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterModule } from '@angular/router';
 import { DeviceDetectorService } from 'ngx-device-detector';
 import { ApiHandlerService } from 'src/app/services/api-handler.service';
 import { WatchlistService } from 'src/app/services/watchlist.service';
@@ -10,9 +10,14 @@ import { Chapter } from 'src/app/models/chapter';
 import { Shop } from 'src/app/models/shop';
 import { FourProductsShopThumbnailComponent } from 'src/app/utils/thumbnails/shop-thumbnails/four-products-shop-thumbnail/four-products-shop-thumbnail.component';
 import { Author } from 'src/app/models/author';
+import { ChapterThumbnailComponent } from 'src/app/utils/thumbnails/chapter-thumbnail/chapter-thumbnail.component';
+import { CommonModule } from '@angular/common';
+import { MobileShopThumbnailComponent } from 'src/app/mobile/thumbnails/mobile-shop-thumbnail/mobile-shop-thumbnail.component';
 
 @Component({
   selector: 'app-artwork',
+  standalone: true,
+  imports: [CommonModule, RouterModule,FourProductsShopThumbnailComponent, ChapterThumbnailComponent, MobileShopThumbnailComponent],
   templateUrl: './artwork.component.html',
   styleUrls: ['./artwork.component.scss']
 })

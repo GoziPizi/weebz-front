@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiHandlerService } from 'src/app/services/api-handler.service';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoadingServiceService } from 'src/app/services/loading-service.service';
 
 @Component({
   selector: 'app-inscription',
+  standalone: true,
+  imports: [ReactiveFormsModule],
   templateUrl: './inscription.component.html',
   styleUrls: ['./inscription.component.scss']
 })

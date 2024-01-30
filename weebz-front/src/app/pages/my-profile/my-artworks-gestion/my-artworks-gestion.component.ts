@@ -6,9 +6,12 @@ import { ApiHandlerService } from 'src/app/services/api-handler.service';
 import { Author } from 'src/app/models/author';
 import { LoadingServiceService } from 'src/app/services/loading-service.service';
 import { Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-my-artworks-gestion',
+  standalone: true,
+  imports: [CommonModule],
   templateUrl: './my-artworks-gestion.component.html',
   styleUrls: ['./my-artworks-gestion.component.scss']
 })

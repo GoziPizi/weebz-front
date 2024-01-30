@@ -3,6 +3,7 @@ import { Meta, Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-how-to-upload-page',
+  standalone: true,
   templateUrl: './how-to-upload-page.component.html',
   styleUrls: ['./how-to-upload-page.component.scss']
 })

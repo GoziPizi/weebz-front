@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
@@ -9,6 +9,8 @@ import { ApiHandlerService } from 'src/app/services/api-handler.service';
 
 @Component({
   selector: 'app-reinit-password',
+  standalone: true,
+  imports: [ReactiveFormsModule],
   templateUrl: './reinit-password.component.html',
   styleUrl: './reinit-password.component.scss'
 })

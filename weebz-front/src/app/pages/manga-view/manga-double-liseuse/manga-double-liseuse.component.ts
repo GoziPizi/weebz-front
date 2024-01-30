@@ -3,6 +3,7 @@ import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-manga-double-liseuse',
+  standalone: true,
   templateUrl: './manga-double-liseuse.component.html',
   styleUrls: ['./manga-double-liseuse.component.scss']
 })

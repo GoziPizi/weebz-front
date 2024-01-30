@@ -3,11 +3,14 @@ import { BehaviorSubject } from 'rxjs';
 import { Artwork } from 'src/app/models/artwork';
 import { Author } from 'src/app/models/author';
 import { ApiHandlerService } from 'src/app/services/api-handler.service';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 
 @Component({
   selector: 'app-author-artworks',
+  standalone: true,
+  imports: [CommonModule, RouterModule],
   templateUrl: './author-artworks.component.html',
   styleUrls: ['./author-artworks.component.scss']
 })

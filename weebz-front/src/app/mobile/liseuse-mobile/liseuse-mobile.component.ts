@@ -11,9 +11,15 @@ import { ApiHandlerService } from 'src/app/services/api-handler.service';
 import { CommentsDisplayerComponent } from 'src/app/utils/comments/comments-displayer/comments-displayer.component';
 import { NextChaptersForViewComponent } from 'src/app/utils/navigation/next-chapters-for-view/next-chapters-for-view.component';
 import { FourProductsShopThumbnailComponent } from 'src/app/utils/thumbnails/shop-thumbnails/four-products-shop-thumbnail/four-products-shop-thumbnail.component';
+import { MobileShopThumbnailComponent } from '../thumbnails/mobile-shop-thumbnail/mobile-shop-thumbnail.component';
+import { CommonModule } from '@angular/common';
+import { VerticalLiseuseComponent } from './vertical-liseuse/vertical-liseuse.component';
+import { HorizontalLiseuseComponent } from './horizontal-liseuse/horizontal-liseuse.component';
 
 @Component({
   selector: 'app-liseuse-mobile',
+  standalone: true,
+  imports: [CommonModule, CommentsDisplayerComponent, MobileShopThumbnailComponent, VerticalLiseuseComponent, HorizontalLiseuseComponent],
   templateUrl: './liseuse-mobile.component.html',
   styleUrl: './liseuse-mobile.component.scss'
 })

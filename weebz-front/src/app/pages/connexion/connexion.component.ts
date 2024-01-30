@@ -1,10 +1,14 @@
+import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ApiHandlerService } from 'src/app/services/api-handler.service';
 import { LoadingServiceService } from 'src/app/services/loading-service.service';
 
 @Component({
   selector: 'app-connexion',
+  standalone: true,
+  imports: [CommonModule, FormsModule],
   templateUrl: './connexion.component.html',
   styleUrls: ['./connexion.component.scss']
 })

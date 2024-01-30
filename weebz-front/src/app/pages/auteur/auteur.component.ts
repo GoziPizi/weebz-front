@@ -6,9 +6,15 @@ import { Author } from 'src/app/models/author';
 import { ApiHandlerService } from 'src/app/services/api-handler.service';
 import { SocialsDisplayComponentComponent } from 'src/app/utils/socials-display-component/socials-display-component.component';
 import { DeviceDetectorService } from 'ngx-device-detector';
+import { AuthorShopsComponent } from './author-shops/author-shops.component';
+import { CommonModule } from '@angular/common';
+import { AuthorPresentationComponent } from './author-presentation/author-presentation.component';
+import { AuthorArtworksComponent } from './author-artworks/author-artworks.component';
 
 @Component({
   selector: 'app-auteur',
+  standalone: true,
+  imports: [CommonModule, AuthorShopsComponent, SocialsDisplayComponentComponent, AuthorPresentationComponent, AuthorArtworksComponent],
   templateUrl: './auteur.component.html',
   styleUrls: ['./auteur.component.scss']
 })

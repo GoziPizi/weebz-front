@@ -1,12 +1,16 @@
 import { Component, OnInit, Input, ElementRef, Renderer2 } from '@angular/core';
 import { DeviceDetectorService } from 'ngx-device-detector';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 
 import { Artwork } from 'src/app/models/artwork';
 import { ApiHandlerService } from 'src/app/services/api-handler.service';
+import { ArtworkThumbnailComponent } from 'src/app/utils/thumbnails/artwork-thumbnail/artwork-thumbnail.component';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-artwork-carousel',
+  standalone: true,
+  imports: [CommonModule, RouterModule, ArtworkThumbnailComponent],
   templateUrl: './artwork-carousel.component.html',
   styleUrls: ['./artwork-carousel.component.scss']
 })

@@ -1,4 +1,6 @@
+import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BehaviorSubject } from 'rxjs';
 import { Author } from 'src/app/models/author';
 import { User } from 'src/app/models/user';
@@ -7,6 +9,8 @@ import { LoadingServiceService } from 'src/app/services/loading-service.service'
 
 @Component({
   selector: 'app-my-account-gestion',
+  standalone: true,
+  imports: [CommonModule, FormsModule],
   templateUrl: './my-account-gestion.component.html',
   styleUrls: ['./my-account-gestion.component.scss']
 })

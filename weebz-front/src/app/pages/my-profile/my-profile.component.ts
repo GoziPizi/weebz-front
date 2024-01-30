@@ -5,9 +5,17 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { User } from 'src/app/models/user';
 import { BehaviorSubject } from 'rxjs';
 import { DeviceDetectorService } from 'ngx-device-detector';
+import { CommonModule } from '@angular/common';
+import { MyAccountGestionComponent } from './my-account-gestion/my-account-gestion.component';
+import { MyArtworksGestionComponent } from './my-artworks-gestion/my-artworks-gestion.component';
+import { MyOrdersGestionComponent } from './my-orders-gestion/my-orders-gestion.component';
+import { MyShopsGestionComponent } from './my-shops-gestion/my-shops-gestion.component';
+import { MyPreferencesGestionComponent } from './my-preferences-gestion/my-preferences-gestion.component';
 
 @Component({
   selector: 'app-my-profile',
+  standalone: true,
+  imports: [CommonModule, MyAccountGestionComponent, MyArtworksGestionComponent, MyOrdersGestionComponent, MyShopsGestionComponent, MyPreferencesGestionComponent],
   templateUrl: './my-profile.component.html',
   styleUrls: ['./my-profile.component.scss']
 })

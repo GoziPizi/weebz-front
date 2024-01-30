@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 @Component({
   selector: 'app-ink-collab-page',
+  standalone: true,
   templateUrl: './ink-collab-page.component.html',
   styleUrl: './ink-collab-page.component.scss'
 })

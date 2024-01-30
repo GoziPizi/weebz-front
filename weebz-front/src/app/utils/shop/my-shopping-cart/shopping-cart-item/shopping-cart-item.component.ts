@@ -4,6 +4,7 @@ import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
 
 @Component({
   selector: 'app-shopping-cart-item',
+  standalone: true,
   templateUrl: './shopping-cart-item.component.html',
   styleUrls: ['./shopping-cart-item.component.scss']
 })

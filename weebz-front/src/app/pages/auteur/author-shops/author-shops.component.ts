@@ -5,9 +5,14 @@ import { Shop } from 'src/app/models/shop';
 import { DeviceDetectorService } from 'ngx-device-detector';
 
 import { ApiHandlerService } from 'src/app/services/api-handler.service';
+import { FourProductsShopThumbnailComponent } from 'src/app/utils/thumbnails/shop-thumbnails/four-products-shop-thumbnail/four-products-shop-thumbnail.component';
+import { MobileShopThumbnailComponent } from 'src/app/mobile/thumbnails/mobile-shop-thumbnail/mobile-shop-thumbnail.component';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-author-shops',
+  standalone: true,
+  imports: [CommonModule, FourProductsShopThumbnailComponent, MobileShopThumbnailComponent],
   templateUrl: './author-shops.component.html',
   styleUrls: ['./author-shops.component.scss']
 })

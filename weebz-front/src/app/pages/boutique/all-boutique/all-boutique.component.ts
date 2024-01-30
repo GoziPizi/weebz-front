@@ -3,9 +3,15 @@ import { Title, Meta } from '@angular/platform-browser';
 import { Shop } from 'src/app/models/shop';
 import { ApiHandlerService } from 'src/app/services/api-handler.service';
 import { DeviceDetectorService } from 'ngx-device-detector';
+import { FourProductsShopThumbnailComponent } from 'src/app/utils/thumbnails/shop-thumbnails/four-products-shop-thumbnail/four-products-shop-thumbnail.component';
+import { MobileShopThumbnailComponent } from 'src/app/mobile/thumbnails/mobile-shop-thumbnail/mobile-shop-thumbnail.component';
+import { MyShoppingCartComponent } from 'src/app/utils/shop/my-shopping-cart/my-shopping-cart.component';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-all-boutique',
+  standalone: true,
+  imports: [CommonModule, FourProductsShopThumbnailComponent, MobileShopThumbnailComponent, MyShoppingCartComponent],
   templateUrl: './all-boutique.component.html',
   styleUrls: ['./all-boutique.component.scss']
 })
