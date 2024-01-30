@@ -1,9 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { Title, Meta } from '@angular/platform-browser';
 import { DeviceDetectorService } from 'ngx-device-detector';
+import { CarouselAccueilComponent } from 'src/app/mobile/carousel-accueil/carousel-accueil.component';
+import { CarouselArtworkComponent } from './artwork-carousel/artwork-carousel.component';
+import { CommonModule } from '@angular/common';
+import { CarouselAccueilNewsComponent } from 'src/app/utils/carousel/carousel-accueil-news/carousel-accueil-news.component';
+import { AccueilWeebzAuteursComponent } from './accueil-weebz-auteurs/accueil-weebz-auteurs.component';
 
 @Component({
   selector: 'app-accueil',
+  standalone: true,
+  imports: [CommonModule, CarouselAccueilComponent, CarouselArtworkComponent, CarouselAccueilNewsComponent, AccueilWeebzAuteursComponent],
   templateUrl: './accueil.component.html',
   styleUrls: ['./accueil.component.scss']
 })

@@ -6,10 +6,16 @@ import { ApiHandlerService } from 'src/app/services/api-handler.service';
 import { LoadingServiceService } from 'src/app/services/loading-service.service';
 import { ActivatedRoute } from '@angular/router';
 import { DeviceDetectorService } from 'ngx-device-detector';
+import { ProductVignetteComponent } from '../product-vignette/product-vignette.component';
+import { CommonModule } from '@angular/common';
+import { MobileProductVignetteComponent } from 'src/app/mobile/thumbnails/mobile-product-vignette/mobile-product-vignette.component';
+import { MyShoppingCartComponent } from 'src/app/utils/shop/my-shopping-cart/my-shopping-cart.component';
 
 
 @Component({
   selector: 'app-accueil-boutique',
+  standalone: true,
+  imports: [CommonModule,ProductVignetteComponent, MobileProductVignetteComponent, MyShoppingCartComponent],
   templateUrl: './accueil-boutique.component.html',
   styleUrls: ['./accueil-boutique.component.scss']
 })

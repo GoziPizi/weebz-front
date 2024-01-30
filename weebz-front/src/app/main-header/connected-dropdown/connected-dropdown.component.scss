@@ -22,7 +22,7 @@
 .dropdown-content {
     display: none;
     position: absolute;
-    top: 100%; /* Start just after the container ends */
+    top: 95%; /* Start just after the container ends */
     left: 50%; /* Center it */
     transform: translateX(-50%); /* Shift back half of its width to truly center */
     background-color: $dark-gray;

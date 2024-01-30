@@ -1,10 +1,14 @@
 import { Component, Input } from '@angular/core';
 import { Shop } from 'src/app/models/shop';
 import { ApiHandlerService } from 'src/app/services/api-handler.service';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { MobileProductVignetteComponent } from '../mobile-product-vignette/mobile-product-vignette.component';
 
 @Component({
   selector: 'app-mobile-shop-thumbnail',
+  standalone: true,
+  imports: [CommonModule, RouterModule, MobileProductVignetteComponent],
   templateUrl: './mobile-shop-thumbnail.component.html',
   styleUrl: './mobile-shop-thumbnail.component.scss'
 })

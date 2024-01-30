@@ -2,9 +2,14 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Subject } from 'rxjs';
 import { ApiHandlerService } from 'src/app/services/api-handler.service';
 import { LoadingServiceService } from 'src/app/services/loading-service.service';
+import { CommentInputComponent } from '../comment-input/comment-input.component';
+import { CommonModule } from '@angular/common';
+import { SingleCommentComponent } from './single-comment/single-comment.component';
 
 @Component({
   selector: 'app-comments-displayer',
+  standalone: true,
+  imports: [CommonModule, CommentInputComponent, SingleCommentComponent],
   templateUrl: './comments-displayer.component.html',
   styleUrls: ['./comments-displayer.component.scss']
 })

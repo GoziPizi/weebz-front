@@ -1,9 +1,11 @@
 import { Component, Input } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { Product } from 'src/app/models/product';
 
 @Component({
   selector: 'app-mobile-product-vignette',
+  standalone: true,
+  imports: [RouterModule],
   templateUrl: './mobile-product-vignette.component.html',
   styleUrl: './mobile-product-vignette.component.scss'
 })

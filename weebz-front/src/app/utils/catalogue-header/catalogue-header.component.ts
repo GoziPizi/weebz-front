@@ -1,9 +1,12 @@
+import { CommonModule } from '@angular/common';
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { DeviceDetectorService } from 'ngx-device-detector';
 
 @Component({
   selector: 'app-catalogue-header',
+  standalone: true,
+  imports: [CommonModule],
   templateUrl: './catalogue-header.component.html',
   styleUrls: ['./catalogue-header.component.scss']
 })

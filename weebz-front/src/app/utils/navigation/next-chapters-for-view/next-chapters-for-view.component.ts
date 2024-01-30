@@ -1,10 +1,15 @@
+import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
+import { RouterModule } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Chapter } from 'src/app/models/chapter';
 import { ApiHandlerService } from 'src/app/services/api-handler.service';
+import { ChapterThumbnailComponent } from '../../thumbnails/chapter-thumbnail/chapter-thumbnail.component';
 
 @Component({
   selector: 'app-next-chapters-for-view',
+  standalone: true,
+  imports: [CommonModule, RouterModule, ChapterThumbnailComponent],
   templateUrl: './next-chapters-for-view.component.html',
   styleUrls: ['./next-chapters-for-view.component.scss']
 })

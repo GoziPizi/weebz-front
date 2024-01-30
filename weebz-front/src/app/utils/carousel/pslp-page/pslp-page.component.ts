@@ -3,6 +3,7 @@ import { Meta, Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-pslp-page',
+  standalone: true,
   templateUrl: './pslp-page.component.html',
   styleUrl: './pslp-page.component.scss'
 })

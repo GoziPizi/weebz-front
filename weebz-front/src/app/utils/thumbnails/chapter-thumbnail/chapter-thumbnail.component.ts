@@ -1,9 +1,11 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Chapter } from 'src/app/models/chapter';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-chapter-thumbnail',
+  standalone: true,
+  imports: [RouterModule],
   templateUrl: './chapter-thumbnail.component.html',
   styleUrls: ['./chapter-thumbnail.component.scss']
 })

@@ -1,7 +1,11 @@
+import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { CarouselNewsItemComponent } from './carousel-news-item/carousel-news-item.component';
 
 @Component({
   selector: 'app-carousel-accueil-news',
+  standalone: true,
+  imports: [CommonModule, CarouselNewsItemComponent],
   templateUrl: './carousel-accueil-news.component.html',
   styleUrls: ['./carousel-accueil-news.component.scss']
 })

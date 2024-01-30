@@ -3,6 +3,7 @@ import { Comment } from '../../models/comment';
 
 @Component({
   selector: 'app-single-response',
+  standalone: true,
   templateUrl: './single-response.component.html',
   styleUrls: ['./single-response.component.scss']
 })

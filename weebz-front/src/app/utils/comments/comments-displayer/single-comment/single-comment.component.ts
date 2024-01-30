@@ -1,8 +1,12 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { CommentWithResponses } from '../../models/comment-with-responses';
+import { CommonModule } from '@angular/common';
+import { SingleResponseComponent } from '../single-response/single-response.component';
 
 @Component({
   selector: 'app-single-comment',
+  standalone: true,
+  imports: [CommonModule, SingleResponseComponent],
   templateUrl: './single-comment.component.html',
   styleUrls: ['./single-comment.component.scss']
 })

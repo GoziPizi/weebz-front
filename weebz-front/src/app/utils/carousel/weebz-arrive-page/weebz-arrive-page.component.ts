@@ -3,6 +3,7 @@ import { Meta, Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-weebz-arrive-page',
+  standalone: true,
   templateUrl: './weebz-arrive-page.component.html',
   styleUrl: './weebz-arrive-page.component.scss'
 })

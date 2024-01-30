@@ -3,6 +3,7 @@ import { Meta, Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-crise-papier-page',
+  standalone: true,
   templateUrl: './crise-papier-page.component.html',
   styleUrl: './crise-papier-page.component.scss'
 })

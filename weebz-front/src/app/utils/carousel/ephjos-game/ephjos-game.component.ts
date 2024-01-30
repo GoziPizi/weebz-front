@@ -3,6 +3,7 @@ import { Meta, Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-ephjos-game',
+  standalone: true,
   templateUrl: './ephjos-game.component.html',
   styleUrl: './ephjos-game.component.scss'
 })

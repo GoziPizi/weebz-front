@@ -4,6 +4,7 @@ import { Author } from 'src/app/models/author';
 
 @Component({
   selector: 'app-author-presentation',
+  standalone: true,
   templateUrl: './author-presentation.component.html',
   styleUrls: ['./author-presentation.component.scss']
 })

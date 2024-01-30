@@ -1,7 +1,10 @@
+import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-socials-display-component',
+  standalone: true,
+  imports: [CommonModule],
   templateUrl: './socials-display-component.component.html',
   styleUrl: './socials-display-component.component.scss'
 })

@@ -5,9 +5,14 @@ import { ApiHandlerService } from 'src/app/services/api-handler.service';
 import { LoadingServiceService } from 'src/app/services/loading-service.service';
 import { ActivatedRoute } from '@angular/router';
 import { DeviceDetectorService } from 'ngx-device-detector';
+import { ArtworkThumbnailComponent } from 'src/app/utils/thumbnails/artwork-thumbnail/artwork-thumbnail.component';
+import { CatalogueHeaderComponent } from 'src/app/utils/catalogue-header/catalogue-header.component';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-search-page',
+  standalone: true,
+  imports: [CommonModule, ArtworkThumbnailComponent, CatalogueHeaderComponent],
   templateUrl: './search-page.component.html',
   styleUrls: ['./search-page.component.scss']
 })
