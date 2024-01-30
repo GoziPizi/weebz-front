@@ -1,5 +1,5 @@
 <div class="container">
-    <a class="chapter-link" [routerLink]="['/mangaview', chapter.artworkId, chapter.id]">
+    <a class="chapter-link" [routerLink]="[isMobile ? '/mobileview' : '/mangaview', chapter.artworkId, chapter.id]">
         <img [src]="chapter.coverUrl" class="img-fluid thumbnail-image" alt="Chapitre {{chapter.index}}">
         <p class="chapter-title">{{chapter.title}}</p>
         <p class="chapter-number">#{{chapter.index}}</p>
