@@ -1,6 +1,7 @@
 <app-catalogue-header [categorie]="categorie"></app-catalogue-header>
-<div id="search-tools-container">
-
+<div id="search-bar">
+    <input type="text" placeholder="Rechercher un titre" [(ngModel)]="searchTerm" (keydown)="onInputKeyDown($event)" >
+    <i class="fas fa-search" (click)="updateSearchTerm()" ></i>
 </div>
 <div id="result-container" *ngIf="!isMobile">
     <app-artwork-thumbnail *ngFor="let artwork of artworks" [artwork]="artwork" class="artwork-cover"></app-artwork-thumbnail>

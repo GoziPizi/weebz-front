@@ -55,9 +55,10 @@ export class ModifyChapterComponent {
     this.apiHandler.deleteChapter(this.chapterId).subscribe({
       next: (result: any) => {
         this.loadingService.setLoadingState(false);
-        this.router.navigate(['/artwork', this.chapter.artworkId]);
+        this.router.navigate(['/modify-artwork', this.chapter.artworkId]);
       },
       error: (error) => {
+        this.loadingService.setLoadingState(false);
       }
     })
   }

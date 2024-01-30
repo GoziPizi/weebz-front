@@ -52,4 +52,10 @@ export class SearchHeaderComponent {
     this.searchResultAuthors = res.authors.slice(0, 2);
   }
 
+  onKeyDown(event: any) {
+    if(event.key === 'Enter') {
+      this.router.navigate(['/search'], {queryParams: {searchTerm: this.searchTerm}});
+    }
+  }
+
 }

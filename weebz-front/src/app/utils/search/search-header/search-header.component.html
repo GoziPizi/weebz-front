@@ -1,7 +1,7 @@
 <div id="container">
     <i class="fa-solid fa-magnifying-glass fa-xl" [routerLink]="'search'" ></i>
     <div id="hidden-content">
-        <input type="text" [(ngModel)]="searchTerm" (ngModelChange)="onSearchTermChange()">
+        <input type="text" [(ngModel)]="searchTerm" (ngModelChange)="onSearchTermChange()" (keypress)="onKeyDown($event)" >
         <div id="empty-search" *ngIf="searchTerm===''">
             <p>Saisis tes mots clés</p>
         </div>
