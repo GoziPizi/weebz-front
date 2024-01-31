@@ -7,13 +7,14 @@ import { NgZone } from '@angular/core';
 import { DeviceDetectorService } from 'ngx-device-detector';
 import { CommonModule } from '@angular/common';
 import { ShoppingCartItemComponent } from './shopping-cart-item/shopping-cart-item.component';
+import { RouterModule } from '@angular/router';
 
 declare var $: any;
 
 @Component({
   selector: 'app-my-shopping-cart',
   standalone: true,
-  imports: [CommonModule, ShoppingCartItemComponent],
+  imports: [CommonModule, ShoppingCartItemComponent, RouterModule],
   templateUrl: './my-shopping-cart.component.html',
   styleUrls: ['./my-shopping-cart.component.scss']
 })

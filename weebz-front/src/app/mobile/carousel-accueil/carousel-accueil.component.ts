@@ -1,5 +1,6 @@
 import { CommonModule } from "@angular/common";
 import { Component, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
+import { RouterModule } from "@angular/router";
 import { register as registerSwiperElements } from 'swiper/element/bundle';
 
 registerSwiperElements();
@@ -10,7 +11,7 @@ registerSwiperElements();
   templateUrl: './carousel-accueil.component.html',
   styleUrls: ['./carousel-accueil.component.scss'],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  imports: [CommonModule]
+  imports: [CommonModule, RouterModule]
 })
 export class CarouselAccueilComponent {
   carouselItems = [
