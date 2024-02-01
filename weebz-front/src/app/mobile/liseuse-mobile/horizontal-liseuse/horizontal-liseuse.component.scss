@@ -1,12 +1,13 @@
 #container {
     width: 100%;
-    display: flex;
-    flex-direction: row;
-    overflow: scroll;
 }
 
-.page {
-    flex: none; 
+.mySwiper {
     width: 100%;
-    transition: transform 0.5s ease;
+    height: 100%;
 }
+
+.swiper-slide img {
+    width: 100%;
+}
+

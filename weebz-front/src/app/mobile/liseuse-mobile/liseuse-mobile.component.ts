@@ -26,6 +26,7 @@ import { HorizontalLiseuseComponent } from './horizontal-liseuse/horizontal-lise
 export class LiseuseMobileComponent {
 
   @ViewChild('liseuseContainer') liseuseContainer!: ElementRef;
+  @ViewChild('horizontaleLiseuse') horizontaleLiseuse: HorizontalLiseuseComponent | undefined;
   @ViewChild('shopComponent') shopComponent: FourProductsShopThumbnailComponent | undefined;
   @ViewChild('nextChapters') nextChaptersComponent!: NextChaptersForViewComponent;
   nextChaptersShown: boolean = false;
@@ -47,6 +48,7 @@ export class LiseuseMobileComponent {
   currentPage$: BehaviorSubject<number> = new BehaviorSubject<number>(1);
 
   verticalScroll: boolean = true; //horizontal scroll by default
+  isRtl: boolean = false;
   fullScreen: boolean = false;
 
   isFingerOnScreen: boolean = false;
@@ -182,6 +184,18 @@ export class LiseuseMobileComponent {
     this.api.getPages(this.artworkId, this.chapterId).subscribe((pages) => {
       this.pages = pages;
       this.sortPages();
+      if(this.artwork.type == 'MANGA') {
+        this.verticalScroll = false;
+        this.isRtl = true;
+      }
+      if(this.artwork.type == 'COMIC') {
+        this.verticalScroll = true;
+        this.isRtl = false;
+      }
+      if(this.artwork.type == 'NOVEL') {
+        this.verticalScroll = false;
+        this.isRtl = false;
+      }
     });
   }
 
@@ -287,6 +301,10 @@ export class LiseuseMobileComponent {
   toggleComments() {
     this.commentsShown = !this.commentsShown;
     this.comments.fetchComments();
+  }
+
+  toggleDirection() {
+    this.isRtl = !this.isRtl;
   }
 
   //getters for the template

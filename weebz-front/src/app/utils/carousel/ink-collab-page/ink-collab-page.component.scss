@@ -6,3 +6,9 @@
     border-radius: 2em;
     background-color: $background-gray;
 }
+
+@media screen and (max-width: 768px) {
+    #container {
+        margin: 2em 5px;
+    }
+}

@@ -15,4 +15,8 @@ export class VerticalLiseuseComponent {
   constructor() {
   }
 
+  ngAfterViewInit() {
+    console.log(this.pages);
+  }
+
 }
