@@ -184,6 +184,18 @@ export class LiseuseMobileComponent {
     this.api.getPages(this.artworkId, this.chapterId).subscribe((pages) => {
       this.pages = pages;
       this.sortPages();
+      if(this.artwork.type == 'MANGA') {
+        this.verticalScroll = false;
+        this.isRtl = true;
+      }
+      if(this.artwork.type == 'COMIC') {
+        this.verticalScroll = true;
+        this.isRtl = false;
+      }
+      if(this.artwork.type == 'NOVEL') {
+        this.verticalScroll = false;
+        this.isRtl = false;
+      }
     });
   }
 
@@ -293,7 +305,6 @@ export class LiseuseMobileComponent {
 
   toggleDirection() {
     this.isRtl = !this.isRtl;
-    this.horizontaleLiseuse?.setRtl(this.isRtl);
   }
 
   //getters for the template

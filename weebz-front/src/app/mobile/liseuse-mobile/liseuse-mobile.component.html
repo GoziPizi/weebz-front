@@ -2,13 +2,13 @@
     (touchstart)="touchStart($event)"
     (touchend)="touchEnd($event)"
     >
-    <h2>{{title}}</h2>
+    <h2 id="title">{{title}}</h2>
     <p (click)="navigateToAuthor()" >{{authorName}}</p>
     <div id="liseuse-container" #liseuseContainer>
         <app-vertical-liseuse [pages]="pages" *ngIf="verticalScroll" ></app-vertical-liseuse>
-        <app-horizontal-liseuse [pages]="pages" *ngIf="!verticalScroll" #horizontalLiseuse ></app-horizontal-liseuse>
+        <app-horizontal-liseuse [pages]="pages" [isRtl]="isRtl" *ngIf="!verticalScroll" #horizontalLiseuse ></app-horizontal-liseuse>
     </div>
-    <h2>Chapitre terminé</h2>
+    <h2 *ngIf="artwork.type === 'COMIC'" >Chapitre terminé</h2>
     <app-mobile-shop-thumbnail #shopComponent [shopId]="shopId" *ngIf="shop" id="mobile-shop-thumbnail" ></app-mobile-shop-thumbnail>
 </div>
 <div id="comments">

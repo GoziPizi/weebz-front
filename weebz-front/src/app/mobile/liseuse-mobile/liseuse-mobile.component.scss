@@ -1,7 +1,7 @@
 @import '../../../variables';
 
 #container {
-    min-height: 100vh;
+    min-height: 80vh;
     width: 100%;
     padding-top: 20px;
     display: flex;
@@ -11,6 +11,10 @@
 
 #container p {
     color: $gray;
+}
+
+#title {
+    text-align: center;
 }
 
 #mobile-shop-thumbnail {

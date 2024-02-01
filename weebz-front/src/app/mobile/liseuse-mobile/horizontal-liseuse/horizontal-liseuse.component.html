@@ -1,6 +1,6 @@
 <div id="container">
     <swiper-container 
-        *ngIf="isRtl"
+        *ngIf="rtl"
         class="mySwiper"
         lazy="true"
         slides-per-view="auto"
@@ -11,7 +11,7 @@
         </swiper-slide>
     </swiper-container>
     <swiper-container 
-        *ngIf="!isRtl"
+        *ngIf="!rtl"
         class="mySwiper"
         lazy="true"
         slides-per-view="auto"

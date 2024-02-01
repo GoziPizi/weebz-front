@@ -16,17 +16,17 @@ export class HorizontalLiseuseComponent {
 
   @Input() pages: any[] = [];
   currentPage: number = 0;
-  isRtl: boolean = false;
+  @Input()isRtl: boolean = false;
 
   constructor() {
   }
 
   ngAfterViewInit() {
-    console.log(this.pages);
   }
 
-  setRtl(val: boolean) {
-    this.isRtl = val;
+  get rtl() {
+    console.log("rtl: " + this.isRtl);
+    return this.isRtl;
   }
 
 }
