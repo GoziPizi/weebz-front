@@ -17,6 +17,21 @@
     text-align: center;
 }
 
+#direction-selector {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+#direction-selector p {
+    margin: 0;
+    margin-right: 10px;
+}
+
+#direction-selector i {
+    margin-right: 10px;
+}
+
 #mobile-shop-thumbnail {
     width: 100%;
 }

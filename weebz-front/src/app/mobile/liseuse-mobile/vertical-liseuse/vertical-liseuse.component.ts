@@ -16,7 +16,6 @@ export class VerticalLiseuseComponent {
   }
 
   ngAfterViewInit() {
-    console.log(this.pages);
   }
 
 }

@@ -5,6 +5,12 @@
     <h2 id="title">{{title}}</h2>
     <p (click)="navigateToAuthor()" >{{authorName}}</p>
     <div id="liseuse-container" #liseuseContainer>
+        <div *ngIf="!(artwork.type === 'COMIC')" id="direction-selector">
+            <p>Lecture: </p>
+            <i class="fa-solid fa-arrow-down" *ngIf="verticalScroll" (click)="toggleVerticality()"></i>
+            <i class="fa-solid fa-arrow-right" *ngIf="!verticalScroll && !isRtl" (click)="toggleVerticality()"></i>
+            <i class="fa-solid fa-arrow-left" *ngIf="!verticalScroll && isRtl" (click)="toggleVerticality()"></i>
+        </div>
         <app-vertical-liseuse [pages]="pages" *ngIf="verticalScroll" ></app-vertical-liseuse>
         <app-horizontal-liseuse [pages]="pages" [isRtl]="isRtl" *ngIf="!verticalScroll" #horizontalLiseuse ></app-horizontal-liseuse>
     </div>

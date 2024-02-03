@@ -115,7 +115,6 @@ export class SearchPageComponent implements OnInit {
     if(this.searchTerm || this.searchTerm!='') {
       finalParams = {...finalParams, searchTerm: this.searchTerm};
     }
-    console.log(finalParams);
     return finalParams;
   }
 

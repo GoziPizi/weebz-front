@@ -25,7 +25,6 @@ export class HorizontalLiseuseComponent {
   }
 
   get rtl() {
-    console.log("rtl: " + this.isRtl);
     return this.isRtl;
   }
 

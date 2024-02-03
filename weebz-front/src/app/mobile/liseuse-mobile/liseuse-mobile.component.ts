@@ -307,6 +307,10 @@ export class LiseuseMobileComponent {
     this.isRtl = !this.isRtl;
   }
 
+  toggleVerticality() {
+    this.verticalScroll = !this.verticalScroll;
+  }
+
   //getters for the template
 
   get title(): string {

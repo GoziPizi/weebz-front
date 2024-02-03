@@ -305,7 +305,6 @@ export class ApiHandlerService {
     let headers = {
       Authorization : this.cookieService.get('apiToken')
     }
-    console.log(chapterId);
     return this.http.delete(this.url + "api/v1/chapters/" + chapterId, {headers: headers});
   }
 
@@ -420,7 +419,6 @@ export class ApiHandlerService {
   //search
 
   searchArtworks(params: any): Observable<any> {
-    console.log(params);
     return this.http.get(this.url + "api/v1/search", {params: params});
   }
 
