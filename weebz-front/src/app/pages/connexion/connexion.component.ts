@@ -25,7 +25,9 @@ export class ConnexionComponent implements OnInit {
     private loading_service: LoadingServiceService
     ) { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    this.setLoadingState(false);
+  }
 
   onSubmit() {
     this.setLoadingState(true);

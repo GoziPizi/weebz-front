@@ -12,7 +12,7 @@ import { CarouselNewsItemComponent } from './carousel-news-item/carousel-news-it
 export class CarouselAccueilNewsComponent implements OnInit {
 
   carouselItems = [
-    { image: '../../../assets/fixtures/accueil/news/ephjos-game.png', text: 'Pain sur la Planche x Weebz', route: '/ephjos-game' },
+    { image: '../../../assets/fixtures/accueil/news/ephjos-game.png', text: 'Ephjos sort un jeu vidéo !', route: '/ephjos-game' },
     { image: '../../../assets/fixtures/accueil/news/burn-paper.png', text: 'Crise du papier', route: '/crise-du-papier' },
     { image: '../../../assets/fixtures/accueil/news/publie.png', text: 'Publie sur Weebz', route: '/tuto-upload' },
     { image: '../../../assets/fixtures/accueil/news/weebz.png', text: 'Weebz arrive', route: '/weebz-arrive' },

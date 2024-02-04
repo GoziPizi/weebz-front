@@ -21,4 +21,7 @@ export class CarouselAccueilComponent {
     { image: '../../../assets/fixtures/accueil/news/weebz.png', text: 'Weebz arrive', route: '/weebz-arrive' },
     { image: '../../../assets/fixtures/accueil/news/ink.png', text: 'Ink House x Weebz', route: '/ink-house' },
   ];
+
+  constructor() { }
+
 }
