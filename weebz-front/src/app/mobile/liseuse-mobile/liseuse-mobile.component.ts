@@ -192,6 +192,8 @@ export class LiseuseMobileComponent {
     this.isFingerOnScreen = false;
     if(this.hasToNavigate){
       this.hasToNavigate = false;
+      this.hasTimerEnded = false;
+      this.canScroll = false;
       this.scrollToTop();
       this.navigateToNextChapter();
       return;
