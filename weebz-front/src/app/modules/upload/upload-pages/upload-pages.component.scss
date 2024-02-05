@@ -1,4 +1,35 @@
+#container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+}
+
+#reverse {
+    display: flex; 
+    flex-direction: row;
+    align-items: center;
+    padding: 5px 10px;
+    width: max-content;
+    border-radius: 10px;
+    background-color: #444;
+    cursor: pointer;
+
+    &:hover {
+        background-color: #333;
+    }
+}
+
+#reverse p {
+    margin: 0;
+}
+
+#reverse i {
+    margin-left: 10px;
+}
+
 .drop-zone {
+    margin-top: 20px;
     display: flex;
     justify-content: center;
     align-items: center;

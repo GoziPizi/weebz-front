@@ -63,10 +63,6 @@ export class CreateChapterComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  reversePages() {
-    this.pagesUploadComponent.reversePages();
-  }
-
   onDragOverChapterCover(event: any) {
     event.preventDefault();
   }

@@ -1,19 +1,25 @@
-<div 
-    class="drop-zone row" 
-    (dragover)="onDragOver($event)" 
-    (drop)="onDrop($event)"
-    (click)="triggerFileInput()">
-    <app-uploaded-page
-        *ngFor="let page of pages"
-        [page]="page"
-        [changeIndexStream]="changeIndexStream"
-        class="col-3"
-        (deleteEvent)="onDelete($event)"
-    ></app-uploaded-page>
-    <input 
-        #fileInput 
-        type="file" 
-        multiple
-        style="display:none;"
-        (change)="onFileSelected($event)">
+<div id="container">
+    <div id="reverse" (click)="reversePages()">
+        <p>Changer l'ordre des pages</p>
+        <i class="fas fa-exchange-alt"></i>
+    </div>
+    <div 
+        class="drop-zone row" 
+        (dragover)="onDragOver($event)" 
+        (drop)="onDrop($event)"
+        (click)="triggerFileInput()">
+        <app-uploaded-page
+            *ngFor="let page of pages"
+            [page]="page"
+            [changeIndexStream]="changeIndexStream"
+            class="col-3"
+            (deleteEvent)="onDelete($event)"
+        ></app-uploaded-page>
+        <input 
+            #fileInput 
+            type="file" 
+            multiple
+            style="display:none;"
+            (change)="onFileSelected($event)">
+    </div>
 </div>
