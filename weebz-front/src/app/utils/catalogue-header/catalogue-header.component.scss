@@ -92,9 +92,9 @@
     color: white;
     width: 30%;
     border: 1px solid black;
-    background-color: transparent;
+    background-color: rgba(0, 0, 0, 0.2);
     border-radius: 0.5em;
-    padding: 0.5em;
+    padding: 5px;
     cursor: pointer;
 }
 
@@ -116,8 +116,9 @@
 #mobile-tag-selector button {
     color: white;
     border: 1px solid black;
-    background-color: transparent;
+    background-color: rgba(0, 0, 0, 0.2);
     border-radius: 0.5em;
-    padding: 0.5em;
+    padding: 5px 10px;
+    margin: 0;
     cursor: pointer;
 }
