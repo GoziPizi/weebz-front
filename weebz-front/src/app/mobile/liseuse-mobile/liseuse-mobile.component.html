@@ -17,6 +17,13 @@
     <h2 *ngIf="artwork.type === 'COMIC'" >Chapitre terminé</h2>
     <app-mobile-shop-thumbnail #shopComponent [shopId]="shopId" *ngIf="shop" id="mobile-shop-thumbnail" ></app-mobile-shop-thumbnail>
 </div>
+<div id="navigate-chapters">
+    <app-next-chapters-for-view
+        [authorId]="artwork.authorId"
+        [artworkId]="artworkId"
+        [chapterIndex]="chapter.index"
+        [type]="artwork.type"></app-next-chapters-for-view>
+</div>
 <div id="comments">
     <p (click)="toggleComments()" *ngIf="!commentsShown">Voir les commentaires</p>
     <p (click)="toggleComments()" *ngIf="commentsShown">Cacher les commentaires</p>

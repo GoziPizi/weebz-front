@@ -15,11 +15,12 @@ import { MobileShopThumbnailComponent } from '../thumbnails/mobile-shop-thumbnai
 import { CommonModule } from '@angular/common';
 import { VerticalLiseuseComponent } from './vertical-liseuse/vertical-liseuse.component';
 import { HorizontalLiseuseComponent } from './horizontal-liseuse/horizontal-liseuse.component';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-liseuse-mobile',
   standalone: true,
-  imports: [CommonModule, CommentsDisplayerComponent, MobileShopThumbnailComponent, VerticalLiseuseComponent, HorizontalLiseuseComponent],
+  imports: [CommonModule, CommentsDisplayerComponent, MobileShopThumbnailComponent, VerticalLiseuseComponent, HorizontalLiseuseComponent, NextChaptersForViewComponent],
   templateUrl: './liseuse-mobile.component.html',
   styleUrl: './liseuse-mobile.component.scss'
 })
@@ -52,12 +53,13 @@ export class LiseuseMobileComponent {
   fullScreen: boolean = false;
 
   isFingerOnScreen: boolean = false;
-  canScroll: boolean = false;
+  canScroll: boolean = false; //To prfvent from scrolling when the page is not fully loaded
 
   bottomIntersectRatio: number = 0;
-  threshold: number = 0.1; //opacity before loading next page
-  isThresholdReached: boolean = false;
-  timerThreshold: any;
+  thresholdOpacity: number = 0.1; //opacity before starting the timer
+  isAboveThreshold: boolean = false;
+  hasTimerEnded: boolean = false;
+  timerThreshold: any; //timer for the threshold, when the timer goes above, the router goes to the next chapter
   hasToNavigate: boolean = false;
 
   private paramSubscription: Subscription;
@@ -66,8 +68,13 @@ export class LiseuseMobileComponent {
   constructor(
     private api: ApiHandlerService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private cookieService: CookieService
   ) {
+    let favoriteView = this.cookieService.get('favoriteView');
+    if(favoriteView == 'horizontal'){
+      this.verticalScroll = false;
+    }
     this.artworkId = this.route.snapshot.params['artworkId'];
     this.chapterId = this.route.snapshot.params['chapterId'];
 
@@ -76,7 +83,6 @@ export class LiseuseMobileComponent {
       this.chapterId = params['chapterId'];
       this.reInit();
       this.nextChaptersComponent?.fetchChapters();
-      this.scrollToTop();
     });
 
     this.preloadSubscription = this.currentPage$.subscribe((pageIndex) => {
@@ -120,19 +126,18 @@ export class LiseuseMobileComponent {
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         this.bottomIntersectRatio = entry.intersectionRatio;
-        this.setThresholdReached( this.bottomIntersectRatio >= this.threshold );
-        if(this.bottomIntersectRatio > 0 && !this.isFingerOnScreen){
+        if(!this.isFingerOnScreen){
           this.scrollToHideBottom();
         }
+        this.updateThreshold();
       });
     }, options);
 
     observer.observe(this.bottomPage.nativeElement);
 
-    //set scroll to true after 1sec 
     setTimeout(() => {
       this.canScroll = true;
-    }, 1000);
+    }, 500);
   }
 
   vibrate() {
@@ -141,23 +146,58 @@ export class LiseuseMobileComponent {
     }
   }
 
-  setThresholdReached(value: boolean) {
-    // Si la valeur est vraie et que le seuil n'est pas encore atteint
-    if(value && !this.isThresholdReached){
-      // Réinitialiser le timer précédent, si présent
+  //updated everytime the bottom page is intersected
+  updateThreshold() {
+    const thresholdReached = this.bottomIntersectRatio > this.thresholdOpacity;
+    if(!this.isFingerOnScreen){
       clearTimeout(this.timerThreshold);
-  
-      // Démarrer un nouveau timer
+      return;
+    }
+    if(thresholdReached){  
       this.timerThreshold = setTimeout(() => {
         this.vibrate();
-        this.isThresholdReached = true;
+        this.hasTimerEnded = true;
         this.hasToNavigate = true;
       }, 150);
     } 
-    // Si la valeur est fausse
-    else if (!value) {
+    else if (!thresholdReached) {
       clearTimeout(this.timerThreshold);
-      this.isThresholdReached = false;
+      this.hasTimerEnded = false;
+    }
+  }
+
+  scrollToHideBottom() {
+    if(!this.canScroll){
+      return;
+    }
+    const totalHeight = document.body.scrollHeight;
+    const windowHeight = window.innerHeight;
+    const positionFromTop = totalHeight - 2 * windowHeight;
+
+    if (positionFromTop < 0) {
+      return;
+    }
+
+    window.scrollTo({
+      top: positionFromTop,
+      behavior: 'smooth'
+    });
+  }
+
+  touchStart(event: any) {
+    this.isFingerOnScreen = true;
+  }
+
+  touchEnd(event: any) {
+    this.isFingerOnScreen = false;
+    if(this.hasToNavigate){
+      this.hasToNavigate = false;
+      this.scrollToTop();
+      this.navigateToNextChapter();
+      return;
+    }
+    if(this.bottomIntersectRatio > 0){
+      this.scrollToHideBottom();
     }
   }
 
@@ -177,6 +217,7 @@ export class LiseuseMobileComponent {
     this.api.getChapterById(this.chapterId).subscribe((chapter) => {
       this.chapter = chapter;
       this.fetchNextChapters();
+      this.nextChaptersComponent?.fetchChapters();
     });
   }
 
@@ -185,15 +226,12 @@ export class LiseuseMobileComponent {
       this.pages = pages;
       this.sortPages();
       if(this.artwork.type == 'MANGA') {
-        this.verticalScroll = false;
         this.isRtl = true;
       }
       if(this.artwork.type == 'COMIC') {
         this.verticalScroll = true;
-        this.isRtl = false;
       }
       if(this.artwork.type == 'NOVEL') {
-        this.verticalScroll = false;
         this.isRtl = false;
       }
     });
@@ -266,36 +304,9 @@ export class LiseuseMobileComponent {
     if(this.nextChapters.length == 0){
       this.navigateToAuthor();
     }
+    this.scrollToTop();
+    this.canScroll = false;
     this.router.navigate(['/mobileview', this.artworkId, this.nextChapters[0].id]);
-  }
-
-  touchStart(event: any) {
-    this.isFingerOnScreen = true;
-  }
-
-  touchEnd(event: any) {
-    this.isFingerOnScreen = false;
-    if(this.hasToNavigate){
-      this.hasToNavigate = false;
-      this.navigateToNextChapter();
-    }
-    if(this.bottomIntersectRatio > 0){
-      this.scrollToHideBottom();
-    }
-  }
-
-  scrollToHideBottom() {
-    if(!this.canScroll){
-      return;
-    }
-    const totalHeight = document.body.scrollHeight;
-    const windowHeight = window.innerHeight;
-    const positionFromTop = totalHeight - 2 * windowHeight;
-
-    window.scrollTo({
-      top: positionFromTop,
-      behavior: 'smooth'
-    });
   }
 
   toggleComments() {
@@ -303,12 +314,9 @@ export class LiseuseMobileComponent {
     this.comments.fetchComments();
   }
 
-  toggleDirection() {
-    this.isRtl = !this.isRtl;
-  }
-
   toggleVerticality() {
     this.verticalScroll = !this.verticalScroll;
+    this.cookieService.set('favoriteView', this.verticalScroll ? 'vertical' : 'horizontal');
   }
 
   //getters for the template

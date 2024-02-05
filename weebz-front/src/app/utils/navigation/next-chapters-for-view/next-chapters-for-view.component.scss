@@ -20,6 +20,7 @@
 
 .chapter-thumbnail {
     width: 25%;
+    flex-shrink: 0;
 }
 
 .shady {
@@ -30,3 +31,11 @@
                                       rgba(0, 0, 0, 0) 20%, 
                                       rgba(0, 0, 0, 0) 100%);
   }
+
+//for mobile 
+
+@media screen and (max-width: 768px){
+    .chapter-thumbnail {
+        width: 50%;
+    }
+}
