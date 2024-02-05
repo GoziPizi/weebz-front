@@ -308,6 +308,13 @@ export class ApiHandlerService {
     return this.http.delete(this.url + "api/v1/chapters/" + chapterId, {headers: headers});
   }
 
+  deleteChapterPages(chapterId: number): Observable<any> {
+    let headers = {
+      Authorization : this.cookieService.get('apiToken')
+    }
+    return this.http.delete(this.url + "api/v1/chapters/" + chapterId + "/pages", {headers: headers});
+  }
+
   //shop
 
   getAllShops(): Observable<any> {

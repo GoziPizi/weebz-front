@@ -3,7 +3,7 @@ import { ApiHandlerService } from 'src/app/services/api-handler.service';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 import { LoadingServiceService } from 'src/app/services/loading-service.service';
-import { UploadPagesComponent } from './upload-pages/upload-pages.component';
+import { UploadPagesComponent } from '../upload-pages/upload-pages.component';
 
 
 @Component({

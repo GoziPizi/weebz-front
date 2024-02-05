@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter, ViewChild, ElementRef } from '@angular/core';
-import { Page } from '../page';
+import { Page } from '../../create-chapter/page';
 
 @Component({
   selector: 'app-uploaded-page',

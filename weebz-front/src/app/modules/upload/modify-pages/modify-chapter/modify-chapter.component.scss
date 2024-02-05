@@ -98,13 +98,12 @@ h3 {
 }
 
 .validate-button {
+    color: white;
     background-color: #444;
     border: 2px solid #ccc;
     border-radius: 15px;
     padding: 1vh 2vh 0.5vh 2vh;
     width: max-content;
-    margin-top: 2vh;
-    margin-left: auto;
 
     &:hover {
         cursor: pointer;
@@ -150,4 +149,31 @@ h3 {
     &:hover {
         text-decoration: underline;
     }
+}
+
+#modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+#modal-content {
+    background-color: #1A1818;
+    padding: 2em;
+    border-radius: 15px;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+} 
+
+.modal-button { 
+    margin-top: 15px
 }

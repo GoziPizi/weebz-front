@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { ApiHandlerService } from 'src/app/services/api-handler.service';
 import { Chapter } from 'src/app/models/chapter';
 import { forkJoin } from 'rxjs';
+import { UploadPagesComponent } from '../../upload-pages/upload-pages.component';
 
 @Component({
   selector: 'app-modify-chapter',
@@ -15,11 +16,16 @@ import { forkJoin } from 'rxjs';
 export class ModifyChapterComponent {
 
   @ViewChild('chapterCoverInput') chapterCoverInput!: any;
+  @ViewChild('pagesInput') pagesInput!: UploadPagesComponent;
 
   chapterId: number = 0;
 
   chapter: Chapter = new Chapter();
   isTitleEdited: boolean = false;
+
+  isPagesEdited: boolean = false;
+  isModalOpen: boolean = false;
+  modaleText: string = 'Toutes les pages existantes de ce chapitre seront supprimées';
 
   newChapterCoverUrl: string = '';
   newChapterCover: File = new File([""], "");
@@ -70,6 +76,13 @@ export class ModifyChapterComponent {
     }
     if(this.isEditingCover) {
       observables.push(this.apiHandler.patchChapterCover({cover: this.newChapterCover}, this.chapterId));
+    }
+    if(this.isPagesEdited) {
+      const pages = this.pagesInput.getPageList();
+      for (let i = 0; i < pages.length; i++) {
+        let data = { page: pages[i].image, index: i + 1 };
+        observables.push(this.apiHandler.postPage(data, this.chapter.artworkId, this.chapterId));
+      }
     }
     if(observables.length === 0) return;
     this.loadingService.setLoadingState(true);
@@ -146,6 +159,29 @@ export class ModifyChapterComponent {
 
   onEditTitle() {
     this.isTitleEdited = true;
+  }
+
+  onOpenModal() {
+    this.isModalOpen = true;
+  }
+
+  onCloseModal() {
+    this.isModalOpen = false;
+  }
+
+  onDeletePages() {
+    this.isModalOpen = false;
+    this.isPagesEdited = true;
+    this.loadingService.setLoadingState(true);
+    this.apiHandler.deleteChapterPages(this.chapterId).subscribe({
+      next: (result: any) => {
+        this.loadingService.setLoadingState(false);
+      },
+      error: (error: any) => {
+        this.loadingService.setLoadingState(false);
+        this.isPagesEdited = false;
+      }
+    })
   }
 
   get chapterCoverToShow() : string {

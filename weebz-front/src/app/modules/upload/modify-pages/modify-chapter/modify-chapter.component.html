@@ -3,9 +3,6 @@
         <h1>Publier un chapitre</h1>
     </div>
     <div id="content">
-        <div id="delete-chapter">
-            <span class="delete-button" (click)="onDeleteChapter()">Supprimer le chapitre</span>
-        </div>
         <div id="left-side-content">
             <div class="side-bar-header">
                 <h3>{{chapter.title}}</h3>
@@ -46,6 +43,10 @@
                 <p *ngIf="isEditingCover"></p>
             </div>
             <h3>Pages du chapitre</h3>
+            <button *ngIf="!isPagesEdited" (click)="onOpenModal()" class="validate-button">Modifier les pages du chapitre</button>
+            <div id="newPages" *ngIf="isPagesEdited">
+                <app-upload-pages #pagesInput></app-upload-pages>
+            </div>
             <div id="publish-informations">
                 <p>Si tu as besoin d'informations, consulte notre page: <a routerLink="/tuto-upload" class="weebz-link">Comment créer une oeuvre ?</a></p>
             </div>
@@ -53,5 +54,12 @@
                 <span class="validate-button" (click)="onSubmit()">Valider</span>
             </div>
         </div>
+    </div>
+</div>
+<div id="modal" *ngIf="isModalOpen">
+    <div id="modal-content">
+        <p>{{modaleText}}</p>
+        <button class="validate-button modal-button" (click)="onCloseModal()">Non</button>
+        <button class="validate-button modal-button" (click)="onDeletePages()">Ok</button>
     </div>
 </div>

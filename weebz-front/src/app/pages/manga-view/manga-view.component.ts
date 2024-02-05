@@ -167,7 +167,6 @@ export class MangaViewComponent implements OnInit {
       },
       error: (err: any) => {
         this.loadingService.setLoadingState(false);
-        this.router.navigate(['/artwork', this.artworkId!]);
       },
       complete: () => {
         this.loadingService.setLoadingState(false);

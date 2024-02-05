@@ -5,8 +5,8 @@ import { ModifyArtworkComponent } from 'src/app/modules/upload/modify-pages/modi
 import { CreateChapterComponent } from 'src/app/modules/upload/create-chapter/create-chapter.component';
 import { ModifyChapterComponent } from 'src/app/modules/upload/modify-pages/modify-chapter/modify-chapter.component';
 import { FormsModule } from '@angular/forms';
-import { UploadPagesComponent } from 'src/app/modules/upload/create-chapter/upload-pages/upload-pages.component';
-import { UploadedPageComponent } from 'src/app/modules/upload/create-chapter/uploaded-page/uploaded-page.component';
+import { UploadPagesComponent } from 'src/app/modules/upload/upload-pages/upload-pages.component';
+import { UploadedPageComponent } from './upload-pages/uploaded-page/uploaded-page.component';
 import { UploadRoutingModule } from './upload-routing.module';
 
 
