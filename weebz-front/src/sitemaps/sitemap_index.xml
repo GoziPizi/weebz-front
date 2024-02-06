@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <sitemap>
+        <loc>https://weebz.fr/sitemaps/sitemap_static.xml</loc>
+        <lastmod>2024-01-20</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://weebz.fr/sitemaps/sitemap_artworks.xml</loc>
+        <lastmod>2024-01-20</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://weebz.fr/sitemaps/sitemap_authors.xml</loc>
+        <lastmod>2024-01-20</lastmod>
+    </sitemap>
+    <sitemap>
+        <loc>https://weebz.fr/sitemaps/sitemap_products.xml</loc>
+        <lastmod>2024-01-20</lastmod>
+    </sitemap>
+</sitemapindex>
