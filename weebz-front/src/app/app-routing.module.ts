@@ -21,6 +21,7 @@ let routes: Routes = [
   { path: 'crise-du-papier', loadComponent: () => import('./utils/carousel/crise-papier-page/crise-papier-page.component').then(m => m.CrisePapierPageComponent)},
   { path: 'pslp', loadComponent: () => import('./utils/carousel/pslp-page/pslp-page.component').then(m => m.PslpPageComponent)},
   { path: 'ephjos-game', loadComponent: () => import('./utils/carousel/ephjos-game/ephjos-game.component').then(m => m.EphjosGameComponent)},
+  { path: 'nouveautes-6-fevrier', loadComponent: () => import('./utils/carousel/sortie-six/sortie-six.component').then(m => m.SortieSixComponent)},
 
   //upload
   { path: 'upload', loadChildren: () => import('./modules/upload/upload.module').then(m => m.UploadModule)},

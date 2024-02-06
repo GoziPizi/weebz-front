@@ -19,7 +19,7 @@ export class CarouselAccueilComponent {
     { image: '../../../assets/fixtures/accueil/news/burn-paper.png', text: 'Crise du papier', route: '/crise-du-papier' },
     { image: '../../../assets/fixtures/accueil/news/publie.png', text: 'Publie sur Weebz', route: '/tuto-upload' },
     { image: '../../../assets/fixtures/accueil/news/weebz.png', text: 'Weebz arrive', route: '/weebz-arrive' },
-    { image: '../../../assets/fixtures/accueil/news/ink.png', text: 'Ink House x Weebz', route: '/ink-house' },
+    { image: '../../../assets/fixtures/accueil/news/Arrive_tres_prochainement_2.png', text: 'Nouveautés', route: '/nouveautes-6-fevrier' },
   ];
 
   constructor() { }
