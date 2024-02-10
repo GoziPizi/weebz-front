@@ -1,6 +1,6 @@
 <div *ngIf="!isMobile" class="container-fluid main-container" [style.background-image]="'url(' + shop.backgroundUrl + ')'">
     <div id="presentation">
-        <img src="{{authorImage}}">
+        <img src="{{authorImage}}" alt="Photo de profil de {{authorName}}">
         <div class="" id="side-presentation" >
             <h3>{{shopName}}</h3>
             <div id="navigation-menu">
@@ -23,7 +23,7 @@
 </div>
 <div *ngIf="isMobile" id="mobile-container">
     <div id="mobile-header">
-        <img src="{{authorImage}}">
+        <img src="{{authorImage}}" alt="Photo de profil de {{authorName}}">
         <h3>{{shopName}}</h3>
         <div id="mobile-navigation">
             <h4 class="mobile-navigation-text"  [ngClass]="{'selected' : filters===''}" (click)="filtersValue('')">Tout</h4>

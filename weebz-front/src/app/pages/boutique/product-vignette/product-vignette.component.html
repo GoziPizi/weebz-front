@@ -1,5 +1,5 @@
 <div id="container" [routerLink]="['/product', product.id]">
-    <img [src]="product.images[0]">
+    <img [src]="product.images[0]" alt="Image du produit {{product.name}}">
     <div id="info-container" >
         <h3 id="product-name">{{product.name}}</h3>
         <p id="category">{{category}}</p>

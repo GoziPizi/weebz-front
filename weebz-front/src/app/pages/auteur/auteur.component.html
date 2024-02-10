@@ -17,7 +17,7 @@
     </div>
     <div id="mobile-header" *ngIf="isMobile">
         <div id="mobile-picture-and-socials">
-            <img id="mobile-picture" [src]="authorPicture" alt="profile picture">
+            <img id="mobile-picture" [src]="authorPicture" alt="Photo de profil de {{author.user.surname}}">
             <p>{{author.user.surname}}</p>
             <app-socials-display-component #socialsDisplay [socials]="author.socialNetworks" class="mobile-socials"></app-socials-display-component>
         </div>

@@ -5,12 +5,12 @@
         slides-per-view="auto"
         centered-slides="true"
         space-between="30"
-        autoplay-delay="40000000"
+        autoplay-delay="2500"
         pagination="true"
         pagination-dynamic-bullets="true">
         <swiper-slide *ngFor="let news of carouselItems" class="swiper-slide">
             <a [routerLink]="news.route">
-                <img [src]="news.image" >
+                <img [src]="news.image" alt="{{news.text}}">
             </a>
         </swiper-slide>
     </swiper-container>

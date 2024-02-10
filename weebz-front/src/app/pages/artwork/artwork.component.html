@@ -3,7 +3,7 @@
         <div class="row">
             <div class="left-presentation col-4">
                 <div class="cover-container">
-                    <img class="cover" src="{{artworkCover}}">
+                    <img class="cover" src="{{artworkCover}}" alt="Couverture de {{artwork.title}}">
                 </div>
                 <div class="author-name-container">
                     <h2>Par <a class="author-name" [routerLink]="['/author', author.id]">{{authorName}}</a></h2>
@@ -36,7 +36,7 @@
     <div id="mobile-main-presentation" *ngIf="isMobile">
         <div id="mobile-title-cover" [ngStyle]="{ 'background-image': 'url(' + artwork.backgroundImageUrl + ')'}">
             <div id="mobile-cover-container">
-                <img src="{{artworkCover}}" >
+                <img src="{{artworkCover}}" alt="Couverture de {{artwork.title}}">
             </div>
             <div id="mobile-text-presentation">
                 <h4>{{artwork.title}}</h4>

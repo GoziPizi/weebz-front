@@ -203,9 +203,22 @@ img {
     margin: 0;
 }
 
-#mobile-carousel img {
-    margin-left: 5%;
+#mobile-carousel {
     width: 90%;
+}
+
+.mySwiper {
+    margin-top: 20px;
+    width: 100%;
+}
+
+.swiper-slide {
+    width: 100%;
+}
+
+.swiper-slide img {
+    width: 100%;
+    display: block;
 }
 
 .buy-conteneur {

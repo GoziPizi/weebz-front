@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { Title, Meta } from '@angular/platform-browser';
 import { Product } from 'src/app/models/product';
 import { ApiHandlerService } from 'src/app/services/api-handler.service';
@@ -11,13 +11,17 @@ import { CommentsDisplayerComponent } from 'src/app/utils/comments/comments-disp
 import { DeviceDetectorService } from 'ngx-device-detector';
 import { PageProduitSimilarProductComponent } from './page-produit-similar-product/page-produit-similar-product.component';
 import { CommonModule } from '@angular/common';
+import { register as registerSwiperElements } from 'swiper/element/bundle';
+
+registerSwiperElements();
 
 @Component({
   selector: 'app-page-produit',
   standalone: true,
   imports: [CommonModule, RouterModule, CommentsDisplayerComponent, PageProduitSimilarProductComponent, MyShoppingCartComponent],
   templateUrl: './page-produit.component.html',
-  styleUrls: ['./page-produit.component.scss']
+  styleUrls: ['./page-produit.component.scss'],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class PageProduitComponent implements OnInit {
 

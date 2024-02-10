@@ -17,6 +17,7 @@
                         <img 
                             *ngFor="let image of imagesToShowCarousel" 
                             [src]="image"
+                            alt="image de {{product.name}}"
                             (click)="onImageCarouselClick(image)">
                     </div>
                     <i class="fa-solid fa-angle-right fa-xl carousel-arrow" (click)="onCarouselNext()" ></i>
@@ -52,10 +53,10 @@
                 <div id="certifications">
                     <h2>Garanties et Sécurité</h2>
                     <div id="stripe">
-                        <p>Paiement assuré par : Stripe <img src="../../../../assets/stripe_logo.png"></p>
+                        <p>Paiement assuré par : Stripe <img src="../../../../assets/stripe_logo.png" alt="Stripe - Logo"></p>
                     </div>
                     <div id="secured-transaction">
-                        <img src="../../../../assets/secured-transaction.webp">
+                        <img src="../../../../assets/secured-transaction.webp" alt="Transaction sécurisées">
                     </div>
                     Voir nos conditions de vente <a>ici</a>.
                 </div>
@@ -75,7 +76,13 @@
     <h2>{{productName}}</h2>
     <p id="product-category">{{productCategory}}</p>
     <div id="mobile-carousel">
-        <img [src]='product.images[0]' >
+        <swiper-container 
+            loop="true" 
+            class="mySwiper">
+            <swiper-slide *ngFor="let image of imagesToShowCarousel" class="swiper-slide">
+                <img [src]="image" alt="image de {{product.name}}">
+            </swiper-slide>
+        </swiper-container>
     </div>
     <div class="buy-conteneur">
         <p>{{productPrice}}€</p>
@@ -93,10 +100,10 @@
     <div id="certifications">
         <h2>Garanties et Sécurité</h2>
         <div id="stripe">
-            <p>Paiement assuré par : Stripe <img src="../../../../assets/stripe_logo.png"></p>
+            <p>Paiement assuré par : Stripe <img src="../../../../assets/stripe_logo.png" alt="Stripe - Logo"></p>
         </div>
         <div id="secured-transaction">
-            <img src="../../../../assets/secured-transaction.webp">
+            <img src="../../../../assets/secured-transaction.webp" alt="Transactions sécurisées">
         </div>
         Voir nos conditions de vente <a>ici</a>.
     </div>

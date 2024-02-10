@@ -109,4 +109,11 @@ export class AccueilBoutiqueComponent implements OnInit {
     return ""
   }
 
+  get authorName() {
+    if (Object.keys(this.author).length !== 0) {
+      return this.author.user.name;
+    }
+    return ""
+  }
+
 }
