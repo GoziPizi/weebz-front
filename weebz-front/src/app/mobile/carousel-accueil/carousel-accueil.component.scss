@@ -3,6 +3,9 @@
 #carousel {
     width: 100%;
     overflow: hidden; /* pour éviter le débordement horizontal */
+    background-image: url('../../../assets/fixtures/background.png');
+    background-size: cover;
+    padding-bottom: 20px;
 }
 
 .mySwiper {

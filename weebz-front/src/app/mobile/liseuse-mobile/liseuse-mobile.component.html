@@ -1,6 +1,4 @@
 <div id="container"
-    (touchstart)="touchStart($event)"
-    (touchend)="touchEnd($event)"
     >
     <h2 id="title">{{title}}</h2>
     <p (click)="navigateToAuthor()" >{{authorName}}</p>
@@ -38,6 +36,7 @@
     <i class="fa-solid fa-chevron-down fa-2x" *ngIf="!hasToNavigate"></i>
     <i class="fa-solid fa-chevron-down fa-3x" *ngIf="hasToNavigate"></i>
 </div>
+<!--
 <div 
     id="bottom-page" 
     #bottomPage 
@@ -48,3 +47,4 @@
     </div>
     <p *ngIf="nextChapters.length == 0">Tu as arrivé au bout de cette oeuvre ! Swipe pour voir la page de l'auteur</p>
 </div>
+-->
