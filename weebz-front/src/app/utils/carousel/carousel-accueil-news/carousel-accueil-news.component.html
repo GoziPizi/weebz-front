@@ -1,12 +1,16 @@
-<div class="carousel-news-container row">
-    <i (click)="onLeftArrowClick()" class="fa-solid fa-arrow-left fa-2x carousel-arrow"></i>
-    <ng-container *ngFor="let item of carouselItems; let i = index">
-        <app-carousel-news-item
-            class="col-4 image-{{i}}"
-            [image]="item.image"
-            [text]="item.text"
-            [route]="item.route">
-        </app-carousel-news-item>
-    </ng-container>
-    <i (click)="onRightArrowClick()" class="fa-solid fa-arrow-right fa-2x carousel-arrow"></i>
+<div id="carousel">
+    <swiper-container
+        class="mySwiper"
+        parallax="true"
+        slides-per-view="3"
+        centered-slides="true">
+    <div slot="container-start" class="parallax-bg"
+    style="background-image: url(../../../../assets/fixtures/background.png);" data-swiper-parallax="-23%"></div>
+        <swiper-slide *ngFor="let news of carouselItems" class="swiper-slide">
+            <a data-swiper-parallax="-300" [routerLink]="news.route">
+                <img [src]="news.image" alt="{{news.text}}">
+                <p>{{news.text}}</p>
+            </a>
+        </swiper-slide>
+    </swiper-container>
 </div>

@@ -25,8 +25,9 @@ export class BetaHeaderComponent {
     this.isInBetaSubject.unsubscribe();
   }
 
-  onClose() {
+  onClose(event: any) {
     this.isDisplayed = false;
+    event.stopPropagation();
   }
 
 }

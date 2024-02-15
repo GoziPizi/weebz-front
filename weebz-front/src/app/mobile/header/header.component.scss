@@ -25,6 +25,17 @@
     color: $orange;
 }
 
+#utils a {
+    margin: 0;
+    margin-right: 5px;
+    background-color: $orange;
+    color: white;
+    padding: 2px 5px;
+    font-size: small;
+    border-radius: 5px;
+    border: 1px solid darken($orange, 10%);
+}
+
 #side-menu-background {
     position: fixed;
     top: 0;

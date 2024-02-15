@@ -1,15 +1,21 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CarouselNewsItemComponent } from './carousel-news-item/carousel-news-item.component';
+import { register as registerSwiperElements } from 'swiper/element/bundle';
+import { RouterLink } from '@angular/router';
+
+registerSwiperElements();
+
 
 @Component({
   selector: 'app-carousel-accueil-news',
   standalone: true,
-  imports: [CommonModule, CarouselNewsItemComponent],
+  imports: [CommonModule, CarouselNewsItemComponent, RouterLink],
   templateUrl: './carousel-accueil-news.component.html',
-  styleUrls: ['./carousel-accueil-news.component.scss']
+  styleUrls: ['./carousel-accueil-news.component.scss'],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
-export class CarouselAccueilNewsComponent implements OnInit {
+export class CarouselAccueilNewsComponent {
 
   carouselItems = [
     { image: '../../../assets/fixtures/accueil/news/ephjos-game.png', text: 'Ephjos sort un jeu vidéo !', route: '/ephjos-game' },
@@ -18,20 +24,5 @@ export class CarouselAccueilNewsComponent implements OnInit {
     { image: '../../../assets/fixtures/accueil/news/weebz.png', text: 'Weebz arrive', route: '/weebz-arrive' },
     { image: '../../../assets/fixtures/accueil/news/ink.png', text: 'Ink House x Weebz', route: '/ink-house' },
   ];
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
-  onLeftArrowClick() {
-    let old_left = this.carouselItems.shift();
-      if(old_left != undefined) this.carouselItems.push(old_left);
-  }
-
-  onRightArrowClick() {
-    let old_right = this.carouselItems.pop();
-      if(old_right != undefined) this.carouselItems.unshift(old_right);
-  }
 
 }

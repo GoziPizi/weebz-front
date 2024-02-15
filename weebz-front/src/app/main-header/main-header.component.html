@@ -52,7 +52,7 @@
             <a routerLink="/watchlist"><i class="header-icon fa-regular fa-bookmark fa-xl"></i></a>
           </div>
           <div class="col-3 login-container ">
-              <a routerLink="/connexion"><i *ngIf="!loggedIn" class="header-icon fa-regular fa-xl fa-user"></i></a>
+              <a routerLink="/connexion"><p *ngIf="!loggedIn" class="header-icon fa-regular fa-xl fa-user"></p></a>
               <app-connected-dropdown *ngIf="loggedIn" class="connected-dropdown" #connectedDropdown></app-connected-dropdown>
           </div>
         </div>

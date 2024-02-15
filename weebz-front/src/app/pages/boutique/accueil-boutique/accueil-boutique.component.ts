@@ -104,9 +104,11 @@ export class AccueilBoutiqueComponent implements OnInit {
 
   get authorImage() {
     if (Object.keys(this.author).length !== 0) {
-      return this.author.user.pictureUrl;
+      if(this.author.user.pictureUrl !== null && this.author.user.pictureUrl !== ""){
+        return this.author.user.pictureUrl;
+      }
     }
-    return ""
+    return "../assets/default_images/default_profile_picture.png";
   }
 
   get authorName() {
